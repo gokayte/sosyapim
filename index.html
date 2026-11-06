@@ -13,19 +13,19 @@
   <style>
     :root {
       --red: #e50914;
-      --red-bright: #ff1e27;
-      --red-deep: #7a040c;
+      --red-bright: #ff141f;
+      --red-deep: #8a030a;
       --red-glow: rgba(229, 9, 20, 0.65);
       --white-glow: rgba(255, 255, 255, 0.45);
-      --bg: #140407;
-      --bg-darker: #0c0204;
-      --bg-card: linear-gradient(135deg, rgba(45, 10, 16, 0.78) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(28, 6, 10, 0.85) 100%);
-      --bg-card-hover: linear-gradient(135deg, rgba(75, 12, 22, 0.88) 0%, rgba(255, 255, 255, 0.16) 50%, rgba(40, 8, 14, 0.92) 100%);
+      --bg: #080607;
+      --bg-darker: #040304;
+      --bg-card: rgba(16, 13, 15, 0.92);
+      --bg-card-hover: rgba(24, 18, 21, 0.97);
       --white: #ffffff;
-      --white-muted: #f0e6e8;
-      --text-dim: #cbb8bc;
-      --border: rgba(255, 255, 255, 0.26);
-      --border-red: rgba(255, 45, 55, 0.65);
+      --white-muted: #e6e6ec;
+      --text-dim: #a6a6b2;
+      --border: rgba(255, 255, 255, 0.22);
+      --border-red: rgba(229, 9, 20, 0.75);
       --radius-sm: 6px;
       --radius-md: 14px;
       --radius-lg: 22px;
@@ -42,7 +42,7 @@
       scroll-behavior: smooth;
     }
 
-    /* KIRMIZI - BEYAZ KARIŞIK TON ARKA PLAN */
+    /* NET KOYU ZEMİN, SABİT SAF BEYAZ TON VE AKAN KIRMIZI BOYA DOKUSU */
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
@@ -50,43 +50,69 @@
       overflow-x: hidden;
       line-height: 1.6;
       background-image: 
-        radial-gradient(circle at 72% 28%, rgba(229, 9, 20, 0.55) 0%, rgba(255, 255, 255, 0.16) 28%, transparent 62%),
-        radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.22) 0%, rgba(229, 9, 20, 0.32) 36%, transparent 65%),
-        radial-gradient(circle at 82% 72%, rgba(255, 255, 255, 0.18) 0%, rgba(229, 9, 20, 0.42) 38%, transparent 68%),
-        radial-gradient(circle at 15% 80%, rgba(229, 9, 20, 0.48) 0%, rgba(255, 230, 235, 0.15) 35%, transparent 65%),
-        linear-gradient(135deg, #1b0408 0%, #380810 28%, #54121c 48%, #2b060c 75%, #160306 100%);
-      background-attachment: fixed;
+        radial-gradient(circle at 75% 28%, rgba(229, 9, 20, 0.24) 0%, transparent 52%),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 44px 44px, 44px 44px;
       position: relative;
     }
 
-    /* ARKA PLAN IŞILTILI KIRMIZI-BEYAZ IZGARALAR VE HAREKETLİ HALE */
-    body::before {
-      content: '';
+    /* EKRANIN ALTINDAN VE KENARLARINDAN AKAN KIRMIZI BOYA SÜTUNLARI */
+    .paint-flow-Side-drips {
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-      background-size: 48px 48px;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
+      overflow: hidden;
     }
 
-    body::after {
-      content: '';
+    .bottom-paint-stage {
       position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.14) 0%, transparent 45%),
-        radial-gradient(circle at 65% 35%, rgba(255, 30, 39, 0.28) 0%, transparent 55%);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 170px;
       pointer-events: none;
-      z-index: 0;
-      animation: ambientPulse 8s ease-in-out infinite alternate;
+      z-index: 90;
+      filter: drop-shadow(0 -6px 22px rgba(229, 9, 20, 0.75));
     }
 
-    @keyframes ambientPulse {
-      0% { opacity: 0.75; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.06); }
+    .bottom-paint-stage svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .section-paint-divider {
+      width: 100%;
+      height: 85px;
+      overflow: hidden;
+      position: relative;
+      z-index: 3;
+      pointer-events: none;
+      margin-top: -2px;
+      filter: drop-shadow(0 8px 18px rgba(229, 9, 20, 0.65));
+    }
+
+    .section-paint-divider svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @keyframes paintDripStretch {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.09); }
+    }
+
+    .drip-anim-slow {
+      transform-origin: bottom center;
+      animation: paintDripStretch 5s ease-in-out infinite;
+    }
+
+    .drip-anim-top {
+      transform-origin: top center;
+      animation: paintDripStretch 4.5s ease-in-out infinite;
     }
 
     a {
@@ -335,26 +361,18 @@
 
     .hero-bg-glow {
       position: absolute;
-      top: 8%;
-      right: 6%;
-      width: 680px;
-      height: 680px;
-      background: radial-gradient(circle, rgba(255, 30, 39, 0.52) 0%, rgba(255, 255, 255, 0.22) 35%, rgba(229, 9, 20, 0.18) 55%, transparent 72%);
-      filter: blur(65px);
+      top: 12%;
+      right: 8%;
+      width: 620px;
+      height: 620px;
+      background: radial-gradient(circle, rgba(229, 9, 20, 0.35) 0%, transparent 68%);
+      filter: blur(75px);
       z-index: 0;
       pointer-events: none;
     }
 
     .hero-bg-glow-left {
-      position: absolute;
-      bottom: 5%;
-      left: 2%;
-      width: 520px;
-      height: 520px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(229, 9, 20, 0.35) 45%, transparent 70%);
-      filter: blur(75px);
-      z-index: 0;
-      pointer-events: none;
+      display: none;
     }
 
     .hero-grid {
@@ -733,20 +751,38 @@
       text-shadow: 0 2px 20px rgba(255, 255, 255, 0.25);
     }
 
-    /* IŞILTILI KART TEMEL SINIFI */
+    /* IŞILTILI KART TEMEL SINIFI (ALTINDAN AKAN KIRMIZI BOYA EFEKTLİ) */
     .sparkle-box {
       background: var(--bg-card);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.38);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-bottom: 4px solid var(--red-bright);
       box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.6),
-        0 0 25px rgba(229, 9, 20, 0.38),
-        0 0 10px rgba(255, 255, 255, 0.16),
-        inset 0 1px 2px rgba(255, 255, 255, 0.6),
-        inset 0 0 22px rgba(255, 255, 255, 0.08);
+        0 14px 40px rgba(0, 0, 0, 0.8),
+        0 10px 28px rgba(229, 9, 20, 0.48),
+        inset 0 1px 1px rgba(255, 255, 255, 0.45);
       position: relative;
       overflow: hidden;
+    }
+
+    /* KUTULARIN ALTINDAN YUKARI/AŞAĞI SÜZÜLEN KIRMIZI BOYA DOKUSU */
+    .sparkle-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 26px;
+      background:
+        radial-gradient(circle at 12% 100%, var(--red-bright) 0%, var(--red) 48%, transparent 72%),
+        radial-gradient(circle at 28% 100%, var(--red) 0%, transparent 65%),
+        radial-gradient(circle at 46% 100%, var(--red-bright) 0%, var(--red) 55%, transparent 78%),
+        radial-gradient(circle at 68% 100%, var(--red) 0%, transparent 62%),
+        radial-gradient(circle at 86% 100%, var(--red-bright) 0%, var(--red) 50%, transparent 75%),
+        linear-gradient(0deg, rgba(229, 9, 20, 0.42) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .sparkle-box::before {
@@ -758,11 +794,9 @@
       height: 100%;
       background: linear-gradient(
         115deg,
-        transparent 20%,
-        rgba(255, 255, 255, 0.18) 45%,
-        rgba(255, 80, 90, 0.25) 50%,
-        rgba(255, 255, 255, 0.18) 55%,
-        transparent 80%
+        transparent 25%,
+        rgba(255, 255, 255, 0.16) 50%,
+        transparent 75%
       );
       transform: skewX(-25deg);
       transition: left 0.75s ease;
@@ -1229,15 +1263,16 @@
 
     .search-input {
       width: 100%;
-      background: linear-gradient(135deg, rgba(45, 10, 16, 0.85), rgba(255, 255, 255, 0.1));
-      border: 1px solid rgba(255, 255, 255, 0.42);
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-bottom: 3px solid var(--red-bright);
       border-radius: var(--radius-sm);
       padding: 14px 18px 14px 46px;
       color: var(--white);
       font-size: 0.95rem;
       outline: none;
       transition: var(--transition);
-      box-shadow: 0 0 20px rgba(229, 9, 20, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.45);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65), 0 4px 16px rgba(229, 9, 20, 0.28);
     }
 
     .search-input::placeholder {
@@ -1272,24 +1307,36 @@
       border-radius: 4px;
     }
 
-    /* IŞILTILI ŞARKI KUTUCUKLARI */
+    /* IŞILTILI VE ALTTAN KIRMIZI BOYA AKINTILI ŞARKI KUTUCUKLARI */
     .track-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
       padding: 11px 15px;
-      background: linear-gradient(135deg, rgba(40, 8, 14, 0.82) 0%, rgba(255, 255, 255, 0.09) 50%, rgba(25, 5, 10, 0.88) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-bottom: 3px solid var(--red);
       border-radius: var(--radius-md);
       transition: var(--transition);
       cursor: pointer;
       position: relative;
       overflow: hidden;
       box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.45),
-        0 0 15px rgba(229, 9, 20, 0.22),
-        inset 0 1px 1px rgba(255, 255, 255, 0.45);
+        0 6px 20px rgba(0, 0, 0, 0.65),
+        0 4px 14px rgba(229, 9, 20, 0.28),
+        inset 0 1px 1px rgba(255, 255, 255, 0.28);
+    }
+
+    .track-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 14px;
+      background: linear-gradient(0deg, rgba(229, 9, 20, 0.35) 0%, transparent 100%);
+      pointer-events: none;
     }
 
     .track-card::before {
@@ -1299,7 +1346,7 @@
       left: -110%;
       width: 50%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.24), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
       transform: skewX(-25deg);
       transition: left 0.55s ease;
       pointer-events: none;
@@ -1311,21 +1358,23 @@
 
     .track-card:hover {
       background: var(--bg-card-hover);
-      border-color: rgba(255, 255, 255, 0.85);
+      border-color: var(--white);
+      border-bottom-color: var(--red-bright);
       transform: translateX(5px);
       box-shadow: 
-        0 8px 28px rgba(229, 9, 20, 0.5),
-        0 0 16px rgba(255, 255, 255, 0.35),
-        inset 0 1px 2px rgba(255, 255, 255, 0.75);
+        0 8px 28px rgba(229, 9, 20, 0.55),
+        0 0 14px rgba(255, 255, 255, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.55);
     }
 
     .track-card.active {
-      background: linear-gradient(135deg, rgba(229, 9, 20, 0.48) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(160, 6, 14, 0.55) 100%);
+      background: linear-gradient(0deg, rgba(229, 9, 20, 0.45) 0%, rgba(18, 12, 15, 0.96) 75%);
       border-color: var(--white);
+      border-bottom: 4px solid var(--red-bright);
       box-shadow: 
-        0 0 30px rgba(255, 30, 39, 0.7),
-        0 0 14px rgba(255, 255, 255, 0.45),
-        inset 0 1px 2px rgba(255, 255, 255, 0.85);
+        0 8px 30px rgba(229, 9, 20, 0.65),
+        0 0 14px rgba(255, 255, 255, 0.35),
+        inset 0 1px 2px rgba(255, 255, 255, 0.65);
     }
 
     .track-left {
@@ -1578,19 +1627,20 @@
     }
 
     .platform-tag {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(229, 9, 20, 0.22));
-      border: 1px solid rgba(255, 255, 255, 0.42);
+      background: rgba(18, 14, 17, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-bottom: 2px solid var(--red-bright);
       padding: 7px 16px;
       border-radius: var(--radius-sm);
       font-size: 0.84rem;
       font-weight: 700;
       color: var(--white);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 10px rgba(229, 9, 20, 0.25);
       transition: var(--transition);
     }
 
     .platform-tag:hover {
-      background: linear-gradient(135deg, var(--red-bright), rgba(255, 255, 255, 0.35));
+      background: var(--red);
       border-color: var(--white);
       transform: translateY(-2px);
       box-shadow: 0 0 18px var(--red-bright), 0 0 8px var(--white);
@@ -1603,8 +1653,9 @@
     }
 
     .feature-box {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(229, 9, 20, 0.2) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(16, 12, 15, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-bottom: 4px solid var(--red-bright);
       border-radius: var(--radius-md);
       padding: 22px;
       display: flex;
@@ -1612,21 +1663,21 @@
       gap: 8px;
       transition: var(--transition);
       box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.45),
-        0 0 18px rgba(229, 9, 20, 0.28),
-        inset 0 1px 2px rgba(255, 255, 255, 0.55);
+        0 8px 25px rgba(0, 0, 0, 0.65),
+        0 6px 18px rgba(229, 9, 20, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.35);
       position: relative;
       overflow: hidden;
     }
 
     .feature-box:hover {
       border-color: var(--white);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(229, 9, 20, 0.42) 100%);
+      background: linear-gradient(0deg, rgba(229, 9, 20, 0.38) 0%, rgba(18, 12, 15, 0.96) 75%);
       transform: translateY(-4px);
       box-shadow: 
-        0 14px 32px rgba(229, 9, 20, 0.55),
-        0 0 20px rgba(255, 255, 255, 0.45),
-        inset 0 1px 2px rgba(255, 255, 255, 0.85);
+        0 14px 32px rgba(229, 9, 20, 0.6),
+        0 0 18px rgba(255, 255, 255, 0.35),
+        inset 0 1px 2px rgba(255, 255, 255, 0.65);
     }
 
     .feature-title {
@@ -2003,6 +2054,45 @@
       <div class="marquee-item">MÜZİK. YENİ HİKÂYELER. <span class="marquee-star">✱</span> SESİNİ DUYUR. <span class="marquee-star">✱</span> BAĞIMSIZ RUH, GÜÇLÜ SES. <span class="marquee-star">✱</span> SOS YAPIM <span class="marquee-star">✱</span> KENDİ SESİNİN PEŞİNDEN GİT <span class="marquee-star">✱</span> YENİ SESLERE ALAN AÇIYORUZ <span class="marquee-star">✱</span> MÜZİKTE SINIRLARI KALDIR <span class="marquee-star">✱</span></div>
       <div class="marquee-item">MÜZİK. YENİ HİKÂYELER. <span class="marquee-star">✱</span> SESİNİ DUYUR. <span class="marquee-star">✱</span> BAĞIMSIZ RUH, GÜÇLÜ SES. <span class="marquee-star">✱</span> SOS YAPIM <span class="marquee-star">✱</span> KENDİ SESİNİN PEŞİNDEN GİT <span class="marquee-star">✱</span> YENİ SESLERE ALAN AÇIYORUZ <span class="marquee-star">✱</span> MÜZİKTE SINIRLARI KALDIR <span class="marquee-star">✱</span></div>
     </div>
+  </div>
+
+  <!-- AŞAĞIYA AKAN PARLAK KIRMIZI BOYA DAMLALARI (LIQUID RED PAINT DRIPS) -->
+  <div class="section-paint-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="redPaintGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#b5040d" />
+          <stop offset="55%" stop-color="#e50914" />
+          <stop offset="100%" stop-color="#ff242e" />
+        </linearGradient>
+      </defs>
+      <path class="drip-anim-top" fill="url(#redPaintGrad)" d="M0,0 L1440,0 L1440,18 C1410,18 1405,72 1390,72 C1375,72 1370,22 1340,22 C1310,22 1305,98 1288,98 C1271,98 1266,16 1225,16 C1185,16 1180,64 1165,64 C1150,64 1145,20 1100,20 C1055,20 1048,112 1030,112 C1012,112 1005,18 960,18 C915,18 910,76 894,76 C878,76 872,15 820,15 C775,15 768,94 750,94 C732,94 725,22 680,22 C635,22 630,68 614,68 C598,68 592,16 540,16 C490,16 482,108 464,108 C446,108 438,20 390,20 C345,20 340,74 324,74 C308,74 302,16 250,16 C205,16 198,92 180,92 C162,92 155,22 110,22 C75,22 68,66 52,66 C36,66 30,18 0,18 Z" />
+      <!-- Boya damlası parlama noktaları -->
+      <circle cx="180" cy="105" r="5" fill="#ff242e" />
+      <circle cx="464" cy="116" r="4" fill="#ff242e" />
+      <circle cx="750" cy="106" r="5" fill="#ff242e" />
+      <circle cx="1030" cy="117" r="4" fill="#ff242e" />
+      <circle cx="1288" cy="110" r="5" fill="#ff242e" />
+    </svg>
+  </div>
+
+  <!-- EKRANIN ALTINDAN AKAN KIRMIZI BOYA KATMANI -->
+  <div class="bottom-paint-stage" aria-hidden="true">
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="bottomRedPaint" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#8f0209" stop-opacity="0.95" />
+          <stop offset="50%" stop-color="#e50914" stop-opacity="0.88" />
+          <stop offset="100%" stop-color="#ff2a34" stop-opacity="0.75" />
+        </linearGradient>
+      </defs>
+      <path class="drip-anim-slow" fill="url(#bottomRedPaint)" d="M0,160 L1440,160 L1440,128 C1412,128 1406,58 1390,58 C1374,58 1368,132 1330,132 C1292,132 1285,32 1268,32 C1251,32 1244,136 1195,136 C1150,136 1144,76 1128,76 C1112,76 1106,134 1055,134 C1010,134 1002,22 984,22 C966,22 958,136 905,136 C860,136 854,64 838,64 C822,64 816,134 760,134 C712,134 704,38 686,38 C668,38 660,136 605,136 C560,136 554,82 538,82 C522,82 516,134 460,134 C412,134 404,26 386,26 C368,26 360,136 305,136 C260,136 254,70 238,70 C222,70 216,134 165,134 C122,134 114,44 96,44 C78,44 70,132 0,132 Z" />
+      <circle cx="96" cy="28" r="5" fill="#ff2a34" opacity="0.85" />
+      <circle cx="386" cy="12" r="4" fill="#ff2a34" opacity="0.85" />
+      <circle cx="686" cy="22" r="5" fill="#ff2a34" opacity="0.85" />
+      <circle cx="984" cy="10" r="4" fill="#ff2a34" opacity="0.85" />
+      <circle cx="1268" cy="18" r="5" fill="#ff2a34" opacity="0.85" />
+    </svg>
   </div>
 
   <!-- VIDEO KLİPLER VE OYNATICI SECTION -->
