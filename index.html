@@ -513,6 +513,193 @@
       gap: 10px;
     }
 
+    /* TURNTABLE VINYL DECK & SCRATCH */
+    .turntable-deck {
+      margin-top: 18px;
+      padding: 14px 18px;
+      background: linear-gradient(135deg, rgba(24, 24, 34, 0.95) 0%, rgba(12, 12, 18, 0.98) 100%);
+      border: 1px solid rgba(255, 24, 39, 0.35);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.6);
+      transition: var(--transition);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .turntable-deck:hover {
+      border-color: var(--primary);
+      box-shadow: inset 0 0 25px rgba(255, 24, 39, 0.2), 0 0 30px rgba(255, 24, 39, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .turntable-vinyl-wrap {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      flex-shrink: 0;
+    }
+
+    .turntable-vinyl {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: 
+        radial-gradient(circle, transparent 28%, rgba(255,255,255,0.08) 29%, transparent 30%),
+        radial-gradient(circle, transparent 42%, rgba(255,255,255,0.07) 43%, transparent 44%),
+        radial-gradient(circle, transparent 58%, rgba(255,255,255,0.06) 59%, transparent 60%),
+        repeating-radial-gradient(circle, #09090d 0px, #161622 2px, #09090d 4px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 24, 39, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: spinVinyl 6s linear infinite;
+      transition: transform 0.08s ease;
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .turntable-vinyl.scratch-action {
+      animation: none !important;
+      transform: rotate(-75deg) scale(0.95) !important;
+      transition: transform 0.06s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+
+    .vinyl-center-label {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 8px rgba(255, 24, 39, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vinyl-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .spindle-hole {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #000;
+      border: 1.5px solid #fff;
+      z-index: 2;
+    }
+
+    .tonearm {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 34px;
+      height: 50px;
+      pointer-events: none;
+      transform-origin: top right;
+      transform: rotate(18deg);
+      transition: transform 0.3s ease;
+    }
+
+    .tonearm-head {
+      width: 7px;
+      height: 12px;
+      background: linear-gradient(135deg, #e50914, #ff4d55);
+      border-radius: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 0 6px var(--primary);
+    }
+
+    .tonearm-rod {
+      width: 2.5px;
+      height: 44px;
+      background: linear-gradient(to bottom, #888, #eee, #555);
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      transform: rotate(-16deg);
+      transform-origin: top center;
+    }
+
+    .tonearm-base {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #252530;
+      border: 2px solid #888;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .deck-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex-grow: 1;
+    }
+
+    .deck-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #ff4d55;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .deck-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .deck-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .mini-vinyl-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.05rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .mini-vinyl-btn:hover {
+      background: rgba(255, 24, 39, 0.25);
+      border-color: var(--primary);
+      transform: scale(1.18) rotate(45deg);
+      box-shadow: 0 0 14px var(--primary-glow);
+    }
+
     /* TRACKLIST & FILTERS */
     .catalog-panel {
       display: flex;
@@ -1293,25 +1480,6 @@
           <span>Demo Başvurusu</span>
         </a>
       </div>
-
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">50<span>+</span></div>
-          <div class="stat-label">Resmi Şarkı Yayını</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">10M<span>+</span></div>
-          <div class="stat-label">Toplam Dinlenme</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">15<span>+</span></div>
-          <div class="stat-label">Aktif Sanatçı</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">100<span>%</span></div>
-          <div class="stat-label">Telif & Dağıtım</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1349,7 +1517,7 @@
             <div class="now-playing-meta">
               <span class="now-playing-badge">
                 <span class="live-dot"></span>
-                <span id="playerGenre">POP / HIT</span> • <span id="playerYear">2021</span>
+                <span>RESMİ VİDEO KLİP</span>
               </span>
               <h3 class="now-playing-title" id="playerTitle">Yandırdın Kalbimi</h3>
               <p class="now-playing-artist" id="playerArtist">Aysel Elizade</p>
@@ -1366,9 +1534,39 @@
               </a>
             </div>
           </div>
+
+          <!-- İNTERAKTİF DJ PLAK & SCRATCH DECK -->
+          <div class="turntable-deck" id="turntableDeck" onclick="triggerVinylScratch()" title="Plak üzerine dokun veya tıkla: DJ Scratch sesi!">
+            <div class="turntable-vinyl-wrap">
+              <div class="turntable-vinyl" id="vinylDisc">
+                <div class="vinyl-center-label">
+                  <img id="vinylCoverImg" src="covers/aysel_elizade.jpg" alt="Plak Göbeği" class="vinyl-cover-img" onerror="this.src='sos-logo.jpeg'">
+                  <div class="spindle-hole"></div>
+                </div>
+              </div>
+              <div class="tonearm" id="tonearm">
+                <div class="tonearm-base"></div>
+                <div class="tonearm-rod"></div>
+                <div class="tonearm-head"></div>
+              </div>
+            </div>
+
+            <div class="deck-info">
+              <div class="deck-badge">
+                <span style="font-size: 1.1rem;">💿</span>
+                <span>İNTERAKTİF DJ PLAK</span>
+              </div>
+              <div class="deck-title">Plak Üzerine Dokun & Scratch Yap!</div>
+              <div class="deck-hint">Gerçek vinil plak ovma & scratch ses efekti</div>
+            </div>
+
+            <button class="btn btn-secondary" style="border-radius:999px; padding: 8px 16px; font-size: 0.8rem;" onclick="event.stopPropagation(); triggerVinylScratch();">
+              <span>DJ Scratch 🎛️</span>
+            </button>
+          </div>
         </div>
 
-        <!-- SAĞ: ŞARKI SEÇİM LİSTESİ & FİLTRELER -->
+        <!-- SAĞ: ŞARKI SEÇİM LİSTESİ -->
         <div class="catalog-panel">
           <div class="search-filter-box">
             <div class="search-input-wrap">
@@ -1377,15 +1575,6 @@
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
               <input type="text" id="trackSearch" class="search-input" placeholder="Şarkı adı veya sanatçı ara...">
-            </div>
-
-            <div class="filter-pills" id="filterPills">
-              <button class="pill-btn active" data-category="all">Tümü</button>
-              <button class="pill-btn" data-category="pop">Pop & Hit</button>
-              <button class="pill-btn" data-category="remix">Remix & Club</button>
-              <button class="pill-btn" data-category="ozgun">Özgün & Türkü</button>
-              <button class="pill-btn" data-category="duet">Düet</button>
-              <button class="pill-btn" data-category="electronic">Elektronik</button>
             </div>
           </div>
 
@@ -1415,7 +1604,6 @@
             <img src="covers/aysel_elizade.jpg" alt="Aysel Elizade" class="artist-avatar">
           </div>
           <h4 class="artist-name">Aysel Elizade</h4>
-          <span class="artist-genre">Pop / Hit</span>
           <p class="artist-hits">"Yandırdın Kalbimi", "Yandırdın Kalbimi (Remix)"</p>
           <button class="artist-listen-btn" onclick="playTrackById('aNQEyr_FYCA')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1429,7 +1617,6 @@
             <img src="covers/aila_rai.jpg" alt="Aila Rai" class="artist-avatar">
           </div>
           <h4 class="artist-name">Aila Rai</h4>
-          <span class="artist-genre">Pop / Alternatif</span>
           <p class="artist-hits">"Yapamıyoruz", "Ferhat ile Şirin", "Xəyanət"</p>
           <button class="artist-listen-btn" onclick="playTrackById('lb2UTTUP2Z8')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1443,7 +1630,6 @@
             <img src="covers/elif_vurgun_gum_gum.jpg" alt="Elif Vurgun" class="artist-avatar">
           </div>
           <h4 class="artist-name">Elif Vurgun</h4>
-          <span class="artist-genre">Pop / Trap</span>
           <p class="artist-hits">"Güm Güm", "Güm Güm (Club Edit)"</p>
           <button class="artist-listen-btn" onclick="playTrackById('RFgfESdma5c')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1457,7 +1643,6 @@
             <img src="covers/esra_sarak.jpg" alt="Esra Sarak" class="artist-avatar">
           </div>
           <h4 class="artist-name">Esra Sarak</h4>
-          <span class="artist-genre">Özgün Müzik</span>
           <p class="artist-hits">"Magusa Limanı", "Bağlama & Piyano Versiyonu"</p>
           <button class="artist-listen-btn" onclick="playTrackById('R9Z8bWzQ7TU')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1578,21 +1763,9 @@
               <input type="email" id="email" class="form-input" placeholder="ornek@mail.com" required>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="phone">Telefon</label>
+            <div class="form-group full">
+              <label class="form-label" for="phone">Telefon Numarası</label>
               <input type="tel" id="phone" class="form-input" placeholder="+90 5XX XXX XX XX">
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="genre">Müzik Türü</label>
-              <select id="genre" class="form-select">
-                <option value="pop">Pop / Dans</option>
-                <option value="rap">Rap / Trap / Hip-Hop</option>
-                <option value="rock">Rock / Alternatif</option>
-                <option value="turku">Özgün Müzik / Türkü</option>
-                <option value="electronic">Elektronik / Club</option>
-                <option value="diger">Diğer</option>
-              </select>
             </div>
 
             <div class="form-group full">
@@ -1862,33 +2035,133 @@
     ];
 
     let currentTrackIndex = 0;
-    let activeCategory = "all";
     let searchTerm = "";
 
     // DOM ELEMENTS
     const videoPlayer = document.getElementById("videoPlayer");
     const playerTitle = document.getElementById("playerTitle");
     const playerArtist = document.getElementById("playerArtist");
-    const playerGenre = document.getElementById("playerGenre");
-    const playerYear = document.getElementById("playerYear");
     const playerYoutubeLink = document.getElementById("playerYoutubeLink");
+    const vinylDisc = document.getElementById("vinylDisc");
+    const vinylCoverImg = document.getElementById("vinylCoverImg");
     const trackListEl = document.getElementById("trackList");
     const trackSearchInput = document.getElementById("trackSearch");
-    const filterPills = document.getElementById("filterPills");
     const toast = document.getElementById("toast");
     const toastMsg = document.getElementById("toastMsg");
 
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
+    // ==========================================
+    // WEB AUDIO API REALISTIC VINYL SCRATCH ENGINE
+    // ==========================================
+    let audioCtx = null;
+
+    function playScratchSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        if (!audioCtx) {
+          audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        const now = audioCtx.currentTime;
+        const dur = 0.26 + Math.random() * 0.08;
+
+        // 1. Friction & Grooves Noise Buffer
+        const bufferSize = Math.floor(audioCtx.sampleRate * dur);
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = (Math.random() * 2 - 1) * 0.9;
+        }
+
+        const whiteNoise = audioCtx.createBufferSource();
+        whiteNoise.buffer = buffer;
+
+        // Resonant Bandpass Filter (The distinct "wicka-wicka" scratch sweep)
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.Q.value = 7.5;
+
+        const startFreq = 450 + Math.random() * 150;
+        const peakFreq = 2200 + Math.random() * 400;
+        const endFreq = 280 + Math.random() * 120;
+
+        filter.frequency.setValueAtTime(startFreq, now);
+        filter.frequency.exponentialRampToValueAtTime(peakFreq, now + dur * 0.42);
+        filter.frequency.exponentialRampToValueAtTime(endFreq, now + dur);
+
+        const noiseGain = audioCtx.createGain();
+        noiseGain.gain.setValueAtTime(0.01, now);
+        noiseGain.gain.linearRampToValueAtTime(0.4, now + 0.04);
+        noiseGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
+
+        // 2. Vinyl Scrub Tone (Low-mid frequency wobble)
+        const osc = audioCtx.createOscillator();
+        osc.type = 'triangle';
+        const oscStart = 90 + Math.random() * 40;
+        const oscPeak = 380 + Math.random() * 90;
+        const oscEnd = 70 + Math.random() * 30;
+
+        osc.frequency.setValueAtTime(oscStart, now);
+        osc.frequency.exponentialRampToValueAtTime(oscPeak, now + dur * 0.38);
+        osc.frequency.exponentialRampToValueAtTime(oscEnd, now + dur);
+
+        const oscGain = audioCtx.createGain();
+        oscGain.gain.setValueAtTime(0.01, now);
+        oscGain.gain.linearRampToValueAtTime(0.3, now + 0.03);
+        oscGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
+
+        // Master Output
+        const masterGain = audioCtx.createGain();
+        masterGain.gain.value = 0.85;
+
+        whiteNoise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(masterGain);
+
+        osc.connect(oscGain);
+        oscGain.connect(masterGain);
+
+        masterGain.connect(audioCtx.destination);
+
+        whiteNoise.start(now);
+        osc.start(now);
+        whiteNoise.stop(now + dur);
+        osc.stop(now + dur);
+      } catch (err) {
+        console.warn("Audio scratch error:", err);
+      }
+    }
+
+    // TRIGGER VINYL SCRATCH INTERACTION
+    function triggerVinylScratch() {
+      playScratchSound();
+
+      if (vinylDisc) {
+        vinylDisc.classList.remove("scratch-action");
+        // Force reflow
+        void vinylDisc.offsetWidth;
+        vinylDisc.classList.add("scratch-action");
+
+        setTimeout(() => {
+          vinylDisc.classList.remove("scratch-action");
+        }, 180);
+      }
+
+      showToast("💿 DJ Scratch Efekti Çalındı!");
+    }
+
     // RENDER TRACK LIST
     function renderTrackList() {
       trackListEl.innerHTML = "";
 
-      const filteredTracks = trackData.filter((track, index) => {
-        const matchesCategory = activeCategory === "all" || track.category === activeCategory;
-        const matchesSearch = track.title.toLowerCase().includes(searchTerm) || 
-                              track.artist.toLowerCase().includes(searchTerm);
-        return matchesCategory && matchesSearch;
+      const filteredTracks = trackData.filter((track) => {
+        return track.title.toLowerCase().includes(searchTerm) || 
+               track.artist.toLowerCase().includes(searchTerm);
       });
 
       if (filteredTracks.length === 0) {
@@ -1920,7 +2193,9 @@
             </div>
           </div>
           <div class="track-right">
-            <span class="track-tag">${track.genre}</span>
+            <button class="mini-vinyl-btn" title="Plak Scratch Ses Efekti" onclick="event.stopPropagation(); triggerVinylScratch();">
+              💿
+            </button>
             <a href="${track.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="external-link-btn" title="YouTube'da Aç" onclick="event.stopPropagation()">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -1951,9 +2226,11 @@
 
       playerTitle.textContent = track.title;
       playerArtist.textContent = track.artist;
-      playerGenre.textContent = track.genre.toUpperCase();
-      playerYear.textContent = track.year;
       playerYoutubeLink.href = track.youtubeUrl;
+
+      if (vinylCoverImg) {
+        vinylCoverImg.src = track.cover;
+      }
 
       renderTrackList();
     }
@@ -1980,21 +2257,10 @@
       renderTrackList();
     });
 
-    // FILTER PILLS LISTENER
-    filterPills.addEventListener("click", (e) => {
-      if (e.target.classList.contains("pill-btn")) {
-        filterPills.querySelectorAll(".pill-btn").forEach(btn => btn.classList.remove("active"));
-        e.target.classList.add("active");
-        activeCategory = e.target.getAttribute("data-category");
-        renderTrackList();
-      }
-    });
-
     // DEMO FORM SUBMISSION
     function handleDemoSubmit(e) {
       e.preventDefault();
       const name = document.getElementById("artistName").value;
-      const demoUrl = document.getElementById("demoUrl").value;
 
       showToast(`Teşekkürler ${name}! Demonuz incelenmek üzere SOS Yapım ekibine iletildi.`);
       document.getElementById("demoForm").reset();
@@ -2006,7 +2272,7 @@
       toast.classList.add("show");
       setTimeout(() => {
         toast.classList.remove("show");
-      }, 4000);
+      }, 3500);
     }
 
     // INITIALIZE
