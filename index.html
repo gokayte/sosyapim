@@ -2496,37 +2496,53 @@
           </div>
         </div>
 
-        <form id="demoForm" onsubmit="handleDemoSubmit(event)">
+        <form id="demoForm" name="sos-demo-basvuru" action="https://formsubmit.co/sosyapim@gmail.com" method="POST" data-netlify="true" onsubmit="handleDemoSubmit(event)">
+          <input type="hidden" name="form-name" value="sos-demo-basvuru">
+          <input type="hidden" name="_subject" value="🎵 Yeni SOS Yapım Demo & İletişim Başvurusu!">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label" for="artistName">Adınız / Sanatçı Adı</label>
-              <input type="text" id="artistName" class="form-input" placeholder="Örn: Melisa Demir" required>
+              <input type="text" id="artistName" name="Sanatci_Adi" class="form-input" placeholder="Örn: Melisa Demir" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="email">E-Posta Adresi</label>
-              <input type="email" id="email" class="form-input" placeholder="ornek@mail.com" required>
+              <input type="email" id="email" name="email" class="form-input" placeholder="ornek@mail.com" required>
             </div>
 
             <div class="form-group full">
               <label class="form-label" for="phone">Telefon Numarası</label>
-              <input type="tel" id="phone" class="form-input" placeholder="+90 5XX XXX XX XX">
+              <input type="tel" id="phone" name="Telefon" class="form-input" placeholder="+90 5XX XXX XX XX">
             </div>
 
             <div class="form-group full">
               <label class="form-label" for="demoUrl">Demo / Video Linki (Drive, YouTube, SoundCloud)</label>
-              <input type="url" id="demoUrl" class="form-input" placeholder="https://..." required>
+              <input type="url" id="demoUrl" name="Demo_Linki" class="form-input" placeholder="https://..." required>
             </div>
 
             <div class="form-group full">
               <label class="form-label" for="notes">Kendiniz ve Parçanız Hakkında Notlar</label>
-              <textarea id="notes" class="form-textarea" placeholder="Şarkının söz/müziği kime ait, vizyonunuz nedir?"></textarea>
+              <textarea id="notes" name="Notlar" class="form-textarea" placeholder="Şarkının söz/müziği kime ait, vizyonunuz nedir?"></textarea>
             </div>
 
-            <div class="form-group full">
-              <button type="submit" class="btn btn-red" style="width: 100%; padding: 14px;">
-                <span>Demo Kaydını İlet</span>
+            <div class="form-group full" style="display:flex; flex-direction:column; gap:10px;">
+              <button type="submit" id="demoSubmitBtn" class="btn btn-red" style="width: 100%; padding: 14px;">
+                <span id="demoSubmitBtnText">📩 Demo Kaydını İlet (sosyapim@gmail.com)</span>
               </button>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <button type="button" class="btn btn-outline" style="padding:10px 12px; font-size:0.8rem;" onclick="sendViaDirectMailClient('gmail')">
+                  <span>📧 Gmail Web ile Gönder</span>
+                </button>
+                <button type="button" class="btn btn-outline" style="padding:10px 12px; font-size:0.8rem;" onclick="sendViaDirectMailClient('mailto')">
+                  <span>✉️ Mail Uygulamasıyla Gönder</span>
+                </button>
+              </div>
+
+              <div id="formStatusBox" style="display:none; padding:14px 16px; border-radius:10px; font-size:0.9rem; font-weight:700; line-height:1.45; margin-top:4px;"></div>
             </div>
           </div>
         </form>
@@ -3508,12 +3524,129 @@
       renderTrackList();
     });
 
-    function handleDemoSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById("artistName").value;
+    function buildMailSubjectAndBody() {
+      const name = document.getElementById("artistName").value.trim() || "Sanatçı Adayı";
+      const email = document.getElementById("email").value.trim() || "-";
+      const phone = document.getElementById("phone").value.trim() || "-";
+      const demoUrl = document.getElementById("demoUrl").value.trim() || "-";
+      const notes = document.getElementById("notes").value.trim() || "-";
 
-      showToast(`Teşekkürler ${name}! Demonuz incelenmek üzere SOS Yapım ekibine iletildi.`);
-      document.getElementById("demoForm").reset();
+      const subject = `SOS Yapım Demo Başvurusu - ${name}`;
+      const body = [
+        `Merhaba SOS Yapım Ekibi,`,
+        ``,
+        `Web siteniz üzerinden yeni bir demo / iletişim başvurusu gönderildi:`,
+        `----------------------------------------`,
+        `👤 Sanatçı / Ad Soyad: ${name}`,
+        `📧 E-Posta Adresi: ${email}`,
+        `📞 Telefon Numarası: ${phone}`,
+        `🔗 Demo / Video Linki: ${demoUrl}`,
+        `📝 Notlar & Açıklama:`,
+        `${notes}`,
+        `----------------------------------------`
+      ].join("\n");
+
+      return { name, email, phone, demoUrl, notes, subject, body };
+    }
+
+    function sendViaDirectMailClient(mode) {
+      const { subject, body } = buildMailSubjectAndBody();
+      const targetEmail = "sosyapim@gmail.com";
+      if (mode === "gmail") {
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(targetEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(gmailUrl, "_blank", "noopener,noreferrer");
+        showToast("📧 Gmail gönderim ekranı sosyapim@gmail.com için açıldı!");
+      } else {
+        const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
+        showToast("✉️ Varsayılan E-Posta uygulamanız açılıyor...");
+      }
+    }
+
+    async function handleDemoSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById("demoForm");
+      const submitBtn = document.getElementById("demoSubmitBtn");
+      const submitBtnText = document.getElementById("demoSubmitBtnText");
+      const statusBox = document.getElementById("formStatusBox");
+
+      const { name, email, phone, demoUrl, notes, subject, body } = buildMailSubjectAndBody();
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtnText) submitBtnText.textContent = "⏳ sosyapim@gmail.com adresine gönderiliyor...";
+      if (statusBox) {
+        statusBox.style.display = "block";
+        statusBox.style.background = "#fff5f6";
+        statusBox.style.border = "2px solid var(--red)";
+        statusBox.style.color = "#111116";
+        statusBox.textContent = "⏳ Başvurunuz sosyapim@gmail.com adresine iletiliyor, lütfen bekleyin...";
+      }
+
+      try {
+        // 1. Netlify Forms Yedek Kaydı
+        const formData = new FormData(form);
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        }).catch(() => {});
+
+        // 2. Doğrudan sosyapim@gmail.com Gelen Kutusuna E-Posta Gönderimi (FormSubmit AJAX)
+        const response = await fetch("https://formsubmit.co/ajax/sosyapim@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            _subject: `🎵 SOS Yapım Demo Başvurusu: ${name}`,
+            _replyto: email,
+            _template: "table",
+            _captcha: "false",
+            "Sanatçı / Ad Soyad": name,
+            "E-Posta Adresi": email,
+            "Telefon Numarası": phone,
+            "Demo / Video Linki": demoUrl,
+            "Notlar": notes
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && (result.success === "true" || result.success === true)) {
+          showToast(`✅ Teşekkürler ${name}! Başvurunuz sosyapim@gmail.com adresine gönderildi.`);
+          if (statusBox) {
+            statusBox.style.background = "#e9fbf0";
+            statusBox.style.border = "2px solid #159947";
+            statusBox.style.color = "#0b4f24";
+            statusBox.innerHTML = `✅ <strong>Başvurunuz başarıyla <code>sosyapim@gmail.com</code> adresine gönderildi!</strong><br>SOS Yapım prodüksiyon ekibimiz kaydınızı inceleyip <strong>${email}</strong> üzerinden dönüş yapacaktır.`;
+          }
+          form.reset();
+        } else {
+          // İlk aktivasyon bekleniyorsa veya doğrudan mail istemcisiyle tamamlamak isterse
+          const mailtoUrl = `mailto:sosyapim@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          showToast(`📩 Bilgileriniz hazırlandı, sosyapim@gmail.com adresine iletiliyor!`);
+          if (statusBox) {
+            statusBox.style.background = "#fff8eb";
+            statusBox.style.border = "2px solid #e58509";
+            statusBox.style.color = "#4a2800";
+            statusBox.innerHTML = `📩 <strong>Başvurunuz kaydedildi!</strong> (Not: İlk kullanımda <code>sosyapim@gmail.com</code> gelen kutusuna gelen <em>FormSubmit Activate</em> onay mailini 1 kez onaylamanız yeterlidir). Ayrıca mesajınız doğrudan mail uygulamanıza da aktarıldı.`;
+          }
+          window.location.href = mailtoUrl;
+        }
+      } catch (err) {
+        const mailtoUrl = `mailto:sosyapim@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        if (statusBox) {
+          statusBox.style.background = "#fff5f6";
+          statusBox.style.border = "2px solid var(--red)";
+          statusBox.style.color = "#111116";
+          statusBox.innerHTML = `✉️ Başvurunuz doğrudan <strong>sosyapim@gmail.com</strong> alıcısıyla e-posta uygulamanızda açıldı.`;
+        }
+        window.location.href = mailtoUrl;
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtnText) submitBtnText.textContent = "📩 Demo Kaydını İlet (sosyapim@gmail.com)";
+      }
     }
 
     function showToast(message) {
