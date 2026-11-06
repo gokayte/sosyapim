@@ -1609,53 +1609,6 @@
       }
     }
 
-    /* =====================================================
-       3D SPATIAL DEPTH & AUGMENTED REALITY (AR) STUDIO
-       ===================================================== */
-    .btn-ar-nav {
-      background: linear-gradient(135deg, #111116 0%, #2b060a 100%);
-      border: 2px solid var(--red-bright);
-      color: #ffffff;
-      padding: 9px 16px;
-      border-radius: 8px;
-      font-size: 0.86rem;
-      font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      box-shadow: 0 0 18px rgba(229, 9, 20, 0.5);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .btn-ar-nav:hover {
-      background: var(--red);
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 0 26px rgba(255, 20, 31, 0.85);
-    }
-
-    .btn-ar-hero {
-      background: #111116;
-      border: 2px solid var(--red);
-      color: #ffffff;
-      box-shadow: 0 10px 28px rgba(17, 17, 22, 0.35), 0 0 18px rgba(229, 9, 20, 0.35);
-      text-transform: uppercase;
-    }
-
-    .btn-ar-hero:hover {
-      background: var(--red);
-      color: #ffffff;
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 14px 34px rgba(229, 9, 20, 0.55);
-    }
-
-    /* 3D Interactive Tilt Containers */
-    .tilt-3d-target {
-      transform-style: preserve-3d;
-      will-change: transform;
-      transition: transform 0.18s ease-out, box-shadow 0.25s ease;
-    }
-
     .popularity-badge {
       display: inline-flex;
       align-items: center;
@@ -1712,373 +1665,6 @@
       color: #ffffff;
       border-color: var(--red);
     }
-
-    /* 3D & AR FULLSCREEN MODAL */
-    .ar-modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: radial-gradient(circle at 50% 45%, rgba(35, 6, 10, 0.94) 0%, rgba(8, 8, 12, 0.98) 100%);
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      user-select: none;
-    }
-
-    .ar-modal-overlay.open {
-      display: flex;
-    }
-
-    /* Live Camera Video Background for AR Passthrough */
-    #arCameraFeed {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .ar-modal-overlay.camera-active #arCameraFeed {
-      opacity: 1;
-    }
-
-    /* AR Spatial Grid Floor */
-    .ar-floor-grid {
-      position: absolute;
-      bottom: -15%;
-      left: -25%;
-      width: 150%;
-      height: 65%;
-      background-image:
-        linear-gradient(rgba(229, 9, 20, 0.35) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(229, 9, 20, 0.35) 1px, transparent 1px);
-      background-size: 48px 48px;
-      transform: perspective(600px) rotateX(72deg);
-      transform-origin: center top;
-      z-index: 2;
-      pointer-events: none;
-      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 15%, transparent 75%);
-      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 15%, transparent 75%);
-      animation: arGridPulse 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes arGridPulse {
-      0% { opacity: 0.45; }
-      100% { opacity: 0.85; }
-    }
-
-    /* AR Top HUD Bar */
-    .ar-hud-top {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 26px;
-      background: linear-gradient(180deg, rgba(10, 10, 14, 0.88) 0%, rgba(10, 10, 14, 0) 100%);
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .ar-hud-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .ar-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(229, 9, 20, 0.22);
-      border: 1.5px solid var(--red-bright);
-      color: #ffffff;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 0 0 18px rgba(229, 9, 20, 0.45);
-    }
-
-    .ar-hud-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn-ar-hud {
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1.5px solid rgba(255, 255, 255, 0.35);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .btn-ar-hud:hover, .btn-ar-hud.active {
-      background: var(--red);
-      border-color: #ffffff;
-      box-shadow: 0 0 22px rgba(229, 9, 20, 0.75);
-    }
-
-    .btn-ar-close {
-      background: #e50914;
-      border-color: #ffffff;
-    }
-
-    /* 3D HOLOGRAM VIEWPORT */
-    .ar-viewport {
-      position: relative;
-      z-index: 5;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      perspective: 1400px;
-      cursor: grab;
-      overflow: hidden;
-    }
-
-    .ar-viewport:active {
-      cursor: grabbing;
-    }
-
-    .ar-scene-3d {
-      position: relative;
-      width: 580px;
-      height: 420px;
-      transform-style: preserve-3d;
-      transform: rotateX(14deg) rotateY(-18deg) scale(1);
-      transition: transform 0.08s linear;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* 3D Hologram Base Ring */
-    .ar-holo-pedestal {
-      position: absolute;
-      width: 440px;
-      height: 440px;
-      border-radius: 50%;
-      border: 3px dashed rgba(255, 30, 42, 0.65);
-      box-shadow: 0 0 60px rgba(229, 9, 20, 0.55), inset 0 0 40px rgba(229, 9, 20, 0.35);
-      transform: translateY(155px) rotateX(90deg);
-      animation: holoSpin 18s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes holoSpin {
-      0% { transform: translateY(155px) rotateX(90deg) rotateZ(0deg); }
-      100% { transform: translateY(155px) rotateX(90deg) rotateZ(360deg); }
-    }
-
-    /* 3D Floating SOS Vinyl Turntable in AR Space */
-    .ar-vinyl-3d-group {
-      position: absolute;
-      left: -30px;
-      width: 280px;
-      height: 280px;
-      transform-style: preserve-3d;
-      transform: translateZ(50px) rotateY(12deg);
-      cursor: pointer;
-    }
-
-    .ar-vinyl-disc {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background:
-        repeating-radial-gradient(
-          circle at center,
-          #09090b 0px,
-          #09090b 4px,
-          #242429 5px,
-          #0c0c0e 8px
-        );
-      border: 4px solid #ff1a25;
-      box-shadow: 0 0 45px rgba(229, 9, 20, 0.75), 0 20px 50px rgba(0, 0, 0, 0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: spinVinyl 6s linear infinite;
-    }
-
-    .ar-vinyl-disc img {
-      width: 74%;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.9));
-    }
-
-    .ar-vinyl-ring-layer {
-      position: absolute;
-      inset: -14px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.45);
-      transform: translateZ(24px);
-      pointer-events: none;
-      box-shadow: 0 0 25px rgba(229, 9, 20, 0.5);
-    }
-
-    /* 3D Floating Hologram TV Card in AR Space */
-    .ar-tv-3d-group {
-      position: absolute;
-      right: -35px;
-      width: 330px;
-      background: rgba(17, 17, 22, 0.92);
-      border: 3px solid #ff1a25;
-      border-radius: 18px;
-      padding: 14px;
-      transform-style: preserve-3d;
-      transform: translateZ(85px) rotateY(-14deg);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(229, 9, 20, 0.55);
-    }
-
-    .ar-tv-screen {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-      background: #000;
-      border: 2px solid rgba(255, 255, 255, 0.25);
-    }
-
-    .ar-tv-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .ar-tv-live-tag {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: rgba(229, 9, 20, 0.92);
-      color: #fff;
-      font-size: 0.68rem;
-      font-weight: 900;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.8px;
-    }
-
-    .ar-tv-meta {
-      margin-top: 12px;
-      color: #ffffff;
-      transform: translateZ(20px);
-    }
-
-    .ar-tv-title {
-      font-size: 1.02rem;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1.25;
-      margin-bottom: 4px;
-    }
-
-    .ar-tv-artist {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: #ff3b44;
-    }
-
-    .ar-tv-views {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #d8d8e2;
-      margin-top: 4px;
-    }
-
-    /* 3D Equalizer Bars Floating in AR */
-    .ar-eq-bars {
-      position: absolute;
-      bottom: 20px;
-      display: flex;
-      align-items: flex-end;
-      gap: 6px;
-      height: 55px;
-      transform: translateZ(110px);
-    }
-
-    .ar-eq-bar {
-      width: 8px;
-      background: linear-gradient(180deg, #ffffff 0%, #ff141f 45%, #a3030b 100%);
-      border-radius: 4px;
-      box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
-      animation: eqBounce 0.7s ease-in-out infinite alternate;
-    }
-
-    @keyframes eqBounce {
-      0% { height: 12px; }
-      100% { height: 52px; }
-    }
-
-    /* AR Bottom Control Dock */
-    .ar-hud-bottom {
-      position: relative;
-      z-index: 10;
-      padding: 18px 24px 26px;
-      background: linear-gradient(0deg, rgba(10, 10, 14, 0.92) 0%, rgba(10, 10, 14, 0) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .ar-controls-dock {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: rgba(17, 17, 22, 0.88);
-      border: 2px solid var(--red);
-      padding: 10px 16px;
-      border-radius: 16px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(229, 9, 20, 0.35);
-    }
-
-    .ar-help-hint {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .ar-scene-3d {
-        width: 340px;
-        height: 460px;
-      }
-      .ar-vinyl-3d-group {
-        left: 30px;
-        top: 0;
-        width: 210px;
-        height: 210px;
-      }
-      .ar-tv-3d-group {
-        right: 15px;
-        bottom: 25px;
-        width: 290px;
-      }
-    }
-
   </style>
 </head>
 <body>
@@ -2117,9 +1703,6 @@
         </ul>
 
         <div class="nav-actions">
-          <button type="button" class="btn-ar-nav" onclick="openArStudio()">
-            <span>🥽 3D & AR STÜDYO</span>
-          </button>
           <a href="#demo" class="btn btn-contact-nav">
             <span>Bize Ulaşın ↗</span>
           </a>
@@ -2152,9 +1735,6 @@
             <a href="#klipler" class="btn btn-red">
               <span>► VİDEO KLİPLERİ İZLE</span>
             </a>
-            <button type="button" class="btn btn-ar-hero" onclick="openArStudio()">
-              <span>🥽 3D & AR HOLOGRAM MODU</span>
-            </button>
             <a href="#hakkimizda" class="btn btn-outline">
               <span>BİZİ TANI</span>
             </a>
@@ -2603,85 +2183,6 @@
   </footer>
 
 
-  <!-- 3D & ARTIRILMIŞ GERÇEKLİK (AR / WebXR) HOLOGRAM STÜDYOSU -->
-  <div id="arStudioModal" class="ar-modal-overlay" aria-hidden="true">
-    <video id="arCameraFeed" autoplay playsinline muted></video>
-    <div class="ar-floor-grid"></div>
-
-    <div class="ar-hud-top">
-      <div class="ar-hud-brand">
-        <img src="sos-logo.png" alt="SOS Yapım" style="height:38px; width:auto;">
-        <div class="ar-status-pill" id="arStatusPill">
-          <span class="live-dot"></span>
-          <span id="arModeLabel">3D HOLOGRAM SAHNESİ AKTİF</span>
-        </div>
-      </div>
-
-      <div class="ar-hud-actions">
-        <button type="button" class="btn-ar-hud" id="arCameraToggleBtn" onclick="toggleArCamera()">
-          <span>📷 Canlı Kamera AR Aç (Odaya Yerleştir)</span>
-        </button>
-        <button type="button" class="btn-ar-hud" onclick="resetArRotation()">
-          <span>🎯 Açıyı Sıfırla</span>
-        </button>
-        <button type="button" class="btn-ar-hud btn-ar-close" onclick="closeArStudio()">
-          <span>✕ Kapat</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="ar-viewport" id="arViewport">
-      <div class="ar-scene-3d" id="arScene3D">
-        <div class="ar-holo-pedestal"></div>
-
-        <!-- 3B Yüzen SOS Plak -->
-        <div class="ar-vinyl-3d-group" onclick="triggerHeroScratch()" title="3B Plağa Dokun: DJ Scratch!">
-          <div class="ar-vinyl-ring-layer"></div>
-          <div class="ar-vinyl-disc" id="arVinylDisc">
-            <img src="sos-logo.png" alt="SOS 3D Plak">
-          </div>
-        </div>
-
-        <!-- 3B Hologram Tüplü TV Kartı -->
-        <div class="ar-tv-3d-group">
-          <div class="ar-tv-screen">
-            <span class="ar-tv-live-tag" id="arRankBadge">#1 EN POPÜLER HİT</span>
-            <img id="arTrackCover" src="https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg" alt="Yandırdın Kalbimi (Official Music Video)">
-          </div>
-          <div class="ar-tv-meta">
-            <div class="ar-tv-title" id="arTrackTitle">Yandırdın Kalbimi (Official Music Video)</div>
-            <div class="ar-tv-artist" id="arTrackArtist">Aysel Elizade</div>
-            <div class="ar-tv-views" id="arTrackViews">🔥 57,6 Milyon Görüntüleme</div>
-          </div>
-        </div>
-
-        <!-- 3B Ses Dalgaları -->
-        <div class="ar-eq-bars">
-          <div class="ar-eq-bar" style="animation-delay:0.0s"></div>
-          <div class="ar-eq-bar" style="animation-delay:0.15s"></div>
-          <div class="ar-eq-bar" style="animation-delay:0.3s"></div>
-          <div class="ar-eq-bar" style="animation-delay:0.1s"></div>
-          <div class="ar-eq-bar" style="animation-delay:0.25s"></div>
-          <div class="ar-eq-bar" style="animation-delay:0.4s"></div>
-          <div class="ar-eq-bar" style="animation-delay:0.2s"></div>
-          <div class="ar-eq-bar" style="animation-delay:0.05s"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ar-hud-bottom">
-      <div class="ar-controls-dock">
-        <button type="button" class="btn-ar-hud" onclick="prevTrack()">⏮ Önceki Hit</button>
-        <button type="button" class="btn-ar-hud" onclick="triggerHeroScratch()">💿 3D Plak Scratch</button>
-        <button type="button" class="btn-ar-hud active" onclick="closeArStudio(); document.getElementById('klipler').scrollIntoView({behavior:'smooth'});">📺 Tüplü TV'de Oynat</button>
-        <button type="button" class="btn-ar-hud" onclick="nextTrack()">Sonraki Hit ⏭</button>
-      </div>
-      <div class="ar-help-hint">
-        🖱️ Sahneyi 360° döndürmek için sürükleyin • 📱 Kamera AR moduyla SOS Plağı ve TV'yi odanızda görüntüleyin
-      </div>
-    </div>
-  </div>
-
   <!-- TOAST BİLDİRİMİ -->
   <div id="toast" class="toast">
     <span style="font-size:1.3rem;">💿</span>
@@ -2690,7 +2191,7 @@
 
   <script>
     // =====================================================
-    // BEYAZ ANA FON ÜZERİNDE CANLI AKIŞKAN BOYA MOTORU
+    // BEYAZ ANA FON ÜZERİNDE CANLI AKIŞKAN BOYA & VEKTÖREL NOTA MOTORU
     // =====================================================
     (function initLiquidPaintCanvas() {
       const canvas = document.getElementById("paintFlowCanvas");
@@ -2705,23 +2206,107 @@
         height = canvas.height = window.innerHeight;
       });
 
-      // Yukarıdan aşağıya süzülen akışkan kırmızı boya akıntıları, damlaları ve müzik notaları
-      const noteSymbols = ["♪", "♫", "♬", "♩", "𝄞"];
+      // Vektörel, kusursuz orantılı müzik notası çizici (Sekizlik ♪ ve Çift Kirişli ♫)
+      function drawVectorMusicalNote(ctx, x, y, size, type, alpha) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.fillStyle = `rgba(229, 9, 20, ${alpha})`;
+        ctx.strokeStyle = `rgba(229, 9, 20, ${alpha})`;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+
+        if (type === "single") {
+          // ♪ Tekli Sekizlik Nota (Oval nota başı + dik sap + zarif bayrak)
+          const rx = size * 0.52;
+          const ry = size * 0.38;
+          const stemH = size * 1.65;
+
+          // Nota başı (hafif eğimli elips)
+          ctx.beginPath();
+          ctx.ellipse(0, 0, rx, ry, -0.35, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Nota sapı
+          const stemX = rx * 0.82;
+          ctx.lineWidth = Math.max(2, size * 0.16);
+          ctx.beginPath();
+          ctx.moveTo(stemX, -ry * 0.2);
+          ctx.lineTo(stemX, -stemH);
+          ctx.stroke();
+
+          // Nota bayrağı (zarif kıvrım)
+          ctx.beginPath();
+          ctx.moveTo(stemX, -stemH);
+          ctx.bezierCurveTo(
+            stemX + size * 0.75, -stemH + size * 0.25,
+            stemX + size * 0.85, -stemH + size * 0.85,
+            stemX + size * 0.35, -stemH + size * 1.15
+          );
+          ctx.bezierCurveTo(
+            stemX + size * 0.62, -stemH + size * 0.75,
+            stemX + size * 0.45, -stemH + size * 0.42,
+            stemX, -stemH + size * 0.38
+          );
+          ctx.closePath();
+          ctx.fill();
+        } else {
+          // ♫ Çift Kirişli Nota (İki oval nota başı + iki dik sap + üst bağlantı kirişi)
+          const rx = size * 0.46;
+          const ry = size * 0.34;
+          const gap = size * 1.15;
+          const stemH = size * 1.55;
+          const leftX = -gap * 0.5;
+          const rightX = gap * 0.5;
+
+          // Sol nota başı
+          ctx.beginPath();
+          ctx.ellipse(leftX, size * 0.12, rx, ry, -0.35, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Sağ nota başı
+          ctx.beginPath();
+          ctx.ellipse(rightX, -size * 0.08, rx, ry, -0.35, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Saplar
+          const stemLeftX = leftX + rx * 0.8;
+          const stemRightX = rightX + rx * 0.8;
+          ctx.lineWidth = Math.max(2, size * 0.15);
+
+          ctx.beginPath();
+          ctx.moveTo(stemLeftX, size * 0.12);
+          ctx.lineTo(stemLeftX, -stemH + size * 0.12);
+          ctx.moveTo(stemRightX, -size * 0.08);
+          ctx.lineTo(stemRightX, -stemH - size * 0.08);
+          ctx.stroke();
+
+          // Üst kiriş (beam)
+          ctx.lineWidth = Math.max(3.2, size * 0.28);
+          ctx.beginPath();
+          ctx.moveTo(stemLeftX, -stemH + size * 0.16);
+          ctx.lineTo(stemRightX, -stemH - size * 0.04);
+          ctx.stroke();
+        }
+
+        ctx.restore();
+      }
+
+      // Yukarıdan aşağıya süzülen akışkan kırmızı boya akıntıları ve zarif vektörel notalar
       const streams = [];
-      const streamCount = Math.max(16, Math.floor(width / 85));
+      const streamCount = Math.max(14, Math.floor(width / 95));
 
       for (let i = 0; i < streamCount; i++) {
         streams.push({
           x: (width / streamCount) * i + Math.random() * 45,
           y: Math.random() * height,
-          length: 110 + Math.random() * 220,
-          radius: 12 + Math.random() * 14,
-          speed: 0.9 + Math.random() * 1.7,
-          wobbleSpeed: 0.015 + Math.random() * 0.02,
+          length: 110 + Math.random() * 210,
+          radius: 9 + Math.random() * 12,
+          speed: 0.85 + Math.random() * 1.5,
+          wobbleSpeed: 0.014 + Math.random() * 0.018,
           wobbleAngle: Math.random() * Math.PI * 2,
-          note: noteSymbols[i % noteSymbols.length],
-          noteRotation: (Math.random() - 0.5) * 0.35,
-          color: i % 3 === 0 ? "rgba(229, 9, 20, 0.25)" : i % 2 === 0 ? "rgba(255, 25, 35, 0.20)" : "rgba(185, 4, 14, 0.23)"
+          isNote: i % 2 === 0,
+          noteType: i % 4 === 0 ? "double" : "single",
+          color: i % 3 === 0 ? "rgba(229, 9, 20, 0.22)" : i % 2 === 0 ? "rgba(255, 25, 35, 0.18)" : "rgba(185, 4, 14, 0.20)"
         });
       }
 
@@ -2732,53 +2317,43 @@
           const s = streams[i];
           s.y += s.speed;
           s.wobbleAngle += s.wobbleSpeed;
-          const curX = s.x + Math.sin(s.wobbleAngle) * 12;
+          const curX = s.x + Math.sin(s.wobbleAngle) * 10;
 
           if (s.y - s.length > height + 60) {
             s.y = -40;
             s.x = (width / streamCount) * i + Math.random() * 45;
-            s.note = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
           }
 
-          // Akışkan boya şeridi
+          // Akışkan kırmızı boya şeridi
           const grad = ctx.createLinearGradient(curX, s.y - s.length, curX, s.y);
           grad.addColorStop(0, "rgba(229, 9, 20, 0)");
           grad.addColorStop(0.65, s.color);
-          grad.addColorStop(1, "rgba(229, 9, 20, 0.45)");
+          grad.addColorStop(1, "rgba(229, 9, 20, 0.36)");
 
           ctx.beginPath();
           ctx.strokeStyle = grad;
-          ctx.lineWidth = s.radius * 1.15;
+          ctx.lineWidth = s.isNote ? s.radius * 0.55 : s.radius * 1.15;
           ctx.lineCap = "round";
           ctx.moveTo(curX, s.y - s.length);
-          ctx.lineTo(curX, s.y);
+          ctx.lineTo(curX, s.isNote ? s.y - s.radius * 1.4 : s.y);
           ctx.stroke();
 
-          // Uçtaki yuvarlak kırmızı boya damlası
-          ctx.beginPath();
-          ctx.fillStyle = "rgba(229, 9, 20, 0.52)";
-          ctx.arc(curX, s.y, s.radius * 1.05, 0, Math.PI * 2);
-          ctx.fill();
+          if (s.isNote) {
+            // Damlayan boyanın ucunda net ve zarif vektörel müzik notası
+            drawVectorMusicalNote(ctx, curX, s.y, s.radius * 1.25, s.noteType, 0.55);
+          } else {
+            // Uçtaki yuvarlak kırmızı boya damlası
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(229, 9, 20, 0.42)";
+            ctx.arc(curX, s.y, s.radius * 0.9, 0, Math.PI * 2);
+            ctx.fill();
 
-          // Damla üzerindeki beyaz parlama (3B sıvı boya hissi)
-          ctx.beginPath();
-          ctx.fillStyle = "rgba(255, 255, 255, 0.55)";
-          ctx.arc(curX - s.radius * 0.32, s.y - s.radius * 0.32, s.radius * 0.22, 0, Math.PI * 2);
-          ctx.fill();
-
-          // Damlayan kırmızı boyanın içinde/ucunda süzülen Müzik Notası (♪ ♫ ♬ ♩)
-          ctx.save();
-          ctx.translate(curX, s.y + 1);
-          ctx.rotate(Math.sin(s.wobbleAngle) * 0.18 + s.noteRotation);
-          ctx.font = `900 ${Math.round(s.radius * 1.35)}px "Plus Jakarta Sans", "Segoe UI Symbol", sans-serif`;
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.strokeStyle = "rgba(255, 255, 255, 0.92)";
-          ctx.lineWidth = 3;
-          ctx.strokeText(s.note, 0, 0);
-          ctx.fillStyle = "#b8040d";
-          ctx.fillText(s.note, 0, 0);
-          ctx.restore();
+            // Damla üzerindeki parlama
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
+            ctx.arc(curX - s.radius * 0.28, s.y - s.radius * 0.25, s.radius * 0.24, 0, Math.PI * 2);
+            ctx.fill();
+          }
         }
 
         requestAnimationFrame(drawPaintStreams);
@@ -3497,18 +3072,6 @@
       playerArtist.textContent = `${track.artist} • 🔥 ${formatViews(track.views)}`;
       playerYoutubeLink.href = track.youtubeUrl;
 
-      // 3B & AR Hologram TV Senkronizasyonu
-      const arTrackCover = document.getElementById("arTrackCover");
-      const arTrackTitle = document.getElementById("arTrackTitle");
-      const arTrackArtist = document.getElementById("arTrackArtist");
-      const arTrackViews = document.getElementById("arTrackViews");
-      const arRankBadge = document.getElementById("arRankBadge");
-      if (arTrackCover) arTrackCover.src = track.cover;
-      if (arTrackTitle) arTrackTitle.textContent = track.title;
-      if (arTrackArtist) arTrackArtist.textContent = track.artist;
-      if (arTrackViews) arTrackViews.textContent = `🔥 ${formatViews(track.views)}`;
-      if (arRankBadge) arRankBadge.textContent = `#${index + 1} POPÜLER HİT`;
-
       renderTrackList();
     }
 
@@ -3683,151 +3246,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       renderTrackList();
     });
-
-    // =====================================================
-    // 3B PERSPEKTİF EĞİM (3D TILT) & AR HOLOGRAM STÜDYOSU
-    // =====================================================
-    let arCameraStream = null;
-    let arRotX = 14;
-    let arRotY = -18;
-    let arScale = 1;
-    let isDraggingAr = false;
-    let prevPointerX = 0;
-    let prevPointerY = 0;
-
-    function updateArSceneTransform() {
-      const scene = document.getElementById("arScene3D");
-      if (scene) {
-        scene.style.transform = `rotateX(${arRotX}deg) rotateY(${arRotY}deg) scale(${arScale})`;
-      }
-    }
-
-    function openArStudio() {
-      const modal = document.getElementById("arStudioModal");
-      if (!modal) return;
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-      showToast("🥽 3B & Artırılmış Gerçeklik Stüdyosu Açıldı!");
-    }
-
-    function closeArStudio() {
-      const modal = document.getElementById("arStudioModal");
-      if (!modal) return;
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      stopArCamera();
-    }
-
-    function resetArRotation() {
-      arRotX = 14;
-      arRotY = -18;
-      arScale = 1;
-      updateArSceneTransform();
-    }
-
-    async function toggleArCamera() {
-      const modal = document.getElementById("arStudioModal");
-      const video = document.getElementById("arCameraFeed");
-      const btn = document.getElementById("arCameraToggleBtn");
-      const label = document.getElementById("arModeLabel");
-
-      if (arCameraStream) {
-        stopArCamera();
-        showToast("3B Sanal Stüdyo Moduna Geçildi");
-        return;
-      }
-
-      try {
-        arCameraStream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: { ideal: "environment" } },
-          audio: false
-        });
-        video.srcObject = arCameraStream;
-        modal.classList.add("camera-active");
-        if (btn) {
-          btn.classList.add("active");
-          btn.innerHTML = "<span>📷 AR Kamerayı Kapat</span>";
-        }
-        if (label) {
-          label.textContent = "CANLI AR KAMERA AKTİF • MEKÂNSAL HOLOGRAM";
-        }
-        showToast("📷 Artırılmış Gerçeklik (AR) Kamera Modu Aktif!");
-      } catch (err) {
-        console.warn("AR Kamera erişimi sağlanamadı:", err);
-        showToast("Kamera izni verilmedi veya cihazda kamera bulunamadı; 3B Hologram modu aktif.");
-      }
-    }
-
-    function stopArCamera() {
-      const modal = document.getElementById("arStudioModal");
-      const video = document.getElementById("arCameraFeed");
-      const btn = document.getElementById("arCameraToggleBtn");
-      const label = document.getElementById("arModeLabel");
-
-      if (arCameraStream) {
-        arCameraStream.getTracks().forEach(t => t.stop());
-        arCameraStream = null;
-      }
-      if (video) video.srcObject = null;
-      if (modal) modal.classList.remove("camera-active");
-      if (btn) {
-        btn.classList.remove("active");
-        btn.innerHTML = "<span>📷 Canlı Kamera AR Aç (Odaya Yerleştir)</span>";
-      }
-      if (label) {
-        label.textContent = "3D HOLOGRAM SAHNESİ AKTİF";
-      }
-    }
-
-    // 360° Sürükle & Döndür (AR Sahnesi) ve Sayfa İçi 3B Tilt
-    document.addEventListener("DOMContentLoaded", () => {
-      const viewport = document.getElementById("arViewport");
-      if (viewport) {
-        viewport.addEventListener("pointerdown", (e) => {
-          if (e.target.closest("button")) return;
-          isDraggingAr = true;
-          prevPointerX = e.clientX;
-          prevPointerY = e.clientY;
-        });
-
-        window.addEventListener("pointermove", (e) => {
-          if (!isDraggingAr) return;
-          const dx = e.clientX - prevPointerX;
-          const dy = e.clientY - prevPointerY;
-          prevPointerX = e.clientX;
-          prevPointerY = e.clientY;
-          arRotY += dx * 0.45;
-          arRotX = Math.max(-45, Math.min(45, arRotX - dy * 0.35));
-          updateArSceneTransform();
-        });
-
-        window.addEventListener("pointerup", () => {
-          isDraggingAr = false;
-        });
-
-        viewport.addEventListener("wheel", (e) => {
-          e.preventDefault();
-          arScale = Math.max(0.65, Math.min(1.45, arScale - e.deltaY * 0.0008));
-          updateArSceneTransform();
-        }, { passive: false });
-      }
-
-      // Sayfa içi 3B derinlik (Hero Plak, Tüplü TV ve Sanatçı Kartları)
-      const tiltElements = document.querySelectorAll(".vinyl-stage, .theater-screen-card, .artist-card");
-      tiltElements.forEach((el) => {
-        el.classList.add("tilt-3d-target");
-        el.addEventListener("mousemove", (e) => {
-          const rect = el.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top) / rect.height - 0.5;
-          el.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(6px)`;
-        });
-        el.addEventListener("mouseleave", () => {
-          el.style.transform = "";
-        });
-      });
-    });
-
   </script>
 </body>
 </html>
