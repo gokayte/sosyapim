@@ -774,31 +774,140 @@
       left: 160%;
     }
 
-    /* VIDEO THEATER LAYOUT */
+    /* =====================================================
+       ESKİ TÜPLÜ TELEVİZYON (RETRO CRT TV) VİDEO OYNATICI
+       ===================================================== */
     .theater-layout {
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
+      grid-template-columns: 1.42fr 1fr;
       gap: 32px;
       align-items: start;
     }
 
-    .theater-screen-card {
-      border-radius: var(--radius-lg);
-      padding: 20px;
+    .retro-tv-unit {
       position: sticky;
-      top: 98px;
+      top: 86px;
+      padding-top: 52px; /* Antenler için alan */
+      padding-bottom: 18px; /* TV ayakları için alan */
+      z-index: 3;
+    }
+
+    /* TAVŞAN KULAĞI ANTENLER */
+    .tv-antenna-wrap {
+      position: absolute;
+      top: 0;
+      left: 42%;
+      transform: translateX(-50%);
+      width: 240px;
+      height: 58px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .antenna-base {
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 64px;
+      height: 22px;
+      border-radius: 32px 32px 0 0;
+      background: linear-gradient(90deg, #555, #e8e8e8 50%, #444);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 -2px 12px rgba(229, 9, 20, 0.5);
+    }
+
+    .antenna-rod {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      width: 4px;
+      height: 82px;
+      background: linear-gradient(90deg, #888, #fff, #777);
+      transform-origin: bottom center;
+      border-radius: 4px;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+
+    .antenna-rod.left {
+      transform: translateX(-8px) rotate(-52deg);
+    }
+
+    .antenna-rod.right {
+      transform: translateX(4px) rotate(48deg);
+    }
+
+    .antenna-rod::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff, #ff1e27 65%, #7a040c);
+      box-shadow: 0 0 10px var(--red-bright), 0 0 5px var(--white);
+    }
+
+    /* TÜPLÜ TV DIŞ KASASI */
+    .theater-screen-card {
+      border-radius: 34px;
+      padding: 22px;
+      background: 
+        linear-gradient(145deg, #4a0b13 0%, #240509 45%, #3b0810 75%, #180306 100%);
+      border: 3px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 
+        0 24px 60px rgba(0, 0, 0, 0.85),
+        0 0 35px rgba(229, 9, 20, 0.55),
+        0 0 14px rgba(255, 255, 255, 0.25),
+        inset 0 2px 4px rgba(255, 255, 255, 0.65),
+        inset 0 -8px 20px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(229, 9, 20, 0.25);
+      position: relative;
       animation: borderSparkle 5s ease-in-out infinite;
+    }
+
+    /* TV İÇ GÖVDE (SOLDA TÜPLÜ EKRAN + SAĞDA KONTROL PANELİ) */
+    .crt-tv-body {
+      display: grid;
+      grid-template-columns: 1fr 112px;
+      gap: 16px;
+      align-items: stretch;
+      background: linear-gradient(180deg, #161214 0%, #0b090a 100%);
+      padding: 16px;
+      border-radius: 26px;
+      border: 2px solid #7c7578;
+      box-shadow: 
+        inset 0 6px 18px rgba(0, 0, 0, 0.95),
+        0 2px 4px rgba(255, 255, 255, 0.25);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* BOMBELİ TÜPLÜ CAM ÇERÇEVESİ */
+    .crt-bezel {
+      position: relative;
+      background: radial-gradient(circle, #1c181a 0%, #070506 100%);
+      padding: 12px;
+      border-radius: 28px;
+      border: 4px solid #2e282b;
+      box-shadow: 
+        inset 0 0 25px #000,
+        0 0 15px rgba(229, 9, 20, 0.3);
     }
 
     .screen-wrapper {
       position: relative;
       width: 100%;
       padding-top: 56.25%;
-      border-radius: var(--radius-md);
+      border-radius: 22px / 18px;
       overflow: hidden;
       background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85), 0 0 20px rgba(229, 9, 20, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 
+        0 0 25px rgba(229, 9, 20, 0.45),
+        inset 0 0 35px rgba(0, 0, 0, 0.9);
       z-index: 2;
     }
 
@@ -809,10 +918,219 @@
       width: 100%;
       height: 100%;
       border: none;
+      z-index: 1;
+    }
+
+    /* TÜPLÜ TV TARAMA ÇİZGİLERİ VE BOMBELİ CAM YANSIMASI */
+    .crt-overlay-effects {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      border-radius: 20px / 16px;
+      background:
+        /* Sol üst bombeli cam parlaması */
+        radial-gradient(ellipse at 22% 18%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 55%),
+        /* Yatay CRT tarama çizgileri */
+        repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.22) 0px,
+          rgba(0, 0, 0, 0.22) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      box-shadow: 
+        inset 0 0 38px rgba(0, 0, 0, 0.78),
+        inset 0 2px 8px rgba(255, 255, 255, 0.22);
+    }
+
+    /* KANAL DEĞİŞTİRME KARINCALANMA EFEKTİ & EKRAN ÜSTÜ KANAL YAZISI (OSD) */
+    .crt-osd-channel {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #39ff14;
+      text-shadow: 0 0 10px #39ff14, 0 0 4px #000;
+      letter-spacing: 2px;
+      pointer-events: none;
+      z-index: 4;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 2px 10px;
+      border-radius: 4px;
+    }
+
+    .crt-osd-channel.visible {
+      opacity: 1;
+    }
+
+    .crt-static-flash {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+      opacity: 0;
+      background: 
+        repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.85) 0, rgba(0,0,0,0.9) 2px, rgba(255,30,39,0.4) 3px);
+      mix-blend-mode: hard-light;
+      transition: opacity 0.15s ease;
+    }
+
+    .crt-static-flash.active {
+      opacity: 0.75;
+    }
+
+    /* SAĞ YAN TÜPLÜ TV KONTROL PANELİ (DÖNER DÜĞMELER & HOPARLÖR) */
+    .crt-control-panel {
+      background: linear-gradient(180deg, #282124 0%, #171315 100%);
+      border-radius: 18px;
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .tv-brand-badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--red-bright), #7a040c);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 3px 9px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px var(--red-glow);
+      text-transform: uppercase;
+    }
+
+    .tv-ch-led {
+      background: #090204;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--red-bright);
+      text-shadow: 0 0 8px var(--red-bright);
+      letter-spacing: 1.5px;
+      box-shadow: inset 0 0 8px #000;
+    }
+
+    .tv-knob-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .tv-knob-label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--white-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .tv-rotary-knob {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #555, #1e1a1c 70%, #090708 100%);
+      border: 3px solid #c8c4c6;
+      box-shadow: 
+        0 5px 12px rgba(0, 0, 0, 0.85),
+        0 0 10px rgba(229, 9, 20, 0.35),
+        inset 0 2px 4px rgba(255, 255, 255, 0.35);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.25s ease;
+    }
+
+    .tv-rotary-knob:hover {
+      border-color: var(--white);
+      box-shadow: 0 0 18px var(--red-bright), 0 0 8px var(--white);
+    }
+
+    /* Düğme üzerindeki gösterge çizgisi */
+    .tv-rotary-knob::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 14px;
+      border-radius: 2px;
+      background: var(--red-bright);
+      box-shadow: 0 0 6px var(--red-bright);
+    }
+
+    /* HOPARLÖR IZGARASI */
+    .tv-speaker-grille {
+      width: 100%;
+      height: 42px;
+      background: repeating-linear-gradient(
+        180deg,
+        #070506 0px,
+        #070506 3px,
+        #322a2d 3px,
+        #322a2d 6px
+      );
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.9);
+    }
+
+    .tv-power-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--white-muted);
+      letter-spacing: 1px;
+    }
+
+    /* TÜPLÜ TV ALT AYAKLARI */
+    .tv-legs {
+      position: relative;
+      width: 82%;
+      margin: 0 auto;
+      height: 16px;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .tv-leg {
+      width: 46px;
+      height: 18px;
+      background: linear-gradient(90deg, #2a060b, #888 50%, #1d0407);
+      border-radius: 0 0 8px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.85);
+    }
+
+    .tv-leg.left {
+      transform: skewX(-18deg);
+    }
+
+    .tv-leg.right {
+      transform: skewX(18deg);
     }
 
     .now-playing-info {
-      padding: 18px 6px 6px;
+      padding: 16px 8px 4px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1519,7 +1837,7 @@
       .theater-layout {
         grid-template-columns: 1fr;
       }
-      .theater-screen-card {
+      .retro-tv-unit {
         position: relative;
         top: 0;
       }
@@ -1568,6 +1886,18 @@
       }
       .about-card, .demo-card {
         padding: 28px 20px;
+      }
+      .crt-tv-body {
+        grid-template-columns: 1fr;
+      }
+      .crt-control-panel {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 12px;
+      }
+      .tv-speaker-grille {
+        display: none;
       }
       .about-features, .form-grid, .footer-grid {
         grid-template-columns: 1fr;
@@ -1689,34 +2019,84 @@
       </div>
 
       <div class="theater-layout">
-        <!-- SOL: IŞILTILI VİDEO OYNATICI KUTUSU -->
-        <div class="theater-screen-card sparkle-box">
-          <div class="screen-wrapper">
-            <iframe id="videoPlayer" 
-                    src="https://www.youtube.com/embed/Kjd_2wdFXWU?autoplay=0&rel=0&enablejsapi=1" 
-                    title="SOS Yapım Video Player" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-            </iframe>
+        <!-- SOL: ESKİ TÜPLÜ TELEVİZYON (RETRO CRT TV) VİDEO OYNATICI -->
+        <div class="retro-tv-unit">
+          <!-- Üst Tavşan Kulağı Antenler -->
+          <div class="tv-antenna-wrap">
+            <div class="antenna-rod left"></div>
+            <div class="antenna-rod right"></div>
+            <div class="antenna-base"></div>
           </div>
 
-          <div class="now-playing-info">
-            <div>
-              <span class="now-playing-badge">
-                <span class="live-dot"></span>
-                <span>RESMİ VİDEO KLİP</span>
-              </span>
-              <h3 class="now-playing-title" id="playerTitle">YERALTI</h3>
-              <p class="now-playing-artist" id="playerArtist">Sos Echoes</p>
+          <!-- Tüplü TV Kasası -->
+          <div class="theater-screen-card sparkle-box">
+            <div class="crt-tv-body">
+              <!-- Sol: Bombeli Tüplü Cam Ekran -->
+              <div class="crt-bezel">
+                <div class="screen-wrapper">
+                  <iframe id="videoPlayer" 
+                          src="https://www.youtube.com/embed/Kjd_2wdFXWU?autoplay=0&rel=0&enablejsapi=1" 
+                          title="SOS Yapım Video Player" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                          allowfullscreen>
+                  </iframe>
+                  <!-- Tüplü TV Cam Parlaması ve Tarama Çizgileri -->
+                  <div class="crt-overlay-effects"></div>
+                  <!-- Kanal Değişim Karıncalanma Efekti -->
+                  <div class="crt-static-flash" id="crtStaticFlash"></div>
+                  <!-- Yeşil Retro Kanal OSD Göstergesi -->
+                  <div class="crt-osd-channel" id="crtOsdChannel">CH 01</div>
+                </div>
+              </div>
+
+              <!-- Sağ: Klasik Tüplü TV Döner Düğmeler & Hoparlör Paneli -->
+              <div class="crt-control-panel">
+                <div class="tv-brand-badge">SOS TV</div>
+                <div class="tv-ch-led" id="tvChannelLed">CH 01</div>
+
+                <div class="tv-knob-group">
+                  <span class="tv-knob-label">KANAL</span>
+                  <button type="button" class="tv-rotary-knob" id="tvChannelKnob" onclick="nextTrack()" title="Kanal Değiştir (Sonraki Klip)"></button>
+                </div>
+
+                <div class="tv-knob-group">
+                  <span class="tv-knob-label">EFEKT</span>
+                  <button type="button" class="tv-rotary-knob" id="tvToneKnob" onclick="rotateToneKnob()" title="Plak / Frekans Ses Efekti"></button>
+                </div>
+
+                <div class="tv-speaker-grille"></div>
+
+                <div class="tv-power-row">
+                  <span class="live-dot"></span>
+                  <span>POWER</span>
+                </div>
+              </div>
             </div>
 
-            <div class="player-controls-row">
-              <button class="btn-ctrl" onclick="prevTrack()" title="Önceki Parça">⏮ Önceki</button>
-              <button class="btn-ctrl" onclick="nextTrack()" title="Sonraki Parça">Sonraki ⏭</button>
-              <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=Kjd_2wdFXWU" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="YouTube'da Aç">
-                <span>YouTube'da İzle ↗</span>
-              </a>
+            <div class="now-playing-info">
+              <div>
+                <span class="now-playing-badge">
+                  <span class="live-dot"></span>
+                  <span>TÜPLÜ TV YAYINDA • RESMİ VİDEO KLİP</span>
+                </span>
+                <h3 class="now-playing-title" id="playerTitle">YERALTI</h3>
+                <p class="now-playing-artist" id="playerArtist">Sos Echoes</p>
+              </div>
+
+              <div class="player-controls-row">
+                <button class="btn-ctrl" onclick="prevTrack()" title="Önceki Kanal">⏮ CH-</button>
+                <button class="btn-ctrl" onclick="nextTrack()" title="Sonraki Kanal">CH+ ⏭</button>
+                <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=Kjd_2wdFXWU" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="YouTube'da Aç">
+                  <span>YouTube'da İzle ↗</span>
+                </a>
+              </div>
             </div>
+          </div>
+
+          <!-- Tüplü TV Alt Ayakları -->
+          <div class="tv-legs">
+            <div class="tv-leg left"></div>
+            <div class="tv-leg right"></div>
           </div>
         </div>
 
@@ -2604,11 +2984,52 @@
       });
     }
 
-    // SELECT & PLAY TRACK
+    // SELECT & PLAY TRACK (TÜPLÜ TV KANAL GEÇİŞ EFEKTLİ)
+    let toneKnobAngle = 0;
+    let osdTimeout = null;
+
+    function triggerTvChannelEffect(channelNum) {
+      const chFormatted = `CH ${String(channelNum).padStart(2, '0')}`;
+      const tvChannelLed = document.getElementById("tvChannelLed");
+      const crtOsdChannel = document.getElementById("crtOsdChannel");
+      const crtStaticFlash = document.getElementById("crtStaticFlash");
+      const tvChannelKnob = document.getElementById("tvChannelKnob");
+
+      if (tvChannelLed) tvChannelLed.textContent = chFormatted;
+      if (tvChannelKnob) {
+        tvChannelKnob.style.transform = `rotate(${(channelNum - 1) * 28}deg)`;
+      }
+
+      if (crtStaticFlash) {
+        crtStaticFlash.classList.add("active");
+        setTimeout(() => crtStaticFlash.classList.remove("active"), 220);
+      }
+
+      if (crtOsdChannel) {
+        crtOsdChannel.textContent = chFormatted;
+        crtOsdChannel.classList.add("visible");
+        if (osdTimeout) clearTimeout(osdTimeout);
+        osdTimeout = setTimeout(() => {
+          crtOsdChannel.classList.remove("visible");
+        }, 1800);
+      }
+    }
+
+    function rotateToneKnob() {
+      toneKnobAngle += 45;
+      const tvToneKnob = document.getElementById("tvToneKnob");
+      if (tvToneKnob) {
+        tvToneKnob.style.transform = `rotate(${toneKnobAngle}deg)`;
+      }
+      triggerHeroScratch();
+    }
+
     function selectTrack(index, autoplay = true) {
       if (index < 0 || index >= trackData.length) return;
       currentTrackIndex = index;
       const track = trackData[index];
+
+      triggerTvChannelEffect(index + 1);
 
       const videoId = track.youtubeId || track.id;
       videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0`;
