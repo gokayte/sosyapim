@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOS Yapım — Müzik Prodüksiyon & Plak Şirketi | Sesini Duyur</title>
-  <meta name="description" content="SOS Yapım resmi web sitesi. En yeni şarkılar, video klipler, sanatçılarımız ve demo gönderimi. Kırmızı tonda göz kamaştırıcı müzik platformu.">
+  <title>SOS Yapım — Sesini Duyur | Müzik & Prodüksiyon</title>
+  <meta name="description" content="SOS Yapım resmi web sitesi. Bağımsız müziğin yeni sesi. En yeni video klipler, sanatçılarımız ve şarkılar.">
   <link rel="icon" type="image/jpeg" href="sos-logo.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --primary: #ff1827;
-      --primary-dark: #b80512;
-      --primary-glow: rgba(255, 24, 39, 0.45);
-      --primary-subtle: rgba(255, 24, 39, 0.12);
-      --bg: #09090d;
-      --bg-card: rgba(18, 18, 26, 0.75);
-      --bg-card-hover: rgba(28, 28, 40, 0.9);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(255, 24, 39, 0.35);
-      --text-main: #f5f5f7;
-      --text-muted: #9c9ca8;
-      --radius-sm: 8px;
-      --radius-md: 14px;
+      --red: #e50914;
+      --red-bright: #ff1e27;
+      --red-glow: rgba(229, 9, 20, 0.45);
+      --red-subtle: rgba(229, 9, 20, 0.12);
+      --bg: #090608;
+      --bg-darker: #050406;
+      --bg-card: rgba(18, 14, 17, 0.82);
+      --bg-card-hover: rgba(28, 20, 25, 0.95);
+      --white: #ffffff;
+      --white-muted: #d0d0d8;
+      --text-dim: #90909c;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-red: rgba(229, 9, 20, 0.4);
+      --radius-sm: 6px;
+      --radius-md: 12px;
       --radius-lg: 20px;
       --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -42,15 +44,15 @@
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
+      color: var(--white);
       overflow-x: hidden;
       line-height: 1.6;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(255, 24, 39, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 85% 65%, rgba(184, 5, 18, 0.10) 0%, transparent 40%),
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        radial-gradient(circle at 75% 25%, rgba(229, 9, 20, 0.22) 0%, transparent 55%),
+        radial-gradient(circle at 10% 70%, rgba(229, 9, 20, 0.12) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     }
 
     a {
@@ -68,17 +70,18 @@
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
+      position: relative;
     }
 
-    /* HEADER / NAVBAR */
+    /* HEADER */
     .header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 9, 13, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(9, 6, 8, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
       transition: var(--transition);
     }
@@ -97,17 +100,17 @@
     }
 
     .brand-logo-img {
-      height: 46px;
+      height: 44px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 14px var(--primary-glow));
+      filter: drop-shadow(0 0 12px var(--red-glow));
       border-radius: 6px;
       transition: var(--transition);
     }
 
     .brand-logo-img:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 22px var(--primary));
+      filter: drop-shadow(0 0 20px var(--red-bright));
     }
 
     .brand-text {
@@ -117,25 +120,25 @@
 
     .brand-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 800;
       letter-spacing: 0.5px;
-      color: #fff;
+      color: var(--white);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .brand-title span {
-      color: var(--primary);
+      color: var(--red);
     }
 
     .brand-tag {
-      font-size: 0.72rem;
-      color: var(--text-muted);
+      font-size: 0.7rem;
+      color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .nav-links {
@@ -147,14 +150,14 @@
 
     .nav-link {
       font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-muted);
+      font-weight: 600;
+      color: var(--white-muted);
       transition: var(--transition);
       position: relative;
     }
 
     .nav-link:hover, .nav-link.active {
-      color: #fff;
+      color: var(--white);
     }
 
     .nav-link::after {
@@ -164,8 +167,8 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: var(--primary);
-      box-shadow: 0 0 8px var(--primary);
+      background: var(--red);
+      box-shadow: 0 0 8px var(--red);
       transition: width 0.3s ease;
     }
 
@@ -173,205 +176,382 @@
       width: 100%;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 10px 22px;
+      padding: 12px 26px;
       font-size: 0.92rem;
-      font-weight: 600;
-      border-radius: 999px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
       transition: var(--transition);
       white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #ff1827 0%, #b80512 100%);
-      color: #fff;
-      box-shadow: 0 4px 20px var(--primary-glow);
+    .btn-red {
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 4px 25px var(--red-glow);
+      border: 1px solid var(--red-bright);
     }
 
-    .btn-primary:hover {
+    .btn-red:hover {
+      background: var(--red-bright);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(255, 24, 39, 0.65);
+      box-shadow: 0 8px 35px rgba(229, 9, 20, 0.7);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: #fff;
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--white);
     }
 
-    .btn-secondary:hover {
+    .btn-outline:hover {
       background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: var(--white);
       transform: translateY(-2px);
     }
 
-    .btn-youtube {
-      background: #ff0000;
-      color: #fff;
-      box-shadow: 0 0 16px rgba(255, 0, 0, 0.4);
-    }
-
-    .btn-youtube:hover {
-      background: #e60000;
-      transform: translateY(-2px);
-      box-shadow: 0 0 24px rgba(255, 0, 0, 0.7);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      color: #fff;
-      font-size: 1.5rem;
-    }
-
-    /* HERO SECTION */
+    /* HERO SECTION (EXACT LAYOUT FROM SCREENSHOT) */
     .hero {
       position: relative;
-      padding: 90px 0 60px;
-      text-align: center;
+      padding: 85px 0 70px;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      min-height: calc(100vh - 140px);
     }
 
-    .hero-glow-circle {
+    .hero-bg-glow {
       position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 15%;
+      right: 10%;
       width: 600px;
-      height: 350px;
-      background: radial-gradient(ellipse, rgba(255, 24, 39, 0.28) 0%, transparent 70%);
-      filter: blur(50px);
-      z-index: -1;
+      height: 600px;
+      background: radial-gradient(circle, rgba(229, 9, 20, 0.25) 0%, transparent 68%);
+      filter: blur(80px);
+      z-index: 0;
       pointer-events: none;
     }
 
-    .hero-badge {
-      display: inline-flex;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 50px;
       align-items: center;
-      gap: 10px;
-      background: rgba(255, 24, 39, 0.1);
-      border: 1px solid rgba(255, 24, 39, 0.3);
-      padding: 8px 20px;
-      border-radius: 999px;
-      margin-bottom: 24px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #ff5e67;
-      letter-spacing: 0.5px;
-      animation: pulseGlow 3s infinite alternate;
+      position: relative;
+      z-index: 1;
     }
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 10px rgba(255, 24, 39, 0.2); }
-      100% { box-shadow: 0 0 24px rgba(255, 24, 39, 0.5); }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
     }
 
-    .sound-bars {
+    .hero-pretitle {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
       display: flex;
       align-items: center;
-      gap: 3px;
-      height: 14px;
+      gap: 10px;
     }
 
-    .sound-bar {
-      width: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-      animation: wave 1.2s infinite ease-in-out;
+    .hero-pretitle::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+      box-shadow: 0 0 8px var(--red);
     }
 
-    .sound-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
-    .sound-bar:nth-child(2) { height: 14px; animation-delay: 0.3s; }
-    .sound-bar:nth-child(3) { height: 9px; animation-delay: 0.2s; }
-    .sound-bar:nth-child(4) { height: 12px; animation-delay: 0.4s; }
-
-    @keyframes wave {
-      0%, 100% { transform: scaleY(0.4); }
-      50% { transform: scaleY(1); }
-    }
-
-    .hero-title {
+    .hero-main-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      letter-spacing: -0.5px;
+      font-size: clamp(3.2rem, 6.8vw, 5.6rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
     }
 
-    .hero-title .gradient-text {
-      background: linear-gradient(135deg, #fff 30%, #ff8088 70%, #ff1827 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero-main-title .word-white {
+      color: var(--white);
+      display: block;
     }
 
-    .hero-subtitle {
-      max-width: 680px;
-      margin: 0 auto 36px;
+    .hero-main-title .word-red {
+      color: var(--red);
+      display: block;
+      text-shadow: 0 0 40px rgba(229, 9, 20, 0.6);
+    }
+
+    .hero-desc {
       font-size: 1.15rem;
-      color: var(--text-muted);
-      font-weight: 400;
+      line-height: 1.55;
+      color: var(--white-muted);
+      max-width: 520px;
     }
 
-    .hero-buttons {
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* RIGHT SIDE: HUGE VINYL TURNTABLE & SCRATCH */
+    .hero-vinyl-wrapper {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-bottom: 50px;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 24px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .stat-item {
+    .vinyl-stage {
+      position: relative;
+      width: 380px;
+      height: 380px;
+      max-width: 90vw;
+      max-height: 90vw;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
+      cursor: grab;
+      touch-action: none;
     }
 
-    .stat-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.8rem;
+    .vinyl-stage:active {
+      cursor: grabbing;
+    }
+
+    .vinyl-disc {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: 
+        radial-gradient(circle, transparent 38%, rgba(255,255,255,0.06) 39%, transparent 40%),
+        radial-gradient(circle, transparent 48%, rgba(255,255,255,0.05) 49%, transparent 50%),
+        radial-gradient(circle, transparent 62%, rgba(255,255,255,0.05) 63%, transparent 64%),
+        radial-gradient(circle, transparent 76%, rgba(255,255,255,0.04) 77%, transparent 78%),
+        radial-gradient(circle, transparent 88%, rgba(255,255,255,0.04) 89%, transparent 90%),
+        repeating-radial-gradient(circle, #0c0b0e 0px, #18161b 2px, #0c0b0e 4px);
+      box-shadow: 
+        0 10px 45px rgba(0, 0, 0, 0.95),
+        0 0 35px rgba(229, 9, 20, 0.35),
+        inset 0 0 15px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinVinyl 6s linear infinite;
+      transition: transform 0.08s ease;
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .vinyl-disc.scratch-active {
+      animation: none !important;
+      transform: rotate(-65deg) scale(0.97) !important;
+      transition: transform 0.06s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+
+    .vinyl-label-sos {
+      width: 165px;
+      height: 165px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      box-shadow: 0 0 25px rgba(229, 9, 20, 0.8), inset 0 0 10px rgba(0, 0, 0, 0.9);
+      border: 3px solid #ff1e27;
+    }
+
+    .vinyl-sos-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+    }
+
+    .vinyl-center-hole {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #000;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+      z-index: 5;
+    }
+
+    /* TONEARM (SCREENSHOT ACCURATE) */
+    .vinyl-tonearm {
+      position: absolute;
+      top: -20px;
+      right: -35px;
+      width: 120px;
+      height: 220px;
+      pointer-events: none;
+      z-index: 3;
+      transform-origin: top right;
+      transform: rotate(18deg);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .vinyl-tonearm.scratching {
+      transform: rotate(26deg);
+    }
+
+    .tonearm-pivot-base {
+      position: absolute;
+      top: 0;
+      right: 15px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #555 20%, #222 70%, #000 100%);
+      border: 4px solid #888;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+
+    .tonearm-metal-rod {
+      position: absolute;
+      top: 30px;
+      right: 32px;
+      width: 7px;
+      height: 150px;
+      background: linear-gradient(to right, #666, #fff 50%, #444);
+      border-radius: 3px;
+      transform-origin: top center;
+      transform: rotate(-18deg);
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .tonearm-cartridge-head {
+      position: absolute;
+      bottom: 22px;
+      left: 18px;
+      width: 22px;
+      height: 38px;
+      background: linear-gradient(135deg, #111 0%, #333 100%);
+      border: 2px solid #888;
+      border-radius: 4px;
+      box-shadow: 0 0 12px var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tonearm-cartridge-head::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--red-bright);
+    }
+
+    .scratch-instruction-pill {
+      position: absolute;
+      bottom: -32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229, 9, 20, 0.15);
+      border: 1px solid var(--border-red);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 15px rgba(229, 9, 20, 0.3);
+      cursor: pointer;
+      transition: var(--transition);
     }
 
-    .stat-num span {
-      color: var(--primary);
+    .scratch-instruction-pill:hover {
+      background: var(--red);
+      box-shadow: 0 0 25px var(--red-glow);
     }
 
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    /* RIGHT VERTICAL TEXT (SCREENSHOT ACCURATE) */
+    .vertical-right-label {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      transform-origin: center right;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.4);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      z-index: 10;
+      pointer-events: none;
     }
 
-    /* SECTION COMMON */
+    /* RUNNING MARQUEE TICKER (SCREENSHOT ACCURATE) */
+    .marquee-strip {
+      background: #000;
+      border-top: 1px solid var(--border-red);
+      border-bottom: 1px solid var(--border-red);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: tickerRoll 35s linear infinite;
+    }
+
+    @keyframes tickerRoll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding-right: 24px;
+    }
+
+    .marquee-star {
+      color: var(--red);
+      font-size: 1.1rem;
+      text-shadow: 0 0 8px var(--red);
+    }
+
+    /* SECTIONS */
     .section {
-      padding: 80px 0;
+      padding: 85px 0;
       position: relative;
     }
 
@@ -379,59 +559,54 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       flex-wrap: wrap;
       gap: 20px;
     }
 
-    .section-title-wrap {
+    .section-tag {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 8px;
     }
 
-    .section-badge {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .section-badge::before {
+    .section-tag::before {
       content: '';
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 10px var(--primary);
+      background: var(--red);
+      box-shadow: 0 0 10px var(--red);
     }
 
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #fff;
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--white);
       letter-spacing: -0.5px;
+      margin-top: 4px;
     }
 
-    /* MUSIC & VIDEO THEATER SECTION */
+    /* VIDEO THEATER LAYOUT */
     .theater-layout {
       display: grid;
       grid-template-columns: 1.35fr 1fr;
-      gap: 30px;
+      gap: 32px;
       align-items: start;
     }
 
     .theater-screen-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-accent);
+      border: 1px solid var(--border-red);
       border-radius: var(--radius-lg);
-      padding: 16px;
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 24, 39, 0.15);
+      padding: 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(229, 9, 20, 0.2);
       position: sticky;
       top: 100px;
     }
@@ -443,7 +618,7 @@
       border-radius: var(--radius-md);
       overflow: hidden;
       background: #000;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8);
     }
 
     .screen-wrapper iframe {
@@ -464,322 +639,79 @@
       flex-wrap: wrap;
     }
 
-    .now-playing-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
     .now-playing-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--red);
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
 
     .live-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--primary);
+      width: 7px;
+      height: 7px;
+      background: var(--red);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--primary);
+      box-shadow: 0 0 10px var(--red);
       animation: pulse 1.5s infinite;
     }
 
     @keyframes pulse {
-      0% { opacity: 0.4; }
+      0%, 100% { opacity: 0.3; }
       50% { opacity: 1; }
-      100% { opacity: 0.4; }
     }
 
     .now-playing-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
     }
 
     .now-playing-artist {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: var(--white-muted);
     }
 
-    .now-playing-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* TURNTABLE VINYL DECK & SCRATCH */
-    .turntable-deck {
-      margin-top: 18px;
-      padding: 14px 18px;
-      background: linear-gradient(135deg, rgba(24, 24, 34, 0.95) 0%, rgba(12, 12, 18, 0.98) 100%);
-      border: 1px solid rgba(255, 24, 39, 0.35);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.6);
-      transition: var(--transition);
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    .turntable-deck:hover {
-      border-color: var(--primary);
-      box-shadow: inset 0 0 25px rgba(255, 24, 39, 0.2), 0 0 30px rgba(255, 24, 39, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .turntable-vinyl-wrap {
-      position: relative;
-      width: 90px;
-      height: 90px;
-      flex-shrink: 0;
-    }
-
-    .turntable-vinyl {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: 
-        radial-gradient(circle, transparent 28%, rgba(255,255,255,0.08) 29%, transparent 30%),
-        radial-gradient(circle, transparent 42%, rgba(255,255,255,0.07) 43%, transparent 44%),
-        radial-gradient(circle, transparent 58%, rgba(255,255,255,0.06) 59%, transparent 60%),
-        repeating-radial-gradient(circle, #09090d 0px, #161622 2px, #09090d 4px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 24, 39, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      animation: spinVinyl 6s linear infinite;
-      transition: transform 0.08s ease;
-    }
-
-    @keyframes spinVinyl {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .turntable-vinyl.scratch-action {
-      animation: none !important;
-      transform: rotate(-75deg) scale(0.95) !important;
-      transition: transform 0.06s cubic-bezier(0.1, 0.9, 0.2, 1);
-    }
-
-    .vinyl-center-label {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid var(--primary);
-      box-shadow: 0 0 8px rgba(255, 24, 39, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .vinyl-cover-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .spindle-hole {
-      position: absolute;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #000;
-      border: 1.5px solid #fff;
-      z-index: 2;
-    }
-
-    .tonearm {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      width: 34px;
-      height: 50px;
-      pointer-events: none;
-      transform-origin: top right;
-      transform: rotate(18deg);
-      transition: transform 0.3s ease;
-    }
-
-    .tonearm-head {
-      width: 7px;
-      height: 12px;
-      background: linear-gradient(135deg, #e50914, #ff4d55);
-      border-radius: 2px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      box-shadow: 0 0 6px var(--primary);
-    }
-
-    .tonearm-rod {
-      width: 2.5px;
-      height: 44px;
-      background: linear-gradient(to bottom, #888, #eee, #555);
-      position: absolute;
-      top: 5px;
-      right: 6px;
-      transform: rotate(-16deg);
-      transform-origin: top center;
-    }
-
-    .tonearm-base {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #252530;
-      border: 2px solid #888;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
-    .deck-info {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      flex-grow: 1;
-    }
-
-    .deck-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #ff4d55;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    .deck-title {
-      font-size: 0.96rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .deck-hint {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .mini-vinyl-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.05rem;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .mini-vinyl-btn:hover {
-      background: rgba(255, 24, 39, 0.25);
-      border-color: var(--primary);
-      transform: scale(1.18) rotate(45deg);
-      box-shadow: 0 0 14px var(--primary-glow);
-    }
-
-    /* TRACKLIST & FILTERS */
+    /* TRACKLIST */
     .catalog-panel {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
     }
 
-    .search-filter-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .search-input-wrap {
+    .search-box {
       position: relative;
       width: 100%;
     }
 
-    .search-input-wrap svg {
+    .search-box svg {
       position: absolute;
-      left: 14px;
+      left: 16px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--text-muted);
+      color: var(--red);
       width: 18px;
       height: 18px;
     }
 
     .search-input {
       width: 100%;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 10px 16px 10px 42px;
-      color: #fff;
-      font-size: 0.92rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-red);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px 14px 46px;
+      color: var(--white);
+      font-size: 0.95rem;
       outline: none;
       transition: var(--transition);
     }
 
     .search-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 14px var(--primary-subtle);
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .filter-pills {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scrollbar-width: none;
-    }
-
-    .filter-pills::-webkit-scrollbar {
-      display: none;
-    }
-
-    .pill-btn {
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-
-    .pill-btn:hover, .pill-btn.active {
-      color: #fff;
-      background: var(--primary);
-      border-color: var(--primary);
-      box-shadow: 0 0 12px var(--primary-glow);
+      border-color: var(--red-bright);
+      box-shadow: 0 0 20px var(--red-glow);
     }
 
     .tracklist-wrap {
@@ -797,16 +729,11 @@
 
     .tracklist-wrap::-webkit-scrollbar-track {
       background: rgba(255, 255, 255, 0.02);
-      border-radius: 8px;
     }
 
     .tracklist-wrap::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 8px;
-    }
-
-    .tracklist-wrap::-webkit-scrollbar-thumb:hover {
-      background: var(--primary);
+      background: var(--red);
+      border-radius: 4px;
     }
 
     .track-card {
@@ -824,14 +751,14 @@
 
     .track-card:hover {
       background: var(--bg-card-hover);
-      border-color: rgba(255, 24, 39, 0.4);
+      border-color: var(--red);
       transform: translateX(4px);
     }
 
     .track-card.active {
-      background: rgba(255, 24, 39, 0.12);
-      border-color: var(--primary);
-      box-shadow: 0 0 20px rgba(255, 24, 39, 0.25);
+      background: rgba(229, 9, 20, 0.16);
+      border-color: var(--red);
+      box-shadow: 0 0 25px rgba(229, 9, 20, 0.35);
     }
 
     .track-left {
@@ -842,15 +769,15 @@
     }
 
     .track-num {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      width: 20px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-dim);
+      width: 22px;
       text-align: center;
     }
 
     .track-card.active .track-num {
-      color: var(--primary);
+      color: var(--red);
     }
 
     .track-cover-wrap {
@@ -860,7 +787,8 @@
       border-radius: 8px;
       overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .track-cover-img {
@@ -871,13 +799,13 @@
     }
 
     .track-card:hover .track-cover-img {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
 
     .play-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -888,18 +816,13 @@
     .play-overlay svg {
       width: 22px;
       height: 22px;
-      color: #fff;
-      fill: #fff;
+      color: var(--white);
+      fill: var(--white);
     }
 
     .track-card:hover .play-overlay,
     .track-card.active .play-overlay {
       opacity: 1;
-    }
-
-    .track-card.active .play-overlay svg {
-      color: var(--primary);
-      fill: var(--primary);
     }
 
     .track-details {
@@ -910,17 +833,17 @@
     }
 
     .track-name {
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .track-artist {
-      font-size: 0.83rem;
-      color: var(--text-muted);
+      font-size: 0.85rem;
+      color: var(--white-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -929,49 +852,64 @@
     .track-right {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-shrink: 0;
     }
 
-    .track-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text-muted);
+    .mini-scratch-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.05rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .mini-scratch-btn:hover {
+      background: var(--red);
+      border-color: var(--red);
+      transform: scale(1.15) rotate(45deg);
+      box-shadow: 0 0 14px var(--red-glow);
     }
 
     .external-link-btn {
-      color: var(--text-muted);
-      width: 32px;
-      height: 32px;
+      color: var(--white-muted);
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: var(--transition);
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
     }
 
     .external-link-btn:hover {
-      color: #fff;
-      background: var(--primary);
+      color: var(--white);
+      background: var(--red);
+      border-color: var(--red);
       transform: scale(1.1);
     }
 
-    /* ARTISTS SECTION */
+    /* ARTISTS GRID */
     .artists-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
+      gap: 26px;
     }
 
     .artist-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 20px;
+      padding: 24px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -982,20 +920,19 @@
     }
 
     .artist-card:hover {
-      border-color: var(--border-accent);
+      border-color: var(--red);
       transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 24, 39, 0.2);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(229, 9, 20, 0.25);
     }
 
     .artist-avatar-wrap {
-      width: 120px;
-      height: 120px;
+      width: 125px;
+      height: 125px;
       border-radius: 50%;
       overflow: hidden;
       margin-bottom: 16px;
-      border: 3px solid rgba(255, 24, 39, 0.3);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      position: relative;
+      border: 3px solid var(--red);
+      box-shadow: 0 0 22px rgba(229, 9, 20, 0.4);
     }
 
     .artist-avatar {
@@ -1010,71 +947,26 @@
     }
 
     .artist-name {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-
-    .artist-genre {
-      font-size: 0.82rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
     }
 
     .artist-hits {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      font-size: 0.88rem;
+      color: var(--white-muted);
+      margin-bottom: 18px;
       line-height: 1.4;
-    }
-
-    .artist-listen-btn {
-      width: 100%;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: #fff;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: var(--transition);
-    }
-
-    .artist-card:hover .artist-listen-btn {
-      background: var(--primary);
-      border-color: var(--primary);
-      box-shadow: 0 0 15px var(--primary-glow);
     }
 
     /* ABOUT SECTION */
     .about-card {
-      background: linear-gradient(135deg, rgba(22, 22, 32, 0.8) 0%, rgba(12, 12, 18, 0.95) 100%);
-      border: 1px solid var(--border-accent);
+      background: linear-gradient(135deg, rgba(22, 16, 20, 0.9) 0%, rgba(10, 8, 10, 0.98) 100%);
+      border: 1px solid var(--border-red);
       border-radius: var(--radius-lg);
       padding: 48px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-    }
-
-    .about-card::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(255, 24, 39, 0.25) 0%, transparent 70%);
-      filter: blur(40px);
-      pointer-events: none;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     }
 
     .about-grid {
@@ -1086,24 +978,24 @@
 
     .about-text h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 18px;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
     }
 
     .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      font-size: 1rem;
+      color: var(--white-muted);
+      margin-bottom: 14px;
+      font-size: 1.02rem;
     }
 
     .platforms-label {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--primary);
-      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--red);
+      font-weight: 800;
       margin-top: 24px;
       margin-bottom: 12px;
     }
@@ -1117,14 +1009,11 @@
     .platform-tag {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 8px;
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
       font-size: 0.85rem;
-      font-weight: 600;
-      color: #e0e0e8;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-weight: 700;
+      color: var(--white);
     }
 
     .about-features {
@@ -1145,84 +1034,44 @@
     }
 
     .feature-box:hover {
-      border-color: rgba(255, 24, 39, 0.4);
-      background: rgba(255, 24, 39, 0.05);
+      border-color: var(--red);
+      background: rgba(229, 9, 20, 0.08);
       transform: translateY(-3px);
-    }
-
-    .feature-icon {
-      color: var(--primary);
-      font-size: 1.5rem;
     }
 
     .feature-title {
       font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
+      font-weight: 800;
+      color: var(--white);
     }
 
     .feature-desc {
       font-size: 0.82rem;
-      color: var(--text-muted);
+      color: var(--white-muted);
     }
 
-    /* DEMO SUBMISSION / CONTACT SECTION */
+    /* DEMO FORM SECTION */
     .demo-card {
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-red);
       border-radius: var(--radius-lg);
-      padding: 40px;
+      padding: 42px;
       display: grid;
       grid-template-columns: 1fr 1.3fr;
       gap: 40px;
     }
 
-    .demo-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .demo-info-top h3 {
+    .demo-info h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 14px;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
     }
 
-    .demo-info-top p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
+    .demo-info p {
+      color: var(--white-muted);
       margin-bottom: 24px;
-    }
-
-    .contact-quick {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #fff;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .contact-item-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(255, 24, 39, 0.1);
-      border: 1px solid rgba(255, 24, 39, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      flex-shrink: 0;
     }
 
     .form-grid {
@@ -1242,34 +1091,28 @@
     }
 
     .form-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--white);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .form-input, .form-textarea, .form-select {
+    .form-input, .form-textarea {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 12px 16px;
-      color: #fff;
+      color: var(--white);
       font-family: inherit;
       font-size: 0.92rem;
       outline: none;
       transition: var(--transition);
     }
 
-    .form-select option {
-      background: #14141c;
-      color: #fff;
-    }
-
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 12px var(--primary-subtle);
-      background: rgba(255, 255, 255, 0.06);
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 15px var(--red-glow);
     }
 
     .form-textarea {
@@ -1280,20 +1123,19 @@
     /* FOOTER */
     .footer {
       border-top: 1px solid var(--border);
-      background: #060608;
+      background: var(--bg-darker);
       padding: 60px 0 30px;
-      margin-top: 60px;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.5fr 1fr 1fr 1fr;
       gap: 40px;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     .footer-brand p {
-      color: var(--text-muted);
+      color: var(--white-muted);
       font-size: 0.9rem;
       margin-top: 14px;
       max-width: 320px;
@@ -1301,10 +1143,11 @@
 
     .footer-col h4 {
       font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
+      font-weight: 800;
+      color: var(--white);
       margin-bottom: 18px;
       letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .footer-links {
@@ -1315,41 +1158,41 @@
     }
 
     .footer-links a {
-      color: var(--text-muted);
-      font-size: 0.88rem;
+      color: var(--white-muted);
+      font-size: 0.9rem;
       transition: var(--transition);
     }
 
     .footer-links a:hover {
-      color: var(--primary);
-      transform: translateX(3px);
+      color: var(--red);
+      transform: translateX(4px);
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       padding-top: 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--text-muted);
+      color: var(--text-dim);
       font-size: 0.85rem;
       flex-wrap: wrap;
       gap: 16px;
     }
 
-    /* NOTIFICATION TOAST */
+    /* TOAST */
     .toast {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: #181822;
-      border: 1px solid var(--primary);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--primary-glow);
+      background: #140d10;
+      border: 1px solid var(--red);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8), 0 0 25px var(--red-glow);
       padding: 14px 22px;
-      border-radius: var(--radius-md);
-      color: #fff;
+      border-radius: var(--radius-sm);
+      color: var(--white);
       font-size: 0.92rem;
-      font-weight: 600;
+      font-weight: 700;
       z-index: 1000;
       display: flex;
       align-items: center;
@@ -1364,8 +1207,26 @@
       opacity: 1;
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+      }
+      .hero-content {
+        align-items: center;
+        text-align: center;
+      }
+      .hero-pretitle {
+        justify-content: center;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .vertical-right-label {
+        display: none;
+      }
       .theater-layout {
         grid-template-columns: 1fr;
       }
@@ -1388,14 +1249,19 @@
       .nav-links {
         display: none;
       }
-      .mobile-menu-btn {
-        display: block;
+      .hero-main-title {
+        font-size: 3.2rem;
       }
-      .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
+      .vinyl-stage {
+        width: 300px;
+        height: 300px;
       }
-      .about-features {
-        grid-template-columns: 1fr;
+      .vinyl-label-sos {
+        width: 130px;
+        height: 130px;
+      }
+      .vinyl-tonearm {
+        display: none;
       }
       .form-grid {
         grid-template-columns: 1fr;
@@ -1407,6 +1273,11 @@
   </style>
 </head>
 <body>
+
+  <!-- VERTICAL RIGHT SCRIPT TEXT (FROM SCREENSHOT) -->
+  <div class="vertical-right-label">
+    KENDİ SESİNİN PEŞİNDEN GİT
+  </div>
 
   <!-- HEADER -->
   <header class="header">
@@ -1429,7 +1300,7 @@
         </ul>
 
         <div class="nav-actions">
-          <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-youtube">
+          <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-red">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
@@ -1440,69 +1311,85 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (EXACT LAYOUT AS REQUESTED) -->
   <section class="hero">
-    <div class="hero-glow-circle"></div>
+    <div class="hero-bg-glow"></div>
     <div class="container">
-      <div class="hero-badge">
-        <div class="sound-bars">
-          <div class="sound-bar"></div>
-          <div class="sound-bar"></div>
-          <div class="sound-bar"></div>
-          <div class="sound-bar"></div>
+      <div class="hero-grid">
+        <!-- SOL: METİN VE ÇAĞRI BUTONLARI -->
+        <div class="hero-content">
+          <div class="hero-pretitle">BAĞIMSIZ MÜZİĞİN YENİ SESİ</div>
+          
+          <h1 class="hero-main-title">
+            <span class="word-white">SESİNİ</span>
+            <span class="word-red">DUYUR.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Yeni seslere, özgün hikâyelere ve ezber bozan müziğe alan açıyoruz. SOS Yapım dünyasına hoş geldin.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#klipler" class="btn btn-red">
+              <span>► VİDEO KLİPLERİ İZLE</span>
+            </a>
+            <a href="#hakkimizda" class="btn btn-outline">
+              <span>BİZİ TANI</span>
+            </a>
+          </div>
         </div>
-        <span>SESİNİ TÜM DÜNYAYA DUYUR</span>
-      </div>
 
-      <h1 class="hero-title">
-        Müziğin Ritmi, <br>
-        <span class="gradient-text">Geleceğin Yıldızları.</span>
-      </h1>
+        <!-- SAĞ: BÜYÜK DJ PLAK VE İĞNE (SCRATCH ETKİLEŞİMLİ) -->
+        <div class="hero-vinyl-wrapper">
+          <div class="vinyl-stage" id="heroVinylStage" onclick="triggerHeroScratch()" title="Plak üzerine tıkla veya dokun: DJ Scratch sesi!">
+            <!-- PLAK DİSKİ -->
+            <div class="vinyl-disc" id="heroVinylDisc">
+              <div class="vinyl-label-sos">
+                <img src="sos-logo.jpeg" alt="SOS Yapım Logo" class="vinyl-sos-img" onerror="this.src='sos-logo.png'">
+                <div class="vinyl-center-hole"></div>
+              </div>
+            </div>
 
-      <p class="hero-subtitle">
-        SOS Yapım etiketiyle yayınlanan en yeni video klipler, liste başı şarkılar ve özgün prodüksiyonlar bir arada. Şarkınızı seçin, anında izleyin.
-      </p>
+            <!-- TONEARM (PİKAP İĞNESİ) -->
+            <div class="vinyl-tonearm" id="heroTonearm">
+              <div class="tonearm-pivot-base"></div>
+              <div class="tonearm-metal-rod"></div>
+              <div class="tonearm-cartridge-head"></div>
+            </div>
 
-      <div class="hero-buttons">
-        <a href="#klipler" class="btn btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          <span>Klipleri İzle & Dinle</span>
-        </a>
-        <a href="#demo" class="btn btn-secondary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-            <line x1="12" y1="19" x2="12" y2="23"/>
-            <line x1="8" y1="23" x2="16" y2="23"/>
-          </svg>
-          <span>Demo Başvurusu</span>
-        </a>
+            <!-- SCRATCH BİLGİ PİLİ -->
+            <div class="scratch-instruction-pill" onclick="event.stopPropagation(); triggerHeroScratch();">
+              <span>💿 DOKUN & SCRATCH YAP</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO KLIPLER & OYNATICI SECTION -->
+  <!-- AKAN YAZI BANDI (TICKER MARQUEE) -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item">MÜZİK. YENİ HİKÂYELER. <span class="marquee-star">✱</span> SESİNİ DUYUR. <span class="marquee-star">✱</span> BAĞIMSIZ RUH, GÜÇLÜ SES. <span class="marquee-star">✱</span> SOS YAPIM <span class="marquee-star">✱</span> KENDİ SESİNİN PEŞİNDEN GİT <span class="marquee-star">✱</span> YENİ SESLERE ALAN AÇIYORUZ <span class="marquee-star">✱</span> MÜZİKTE SINIRLARI KALDIR <span class="marquee-star">✱</span></div>
+      <div class="marquee-item">MÜZİK. YENİ HİKÂYELER. <span class="marquee-star">✱</span> SESİNİ DUYUR. <span class="marquee-star">✱</span> BAĞIMSIZ RUH, GÜÇLÜ SES. <span class="marquee-star">✱</span> SOS YAPIM <span class="marquee-star">✱</span> KENDİ SESİNİN PEŞİNDEN GİT <span class="marquee-star">✱</span> YENİ SESLERE ALAN AÇIYORUZ <span class="marquee-star">✱</span> MÜZİKTE SINIRLARI KALDIR <span class="marquee-star">✱</span></div>
+    </div>
+  </div>
+
+  <!-- VIDEO KLIPLER VE OYNATICI SECTION -->
   <section class="section" id="klipler">
     <div class="container">
       <div class="section-header">
-        <div class="section-title-wrap">
-          <span class="section-badge">MÜZİK & VİDEO DÜNYASI</span>
+        <div>
+          <span class="section-tag">VİDEO VE SES DÜNYASI</span>
           <h2 class="section-title">Video Klipler & Parçalar</h2>
         </div>
-        <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <span>YouTube Kanalına Git</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-            <polyline points="15 3 21 3 21 9"/>
-            <line x1="10" y1="14" x2="21" y2="3"/>
-          </svg>
+        <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <span>YouTube Kanalına Git ↗</span>
         </a>
       </div>
 
       <div class="theater-layout">
-        <!-- SOL: SABİT VİDEO OYNATICI -->
+        <!-- SOL: VIDEO OYNATICI -->
         <div class="theater-screen-card">
           <div class="screen-wrapper">
             <iframe id="videoPlayer" 
@@ -1514,7 +1401,7 @@
           </div>
 
           <div class="now-playing-info">
-            <div class="now-playing-meta">
+            <div>
               <span class="now-playing-badge">
                 <span class="live-dot"></span>
                 <span>RESMİ VİDEO KLİP</span>
@@ -1523,64 +1410,24 @@
               <p class="now-playing-artist" id="playerArtist">Aysel Elizade</p>
             </div>
 
-            <div class="now-playing-actions">
-              <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=aNQEyr_FYCA" target="_blank" rel="noopener noreferrer" class="btn btn-primary" title="YouTube'da Aç">
-                <span>YouTube'da Aç</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- İNTERAKTİF DJ PLAK & SCRATCH DECK -->
-          <div class="turntable-deck" id="turntableDeck" onclick="triggerVinylScratch()" title="Plak üzerine dokun veya tıkla: DJ Scratch sesi!">
-            <div class="turntable-vinyl-wrap">
-              <div class="turntable-vinyl" id="vinylDisc">
-                <div class="vinyl-center-label">
-                  <img id="vinylCoverImg" src="covers/aysel_elizade.jpg" alt="Plak Göbeği" class="vinyl-cover-img" onerror="this.src='sos-logo.jpeg'">
-                  <div class="spindle-hole"></div>
-                </div>
-              </div>
-              <div class="tonearm" id="tonearm">
-                <div class="tonearm-base"></div>
-                <div class="tonearm-rod"></div>
-                <div class="tonearm-head"></div>
-              </div>
-            </div>
-
-            <div class="deck-info">
-              <div class="deck-badge">
-                <span style="font-size: 1.1rem;">💿</span>
-                <span>İNTERAKTİF DJ PLAK</span>
-              </div>
-              <div class="deck-title">Plak Üzerine Dokun & Scratch Yap!</div>
-              <div class="deck-hint">Gerçek vinil plak ovma & scratch ses efekti</div>
-            </div>
-
-            <button class="btn btn-secondary" style="border-radius:999px; padding: 8px 16px; font-size: 0.8rem;" onclick="event.stopPropagation(); triggerVinylScratch();">
-              <span>DJ Scratch 🎛️</span>
-            </button>
+            <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=aNQEyr_FYCA" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="YouTube'da Aç">
+              <span>YouTube'da İzle ↗</span>
+            </a>
           </div>
         </div>
 
-        <!-- SAĞ: ŞARKI SEÇİM LİSTESİ -->
+        <!-- SAĞ: PARÇA LİSTESİ VE ARAMA -->
         <div class="catalog-panel">
-          <div class="search-filter-box">
-            <div class="search-input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              <input type="text" id="trackSearch" class="search-input" placeholder="Şarkı adı veya sanatçı ara...">
-            </div>
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="trackSearch" class="search-input" placeholder="Şarkı adı veya sanatçı ara...">
           </div>
 
-          <!-- PARÇA LİSTESİ -->
           <div class="tracklist-wrap" id="trackList">
-            <!-- JavaScript dinamik olarak burayı dolduracak -->
+            <!-- JS dolduracak -->
           </div>
         </div>
       </div>
@@ -1591,61 +1438,53 @@
   <section class="section" id="sanatcilar">
     <div class="container">
       <div class="section-header">
-        <div class="section-title-wrap">
-          <span class="section-badge">YETENEKLERİMİZ</span>
+        <div>
+          <span class="section-tag">YETENEKLERİMİZ</span>
           <h2 class="section-title">Öne Çıkan Sanatçılar</h2>
         </div>
       </div>
 
       <div class="artists-grid">
-        <!-- Sanatçı 1 -->
         <div class="artist-card">
           <div class="artist-avatar-wrap">
             <img src="covers/aysel_elizade.jpg" alt="Aysel Elizade" class="artist-avatar">
           </div>
           <h4 class="artist-name">Aysel Elizade</h4>
           <p class="artist-hits">"Yandırdın Kalbimi", "Yandırdın Kalbimi (Remix)"</p>
-          <button class="artist-listen-btn" onclick="playTrackById('aNQEyr_FYCA')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('aNQEyr_FYCA')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
 
-        <!-- Sanatçı 2 -->
         <div class="artist-card">
           <div class="artist-avatar-wrap">
             <img src="covers/aila_rai.jpg" alt="Aila Rai" class="artist-avatar">
           </div>
           <h4 class="artist-name">Aila Rai</h4>
           <p class="artist-hits">"Yapamıyoruz", "Ferhat ile Şirin", "Xəyanət"</p>
-          <button class="artist-listen-btn" onclick="playTrackById('lb2UTTUP2Z8')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('lb2UTTUP2Z8')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
 
-        <!-- Sanatçı 3 -->
         <div class="artist-card">
           <div class="artist-avatar-wrap">
             <img src="covers/elif_vurgun_gum_gum.jpg" alt="Elif Vurgun" class="artist-avatar">
           </div>
           <h4 class="artist-name">Elif Vurgun</h4>
           <p class="artist-hits">"Güm Güm", "Güm Güm (Club Edit)"</p>
-          <button class="artist-listen-btn" onclick="playTrackById('RFgfESdma5c')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('RFgfESdma5c')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
 
-        <!-- Sanatçı 4 -->
         <div class="artist-card">
           <div class="artist-avatar-wrap">
             <img src="covers/esra_sarak.jpg" alt="Esra Sarak" class="artist-avatar">
           </div>
           <h4 class="artist-name">Esra Sarak</h4>
           <p class="artist-hits">"Magusa Limanı", "Bağlama & Piyano Versiyonu"</p>
-          <button class="artist-listen-btn" onclick="playTrackById('R9Z8bWzQ7TU')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('R9Z8bWzQ7TU')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
@@ -1653,19 +1492,19 @@
     </div>
   </section>
 
-  <!-- HAKKIMIZDA & DAĞITIM -->
+  <!-- HAKKIMIZDA -->
   <section class="section" id="hakkimizda">
     <div class="container">
       <div class="about-card">
         <div class="about-grid">
           <div class="about-text">
-            <span class="section-badge">ŞİRKET PROFİLİ</span>
+            <span class="section-tag">ŞİRKET VİZYONU</span>
             <h3>SOS Yapım — Müziğin Özgür & Güçlü Sesi</h3>
             <p>
               SOS Yapım, müzik sektörüne yön veren modern prodüksiyon vizyonu, yenilikçi aranjman anlayışı ve küresel dijital dağıtım ağıyla sanatçıların sesini milyonlara ulaştıran bağımsız bir müzik yapım şirketidir.
             </p>
             <p>
-              Sony Music, YouTube Music, Spotify ve Apple Music küresel iş birliklerimizle, projelerimizi en yüksek ses ve görüntü standartlarında müzikseverlerle buluşturuyoruz.
+              Sony Music, YouTube Music, Spotify ve Apple Music küresel iş birliklerimizle, projelerimizi en yüksek standartlarda dinleyicilerle buluşturuyoruz.
             </p>
 
             <div class="platforms-label">KÜRESEL DİJİTAL DAĞITIM AĞIMIZ</div>
@@ -1681,23 +1520,19 @@
 
           <div class="about-features">
             <div class="feature-box">
-              <div class="feature-icon">🎙️</div>
-              <h5 class="feature-title">Stüdyo Prodüksiyon</h5>
+              <h5 class="feature-title">🎙️ Stüdyo Prodüksiyon</h5>
               <p class="feature-desc">Profesyonel kayıt, mix & mastering, üst düzey aranjman ve sound design.</p>
             </div>
             <div class="feature-box">
-              <div class="feature-icon">🎬</div>
-              <h5 class="feature-title">4K Klip Yönetimi</h5>
+              <h5 class="feature-title">🎬 4K Klip Yönetimi</h5>
               <p class="feature-desc">Senaryodan kurguya kadar sinematik video klip çekimleri ve yönetmenlik.</p>
             </div>
             <div class="feature-box">
-              <div class="feature-icon">🛡️</div>
-              <h5 class="feature-title">Telif Hakları Yönetimi</h5>
+              <h5 class="feature-title">🛡️ Telif Hakları Yönetimi</h5>
               <p class="feature-desc">YouTube Content ID, edisyon sözleşmeleri ve dijital hak koruması.</p>
             </div>
             <div class="feature-box">
-              <div class="feature-icon">📈</div>
-              <h5 class="feature-title">PR & Medya İletişimi</h5>
+              <h5 class="feature-title">📈 PR & Medya İletişimi</h5>
               <p class="feature-desc">Listelerde öne çıkma, radyo & TV tanıtımları ve sosyal medya stratejileri.</p>
             </div>
           </div>
@@ -1711,47 +1546,25 @@
     <div class="container">
       <div class="demo-card">
         <div class="demo-info">
-          <div class="demo-info-top">
-            <span class="section-badge">SESİNİ BİZE DUYUR</span>
-            <h3>Yeni Bir Yıldız Sen Olabilirsin</h3>
-            <p>
-              Kendi şarkını yazdın veya sesine güveniyor musun? Demo kaydını veya portföy linkini bize gönder, SOS Yapım prodüksiyon ekibimiz projenizi değerlendirsin.
-            </p>
+          <span class="section-tag">SESİNİ BİZE DUYUR</span>
+          <h3>Yeni Bir Yıldız Sen Olabilirsin</h3>
+          <p>
+            Kendi şarkını yazdın veya sesine güveniyor musun? Demo kaydını veya portföy linkini bize gönder, SOS Yapım prodüksiyon ekibimiz projenizi değerlendirsin.
+          </p>
 
-            <div class="contact-quick">
-              <div class="contact-item">
-                <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">E-Posta</div>
-                  <div>sosyapim@gmail.com</div>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">YouTube Kanalı</div>
-                  <div>youtube.com/@SosYapim</div>
-                </div>
-              </div>
+          <div style="display:flex; flex-direction:column; gap:14px; margin-top:20px;">
+            <div style="display:flex; align-items:center; gap:12px; color:var(--white);">
+              <span style="color:var(--red); font-size:1.2rem;">✉️</span>
+              <span>sosyapim@gmail.com</span>
             </div>
-          </div>
-
-          <div style="margin-top: 24px; font-size: 0.8rem; color: var(--text-muted);">
-            * Gönderilen tüm demolar gizlilik ve telif hakları çerçevesinde değerlendirilir.
+            <div style="display:flex; align-items:center; gap:12px; color:var(--white);">
+              <span style="color:var(--red); font-size:1.2rem;">▶️</span>
+              <span>youtube.com/@SosYapim</span>
+            </div>
           </div>
         </div>
 
-        <form id="demoForm" class="demo-form" onsubmit="handleDemoSubmit(event)">
+        <form id="demoForm" onsubmit="handleDemoSubmit(event)">
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label" for="artistName">Adınız / Sanatçı Adı</label>
@@ -1779,11 +1592,7 @@
             </div>
 
             <div class="form-group full">
-              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
+              <button type="submit" class="btn btn-red" style="width: 100%; padding: 14px;">
                 <span>Demo Kaydını İlet</span>
               </button>
             </div>
@@ -1806,12 +1615,12 @@
             </div>
           </a>
           <p>
-            Müzik sektöründe yeni nesil vizyon. Sanatçılarımızın sesini dünyaya duyuruyoruz.
+            Bağımsız müziğin güçlü sesi. Sanatçılarımızın sesini dünyaya duyuruyoruz.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Hızlı Bağlantılar</h4>
+          <h4>Hızlı Menü</h4>
           <ul class="footer-links">
             <li><a href="#klipler">Video Klipler</a></li>
             <li><a href="#sanatcilar">Sanatçılarımız</a></li>
@@ -1824,16 +1633,16 @@
           <h4>Dijital Kanallar</h4>
           <ul class="footer-links">
             <li><a href="https://www.youtube.com/@SosYapim" target="_blank">YouTube Resmi Kanalı</a></li>
-            <li><a href="https://www.youtube.com/@SosYapim" target="_blank">En Çok İzlenen Klipler</a></li>
+            <li><a href="https://www.youtube.com/@SosYapim" target="_blank">Video Klipler</a></li>
             <li><a href="mailto:sosyapim@gmail.com">sosyapim@gmail.com</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Plak Şirketi</h4>
-          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+          <h4>Merkez</h4>
+          <p style="font-size: 0.9rem; color: var(--white-muted); line-height: 1.6;">
             İstanbul, Türkiye<br>
-            Dijital Telif & Müzik Dağıtım Hizmetleri
+            Dijital Dağıtım & Telif Yönetimi
           </p>
         </div>
       </div>
@@ -1841,7 +1650,7 @@
       <div class="footer-bottom">
         <div>&copy; <span id="currentYear"></span> SOS Yapım. Tüm hakları saklıdır.</div>
         <div style="display:flex; gap:16px;">
-          <span>Gizlilik Sözleşmesi</span>
+          <span>Gizlilik Politikası</span>
           <span>Telif Hakları</span>
         </div>
       </div>
@@ -1850,23 +1659,17 @@
 
   <!-- TOAST BİLDİRİMİ -->
   <div id="toast" class="toast">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary)">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-    </svg>
-    <span id="toastMsg">İşlem başarıyla tamamlandı.</span>
+    <span style="font-size:1.3rem;">💿</span>
+    <span id="toastMsg">DJ Scratch Efekti Çalındı!</span>
   </div>
 
   <script>
-    // PARÇA KATALOĞU (SOS YAPIM GERÇEK ARŞİVİ)
+    // PARÇA KATALOĞU
     const trackData = [
       {
         id: "aNQEyr_FYCA",
         title: "Yandırdın Kalbimi",
         artist: "Aysel Elizade",
-        category: "pop",
-        genre: "Pop / Hit",
-        year: "2021",
         cover: "covers/aysel_elizade.jpg",
         youtubeUrl: "https://www.youtube.com/watch?v=aNQEyr_FYCA"
       },
@@ -1875,9 +1678,6 @@
         youtubeId: "aNQEyr_FYCA",
         title: "Yandırdın Kalbimi (Remix)",
         artist: "Aysel Elizade & Eray Topaloğlu",
-        category: "remix",
-        genre: "Remix / Club",
-        year: "2021",
         cover: "covers/sos_aysel_remix.jpg",
         youtubeUrl: "https://www.youtube.com/watch?v=aNQEyr_FYCA"
       },
@@ -1885,9 +1685,6 @@
         id: "RFgfESdma5c",
         title: "Güm Güm",
         artist: "Elif Vurgun",
-        category: "pop",
-        genre: "Pop / Trap",
-        year: "2021",
         cover: "covers/elif_vurgun_gum_gum.jpg",
         youtubeUrl: "https://www.youtube.com/watch?v=RFgfESdma5c"
       },
@@ -1895,9 +1692,6 @@
         id: "lb2UTTUP2Z8",
         title: "Yapamıyoruz",
         artist: "Aydemir feat. Aila Rai",
-        category: "duet",
-        genre: "Düet / Pop",
-        year: "2021",
         cover: "covers/aila_rai.jpg",
         youtubeUrl: "https://www.youtube.com/watch?v=lb2UTTUP2Z8"
       },
@@ -1905,9 +1699,6 @@
         id: "R9Z8bWzQ7TU",
         title: "Magusa Limanı",
         artist: "Esra Sarak",
-        category: "ozgun",
-        genre: "Özgün / Türkü",
-        year: "2021",
         cover: "covers/esra_sarak.jpg",
         youtubeUrl: "https://www.youtube.com/watch?v=R9Z8bWzQ7TU"
       },
@@ -1916,9 +1707,6 @@
         youtubeId: "lb2UTTUP2Z8",
         title: "Ferhat ile Şirin",
         artist: "Nihat Məlik & Aila Rai",
-        category: "duet",
-        genre: "Düet / Alternatif",
-        year: "2021",
         cover: "covers/ferhat_ile_sirin.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -1927,9 +1715,6 @@
         youtubeId: "lb2UTTUP2Z8",
         title: "Xəyanət",
         artist: "Nihat Məlik & Aila Rai",
-        category: "duet",
-        genre: "Düet / Slow",
-        year: "2020",
         cover: "covers/xeyanet.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -1938,9 +1723,6 @@
         youtubeId: "R9Z8bWzQ7TU",
         title: "Ötme Bülbül",
         artist: "Layla Puliçe & Oktay Aytaş",
-        category: "ozgun",
-        genre: "Özgün Müzik",
-        year: "2021",
         cover: "covers/otme_bulbul.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -1949,9 +1731,6 @@
         youtubeId: "RFgfESdma5c",
         title: "Get Up",
         artist: "Güney Kahraman",
-        category: "electronic",
-        genre: "Electronic / Club",
-        year: "2021",
         cover: "covers/guney_kahraman_get_up.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -1960,9 +1739,6 @@
         youtubeId: "RFgfESdma5c",
         title: "Lactone",
         artist: "Milad",
-        category: "electronic",
-        genre: "Deep House",
-        year: "2021",
         cover: "covers/milad_lactone.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -1971,9 +1747,6 @@
         youtubeId: "aNQEyr_FYCA",
         title: "Milli Ordum",
         artist: "Jale Quliyeva",
-        category: "ozgun",
-        genre: "Epik / Senfonik",
-        year: "2020",
         cover: "covers/jale_quliyeva.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -1982,9 +1755,6 @@
         youtubeId: "aNQEyr_FYCA",
         title: "Yaktın Kalbimi",
         artist: "Pınar Hazel",
-        category: "pop",
-        genre: "Pop / Akustik",
-        year: "2021",
         cover: "covers/pinar_hazel.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -1993,9 +1763,6 @@
         youtubeId: "R9Z8bWzQ7TU",
         title: "Çemberimde Gül Oya",
         artist: "SOS Yapım Ensemble",
-        category: "ozgun",
-        genre: "Türkü / Özgün",
-        year: "2021",
         cover: "covers/cemberimde_gul_oya.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -2004,9 +1771,6 @@
         youtubeId: "R9Z8bWzQ7TU",
         title: "Kaleden İniş Mi Olur",
         artist: "Layla Puliçe",
-        category: "ozgun",
-        genre: "Özgün / Etnik",
-        year: "2021",
         cover: "covers/layla_pulice_kaleden_inis.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -2015,9 +1779,6 @@
         youtubeId: "R9Z8bWzQ7TU",
         title: "Beni Hor Görme Gardaşım",
         artist: "Burçin",
-        category: "ozgun",
-        genre: "Akustik / Türkü",
-        year: "2021",
         cover: "covers/burcin.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       },
@@ -2026,9 +1787,6 @@
         youtubeId: "RFgfESdma5c",
         title: "No Way",
         artist: "Can Ateş",
-        category: "electronic",
-        genre: "Electro Trap",
-        year: "2021",
         cover: "covers/can_ates_no_way.jpg",
         youtubeUrl: "https://www.youtube.com/@SosYapim"
       }
@@ -2042,8 +1800,8 @@
     const playerTitle = document.getElementById("playerTitle");
     const playerArtist = document.getElementById("playerArtist");
     const playerYoutubeLink = document.getElementById("playerYoutubeLink");
-    const vinylDisc = document.getElementById("vinylDisc");
-    const vinylCoverImg = document.getElementById("vinylCoverImg");
+    const heroVinylDisc = document.getElementById("heroVinylDisc");
+    const heroTonearm = document.getElementById("heroTonearm");
     const trackListEl = document.getElementById("trackList");
     const trackSearchInput = document.getElementById("trackSearch");
     const toast = document.getElementById("toast");
@@ -2056,7 +1814,7 @@
     // ==========================================
     let audioCtx = null;
 
-    function playScratchSound() {
+    function playRealisticScratch() {
       try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         if (!AudioContext) return;
@@ -2068,56 +1826,56 @@
         }
 
         const now = audioCtx.currentTime;
-        const dur = 0.26 + Math.random() * 0.08;
+        const dur = 0.28 + Math.random() * 0.08;
 
-        // 1. Friction & Grooves Noise Buffer
+        // 1. Friction & Grooves White Noise
         const bufferSize = Math.floor(audioCtx.sampleRate * dur);
         const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
         const output = buffer.getChannelData(0);
         for (let i = 0; i < bufferSize; i++) {
-          output[i] = (Math.random() * 2 - 1) * 0.9;
+          output[i] = (Math.random() * 2 - 1) * 0.95;
         }
 
         const whiteNoise = audioCtx.createBufferSource();
         whiteNoise.buffer = buffer;
 
-        // Resonant Bandpass Filter (The distinct "wicka-wicka" scratch sweep)
+        // Resonant Bandpass Filter (Classic "wicka-wicka" scratch sweep)
         const filter = audioCtx.createBiquadFilter();
         filter.type = 'bandpass';
-        filter.Q.value = 7.5;
+        filter.Q.value = 8.5;
 
-        const startFreq = 450 + Math.random() * 150;
-        const peakFreq = 2200 + Math.random() * 400;
-        const endFreq = 280 + Math.random() * 120;
+        const startFreq = 420 + Math.random() * 160;
+        const peakFreq = 2400 + Math.random() * 500;
+        const endFreq = 260 + Math.random() * 100;
 
         filter.frequency.setValueAtTime(startFreq, now);
-        filter.frequency.exponentialRampToValueAtTime(peakFreq, now + dur * 0.42);
+        filter.frequency.exponentialRampToValueAtTime(peakFreq, now + dur * 0.45);
         filter.frequency.exponentialRampToValueAtTime(endFreq, now + dur);
 
         const noiseGain = audioCtx.createGain();
         noiseGain.gain.setValueAtTime(0.01, now);
-        noiseGain.gain.linearRampToValueAtTime(0.4, now + 0.04);
+        noiseGain.gain.linearRampToValueAtTime(0.45, now + 0.04);
         noiseGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
 
-        // 2. Vinyl Scrub Tone (Low-mid frequency wobble)
+        // 2. Vinyl Scrub Tone (Low-mid frequency vinyl friction tone)
         const osc = audioCtx.createOscillator();
-        osc.type = 'triangle';
-        const oscStart = 90 + Math.random() * 40;
-        const oscPeak = 380 + Math.random() * 90;
-        const oscEnd = 70 + Math.random() * 30;
+        osc.type = 'sawtooth';
+        const oscStart = 95 + Math.random() * 40;
+        const oscPeak = 420 + Math.random() * 110;
+        const oscEnd = 75 + Math.random() * 30;
 
         osc.frequency.setValueAtTime(oscStart, now);
-        osc.frequency.exponentialRampToValueAtTime(oscPeak, now + dur * 0.38);
+        osc.frequency.exponentialRampToValueAtTime(oscPeak, now + dur * 0.4);
         osc.frequency.exponentialRampToValueAtTime(oscEnd, now + dur);
 
         const oscGain = audioCtx.createGain();
         oscGain.gain.setValueAtTime(0.01, now);
-        oscGain.gain.linearRampToValueAtTime(0.3, now + 0.03);
+        oscGain.gain.linearRampToValueAtTime(0.35, now + 0.03);
         oscGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
 
         // Master Output
         const masterGain = audioCtx.createGain();
-        masterGain.gain.value = 0.85;
+        masterGain.gain.value = 0.9;
 
         whiteNoise.connect(filter);
         filter.connect(noiseGain);
@@ -2137,22 +1895,26 @@
       }
     }
 
-    // TRIGGER VINYL SCRATCH INTERACTION
-    function triggerVinylScratch() {
-      playScratchSound();
+    // TRIGGER HERO VINYL SCRATCH
+    function triggerHeroScratch() {
+      playRealisticScratch();
 
-      if (vinylDisc) {
-        vinylDisc.classList.remove("scratch-action");
-        // Force reflow
-        void vinylDisc.offsetWidth;
-        vinylDisc.classList.add("scratch-action");
+      if (heroVinylDisc) {
+        heroVinylDisc.classList.remove("scratch-active");
+        void heroVinylDisc.offsetWidth; // Force reflow
+        heroVinylDisc.classList.add("scratch-active");
+
+        if (heroTonearm) {
+          heroTonearm.classList.add("scratching");
+        }
 
         setTimeout(() => {
-          vinylDisc.classList.remove("scratch-action");
-        }, 180);
+          heroVinylDisc.classList.remove("scratch-active");
+          if (heroTonearm) heroTonearm.classList.remove("scratching");
+        }, 190);
       }
 
-      showToast("💿 DJ Scratch Efekti Çalındı!");
+      showToast("💿 DJ Scratch!");
     }
 
     // RENDER TRACK LIST
@@ -2166,8 +1928,8 @@
 
       if (filteredTracks.length === 0) {
         trackListEl.innerHTML = `
-          <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
-            <p>Aradığınız kriterlere uygun şarkı bulunamadı.</p>
+          <div style="text-align: center; padding: 40px 20px; color: var(--white-muted);">
+            <p>Aradığınız şarkı bulunamadı.</p>
           </div>
         `;
         return;
@@ -2193,7 +1955,7 @@
             </div>
           </div>
           <div class="track-right">
-            <button class="mini-vinyl-btn" title="Plak Scratch Ses Efekti" onclick="event.stopPropagation(); triggerVinylScratch();">
+            <button class="mini-scratch-btn" title="Plak Scratch Ses Efekti" onclick="event.stopPropagation(); triggerHeroScratch();">
               💿
             </button>
             <a href="${track.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="external-link-btn" title="YouTube'da Aç" onclick="event.stopPropagation()">
@@ -2228,14 +1990,10 @@
       playerArtist.textContent = track.artist;
       playerYoutubeLink.href = track.youtubeUrl;
 
-      if (vinylCoverImg) {
-        vinylCoverImg.src = track.cover;
-      }
-
       renderTrackList();
     }
 
-    // PLAY BY ID (FROM ARTIST CARDS ETC.)
+    // PLAY BY ID
     function playTrackById(videoId) {
       const idx = trackData.findIndex(t => t.id === videoId || t.youtubeId === videoId);
       if (idx !== -1) {
@@ -2248,7 +2006,7 @@
       if (kliplerSec) {
         kliplerSec.scrollIntoView({ behavior: "smooth" });
       }
-      showToast("Şarkı oynatıcıda başlatıldı 🎶");
+      showToast("Şarkı oynatıcıda açıldı 🎶");
     }
 
     // SEARCH LISTENER
