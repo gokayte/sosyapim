@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOS Yapım — Sesini Duyur | Müzik & Prodüksiyon</title>
   <meta name="description" content="SOS Yapım resmi web sitesi. Bağımsız müziğin yeni sesi. En yeni video klipler, sanatçılarımız ve şarkılar.">
-  <link rel="icon" type="image/jpeg" href="sos-logo.jpeg">
+  <link rel="icon" type="image/png" href="sos-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
@@ -14,21 +14,22 @@
     :root {
       --red: #e50914;
       --red-bright: #ff1e27;
-      --red-glow: rgba(229, 9, 20, 0.45);
-      --red-subtle: rgba(229, 9, 20, 0.12);
-      --bg: #090608;
-      --bg-darker: #050406;
-      --bg-card: rgba(18, 14, 17, 0.82);
-      --bg-card-hover: rgba(28, 20, 25, 0.95);
+      --red-deep: #7a040c;
+      --red-glow: rgba(229, 9, 20, 0.65);
+      --white-glow: rgba(255, 255, 255, 0.45);
+      --bg: #140407;
+      --bg-darker: #0c0204;
+      --bg-card: linear-gradient(135deg, rgba(45, 10, 16, 0.78) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(28, 6, 10, 0.85) 100%);
+      --bg-card-hover: linear-gradient(135deg, rgba(75, 12, 22, 0.88) 0%, rgba(255, 255, 255, 0.16) 50%, rgba(40, 8, 14, 0.92) 100%);
       --white: #ffffff;
-      --white-muted: #d0d0d8;
-      --text-dim: #90909c;
-      --border: rgba(255, 255, 255, 0.1);
-      --border-red: rgba(229, 9, 20, 0.4);
+      --white-muted: #f0e6e8;
+      --text-dim: #cbb8bc;
+      --border: rgba(255, 255, 255, 0.26);
+      --border-red: rgba(255, 45, 55, 0.65);
       --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -41,6 +42,7 @@
       scroll-behavior: smooth;
     }
 
+    /* KIRMIZI - BEYAZ KARIŞIK TON ARKA PLAN */
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
@@ -48,11 +50,43 @@
       overflow-x: hidden;
       line-height: 1.6;
       background-image: 
-        radial-gradient(circle at 75% 25%, rgba(229, 9, 20, 0.22) 0%, transparent 55%),
-        radial-gradient(circle at 10% 70%, rgba(229, 9, 20, 0.12) 0%, transparent 45%),
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        radial-gradient(circle at 72% 28%, rgba(229, 9, 20, 0.55) 0%, rgba(255, 255, 255, 0.16) 28%, transparent 62%),
+        radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.22) 0%, rgba(229, 9, 20, 0.32) 36%, transparent 65%),
+        radial-gradient(circle at 82% 72%, rgba(255, 255, 255, 0.18) 0%, rgba(229, 9, 20, 0.42) 38%, transparent 68%),
+        radial-gradient(circle at 15% 80%, rgba(229, 9, 20, 0.48) 0%, rgba(255, 230, 235, 0.15) 35%, transparent 65%),
+        linear-gradient(135deg, #1b0408 0%, #380810 28%, #54121c 48%, #2b060c 75%, #160306 100%);
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    /* ARKA PLAN IŞILTILI KIRMIZI-BEYAZ IZGARALAR VE HAREKETLİ HALE */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 65% 35%, rgba(255, 30, 39, 0.28) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+      animation: ambientPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientPulse {
+      0% { opacity: 0.75; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.06); }
     }
 
     a {
@@ -72,6 +106,32 @@
       margin: 0 auto;
       padding: 0 28px;
       position: relative;
+      z-index: 2;
+    }
+
+    /* IŞILTILI KUTUCUK ORTAK EFEKTLERİ (SPARKLE & SHIMMER) */
+    @keyframes borderSparkle {
+      0%, 100% {
+        box-shadow: 
+          0 10px 35px rgba(0, 0, 0, 0.55),
+          0 0 22px rgba(229, 9, 20, 0.42),
+          0 0 10px rgba(255, 255, 255, 0.18),
+          inset 0 1px 2px rgba(255, 255, 255, 0.55),
+          inset 0 0 20px rgba(255, 255, 255, 0.08);
+      }
+      50% {
+        box-shadow: 
+          0 12px 42px rgba(229, 9, 20, 0.55),
+          0 0 32px rgba(255, 60, 70, 0.65),
+          0 0 16px rgba(255, 255, 255, 0.35),
+          inset 0 1px 3px rgba(255, 255, 255, 0.8),
+          inset 0 0 28px rgba(255, 180, 185, 0.16);
+      }
+    }
+
+    @keyframes shimmerSweep {
+      0% { transform: translateX(-140%) skewX(-25deg); }
+      100% { transform: translateX(240%) skewX(-25deg); }
     }
 
     /* HEADER */
@@ -79,10 +139,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 6, 8, 0.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
+      background: linear-gradient(90deg, rgba(16, 4, 7, 0.92) 0%, rgba(42, 8, 14, 0.88) 50%, rgba(16, 4, 7, 0.92) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(229, 9, 20, 0.25);
       transition: var(--transition);
     }
 
@@ -90,55 +151,41 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 76px;
+      height: 78px;
     }
 
+    /* GÖRSELDEKİ GİBİ SOS YAPIM SOL ÜST LOGO */
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 8px;
+      text-decoration: none;
     }
 
     .brand-logo-img {
       height: 44px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 12px var(--red-glow));
-      border-radius: 6px;
+      filter: drop-shadow(0 0 14px rgba(229, 9, 20, 0.75));
       transition: var(--transition);
+      display: block;
     }
 
-    .brand-logo-img:hover {
+    .brand:hover .brand-logo-img {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 20px var(--red-bright));
+      filter: drop-shadow(0 0 22px #ff1e27) drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
+    .brand-yapim-word {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.3rem;
+      font-size: 0.85rem;
       font-weight: 800;
-      letter-spacing: 0.5px;
+      letter-spacing: 3.5px;
       color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .brand-title span {
-      color: var(--red);
-    }
-
-    .brand-tag {
-      font-size: 0.7rem;
-      color: var(--text-dim);
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
     .nav-links {
@@ -158,6 +205,7 @@
 
     .nav-link:hover, .nav-link.active {
       color: var(--white);
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
     }
 
     .nav-link::after {
@@ -167,13 +215,19 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: var(--red);
-      box-shadow: 0 0 8px var(--red);
+      background: linear-gradient(90deg, var(--red-bright), var(--white));
+      box-shadow: 0 0 10px var(--red-bright);
       transition: width 0.3s ease;
     }
 
     .nav-link:hover::after, .nav-link.active::after {
       width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .btn {
@@ -182,58 +236,123 @@
       justify-content: center;
       gap: 8px;
       padding: 12px 26px;
-      font-size: 0.92rem;
-      font-weight: 700;
+      font-size: 0.9rem;
+      font-weight: 800;
       border-radius: var(--radius-sm);
       transition: var(--transition);
       white-space: nowrap;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+      transform: translateX(-160%) skewX(-25deg);
+      transition: transform 0.6s ease;
+      pointer-events: none;
+    }
+
+    .btn:hover::before {
+      transform: translateX(280%) skewX(-25deg);
     }
 
     .btn-red {
-      background: var(--red);
+      background: linear-gradient(135deg, #ff1e27 0%, #d40610 60%, #ff4b52 100%);
       color: var(--white);
-      box-shadow: 0 4px 25px var(--red-glow);
-      border: 1px solid var(--red-bright);
+      box-shadow: 0 4px 25px rgba(229, 9, 20, 0.65), 0 0 12px rgba(255, 255, 255, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
     }
 
     .btn-red:hover {
-      background: var(--red-bright);
       transform: translateY(-2px);
-      box-shadow: 0 8px 35px rgba(229, 9, 20, 0.7);
+      box-shadow: 0 8px 35px rgba(255, 30, 39, 0.85), 0 0 20px rgba(255, 255, 255, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.9);
     }
 
     .btn-outline {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(229, 9, 20, 0.15) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
       color: var(--white);
+      box-shadow: 0 0 18px rgba(229, 9, 20, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
     }
 
     .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(229, 9, 20, 0.35) 100%);
       border-color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(255, 255, 255, 0.45), 0 0 20px var(--red-glow);
+    }
+
+    .btn-contact-nav {
+      background: rgba(20, 4, 8, 0.75);
+      border: 1.5px solid var(--red-bright);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 0 18px rgba(229, 9, 20, 0.45), inset 0 0 10px rgba(255, 255, 255, 0.12);
+      text-transform: none;
+    }
+
+    .btn-contact-nav:hover {
+      background: var(--red);
+      border-color: var(--white);
+      box-shadow: 0 0 28px rgba(255, 30, 39, 0.8), 0 0 12px rgba(255, 255, 255, 0.5);
       transform: translateY(-2px);
     }
 
-    /* HERO SECTION (EXACT LAYOUT FROM SCREENSHOT) */
+    .mobile-menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(229, 9, 20, 0.2);
+      color: var(--white);
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+    }
+
+    /* HERO SECTION (GÖRSELDEKİ İLE BİREBİR UYUMLU) */
     .hero {
       position: relative;
-      padding: 85px 0 70px;
+      padding: 80px 0 75px;
       overflow: hidden;
       display: flex;
       align-items: center;
-      min-height: calc(100vh - 140px);
+      min-height: calc(100vh - 135px);
     }
 
     .hero-bg-glow {
       position: absolute;
-      top: 15%;
-      right: 10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(229, 9, 20, 0.25) 0%, transparent 68%);
-      filter: blur(80px);
+      top: 8%;
+      right: 6%;
+      width: 680px;
+      height: 680px;
+      background: radial-gradient(circle, rgba(255, 30, 39, 0.52) 0%, rgba(255, 255, 255, 0.22) 35%, rgba(229, 9, 20, 0.18) 55%, transparent 72%);
+      filter: blur(65px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-bg-glow-left {
+      position: absolute;
+      bottom: 5%;
+      left: 2%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(229, 9, 20, 0.35) 45%, transparent 70%);
+      filter: blur(75px);
       z-index: 0;
       pointer-events: none;
     }
@@ -256,28 +375,29 @@
 
     .hero-pretitle {
       font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 2px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--red);
+      color: #ff3b43;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      text-shadow: 0 0 14px rgba(229, 9, 20, 0.6);
     }
 
     .hero-pretitle::before {
       content: '';
-      width: 24px;
+      width: 28px;
       height: 2px;
-      background: var(--red);
-      box-shadow: 0 0 8px var(--red);
+      background: linear-gradient(90deg, var(--white), var(--red-bright));
+      box-shadow: 0 0 10px var(--red-bright);
     }
 
     .hero-main-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.2rem, 6.8vw, 5.6rem);
+      font-size: clamp(3.4rem, 7vw, 5.8rem);
       font-weight: 900;
-      line-height: 0.95;
+      line-height: 0.94;
       letter-spacing: -1.5px;
       text-transform: uppercase;
     }
@@ -285,19 +405,21 @@
     .hero-main-title .word-white {
       color: var(--white);
       display: block;
+      text-shadow: 0 4px 30px rgba(255, 255, 255, 0.35);
     }
 
     .hero-main-title .word-red {
-      color: var(--red);
+      color: var(--red-bright);
       display: block;
-      text-shadow: 0 0 40px rgba(229, 9, 20, 0.6);
+      text-shadow: 0 0 45px rgba(255, 30, 39, 0.75), 0 0 15px rgba(255, 255, 255, 0.25);
     }
 
     .hero-desc {
       font-size: 1.15rem;
-      line-height: 1.55;
+      line-height: 1.6;
       color: var(--white-muted);
-      max-width: 520px;
+      max-width: 530px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .hero-actions {
@@ -308,7 +430,7 @@
       flex-wrap: wrap;
     }
 
-    /* RIGHT SIDE: HUGE VINYL TURNTABLE & SCRATCH */
+    /* SAĞ TARAF: GÖRSELDEKİ İLE BİREBİR AYNI SOS PLAK VE PİKAP KOLU */
     .hero-vinyl-wrapper {
       position: relative;
       display: flex;
@@ -320,10 +442,10 @@
 
     .vinyl-stage {
       position: relative;
-      width: 380px;
-      height: 380px;
-      max-width: 90vw;
-      max-height: 90vw;
+      width: 410px;
+      height: 410px;
+      max-width: 88vw;
+      max-height: 88vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -335,27 +457,49 @@
       cursor: grabbing;
     }
 
+    /* PLAK DİSKİ: EŞMERKEZLİ OLUKLAR (GROOVES) */
     .vinyl-disc {
-      position: absolute;
+      position: relative;
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: 
-        radial-gradient(circle, transparent 38%, rgba(255,255,255,0.06) 39%, transparent 40%),
-        radial-gradient(circle, transparent 48%, rgba(255,255,255,0.05) 49%, transparent 50%),
-        radial-gradient(circle, transparent 62%, rgba(255,255,255,0.05) 63%, transparent 64%),
-        radial-gradient(circle, transparent 76%, rgba(255,255,255,0.04) 77%, transparent 78%),
-        radial-gradient(circle, transparent 88%, rgba(255,255,255,0.04) 89%, transparent 90%),
-        repeating-radial-gradient(circle, #0c0b0e 0px, #18161b 2px, #0c0b0e 4px);
+      background: #0d0b0c;
+      border: 4px solid #241e20;
       box-shadow: 
-        0 10px 45px rgba(0, 0, 0, 0.95),
-        0 0 35px rgba(229, 9, 20, 0.35),
-        inset 0 0 15px rgba(0, 0, 0, 0.8);
+        0 18px 55px rgba(0, 0, 0, 0.92),
+        0 0 50px rgba(229, 9, 20, 0.45),
+        0 0 20px rgba(255, 255, 255, 0.15),
+        inset 0 0 20px rgba(0, 0, 0, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: spinVinyl 6s linear infinite;
-      transition: transform 0.08s ease;
+      transition: transform 0.12s cubic-bezier(0.1, 0.9, 0.2, 1);
+      overflow: hidden;
+    }
+
+    /* DÖNEN PLAK OLUKLARI VE IŞIK YANSIMASI */
+    .vinyl-grooves {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        conic-gradient(
+          from 35deg,
+          transparent 0deg,
+          rgba(255, 255, 255, 0.07) 25deg,
+          transparent 55deg,
+          transparent 180deg,
+          rgba(255, 255, 255, 0.07) 205deg,
+          transparent 235deg
+        ),
+        repeating-radial-gradient(
+          circle at center,
+          #0c0a0b 0px,
+          #0c0a0b 6px,
+          #221d1f 7.5px,
+          #0c0a0b 9px
+        );
+      animation: spinVinyl 8s linear infinite;
     }
 
     @keyframes spinVinyl {
@@ -363,137 +507,125 @@
       to { transform: rotate(360deg); }
     }
 
-    .vinyl-disc.scratch-active {
-      animation: none !important;
-      transform: rotate(-65deg) scale(0.97) !important;
-      transition: transform 0.06s cubic-bezier(0.1, 0.9, 0.2, 1);
-    }
-
-    .vinyl-label-sos {
-      width: 165px;
-      height: 165px;
-      border-radius: 50%;
+    /* PLAK ÜZERİNDEKİ BÜYÜK KIRMIZI SOS LOGOSU (GÖRSELDEKİ GİBİ) */
+    .vinyl-sos-center {
       position: relative;
-      overflow: hidden;
+      z-index: 2;
+      width: 76%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #000;
-      box-shadow: 0 0 25px rgba(229, 9, 20, 0.8), inset 0 0 10px rgba(0, 0, 0, 0.9);
-      border: 3px solid #ff1e27;
+      pointer-events: none;
+      transition: transform 0.15s ease;
     }
 
     .vinyl-sos-img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.05);
+      height: auto;
+      object-fit: contain;
+      filter: 
+        drop-shadow(0 0 2px #ff3b43)
+        drop-shadow(0 0 18px rgba(229, 9, 20, 0.65));
     }
 
-    .vinyl-center-hole {
+    /* GÖRSELDEKİ SAĞ 'S' HARFİ ÜZERİNDEKİ BEYAZ İĞNE KAFASI */
+    .vinyl-stylus-tab {
       position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #000;
-      border: 2px solid #ffffff;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
-      z-index: 5;
+      top: 4%;
+      right: -3%;
+      width: 24px;
+      height: 50px;
+      background: linear-gradient(135deg, #ffffff 0%, #dcdadb 100%);
+      border-radius: 4px;
+      transform: rotate(-22deg);
+      box-shadow: 
+        0 4px 14px rgba(0, 0, 0, 0.85),
+        0 0 12px rgba(255, 255, 255, 0.55);
+      z-index: 4;
     }
 
-    /* TONEARM (SCREENSHOT ACCURATE) */
+    .vinyl-disc.scratch-active {
+      transform: rotate(-32deg) scale(0.97) !important;
+    }
+
+    /* GÖRSELDEKİ SAĞ ÜST PİKAP KOLU VE YUVARLAK PİVOT (TONEARM) */
     .vinyl-tonearm {
       position: absolute;
-      top: -20px;
-      right: -35px;
-      width: 120px;
+      top: -12px;
+      right: -68px;
+      width: 140px;
       height: 220px;
       pointer-events: none;
-      z-index: 3;
-      transform-origin: top right;
-      transform: rotate(18deg);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 5;
+      transform-origin: 64px 40px;
+      transform: rotate(0deg);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .vinyl-tonearm.scratching {
-      transform: rotate(26deg);
+      transform: rotate(8deg) translate(-4px, 3px);
     }
 
+    /* SAĞ ÜSTTEKİ YUVARLAK PİVOT HALKASI */
     .tonearm-pivot-base {
       position: absolute;
-      top: 0;
-      right: 15px;
-      width: 44px;
-      height: 44px;
+      top: 4px;
+      left: 24px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
-      background: radial-gradient(circle, #555 20%, #222 70%, #000 100%);
-      border: 4px solid #888;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+      background: #171214;
+      border: 7px solid #b7b5b6;
+      box-shadow: 
+        0 8px 22px rgba(0, 0, 0, 0.85),
+        inset 0 2px 6px rgba(0, 0, 0, 0.9);
+      z-index: 2;
     }
 
+    /* METALİK PİKAP ÇUBUĞU (SAĞ AŞAĞI UZANAN KOL) */
     .tonearm-metal-rod {
       position: absolute;
-      top: 30px;
-      right: 32px;
-      width: 7px;
+      top: 58px;
+      left: 62px;
+      width: 14px;
       height: 150px;
-      background: linear-gradient(to right, #666, #fff 50%, #444);
-      border-radius: 3px;
+      background: linear-gradient(90deg, #7c7a7b 0%, #e2e0e1 48%, #6e6c6d 100%);
+      border-radius: 8px;
       transform-origin: top center;
-      transform: rotate(-18deg);
-      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7);
-    }
-
-    .tonearm-cartridge-head {
-      position: absolute;
-      bottom: 22px;
-      left: 18px;
-      width: 22px;
-      height: 38px;
-      background: linear-gradient(135deg, #111 0%, #333 100%);
-      border: 2px solid #888;
-      border-radius: 4px;
-      box-shadow: 0 0 12px var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .tonearm-cartridge-head::after {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--red);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--red-bright);
+      transform: rotate(-24deg);
+      box-shadow: -4px 8px 18px rgba(0, 0, 0, 0.8);
+      z-index: 1;
     }
 
     .scratch-instruction-pill {
       position: absolute;
-      bottom: -32px;
+      bottom: -38px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(229, 9, 20, 0.15);
-      border: 1px solid var(--border-red);
-      padding: 6px 16px;
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.45), rgba(255, 255, 255, 0.18));
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      padding: 7px 18px;
       border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: 0.8rem;
+      font-weight: 800;
       color: var(--white);
-      letter-spacing: 0.5px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 15px rgba(229, 9, 20, 0.3);
+      letter-spacing: 0.6px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 22px rgba(229, 9, 20, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.6);
       cursor: pointer;
       transition: var(--transition);
+      z-index: 6;
     }
 
     .scratch-instruction-pill:hover {
-      background: var(--red);
-      box-shadow: 0 0 25px var(--red-glow);
+      background: var(--red-bright);
+      border-color: var(--white);
+      box-shadow: 0 0 30px rgba(255, 30, 39, 0.9), 0 0 15px rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
     }
 
-    /* RIGHT VERTICAL TEXT (SCREENSHOT ACCURATE) */
+    /* SAĞ DİKEY YAZI */
     .vertical-right-label {
       position: fixed;
       right: 18px;
@@ -501,23 +633,26 @@
       transform: translateY(-50%) rotate(90deg);
       transform-origin: center right;
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 3px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.55);
       text-transform: uppercase;
       z-index: 10;
       pointer-events: none;
+      text-shadow: 0 0 10px rgba(229, 9, 20, 0.6);
     }
 
-    /* RUNNING MARQUEE TICKER (SCREENSHOT ACCURATE) */
+    /* AKAN YAZI BANDI (MARQUEE) */
     .marquee-strip {
-      background: #000;
-      border-top: 1px solid var(--border-red);
-      border-bottom: 1px solid var(--border-red);
+      background: linear-gradient(90deg, #120205 0%, #2e060d 50%, #120205 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
       padding: 14px 0;
       overflow: hidden;
       white-space: nowrap;
       position: relative;
+      z-index: 2;
     }
 
     .marquee-track {
@@ -541,18 +676,20 @@
       align-items: center;
       gap: 24px;
       padding-right: 24px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
     }
 
     .marquee-star {
-      color: var(--red);
-      font-size: 1.1rem;
-      text-shadow: 0 0 8px var(--red);
+      color: var(--red-bright);
+      font-size: 1.15rem;
+      text-shadow: 0 0 12px var(--red-bright), 0 0 5px var(--white);
     }
 
     /* SECTIONS */
     .section {
       padding: 85px 0;
       position: relative;
+      z-index: 2;
     }
 
     .section-header {
@@ -567,12 +704,13 @@
     .section-tag {
       font-size: 0.82rem;
       font-weight: 800;
-      color: var(--red);
+      color: #ff4d54;
       letter-spacing: 2px;
       text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 8px;
+      text-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
     }
 
     .section-tag::before {
@@ -580,8 +718,9 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 10px var(--red);
+      background: var(--white);
+      border: 2px solid var(--red-bright);
+      box-shadow: 0 0 12px var(--red-bright), 0 0 6px var(--white);
     }
 
     .section-title {
@@ -591,6 +730,48 @@
       color: var(--white);
       letter-spacing: -0.5px;
       margin-top: 4px;
+      text-shadow: 0 2px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    /* IŞILTILI KART TEMEL SINIFI */
+    .sparkle-box {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(229, 9, 20, 0.38),
+        0 0 10px rgba(255, 255, 255, 0.16),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6),
+        inset 0 0 22px rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sparkle-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.18) 45%,
+        rgba(255, 80, 90, 0.25) 50%,
+        rgba(255, 255, 255, 0.18) 55%,
+        transparent 80%
+      );
+      transform: skewX(-25deg);
+      transition: left 0.75s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .sparkle-box:hover::before {
+      left: 160%;
     }
 
     /* VIDEO THEATER LAYOUT */
@@ -602,23 +783,23 @@
     }
 
     .theater-screen-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-red);
       border-radius: var(--radius-lg);
-      padding: 18px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(229, 9, 20, 0.2);
+      padding: 20px;
       position: sticky;
-      top: 100px;
+      top: 98px;
+      animation: borderSparkle 5s ease-in-out infinite;
     }
 
     .screen-wrapper {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      padding-top: 56.25%;
       border-radius: var(--radius-md);
       overflow: hidden;
       background: #000;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85), 0 0 20px rgba(229, 9, 20, 0.35);
+      z-index: 2;
     }
 
     .screen-wrapper iframe {
@@ -631,12 +812,14 @@
     }
 
     .now-playing-info {
-      padding: 18px 8px 6px;
+      padding: 18px 6px 6px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .now-playing-badge {
@@ -645,29 +828,30 @@
       gap: 6px;
       font-size: 0.76rem;
       font-weight: 800;
-      color: var(--red);
+      color: #ff4d54;
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
 
     .live-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--red);
+      width: 8px;
+      height: 8px;
+      background: var(--red-bright);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--red);
+      box-shadow: 0 0 12px var(--red-bright), 0 0 5px var(--white);
       animation: pulse 1.5s infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
+      0%, 100% { opacity: 0.35; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
     }
 
     .now-playing-title {
       font-size: 1.4rem;
       font-weight: 800;
       color: var(--white);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
     .now-playing-artist {
@@ -675,11 +859,37 @@
       color: var(--white-muted);
     }
 
-    /* TRACKLIST */
+    .player-controls-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-ctrl {
+      padding: 9px 14px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: var(--white);
+      transition: var(--transition);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-ctrl:hover {
+      background: var(--red-bright);
+      border-color: var(--white);
+      box-shadow: 0 0 18px var(--red-glow);
+      transform: translateY(-1px);
+    }
+
+    /* TRACKLIST & SEARCH */
     .catalog-panel {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
 
     .search-box {
@@ -692,26 +902,33 @@
       left: 16px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--red);
+      color: var(--white);
       width: 18px;
       height: 18px;
+      z-index: 2;
+      filter: drop-shadow(0 0 6px var(--red-bright));
     }
 
     .search-input {
       width: 100%;
-      background: var(--bg-card);
-      border: 1px solid var(--border-red);
+      background: linear-gradient(135deg, rgba(45, 10, 16, 0.85), rgba(255, 255, 255, 0.1));
+      border: 1px solid rgba(255, 255, 255, 0.42);
       border-radius: var(--radius-sm);
       padding: 14px 18px 14px 46px;
       color: var(--white);
       font-size: 0.95rem;
       outline: none;
       transition: var(--transition);
+      box-shadow: 0 0 20px rgba(229, 9, 20, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.45);
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.65);
     }
 
     .search-input:focus {
-      border-color: var(--red-bright);
-      box-shadow: 0 0 20px var(--red-glow);
+      border-color: var(--white);
+      box-shadow: 0 0 28px rgba(255, 30, 39, 0.65), 0 0 12px rgba(255, 255, 255, 0.45);
     }
 
     .tracklist-wrap {
@@ -719,8 +936,8 @@
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      padding-right: 6px;
+      gap: 11px;
+      padding: 4px 8px 4px 2px;
     }
 
     .tracklist-wrap::-webkit-scrollbar {
@@ -728,37 +945,69 @@
     }
 
     .tracklist-wrap::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .tracklist-wrap::-webkit-scrollbar-thumb {
-      background: var(--red);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 4px;
     }
 
+    .tracklist-wrap::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--white), var(--red-bright));
+      border-radius: 4px;
+    }
+
+    /* IŞILTILI ŞARKI KUTUCUKLARI */
     .track-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      padding: 10px 14px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      padding: 11px 15px;
+      background: linear-gradient(135deg, rgba(40, 8, 14, 0.82) 0%, rgba(255, 255, 255, 0.09) 50%, rgba(25, 5, 10, 0.88) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: var(--radius-md);
       transition: var(--transition);
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.45),
+        0 0 15px rgba(229, 9, 20, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    }
+
+    .track-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -110%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.24), transparent);
+      transform: skewX(-25deg);
+      transition: left 0.55s ease;
+      pointer-events: none;
+    }
+
+    .track-card:hover::before {
+      left: 150%;
     }
 
     .track-card:hover {
       background: var(--bg-card-hover);
-      border-color: var(--red);
-      transform: translateX(4px);
+      border-color: rgba(255, 255, 255, 0.85);
+      transform: translateX(5px);
+      box-shadow: 
+        0 8px 28px rgba(229, 9, 20, 0.5),
+        0 0 16px rgba(255, 255, 255, 0.35),
+        inset 0 1px 2px rgba(255, 255, 255, 0.75);
     }
 
     .track-card.active {
-      background: rgba(229, 9, 20, 0.16);
-      border-color: var(--red);
-      box-shadow: 0 0 25px rgba(229, 9, 20, 0.35);
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.48) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(160, 6, 14, 0.55) 100%);
+      border-color: var(--white);
+      box-shadow: 
+        0 0 30px rgba(255, 30, 39, 0.7),
+        0 0 14px rgba(255, 255, 255, 0.45),
+        inset 0 1px 2px rgba(255, 255, 255, 0.85);
     }
 
     .track-left {
@@ -766,29 +1015,32 @@
       align-items: center;
       gap: 14px;
       min-width: 0;
+      position: relative;
+      z-index: 2;
     }
 
     .track-num {
       font-size: 0.9rem;
       font-weight: 800;
-      color: var(--text-dim);
-      width: 22px;
+      color: var(--white-muted);
+      width: 24px;
       text-align: center;
     }
 
     .track-card.active .track-num {
-      color: var(--red);
+      color: var(--white);
+      text-shadow: 0 0 10px var(--white);
     }
 
     .track-cover-wrap {
       position: relative;
       width: 58px;
       height: 58px;
-      border-radius: 8px;
+      border-radius: 9px;
       overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65), 0 0 10px rgba(229, 9, 20, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.45);
     }
 
     .track-cover-img {
@@ -805,7 +1057,7 @@
     .play-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(229, 9, 20, 0.55);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -814,10 +1066,11 @@
     }
 
     .play-overlay svg {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       color: var(--white);
       fill: var(--white);
+      filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.6));
     }
 
     .track-card:hover .play-overlay,
@@ -833,8 +1086,8 @@
     }
 
     .track-name {
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 0.98rem;
+      font-weight: 800;
       color: var(--white);
       white-space: nowrap;
       overflow: hidden;
@@ -842,7 +1095,7 @@
     }
 
     .track-artist {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--white-muted);
       white-space: nowrap;
       overflow: hidden;
@@ -854,14 +1107,16 @@
       align-items: center;
       gap: 10px;
       flex-shrink: 0;
+      position: relative;
+      z-index: 2;
     }
 
-    .mini-scratch-btn {
-      width: 34px;
-      height: 34px;
+    .mini-scratch-btn, .external-link-btn {
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -869,70 +1124,61 @@
       font-size: 1.05rem;
       transition: var(--transition);
       cursor: pointer;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45);
     }
 
     .mini-scratch-btn:hover {
-      background: var(--red);
-      border-color: var(--red);
+      background: var(--red-bright);
+      border-color: var(--white);
       transform: scale(1.15) rotate(45deg);
-      box-shadow: 0 0 14px var(--red-glow);
-    }
-
-    .external-link-btn {
-      color: var(--white-muted);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
+      box-shadow: 0 0 16px var(--red-bright), 0 0 8px var(--white);
     }
 
     .external-link-btn:hover {
       color: var(--white);
-      background: var(--red);
-      border-color: var(--red);
-      transform: scale(1.1);
+      background: var(--red-bright);
+      border-color: var(--white);
+      transform: scale(1.12);
+      box-shadow: 0 0 16px var(--red-bright), 0 0 8px var(--white);
     }
 
-    /* ARTISTS GRID */
+    /* SANATÇILAR IŞILTILI KUTUCUKLAR */
     .artists-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
       gap: 26px;
     }
 
     .artist-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 24px 20px;
+      padding: 28px 22px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      position: relative;
-      overflow: hidden;
       transition: var(--transition);
     }
 
     .artist-card:hover {
-      border-color: var(--red);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(229, 9, 20, 0.25);
+      background: var(--bg-card-hover);
+      border-color: var(--white);
+      transform: translateY(-7px);
+      box-shadow: 
+        0 20px 50px rgba(229, 9, 20, 0.55),
+        0 0 28px rgba(255, 255, 255, 0.4),
+        inset 0 1px 3px rgba(255, 255, 255, 0.85);
     }
 
     .artist-avatar-wrap {
-      width: 125px;
-      height: 125px;
+      width: 128px;
+      height: 128px;
       border-radius: 50%;
       overflow: hidden;
       margin-bottom: 16px;
-      border: 3px solid var(--red);
-      box-shadow: 0 0 22px rgba(229, 9, 20, 0.4);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 25px rgba(255, 30, 39, 0.75), 0 0 12px rgba(255, 255, 255, 0.55);
+      position: relative;
+      z-index: 2;
     }
 
     .artist-avatar {
@@ -947,26 +1193,29 @@
     }
 
     .artist-name {
-      font-size: 1.2rem;
+      font-size: 1.24rem;
       font-weight: 800;
       color: var(--white);
       margin-bottom: 8px;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+      position: relative;
+      z-index: 2;
     }
 
     .artist-hits {
       font-size: 0.88rem;
       color: var(--white-muted);
       margin-bottom: 18px;
-      line-height: 1.4;
+      line-height: 1.45;
+      position: relative;
+      z-index: 2;
     }
 
-    /* ABOUT SECTION */
+    /* HAKKIMIZDA IŞILTILI KUTU */
     .about-card {
-      background: linear-gradient(135deg, rgba(22, 16, 20, 0.9) 0%, rgba(10, 8, 10, 0.98) 100%);
-      border: 1px solid var(--border-red);
       border-radius: var(--radius-lg);
       padding: 48px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      animation: borderSparkle 6s ease-in-out infinite;
     }
 
     .about-grid {
@@ -974,14 +1223,17 @@
       grid-template-columns: 1.2fr 1fr;
       gap: 40px;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .about-text h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.9rem;
+      font-size: 1.95rem;
       font-weight: 800;
       color: var(--white);
       margin-bottom: 16px;
+      text-shadow: 0 0 18px rgba(255, 255, 255, 0.3);
     }
 
     .about-text p {
@@ -994,10 +1246,11 @@
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--red);
+      color: #ff5b62;
       font-weight: 800;
       margin-top: 24px;
       margin-bottom: 12px;
+      text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
     }
 
     .platforms-tags {
@@ -1007,58 +1260,82 @@
     }
 
     .platform-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(229, 9, 20, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.42);
       padding: 7px 16px;
       border-radius: var(--radius-sm);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      transition: var(--transition);
+    }
+
+    .platform-tag:hover {
+      background: linear-gradient(135deg, var(--red-bright), rgba(255, 255, 255, 0.35));
+      border-color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px var(--red-bright), 0 0 8px var(--white);
     }
 
     .about-features {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 18px;
     }
 
     .feature-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(229, 9, 20, 0.2) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
       border-radius: var(--radius-md);
-      padding: 20px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       gap: 8px;
       transition: var(--transition);
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(229, 9, 20, 0.28),
+        inset 0 1px 2px rgba(255, 255, 255, 0.55);
+      position: relative;
+      overflow: hidden;
     }
 
     .feature-box:hover {
-      border-color: var(--red);
-      background: rgba(229, 9, 20, 0.08);
-      transform: translateY(-3px);
+      border-color: var(--white);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(229, 9, 20, 0.42) 100%);
+      transform: translateY(-4px);
+      box-shadow: 
+        0 14px 32px rgba(229, 9, 20, 0.55),
+        0 0 20px rgba(255, 255, 255, 0.45),
+        inset 0 1px 2px rgba(255, 255, 255, 0.85);
     }
 
     .feature-title {
-      font-size: 1rem;
+      font-size: 1.04rem;
       font-weight: 800;
       color: var(--white);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 
     .feature-desc {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--white-muted);
     }
 
-    /* DEMO FORM SECTION */
+    /* DEMO FORM IŞILTILI KUTU */
     .demo-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-red);
       border-radius: var(--radius-lg);
-      padding: 42px;
+      padding: 44px;
       display: grid;
       grid-template-columns: 1fr 1.3fr;
       gap: 40px;
+      animation: borderSparkle 6s ease-in-out infinite;
+    }
+
+    .demo-info, #demoForm {
+      position: relative;
+      z-index: 2;
     }
 
     .demo-info h3 {
@@ -1067,6 +1344,7 @@
       font-weight: 800;
       color: var(--white);
       margin-bottom: 12px;
+      text-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
     }
 
     .demo-info p {
@@ -1092,15 +1370,15 @@
 
     .form-label {
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--white);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
     }
 
     .form-input, .form-textarea {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.42);
       border-radius: var(--radius-sm);
       padding: 12px 16px;
       color: var(--white);
@@ -1108,11 +1386,17 @@
       font-size: 0.92rem;
       outline: none;
       transition: var(--transition);
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35);
+    }
+
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .form-input:focus, .form-textarea:focus {
-      border-color: var(--red);
-      box-shadow: 0 0 15px var(--red-glow);
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 0 20px var(--red-glow), 0 0 10px rgba(255, 255, 255, 0.45);
     }
 
     .form-textarea {
@@ -1122,9 +1406,11 @@
 
     /* FOOTER */
     .footer {
-      border-top: 1px solid var(--border);
-      background: var(--bg-darker);
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+      background: linear-gradient(180deg, rgba(20, 4, 8, 0.95) 0%, #090103 100%);
       padding: 60px 0 30px;
+      position: relative;
+      z-index: 2;
     }
 
     .footer-grid {
@@ -1136,7 +1422,7 @@
 
     .footer-brand p {
       color: var(--white-muted);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       margin-top: 14px;
       max-width: 320px;
     }
@@ -1146,8 +1432,9 @@
       font-weight: 800;
       color: var(--white);
       margin-bottom: 18px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
     }
 
     .footer-links {
@@ -1161,15 +1448,17 @@
       color: var(--white-muted);
       font-size: 0.9rem;
       transition: var(--transition);
+      display: inline-block;
     }
 
     .footer-links a:hover {
-      color: var(--red);
+      color: var(--white);
+      text-shadow: 0 0 10px var(--red-bright);
       transform: translateX(4px);
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
       padding-top: 25px;
       display: flex;
       align-items: center;
@@ -1185,9 +1474,9 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: #140d10;
-      border: 1px solid var(--red);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8), 0 0 25px var(--red-glow);
+      background: linear-gradient(135deg, #2b060d, #140306);
+      border: 1px solid var(--white);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.85), 0 0 28px var(--red-bright);
       padding: 14px 22px;
       border-radius: var(--radius-sm);
       color: var(--white);
@@ -1212,7 +1501,7 @@
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 60px;
+        gap: 65px;
       }
       .hero-content {
         align-items: center;
@@ -1246,27 +1535,41 @@
     }
 
     @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
       .nav-links {
         display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(20, 4, 8, 0.97);
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+      }
+      .nav-links.open {
+        display: flex;
       }
       .hero-main-title {
         font-size: 3.2rem;
       }
       .vinyl-stage {
-        width: 300px;
-        height: 300px;
-      }
-      .vinyl-label-sos {
-        width: 130px;
-        height: 130px;
+        width: 310px;
+        height: 310px;
       }
       .vinyl-tonearm {
-        display: none;
+        transform: scale(0.78);
+        top: -22px;
+        right: -36px;
       }
-      .form-grid {
-        grid-template-columns: 1fr;
+      .about-card, .demo-card {
+        padding: 28px 20px;
       }
-      .footer-grid {
+      .about-features, .form-grid, .footer-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1274,46 +1577,43 @@
 </head>
 <body>
 
-  <!-- VERTICAL RIGHT SCRIPT TEXT (FROM SCREENSHOT) -->
+  <!-- SAĞ DİKEY SLOGAN -->
   <div class="vertical-right-label">
     KENDİ SESİNİN PEŞİNDEN GİT
   </div>
 
-  <!-- HEADER -->
+  <!-- HEADER (GÖRSELDEKİ GİBİ SOS YAPIM LOGO & MENÜ) -->
   <header class="header">
     <div class="container">
       <nav class="nav">
-        <a href="#" class="brand">
-          <img src="sos-logo.jpeg" alt="SOS Yapım Logo" class="brand-logo-img" onerror="this.src='sos-logo.png'">
-          <div class="brand-text">
-            <span class="brand-title">SOS <span>YAPIM</span></span>
-            <span class="brand-tag">Müzik & Prodüksiyon</span>
-          </div>
+        <a href="#" class="brand" aria-label="SOS Yapım Ana Sayfa">
+          <img src="sos-logo.png" alt="SOS" class="brand-logo-img">
+          <span class="brand-yapim-word">YAPIM</span>
         </a>
 
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
           <li><a href="#klipler" class="nav-link active">Video Klipler</a></li>
-          <li><a href="#sanatcilar" class="nav-link">Sanatçılar</a></li>
           <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
+          <li><a href="#sanatcilar" class="nav-link">Sanatçılar</a></li>
           <li><a href="#demo" class="nav-link">Demo Gönder</a></li>
-          <li><a href="#iletisim" class="nav-link">İletişim</a></li>
         </ul>
 
         <div class="nav-actions">
-          <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-red">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-            <span>Kanalı Aç</span>
+          <a href="#demo" class="btn btn-contact-nav">
+            <span>Bize Ulaşın ↗</span>
           </a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            ☰
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION (EXACT LAYOUT AS REQUESTED) -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-bg-glow"></div>
+    <div class="hero-bg-glow-left"></div>
     <div class="container">
       <div class="hero-grid">
         <!-- SOL: METİN VE ÇAĞRI BUTONLARI -->
@@ -1339,22 +1639,22 @@
           </div>
         </div>
 
-        <!-- SAĞ: BÜYÜK DJ PLAK VE İĞNE (SCRATCH ETKİLEŞİMLİ) -->
+        <!-- SAĞ: GÖRSELDEKİ İLE BİREBİR SOS PLAK VE PİKAP KOLU -->
         <div class="hero-vinyl-wrapper">
           <div class="vinyl-stage" id="heroVinylStage" onclick="triggerHeroScratch()" title="Plak üzerine tıkla veya dokun: DJ Scratch sesi!">
             <!-- PLAK DİSKİ -->
             <div class="vinyl-disc" id="heroVinylDisc">
-              <div class="vinyl-label-sos">
-                <img src="sos-logo.jpeg" alt="SOS Yapım Logo" class="vinyl-sos-img" onerror="this.src='sos-logo.png'">
-                <div class="vinyl-center-hole"></div>
+              <div class="vinyl-grooves"></div>
+              <div class="vinyl-sos-center">
+                <img src="sos-logo.png" alt="SOS Yapım Plak" class="vinyl-sos-img">
+                <div class="vinyl-stylus-tab"></div>
               </div>
             </div>
 
-            <!-- TONEARM (PİKAP İĞNESİ) -->
+            <!-- PİKAP KOLU VE YUVARLAK PİVOT (GÖRSELDEKİ GİBİ) -->
             <div class="vinyl-tonearm" id="heroTonearm">
               <div class="tonearm-pivot-base"></div>
               <div class="tonearm-metal-rod"></div>
-              <div class="tonearm-cartridge-head"></div>
             </div>
 
             <!-- SCRATCH BİLGİ PİLİ -->
@@ -1375,13 +1675,13 @@
     </div>
   </div>
 
-  <!-- VIDEO KLIPLER VE OYNATICI SECTION -->
+  <!-- VIDEO KLİPLER VE OYNATICI SECTION -->
   <section class="section" id="klipler">
     <div class="container">
       <div class="section-header">
         <div>
           <span class="section-tag">VİDEO VE SES DÜNYASI</span>
-          <h2 class="section-title">En Popüler Video Klipler & Parçalar <span style="font-size:0.95rem; font-weight:700; color:var(--red); background:rgba(229,9,20,0.15); border:1px solid var(--border-red); padding:4px 12px; border-radius:999px; vertical-align:middle; margin-left:10px;">56 Klip Yayında</span></h2>
+          <h2 class="section-title">En Popüler Video Klipler & Parçalar <span style="font-size:0.92rem; font-weight:800; color:var(--white); background:linear-gradient(135deg, var(--red-bright), rgba(255,255,255,0.25)); border:1px solid rgba(255,255,255,0.55); padding:5px 14px; border-radius:999px; vertical-align:middle; margin-left:10px; box-shadow:0 0 18px var(--red-glow);">56 Klip Yayında</span></h2>
         </div>
         <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
           <span>YouTube Kanalına Git ↗</span>
@@ -1389,8 +1689,8 @@
       </div>
 
       <div class="theater-layout">
-        <!-- SOL: VIDEO OYNATICI -->
-        <div class="theater-screen-card">
+        <!-- SOL: IŞILTILI VİDEO OYNATICI KUTUSU -->
+        <div class="theater-screen-card sparkle-box">
           <div class="screen-wrapper">
             <iframe id="videoPlayer" 
                     src="https://www.youtube.com/embed/Kjd_2wdFXWU?autoplay=0&rel=0&enablejsapi=1" 
@@ -1410,9 +1710,13 @@
               <p class="now-playing-artist" id="playerArtist">Sos Echoes</p>
             </div>
 
-            <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=Kjd_2wdFXWU" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="YouTube'da Aç">
-              <span>YouTube'da İzle ↗</span>
-            </a>
+            <div class="player-controls-row">
+              <button class="btn-ctrl" onclick="prevTrack()" title="Önceki Parça">⏮ Önceki</button>
+              <button class="btn-ctrl" onclick="nextTrack()" title="Sonraki Parça">Sonraki ⏭</button>
+              <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=Kjd_2wdFXWU" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="YouTube'da Aç">
+                <span>YouTube'da İzle ↗</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -1445,46 +1749,90 @@
       </div>
 
       <div class="artists-grid">
-        <div class="artist-card">
+        <div class="artist-card sparkle-box">
           <div class="artist-avatar-wrap">
             <img src="covers/aysel_elizade.jpg" alt="Aysel Elizade" class="artist-avatar">
           </div>
           <h4 class="artist-name">Aysel Elizade</h4>
           <p class="artist-hits">"Yandırdın Kalbimi", "Yandırdın Kalbimi (Remix)"</p>
-          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('aNQEyr_FYCA')">
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('aNQEyr_FYCA')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
 
-        <div class="artist-card">
+        <div class="artist-card sparkle-box">
           <div class="artist-avatar-wrap">
             <img src="covers/aila_rai.jpg" alt="Aila Rai" class="artist-avatar">
           </div>
           <h4 class="artist-name">Aila Rai</h4>
           <p class="artist-hits">"Yapamıyoruz", "Ferhat ile Şirin", "Xəyanət"</p>
-          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('lb2UTTUP2Z8')">
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('lb2UTTUP2Z8')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
 
-        <div class="artist-card">
+        <div class="artist-card sparkle-box">
           <div class="artist-avatar-wrap">
             <img src="covers/elif_vurgun_gum_gum.jpg" alt="Elif Vurgun" class="artist-avatar">
           </div>
           <h4 class="artist-name">Elif Vurgun</h4>
-          <p class="artist-hits">"Güm Güm", "Güm Güm (Club Edit)"</p>
-          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('RFgfESdma5c')">
+          <p class="artist-hits">"Güm Güm", "Güm Güm (Eray Topaloğlu Remix)"</p>
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('byFSlH109WQ')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
 
-        <div class="artist-card">
+        <div class="artist-card sparkle-box">
           <div class="artist-avatar-wrap">
             <img src="covers/esra_sarak.jpg" alt="Esra Sarak" class="artist-avatar">
           </div>
           <h4 class="artist-name">Esra Sarak</h4>
-          <p class="artist-hits">"Magusa Limanı", "Bağlama & Piyano Versiyonu"</p>
-          <button class="btn btn-red" style="width:100%; padding: 10px;" onclick="playTrackById('R9Z8bWzQ7TU')">
+          <p class="artist-hits">"Magusa Limanı", "Bahçede Yeşil Çınar"</p>
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('CQV0Z8Z5zW8')">
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+
+        <div class="artist-card sparkle-box">
+          <div class="artist-avatar-wrap">
+            <img src="covers/can_ates_no_way.jpg" alt="Can Ateş" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Can Ateş</h4>
+          <p class="artist-hits">"Mami Dele", "La Corente", "Sol Bailo", "No Way"</p>
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('3jjHN0VTzTI')">
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+
+        <div class="artist-card sparkle-box">
+          <div class="artist-avatar-wrap">
+            <img src="covers/nihat_melik_ferhat.jpg" alt="Nihat Melik" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Nihat Melik</h4>
+          <p class="artist-hits">"Ferhat ile Şirin", "Xəyanət"</p>
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('pdjyuloyj3U')">
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+
+        <div class="artist-card sparkle-box">
+          <div class="artist-avatar-wrap">
+            <img src="covers/burcin.jpg" alt="Burçin" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Burçin</h4>
+          <p class="artist-hits">"Çemberimde Gül Oya", "Beni Hor Görme Gardaşım"</p>
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('mSJzMO8yueY')">
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+
+        <div class="artist-card sparkle-box">
+          <div class="artist-avatar-wrap">
+            <img src="covers/pinar_hazel.jpg" alt="Pınar Hazel" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Pınar Hazel</h4>
+          <p class="artist-hits">"Yaktın Kalbimi"</p>
+          <button class="btn btn-red" style="width:100%; padding: 10px; z-index:2;" onclick="playTrackById('869aotihNCk')">
             <span>Klipleri Dinle</span>
           </button>
         </div>
@@ -1495,7 +1843,7 @@
   <!-- HAKKIMIZDA -->
   <section class="section" id="hakkimizda">
     <div class="container">
-      <div class="about-card">
+      <div class="about-card sparkle-box">
         <div class="about-grid">
           <div class="about-text">
             <span class="section-tag">ŞİRKET VİZYONU</span>
@@ -1562,7 +1910,7 @@
   <!-- DEMO GÖNDER & İLETİŞİM -->
   <section class="section" id="demo">
     <div class="container">
-      <div class="demo-card">
+      <div class="demo-card sparkle-box">
         <div class="demo-info">
           <span class="section-tag">SESİNİ BİZE DUYUR</span>
           <h3>Yeni Bir Yıldız Sen Olabilirsin</h3>
@@ -1571,14 +1919,14 @@
           </p>
 
           <div style="display:flex; flex-direction:column; gap:14px; margin-top:20px;">
-            <div style="display:flex; align-items:center; gap:12px; color:var(--white);">
-              <span style="color:var(--red); font-size:1.2rem;">✉️</span>
+            <a href="mailto:sosyapim@gmail.com" style="display:flex; align-items:center; gap:12px; color:var(--white);">
+              <span style="color:var(--red-bright); font-size:1.2rem;">✉️</span>
               <span>sosyapim@gmail.com</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:12px; color:var(--white);">
-              <span style="color:var(--red); font-size:1.2rem;">▶️</span>
+            </a>
+            <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:12px; color:var(--white);">
+              <span style="color:var(--red-bright); font-size:1.2rem;">▶️</span>
               <span>youtube.com/@SosYapim</span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -1626,11 +1974,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="brand">
-            <img src="sos-logo.jpeg" alt="SOS Yapım Logo" class="brand-logo-img" onerror="this.src='sos-logo.png'">
-            <div class="brand-text">
-              <span class="brand-title">SOS <span>YAPIM</span></span>
-              <span class="brand-tag">Müzik & Prodüksiyon</span>
-            </div>
+            <img src="sos-logo.png" alt="SOS" class="brand-logo-img">
+            <span class="brand-yapim-word">YAPIM</span>
           </a>
           <p>
             Bağımsız müziğin güçlü sesi. Sanatçılarımızın sesini dünyaya duyuruyoruz.
@@ -1650,8 +1995,8 @@
         <div class="footer-col">
           <h4>Dijital Kanallar</h4>
           <ul class="footer-links">
-            <li><a href="https://www.youtube.com/@SosYapim" target="_blank">YouTube Resmi Kanalı</a></li>
-            <li><a href="https://www.youtube.com/@SosYapim" target="_blank">Video Klipler</a></li>
+            <li><a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer">YouTube Resmi Kanalı</a></li>
+            <li><a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer">Video Klipler</a></li>
             <li><a href="mailto:sosyapim@gmail.com">sosyapim@gmail.com</a></li>
           </ul>
         </div>
@@ -1682,401 +2027,401 @@
   </div>
 
   <script>
-    // PARÇA KATALOĞU
+    // DÜZENLENMİŞ & EKSİKLERİ GİDERİLMİŞ PARÇA KATALOĞU
     const trackData = [
-  {
-    "id": "Kjd_2wdFXWU",
-    "title": "YERALTI",
-    "artist": "Sos Echoes",
-    "cover": "https://img.youtube.com/vi/Kjd_2wdFXWU/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=Kjd_2wdFXWU"
-  },
-  {
-    "id": "d50NQO1SfnY",
-    "title": "Bekledim Dönmeni( Official Music Video",
-    "artist": "Medi Rojen",
-    "cover": "https://img.youtube.com/vi/d50NQO1SfnY/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=d50NQO1SfnY"
-  },
-  {
-    "id": "bS6n4UI5EY8",
-    "title": "Remzi Başakbuğday-Kevokim",
-    "artist": "SOS Yapım",
-    "cover": "https://img.youtube.com/vi/bS6n4UI5EY8/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=bS6n4UI5EY8"
-  },
-  {
-    "id": "3jjHN0VTzTI",
-    "title": "MAMİ DELE",
-    "artist": "CAN ATEŞ",
-    "cover": "https://img.youtube.com/vi/3jjHN0VTzTI/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=3jjHN0VTzTI"
-  },
-  {
-    "id": "TqXXSto2qmo",
-    "title": "LA CORENTE (Afro Tech Version",
-    "artist": "CAN ATEŞ",
-    "cover": "https://img.youtube.com/vi/TqXXSto2qmo/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=TqXXSto2qmo"
-  },
-  {
-    "id": "ebw05tN7PSs",
-    "title": "Sol Bailo (Afro Tech Version",
-    "artist": "Can Ateş",
-    "cover": "https://img.youtube.com/vi/ebw05tN7PSs/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=ebw05tN7PSs"
-  },
-  {
-    "id": "V_qN2KzqHlA",
-    "title": "Maslova-молчи",
-    "artist": "SOS Yapım",
-    "cover": "https://img.youtube.com/vi/V_qN2KzqHlA/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=V_qN2KzqHlA"
-  },
-  {
-    "id": "MnaRftTsDjA",
-    "title": "ОТПУСКАй",
-    "artist": "MASLOVA",
-    "cover": "https://img.youtube.com/vi/MnaRftTsDjA/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=MnaRftTsDjA"
-  },
-  {
-    "id": "nvOtfEGQX_U",
-    "title": "Keskin Bıçak",
-    "artist": "Yılmaz Sumbul feat Pınar Güsar",
-    "cover": "https://img.youtube.com/vi/nvOtfEGQX_U/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=nvOtfEGQX_U"
-  },
-  {
-    "id": "5nTBfOH82aw",
-    "title": "Mbali",
-    "artist": "Dora Karakuş",
-    "cover": "https://img.youtube.com/vi/5nTBfOH82aw/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=5nTBfOH82aw"
-  },
-  {
-    "id": "2c0IqL6mG-I",
-    "title": "Safari",
-    "artist": "Maslova",
-    "cover": "https://img.youtube.com/vi/2c0IqL6mG-I/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=2c0IqL6mG-I"
-  },
-  {
-    "id": "2-TBNLkfUIg",
-    "title": "Shisha",
-    "artist": "Damila Sero",
-    "cover": "https://img.youtube.com/vi/2-TBNLkfUIg/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=2-TBNLkfUIg"
-  },
-  {
-    "id": "2ZZ-t17SOxQ",
-    "title": "SAFARİ",
-    "artist": "MASLOVA",
-    "cover": "https://img.youtube.com/vi/2ZZ-t17SOxQ/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=2ZZ-t17SOxQ"
-  },
-  {
-    "id": "bDziPbs9Nm0",
-    "title": "Beni Sen Öldürdün",
-    "artist": "Murat Çelitçi",
-    "cover": "https://img.youtube.com/vi/bDziPbs9Nm0/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=bDziPbs9Nm0"
-  },
-  {
-    "id": "PUfUi3R7oaU",
-    "title": "Rosa Extended Mix",
-    "artist": "HVMZA",
-    "cover": "https://img.youtube.com/vi/PUfUi3R7oaU/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=PUfUi3R7oaU"
-  },
-  {
-    "id": "AR-wNpHb0bY",
-    "title": "Pes Ettim (Akustik) Official Music Video",
-    "artist": "Murat Çelitçi",
-    "cover": "https://img.youtube.com/vi/AR-wNpHb0bY/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=AR-wNpHb0bY"
-  },
-  {
-    "id": "pdjyuloyj3U",
-    "title": "Ferhat ile Şirin",
-    "artist": "Nihat Melik & Aila Rai",
-    "cover": "https://img.youtube.com/vi/pdjyuloyj3U/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=pdjyuloyj3U"
-  },
-  {
-    "id": "gPcTxgeOo38",
-    "title": "Çıkıyorum Yükseklere",
-    "artist": "LIL KHALIFA",
-    "cover": "https://img.youtube.com/vi/gPcTxgeOo38/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=gPcTxgeOo38"
-  },
-  {
-    "id": "r2Vn-XrlTcc",
-    "title": "Bize Bizden Yarar Var",
-    "artist": "BRO34",
-    "cover": "https://img.youtube.com/vi/r2Vn-XrlTcc/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=r2Vn-XrlTcc"
-  },
-  {
-    "id": "8sEdsAmAPxw",
-    "title": "Just My Beach",
-    "artist": "Mert Yılmaz",
-    "cover": "https://img.youtube.com/vi/8sEdsAmAPxw/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=8sEdsAmAPxw"
-  },
-  {
-    "id": "o_Sm4bkZGwc",
-    "title": "High On Stars ( ft. Berfin Hasar",
-    "artist": "Taygun Güleş",
-    "cover": "https://img.youtube.com/vi/o_Sm4bkZGwc/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=o_Sm4bkZGwc"
-  },
-  {
-    "id": "i65hndASDvY",
-    "title": "Shouldn't We",
-    "artist": "Volkan Ilgaz",
-    "cover": "https://img.youtube.com/vi/i65hndASDvY/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=i65hndASDvY"
-  },
-  {
-    "id": "zVmmAMnj15M",
-    "title": "Xəyanət",
-    "artist": "Nihat Məlik & Aila Rai",
-    "cover": "https://img.youtube.com/vi/zVmmAMnj15M/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=zVmmAMnj15M"
-  },
-  {
-    "id": "-RfGVnQBoZg",
-    "title": "Güm Güm (Eray Topaloğlu Remix) ( Official Music",
-    "artist": "Elif Vurgun",
-    "cover": "https://img.youtube.com/vi/-RfGVnQBoZg/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=-RfGVnQBoZg"
-  },
-  {
-    "id": "byFSlH109WQ",
-    "title": "Güm Güm ( Official Video",
-    "artist": "Elif Vurgun",
-    "cover": "https://img.youtube.com/vi/byFSlH109WQ/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=byFSlH109WQ"
-  },
-  {
-    "id": "lb2UTTUP2Z8",
-    "title": "Yapamıyoruz",
-    "artist": "Aydemir feat. Aila Rai",
-    "cover": "https://img.youtube.com/vi/lb2UTTUP2Z8/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=lb2UTTUP2Z8"
-  },
-  {
-    "id": "2v9cHDix56A",
-    "title": "Bahçede Yeşil Çınar (Orjinal Dizi Müzikleri",
-    "artist": "Esra Sarak",
-    "cover": "https://img.youtube.com/vi/2v9cHDix56A/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=2v9cHDix56A"
-  },
-  {
-    "id": "CQV0Z8Z5zW8",
-    "title": "Magusa Limanı",
-    "artist": "Esra Sarak",
-    "cover": "https://img.youtube.com/vi/CQV0Z8Z5zW8/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=CQV0Z8Z5zW8"
-  },
-  {
-    "id": "2cR22nMAqFU",
-    "title": "In West | Official Video",
-    "artist": "HVMZA",
-    "cover": "https://img.youtube.com/vi/2cR22nMAqFU/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=2cR22nMAqFU"
-  },
-  {
-    "id": "2ROjSVi0v4M",
-    "title": "Milli Ordum",
-    "artist": "Jale Guliyeva",
-    "cover": "https://img.youtube.com/vi/2ROjSVi0v4M/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=2ROjSVi0v4M"
-  },
-  {
-    "id": "EWPno_I_pG8",
-    "title": "Sonu Gelmez",
-    "artist": "Duygu Kutlu",
-    "cover": "https://img.youtube.com/vi/EWPno_I_pG8/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=EWPno_I_pG8"
-  },
-  {
-    "id": "CQfKKwcperw",
-    "title": "Muhsin Kuloğlu",
-    "artist": "Kor Ateşler",
-    "cover": "https://img.youtube.com/vi/CQfKKwcperw/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=CQfKKwcperw"
-  },
-  {
-    "id": "mSJzMO8yueY",
-    "title": "Çemberimde Gül Oya",
-    "artist": "Burçin",
-    "cover": "https://img.youtube.com/vi/mSJzMO8yueY/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=mSJzMO8yueY"
-  },
-  {
-    "id": "kAAPvtQo8lU",
-    "title": "Kaleden İniş Mi Olur",
-    "artist": "Layla Puliçe",
-    "cover": "https://img.youtube.com/vi/kAAPvtQo8lU/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=kAAPvtQo8lU"
-  },
-  {
-    "id": "VNJXwCe-fgY",
-    "title": "Rosa",
-    "artist": "HVMZA",
-    "cover": "https://img.youtube.com/vi/VNJXwCe-fgY/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=VNJXwCe-fgY"
-  },
-  {
-    "id": "JfdujJ13Me4",
-    "title": "Oktay Aytaş",
-    "artist": "Ötme Bülbül",
-    "cover": "https://img.youtube.com/vi/JfdujJ13Me4/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=JfdujJ13Me4"
-  },
-  {
-    "id": "lT22yuCGrZA",
-    "title": "Rüya Uluçınar  | SOS Yapım 2020 | Çocuk Şarkıları",
-    "artist": "Kırmızı Balık",
-    "cover": "https://img.youtube.com/vi/lT22yuCGrZA/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=lT22yuCGrZA"
-  },
-  {
-    "id": "Eb33VjyeqnM",
-    "title": "Ne Ötersin Dertli Dertli",
-    "artist": "Layla Puliçe",
-    "cover": "https://img.youtube.com/vi/Eb33VjyeqnM/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=Eb33VjyeqnM"
-  },
-  {
-    "id": "wUaPceuQXt0",
-    "title": "Beni Hor Görme Gardaşım",
-    "artist": "Burçin",
-    "cover": "https://img.youtube.com/vi/wUaPceuQXt0/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=wUaPceuQXt0"
-  },
-  {
-    "id": "6CNCc9mBikc",
-    "title": "No Way",
-    "artist": "Can Ateş",
-    "cover": "https://img.youtube.com/vi/6CNCc9mBikc/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=6CNCc9mBikc"
-  },
-  {
-    "id": "aZT_WRhRXJE",
-    "title": "Get Up",
-    "artist": "Güney Kahraman",
-    "cover": "https://img.youtube.com/vi/aZT_WRhRXJE/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=aZT_WRhRXJE"
-  },
-  {
-    "id": "zpXiePCUjPw",
-    "title": "Na Bosana",
-    "artist": "HVMZA",
-    "cover": "https://img.youtube.com/vi/zpXiePCUjPw/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=zpXiePCUjPw"
-  },
-  {
-    "id": "TRlDuJEavYw",
-    "title": "Selvi Extended Mix",
-    "artist": "HVMZA",
-    "cover": "https://img.youtube.com/vi/TRlDuJEavYw/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=TRlDuJEavYw"
-  },
-  {
-    "id": "kHjz_X7I_fM",
-    "title": "Selvi",
-    "artist": "HVMZA",
-    "cover": "https://img.youtube.com/vi/kHjz_X7I_fM/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=kHjz_X7I_fM"
-  },
-  {
-    "id": "LEbLcSx3_s0",
-    "title": "Ellerini Çekip Benden",
-    "artist": "Melis Aydın",
-    "cover": "https://img.youtube.com/vi/LEbLcSx3_s0/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=LEbLcSx3_s0"
-  },
-  {
-    "id": "Laf3Xkc9oNM",
-    "title": "İki Keklik (Zalim İstanbul Dizi Müzikleri",
-    "artist": "Melis Aydın",
-    "cover": "https://img.youtube.com/vi/Laf3Xkc9oNM/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=Laf3Xkc9oNM"
-  },
-  {
-    "id": "CdpB8WM8rxc",
-    "title": "Gel Gönlümü Yerden Yere Vurma Güzel | Zalim İstanbul Dizi Müzikleri",
-    "artist": "Melis Aydın",
-    "cover": "https://img.youtube.com/vi/CdpB8WM8rxc/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=CdpB8WM8rxc"
-  },
-  {
-    "id": "w3nfPip8MvY",
-    "title": "Ne Ağlarsın Benim Zülfü Siyahım | (Zalim İstanbul Dizi Müzikleri",
-    "artist": "Melis Aydın",
-    "cover": "https://img.youtube.com/vi/w3nfPip8MvY/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=w3nfPip8MvY"
-  },
-  {
-    "id": "869aotihNCk",
-    "title": "Yaktın Kalbimi ( Official Lyrics Video",
-    "artist": "Pınar Hazel",
-    "cover": "https://img.youtube.com/vi/869aotihNCk/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=869aotihNCk"
-  },
-  {
-    "id": "e5uwV4pFItw",
-    "title": "Ferhat İle Şirin (Türkçe Versiyon",
-    "artist": "Nihat Melik & Aila Rai",
-    "cover": "https://img.youtube.com/vi/e5uwV4pFItw/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=e5uwV4pFItw"
-  },
-  {
-    "id": "8-rxJXwTwLg",
-    "title": "İflah",
-    "artist": "Erdem Karaman",
-    "cover": "https://img.youtube.com/vi/8-rxJXwTwLg/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=8-rxJXwTwLg"
-  },
-  {
-    "id": "A5MQzyKsrCQ",
-    "title": "Yıldızların Altında ( Zalim İstanbul Dizi Müziği",
-    "artist": "Melis Aydın",
-    "cover": "https://img.youtube.com/vi/A5MQzyKsrCQ/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=A5MQzyKsrCQ"
-  },
-  {
-    "id": "MGdHXELHl_g",
-    "title": "Yandırdın Kalbimi (Eray Topaloğlu Remix) ( Official Music Video",
-    "artist": "Aysel Elizade",
-    "cover": "https://img.youtube.com/vi/MGdHXELHl_g/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=MGdHXELHl_g"
-  },
-  {
-    "id": "tlO5-BChPI0",
-    "title": "Tutuklu Kaldım [Zalim İstanbul Dizi Cover",
-    "artist": "Melis Aydın",
-    "cover": "https://img.youtube.com/vi/tlO5-BChPI0/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=tlO5-BChPI0"
-  },
-  {
-    "id": "kwECzP-OLoU",
-    "title": "Çağrı Baki & Aşık Veysel Uzun İnce Bir Yoldayım  ( Official Music Video",
-    "artist": "SOS Yapım",
-    "cover": "https://img.youtube.com/vi/kwECzP-OLoU/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=kwECzP-OLoU"
-  },
-  {
-    "id": "aNQEyr_FYCA",
-    "title": "Yandırdın Kalbimi ( Official Music Video",
-    "artist": "Aysel Elizade",
-    "cover": "https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg",
-    "youtubeUrl": "https://www.youtube.com/watch?v=aNQEyr_FYCA"
-  }
-];
+      {
+        "id": "Kjd_2wdFXWU",
+        "title": "YERALTI",
+        "artist": "Sos Echoes",
+        "cover": "https://img.youtube.com/vi/Kjd_2wdFXWU/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Kjd_2wdFXWU"
+      },
+      {
+        "id": "d50NQO1SfnY",
+        "title": "Bekledim Dönmeni (Official Music Video)",
+        "artist": "Medi Rojen",
+        "cover": "https://img.youtube.com/vi/d50NQO1SfnY/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=d50NQO1SfnY"
+      },
+      {
+        "id": "bS6n4UI5EY8",
+        "title": "Kevokim",
+        "artist": "Remzi Başakbuğday",
+        "cover": "https://img.youtube.com/vi/bS6n4UI5EY8/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=bS6n4UI5EY8"
+      },
+      {
+        "id": "3jjHN0VTzTI",
+        "title": "MAMİ DELE",
+        "artist": "Can Ateş",
+        "cover": "https://img.youtube.com/vi/3jjHN0VTzTI/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=3jjHN0VTzTI"
+      },
+      {
+        "id": "TqXXSto2qmo",
+        "title": "LA CORENTE (Afro Tech Version)",
+        "artist": "Can Ateş",
+        "cover": "https://img.youtube.com/vi/TqXXSto2qmo/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=TqXXSto2qmo"
+      },
+      {
+        "id": "ebw05tN7PSs",
+        "title": "Sol Bailo (Afro Tech Version)",
+        "artist": "Can Ateş",
+        "cover": "https://img.youtube.com/vi/ebw05tN7PSs/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ebw05tN7PSs"
+      },
+      {
+        "id": "V_qN2KzqHlA",
+        "title": "Молчи",
+        "artist": "Maslova",
+        "cover": "https://img.youtube.com/vi/V_qN2KzqHlA/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=V_qN2KzqHlA"
+      },
+      {
+        "id": "MnaRftTsDjA",
+        "title": "ОТПУСКАй",
+        "artist": "Maslova",
+        "cover": "https://img.youtube.com/vi/MnaRftTsDjA/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=MnaRftTsDjA"
+      },
+      {
+        "id": "nvOtfEGQX_U",
+        "title": "Keskin Bıçak",
+        "artist": "Yılmaz Sumbul feat. Pınar Güsar",
+        "cover": "https://img.youtube.com/vi/nvOtfEGQX_U/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=nvOtfEGQX_U"
+      },
+      {
+        "id": "5nTBfOH82aw",
+        "title": "Mbali",
+        "artist": "Dora Karakuş",
+        "cover": "https://img.youtube.com/vi/5nTBfOH82aw/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=5nTBfOH82aw"
+      },
+      {
+        "id": "2c0IqL6mG-I",
+        "title": "Safari",
+        "artist": "Maslova",
+        "cover": "https://img.youtube.com/vi/2c0IqL6mG-I/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=2c0IqL6mG-I"
+      },
+      {
+        "id": "2-TBNLkfUIg",
+        "title": "Shisha",
+        "artist": "Damila Sero",
+        "cover": "https://img.youtube.com/vi/2-TBNLkfUIg/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=2-TBNLkfUIg"
+      },
+      {
+        "id": "2ZZ-t17SOxQ",
+        "title": "SAFARİ (Official Video)",
+        "artist": "Maslova",
+        "cover": "https://img.youtube.com/vi/2ZZ-t17SOxQ/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=2ZZ-t17SOxQ"
+      },
+      {
+        "id": "bDziPbs9Nm0",
+        "title": "Beni Sen Öldürdün",
+        "artist": "Murat Çelitçi",
+        "cover": "https://img.youtube.com/vi/bDziPbs9Nm0/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=bDziPbs9Nm0"
+      },
+      {
+        "id": "PUfUi3R7oaU",
+        "title": "Rosa (Extended Mix)",
+        "artist": "HVMZA",
+        "cover": "https://img.youtube.com/vi/PUfUi3R7oaU/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=PUfUi3R7oaU"
+      },
+      {
+        "id": "AR-wNpHb0bY",
+        "title": "Pes Ettim (Akustik)",
+        "artist": "Murat Çelitçi",
+        "cover": "https://img.youtube.com/vi/AR-wNpHb0bY/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=AR-wNpHb0bY"
+      },
+      {
+        "id": "pdjyuloyj3U",
+        "title": "Ferhat ile Şirin",
+        "artist": "Nihat Melik & Aila Rai",
+        "cover": "https://img.youtube.com/vi/pdjyuloyj3U/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=pdjyuloyj3U"
+      },
+      {
+        "id": "gPcTxgeOo38",
+        "title": "Çıkıyorum Yükseklere",
+        "artist": "LIL KHALIFA",
+        "cover": "https://img.youtube.com/vi/gPcTxgeOo38/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=gPcTxgeOo38"
+      },
+      {
+        "id": "r2Vn-XrlTcc",
+        "title": "Bize Bizden Yarar Var",
+        "artist": "BRO34",
+        "cover": "https://img.youtube.com/vi/r2Vn-XrlTcc/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=r2Vn-XrlTcc"
+      },
+      {
+        "id": "8sEdsAmAPxw",
+        "title": "Just My Beach",
+        "artist": "Mert Yılmaz",
+        "cover": "https://img.youtube.com/vi/8sEdsAmAPxw/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=8sEdsAmAPxw"
+      },
+      {
+        "id": "o_Sm4bkZGwc",
+        "title": "High On Stars (ft. Berfin Hasar)",
+        "artist": "Taygun Güleş",
+        "cover": "https://img.youtube.com/vi/o_Sm4bkZGwc/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=o_Sm4bkZGwc"
+      },
+      {
+        "id": "i65hndASDvY",
+        "title": "Shouldn't We",
+        "artist": "Volkan Ilgaz",
+        "cover": "https://img.youtube.com/vi/i65hndASDvY/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=i65hndASDvY"
+      },
+      {
+        "id": "zVmmAMnj15M",
+        "title": "Xəyanət",
+        "artist": "Nihat Məlik & Aila Rai",
+        "cover": "https://img.youtube.com/vi/zVmmAMnj15M/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=zVmmAMnj15M"
+      },
+      {
+        "id": "-RfGVnQBoZg",
+        "title": "Güm Güm (Eray Topaloğlu Remix)",
+        "artist": "Elif Vurgun",
+        "cover": "https://img.youtube.com/vi/-RfGVnQBoZg/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=-RfGVnQBoZg"
+      },
+      {
+        "id": "byFSlH109WQ",
+        "title": "Güm Güm (Official Video)",
+        "artist": "Elif Vurgun",
+        "cover": "https://img.youtube.com/vi/byFSlH109WQ/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=byFSlH109WQ"
+      },
+      {
+        "id": "lb2UTTUP2Z8",
+        "title": "Yapamıyoruz",
+        "artist": "Aydemir feat. Aila Rai",
+        "cover": "https://img.youtube.com/vi/lb2UTTUP2Z8/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=lb2UTTUP2Z8"
+      },
+      {
+        "id": "2v9cHDix56A",
+        "title": "Bahçede Yeşil Çınar (Orijinal Dizi Müzikleri)",
+        "artist": "Esra Sarak",
+        "cover": "https://img.youtube.com/vi/2v9cHDix56A/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=2v9cHDix56A"
+      },
+      {
+        "id": "CQV0Z8Z5zW8",
+        "title": "Magusa Limanı",
+        "artist": "Esra Sarak",
+        "cover": "https://img.youtube.com/vi/CQV0Z8Z5zW8/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=CQV0Z8Z5zW8"
+      },
+      {
+        "id": "2cR22nMAqFU",
+        "title": "In West (Official Video)",
+        "artist": "HVMZA",
+        "cover": "https://img.youtube.com/vi/2cR22nMAqFU/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=2cR22nMAqFU"
+      },
+      {
+        "id": "2ROjSVi0v4M",
+        "title": "Milli Ordum",
+        "artist": "Jale Guliyeva",
+        "cover": "https://img.youtube.com/vi/2ROjSVi0v4M/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=2ROjSVi0v4M"
+      },
+      {
+        "id": "EWPno_I_pG8",
+        "title": "Sonu Gelmez",
+        "artist": "Duygu Kutlu",
+        "cover": "https://img.youtube.com/vi/EWPno_I_pG8/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=EWPno_I_pG8"
+      },
+      {
+        "id": "CQfKKwcperw",
+        "title": "Kor Ateşler",
+        "artist": "Muhsin Kuloğlu",
+        "cover": "https://img.youtube.com/vi/CQfKKwcperw/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=CQfKKwcperw"
+      },
+      {
+        "id": "mSJzMO8yueY",
+        "title": "Çemberimde Gül Oya",
+        "artist": "Burçin",
+        "cover": "https://img.youtube.com/vi/mSJzMO8yueY/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=mSJzMO8yueY"
+      },
+      {
+        "id": "kAAPvtQo8lU",
+        "title": "Kaleden İniş Mi Olur",
+        "artist": "Layla Puliçe",
+        "cover": "https://img.youtube.com/vi/kAAPvtQo8lU/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=kAAPvtQo8lU"
+      },
+      {
+        "id": "VNJXwCe-fgY",
+        "title": "Rosa",
+        "artist": "HVMZA",
+        "cover": "https://img.youtube.com/vi/VNJXwCe-fgY/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=VNJXwCe-fgY"
+      },
+      {
+        "id": "JfdujJ13Me4",
+        "title": "Ötme Bülbül",
+        "artist": "Oktay Aytaş",
+        "cover": "https://img.youtube.com/vi/JfdujJ13Me4/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=JfdujJ13Me4"
+      },
+      {
+        "id": "lT22yuCGrZA",
+        "title": "Kırmızı Balık (Çocuk Şarkıları)",
+        "artist": "Rüya Uluçınar",
+        "cover": "https://img.youtube.com/vi/lT22yuCGrZA/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=lT22yuCGrZA"
+      },
+      {
+        "id": "Eb33VjyeqnM",
+        "title": "Ne Ötersin Dertli Dertli",
+        "artist": "Layla Puliçe",
+        "cover": "https://img.youtube.com/vi/Eb33VjyeqnM/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Eb33VjyeqnM"
+      },
+      {
+        "id": "wUaPceuQXt0",
+        "title": "Beni Hor Görme Gardaşım",
+        "artist": "Burçin",
+        "cover": "https://img.youtube.com/vi/wUaPceuQXt0/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=wUaPceuQXt0"
+      },
+      {
+        "id": "6CNCc9mBikc",
+        "title": "No Way",
+        "artist": "Can Ateş",
+        "cover": "https://img.youtube.com/vi/6CNCc9mBikc/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=6CNCc9mBikc"
+      },
+      {
+        "id": "aZT_WRhRXJE",
+        "title": "Get Up",
+        "artist": "Güney Kahraman",
+        "cover": "https://img.youtube.com/vi/aZT_WRhRXJE/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=aZT_WRhRXJE"
+      },
+      {
+        "id": "zpXiePCUjPw",
+        "title": "Na Bosana",
+        "artist": "HVMZA",
+        "cover": "https://img.youtube.com/vi/zpXiePCUjPw/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=zpXiePCUjPw"
+      },
+      {
+        "id": "TRlDuJEavYw",
+        "title": "Selvi (Extended Mix)",
+        "artist": "HVMZA",
+        "cover": "https://img.youtube.com/vi/TRlDuJEavYw/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=TRlDuJEavYw"
+      },
+      {
+        "id": "kHjz_X7I_fM",
+        "title": "Selvi",
+        "artist": "HVMZA",
+        "cover": "https://img.youtube.com/vi/kHjz_X7I_fM/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=kHjz_X7I_fM"
+      },
+      {
+        "id": "LEbLcSx3_s0",
+        "title": "Ellerini Çekip Benden",
+        "artist": "Melis Aydın",
+        "cover": "https://img.youtube.com/vi/LEbLcSx3_s0/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=LEbLcSx3_s0"
+      },
+      {
+        "id": "Laf3Xkc9oNM",
+        "title": "İki Keklik (Zalim İstanbul Dizi Müzikleri)",
+        "artist": "Melis Aydın",
+        "cover": "https://img.youtube.com/vi/Laf3Xkc9oNM/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Laf3Xkc9oNM"
+      },
+      {
+        "id": "CdpB8WM8rxc",
+        "title": "Gel Gönlümü Yerden Yere Vurma Güzel (Zalim İstanbul)",
+        "artist": "Melis Aydın",
+        "cover": "https://img.youtube.com/vi/CdpB8WM8rxc/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=CdpB8WM8rxc"
+      },
+      {
+        "id": "w3nfPip8MvY",
+        "title": "Ne Ağlarsın Benim Zülfü Siyahım (Zalim İstanbul)",
+        "artist": "Melis Aydın",
+        "cover": "https://img.youtube.com/vi/w3nfPip8MvY/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=w3nfPip8MvY"
+      },
+      {
+        "id": "869aotihNCk",
+        "title": "Yaktın Kalbimi (Official Lyrics Video)",
+        "artist": "Pınar Hazel",
+        "cover": "https://img.youtube.com/vi/869aotihNCk/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=869aotihNCk"
+      },
+      {
+        "id": "e5uwV4pFItw",
+        "title": "Ferhat İle Şirin (Türkçe Versiyon)",
+        "artist": "Nihat Melik & Aila Rai",
+        "cover": "https://img.youtube.com/vi/e5uwV4pFItw/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=e5uwV4pFItw"
+      },
+      {
+        "id": "8-rxJXwTwLg",
+        "title": "İflah",
+        "artist": "Erdem Karaman",
+        "cover": "https://img.youtube.com/vi/8-rxJXwTwLg/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=8-rxJXwTwLg"
+      },
+      {
+        "id": "A5MQzyKsrCQ",
+        "title": "Yıldızların Altında (Zalim İstanbul Dizi Müziği)",
+        "artist": "Melis Aydın",
+        "cover": "https://img.youtube.com/vi/A5MQzyKsrCQ/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=A5MQzyKsrCQ"
+      },
+      {
+        "id": "MGdHXELHl_g",
+        "title": "Yandırdın Kalbimi (Eray Topaloğlu Remix)",
+        "artist": "Aysel Elizade",
+        "cover": "https://img.youtube.com/vi/MGdHXELHl_g/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=MGdHXELHl_g"
+      },
+      {
+        "id": "tlO5-BChPI0",
+        "title": "Tutuklu Kaldım (Zalim İstanbul Dizi Cover)",
+        "artist": "Melis Aydın",
+        "cover": "https://img.youtube.com/vi/tlO5-BChPI0/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=tlO5-BChPI0"
+      },
+      {
+        "id": "kwECzP-OLoU",
+        "title": "Uzun İnce Bir Yoldayım (Official Music Video)",
+        "artist": "Çağrı Baki & Aşık Veysel",
+        "cover": "https://img.youtube.com/vi/kwECzP-OLoU/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=kwECzP-OLoU"
+      },
+      {
+        "id": "aNQEyr_FYCA",
+        "title": "Yandırdın Kalbimi (Official Music Video)",
+        "artist": "Aysel Elizade",
+        "cover": "https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg",
+        "youtubeUrl": "https://www.youtube.com/watch?v=aNQEyr_FYCA"
+      }
+    ];
 
     let currentTrackIndex = 0;
     let searchTerm = "";
@@ -2114,7 +2459,6 @@
         const now = audioCtx.currentTime;
         const dur = 0.28 + Math.random() * 0.08;
 
-        // 1. Friction & Grooves White Noise
         const bufferSize = Math.floor(audioCtx.sampleRate * dur);
         const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
         const output = buffer.getChannelData(0);
@@ -2125,7 +2469,6 @@
         const whiteNoise = audioCtx.createBufferSource();
         whiteNoise.buffer = buffer;
 
-        // Resonant Bandpass Filter (Classic "wicka-wicka" scratch sweep)
         const filter = audioCtx.createBiquadFilter();
         filter.type = 'bandpass';
         filter.Q.value = 8.5;
@@ -2143,7 +2486,6 @@
         noiseGain.gain.linearRampToValueAtTime(0.45, now + 0.04);
         noiseGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
 
-        // 2. Vinyl Scrub Tone (Low-mid frequency vinyl friction tone)
         const osc = audioCtx.createOscillator();
         osc.type = 'sawtooth';
         const oscStart = 95 + Math.random() * 40;
@@ -2159,7 +2501,6 @@
         oscGain.gain.linearRampToValueAtTime(0.35, now + 0.03);
         oscGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
 
-        // Master Output
         const masterGain = audioCtx.createGain();
         masterGain.gain.value = 0.9;
 
@@ -2187,7 +2528,7 @@
 
       if (heroVinylDisc) {
         heroVinylDisc.classList.remove("scratch-active");
-        void heroVinylDisc.offsetWidth; // Force reflow
+        void heroVinylDisc.offsetWidth;
         heroVinylDisc.classList.add("scratch-active");
 
         if (heroTonearm) {
@@ -2230,7 +2571,7 @@
           <div class="track-left">
             <span class="track-num">${String(index + 1).padStart(2, '0')}</span>
             <div class="track-cover-wrap">
-              <img src="${track.cover}" alt="${track.title}" class="track-cover-img" onerror="this.src='sos-logo.jpeg'">
+              <img src="${track.cover}" alt="${track.title}" class="track-cover-img" onerror="this.src='sos-logo.png'">
               <div class="play-overlay">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
               </div>
@@ -2277,6 +2618,16 @@
       playerYoutubeLink.href = track.youtubeUrl;
 
       renderTrackList();
+    }
+
+    function prevTrack() {
+      const nextIdx = (currentTrackIndex - 1 + trackData.length) % trackData.length;
+      selectTrack(nextIdx, true);
+    }
+
+    function nextTrack() {
+      const nextIdx = (currentTrackIndex + 1) % trackData.length;
+      selectTrack(nextIdx, true);
     }
 
     // PLAY BY ID
