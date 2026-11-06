@@ -2705,20 +2705,23 @@
         height = canvas.height = window.innerHeight;
       });
 
-      // Yukarıdan aşağıya süzülen akışkan kırmızı boya akıntıları ve damlaları
+      // Yukarıdan aşağıya süzülen akışkan kırmızı boya akıntıları, damlaları ve müzik notaları
+      const noteSymbols = ["♪", "♫", "♬", "♩", "𝄞"];
       const streams = [];
-      const streamCount = Math.max(14, Math.floor(width / 95));
+      const streamCount = Math.max(16, Math.floor(width / 85));
 
       for (let i = 0; i < streamCount; i++) {
         streams.push({
           x: (width / streamCount) * i + Math.random() * 45,
           y: Math.random() * height,
           length: 110 + Math.random() * 220,
-          radius: 9 + Math.random() * 16,
-          speed: 0.9 + Math.random() * 1.8,
+          radius: 12 + Math.random() * 14,
+          speed: 0.9 + Math.random() * 1.7,
           wobbleSpeed: 0.015 + Math.random() * 0.02,
           wobbleAngle: Math.random() * Math.PI * 2,
-          color: i % 3 === 0 ? "rgba(229, 9, 20, 0.24)" : i % 2 === 0 ? "rgba(255, 25, 35, 0.19)" : "rgba(185, 4, 14, 0.22)"
+          note: noteSymbols[i % noteSymbols.length],
+          noteRotation: (Math.random() - 0.5) * 0.35,
+          color: i % 3 === 0 ? "rgba(229, 9, 20, 0.25)" : i % 2 === 0 ? "rgba(255, 25, 35, 0.20)" : "rgba(185, 4, 14, 0.23)"
         });
       }
 
@@ -2731,36 +2734,51 @@
           s.wobbleAngle += s.wobbleSpeed;
           const curX = s.x + Math.sin(s.wobbleAngle) * 12;
 
-          if (s.y - s.length > height + 50) {
+          if (s.y - s.length > height + 60) {
             s.y = -40;
             s.x = (width / streamCount) * i + Math.random() * 45;
+            s.note = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
           }
 
           // Akışkan boya şeridi
           const grad = ctx.createLinearGradient(curX, s.y - s.length, curX, s.y);
           grad.addColorStop(0, "rgba(229, 9, 20, 0)");
           grad.addColorStop(0.65, s.color);
-          grad.addColorStop(1, "rgba(229, 9, 20, 0.38)");
+          grad.addColorStop(1, "rgba(229, 9, 20, 0.45)");
 
           ctx.beginPath();
           ctx.strokeStyle = grad;
-          ctx.lineWidth = s.radius * 1.4;
+          ctx.lineWidth = s.radius * 1.15;
           ctx.lineCap = "round";
           ctx.moveTo(curX, s.y - s.length);
           ctx.lineTo(curX, s.y);
           ctx.stroke();
 
-          // Uçtaki yuvarlak boya damlası
+          // Uçtaki yuvarlak kırmızı boya damlası
           ctx.beginPath();
-          ctx.fillStyle = "rgba(229, 9, 20, 0.42)";
-          ctx.arc(curX, s.y, s.radius * 0.95, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(229, 9, 20, 0.52)";
+          ctx.arc(curX, s.y, s.radius * 1.05, 0, Math.PI * 2);
           ctx.fill();
 
           // Damla üzerindeki beyaz parlama (3B sıvı boya hissi)
           ctx.beginPath();
-          ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
-          ctx.arc(curX - s.radius * 0.28, s.y - s.radius * 0.25, s.radius * 0.25, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255, 255, 255, 0.55)";
+          ctx.arc(curX - s.radius * 0.32, s.y - s.radius * 0.32, s.radius * 0.22, 0, Math.PI * 2);
           ctx.fill();
+
+          // Damlayan kırmızı boyanın içinde/ucunda süzülen Müzik Notası (♪ ♫ ♬ ♩)
+          ctx.save();
+          ctx.translate(curX, s.y + 1);
+          ctx.rotate(Math.sin(s.wobbleAngle) * 0.18 + s.noteRotation);
+          ctx.font = `900 ${Math.round(s.radius * 1.35)}px "Plus Jakarta Sans", "Segoe UI Symbol", sans-serif`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.92)";
+          ctx.lineWidth = 3;
+          ctx.strokeText(s.note, 0, 0);
+          ctx.fillStyle = "#b8040d";
+          ctx.fillText(s.note, 0, 0);
+          ctx.restore();
         }
 
         requestAnimationFrame(drawPaintStreams);
