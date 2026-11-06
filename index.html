@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOS Yapım — Müzik Prodüksiyon & Plak Şirketi | Sesini Duyur</title>
+  <meta name="description" content="SOS Yapım resmi web sitesi. En yeni şarkılar, video klipler, sanatçılarımız ve demo gönderimi. Kırmızı tonda göz kamaştırıcı müzik platformu.">
+  <link rel="icon" type="image/jpeg" href="sos-logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #ff1827;
+      --primary-dark: #b80512;
+      --primary-glow: rgba(255, 24, 39, 0.45);
+      --primary-subtle: rgba(255, 24, 39, 0.12);
+      --bg: #09090d;
+      --bg-card: rgba(18, 18, 26, 0.75);
+      --bg-card-hover: rgba(28, 28, 40, 0.9);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(255, 24, 39, 0.35);
+      --text-main: #f5f5f7;
+      --text-muted: #9c9ca8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 24, 39, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(184, 5, 18, 0.10) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER / NAVBAR */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 13, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 14px var(--primary-glow));
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .brand-logo-img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 22px var(--primary));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-title span {
+      color: var(--primary);
+    }
+
+    .brand-tag {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #fff;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      box-shadow: 0 0 8px var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff1827 0%, #b80512 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 24, 39, 0.65);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-youtube {
+      background: #ff0000;
+      color: #fff;
+      box-shadow: 0 0 16px rgba(255, 0, 0, 0.4);
+    }
+
+    .btn-youtube:hover {
+      background: #e60000;
+      transform: translateY(-2px);
+      box-shadow: 0 0 24px rgba(255, 0, 0, 0.7);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      padding: 90px 0 60px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-glow-circle {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(ellipse, rgba(255, 24, 39, 0.28) 0%, transparent 70%);
+      filter: blur(50px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 24, 39, 0.1);
+      border: 1px solid rgba(255, 24, 39, 0.3);
+      padding: 8px 20px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ff5e67;
+      letter-spacing: 0.5px;
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 10px rgba(255, 24, 39, 0.2); }
+      100% { box-shadow: 0 0 24px rgba(255, 24, 39, 0.5); }
+    }
+
+    .sound-bars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 14px;
+    }
+
+    .sound-bar {
+      width: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      animation: wave 1.2s infinite ease-in-out;
+    }
+
+    .sound-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .sound-bar:nth-child(2) { height: 14px; animation-delay: 0.3s; }
+    .sound-bar:nth-child(3) { height: 9px; animation-delay: 0.2s; }
+    .sound-bar:nth-child(4) { height: 12px; animation-delay: 0.4s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1); }
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #fff 30%, #ff8088 70%, #ff1827 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-num span {
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* SECTION COMMON */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .section-badge {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    /* MUSIC & VIDEO THEATER SECTION */
+    .theater-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .theater-screen-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 24, 39, 0.15);
+      position: sticky;
+      top: 100px;
+    }
+
+    .screen-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .screen-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .now-playing-info {
+      padding: 18px 8px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .now-playing-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .now-playing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--primary);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
+    .now-playing-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .now-playing-artist {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .now-playing-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* TRACKLIST & FILTERS */
+    .catalog-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .search-filter-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-input-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 16px 10px 42px;
+      color: #fff;
+      font-size: 0.92rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 14px var(--primary-subtle);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .filter-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .pill-btn:hover, .pill-btn.active {
+      color: #fff;
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .tracklist-wrap {
+      max-height: 600px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-right: 6px;
+    }
+
+    .tracklist-wrap::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .tracklist-wrap::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+    }
+
+    .tracklist-wrap::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+    }
+
+    .tracklist-wrap::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    .track-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .track-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 24, 39, 0.4);
+      transform: translateX(4px);
+    }
+
+    .track-card.active {
+      background: rgba(255, 24, 39, 0.12);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(255, 24, 39, 0.25);
+    }
+
+    .track-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .track-num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      width: 20px;
+      text-align: center;
+    }
+
+    .track-card.active .track-num {
+      color: var(--primary);
+    }
+
+    .track-cover-wrap {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .track-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .track-card:hover .track-cover-img {
+      transform: scale(1.08);
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .play-overlay svg {
+      width: 22px;
+      height: 22px;
+      color: #fff;
+      fill: #fff;
+    }
+
+    .track-card:hover .play-overlay,
+    .track-card.active .play-overlay {
+      opacity: 1;
+    }
+
+    .track-card.active .play-overlay svg {
+      color: var(--primary);
+      fill: var(--primary);
+    }
+
+    .track-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .track-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .track-artist {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .track-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .track-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .external-link-btn {
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .external-link-btn:hover {
+      color: #fff;
+      background: var(--primary);
+      transform: scale(1.1);
+    }
+
+    /* ARTISTS SECTION */
+    .artists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .artist-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .artist-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 24, 39, 0.2);
+    }
+
+    .artist-avatar-wrap {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 3px solid rgba(255, 24, 39, 0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .artist-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .artist-card:hover .artist-avatar {
+      transform: scale(1.1);
+    }
+
+    .artist-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .artist-genre {
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .artist-hits {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .artist-listen-btn {
+      width: 100%;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .artist-card:hover .artist-listen-btn {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    /* ABOUT SECTION */
+    .about-card {
+      background: linear-gradient(135deg, rgba(22, 22, 32, 0.8) 0%, rgba(12, 12, 18, 0.95) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 24, 39, 0.25) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .platforms-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .platforms-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .platform-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e0e0e8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .feature-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .feature-box:hover {
+      border-color: rgba(255, 24, 39, 0.4);
+      background: rgba(255, 24, 39, 0.05);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .feature-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* DEMO SUBMISSION / CONTACT SECTION */
+    .demo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 40px;
+    }
+
+    .demo-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .demo-info-top h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .demo-info-top p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .contact-quick {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 24, 39, 0.1);
+      border: 1px solid rgba(255, 24, 39, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-select option {
+      background: #14141c;
+      color: #fff;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 12px var(--primary-subtle);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid var(--border);
+      background: #060608;
+      padding: 60px 0 30px;
+      margin-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 14px;
+      max-width: 320px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* NOTIFICATION TOAST */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #181822;
+      border: 1px solid var(--primary);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--primary-glow);
+      padding: 14px 22px;
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 600;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1024px) {
+      .theater-layout {
+        grid-template-columns: 1fr;
+      }
+      .theater-screen-card {
+        position: relative;
+        top: 0;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .demo-card {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-features {
+        grid-template-columns: 1fr;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="brand">
+          <img src="sos-logo.jpeg" alt="SOS Yapım Logo" class="brand-logo-img" onerror="this.src='sos-logo.png'">
+          <div class="brand-text">
+            <span class="brand-title">SOS <span>YAPIM</span></span>
+            <span class="brand-tag">Müzik & Prodüksiyon</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#klipler" class="nav-link active">Video Klipler</a></li>
+          <li><a href="#sanatcilar" class="nav-link">Sanatçılar</a></li>
+          <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
+          <li><a href="#demo" class="nav-link">Demo Gönder</a></li>
+          <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-youtube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span>Kanalı Aç</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-glow-circle"></div>
+    <div class="container">
+      <div class="hero-badge">
+        <div class="sound-bars">
+          <div class="sound-bar"></div>
+          <div class="sound-bar"></div>
+          <div class="sound-bar"></div>
+          <div class="sound-bar"></div>
+        </div>
+        <span>SESİNİ TÜM DÜNYAYA DUYUR</span>
+      </div>
+
+      <h1 class="hero-title">
+        Müziğin Ritmi, <br>
+        <span class="gradient-text">Geleceğin Yıldızları.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        SOS Yapım etiketiyle yayınlanan en yeni video klipler, liste başı şarkılar ve özgün prodüksiyonlar bir arada. Şarkınızı seçin, anında izleyin.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#klipler" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span>Klipleri İzle & Dinle</span>
+        </a>
+        <a href="#demo" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+          <span>Demo Başvurusu</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">50<span>+</span></div>
+          <div class="stat-label">Resmi Şarkı Yayını</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10M<span>+</span></div>
+          <div class="stat-label">Toplam Dinlenme</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">15<span>+</span></div>
+          <div class="stat-label">Aktif Sanatçı</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">Telif & Dağıtım</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO KLIPLER & OYNATICI SECTION -->
+  <section class="section" id="klipler">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">MÜZİK & VİDEO DÜNYASI</span>
+          <h2 class="section-title">Video Klipler & Parçalar</h2>
+        </div>
+        <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <span>YouTube Kanalına Git</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="theater-layout">
+        <!-- SOL: SABİT VİDEO OYNATICI -->
+        <div class="theater-screen-card">
+          <div class="screen-wrapper">
+            <iframe id="videoPlayer" 
+                    src="https://www.youtube.com/embed/aNQEyr_FYCA?autoplay=0&rel=0&enablejsapi=1" 
+                    title="SOS Yapım Video Player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="now-playing-info">
+            <div class="now-playing-meta">
+              <span class="now-playing-badge">
+                <span class="live-dot"></span>
+                <span id="playerGenre">POP / HIT</span> • <span id="playerYear">2021</span>
+              </span>
+              <h3 class="now-playing-title" id="playerTitle">Yandırdın Kalbimi</h3>
+              <p class="now-playing-artist" id="playerArtist">Aysel Elizade</p>
+            </div>
+
+            <div class="now-playing-actions">
+              <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=aNQEyr_FYCA" target="_blank" rel="noopener noreferrer" class="btn btn-primary" title="YouTube'da Aç">
+                <span>YouTube'da Aç</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAĞ: ŞARKI SEÇİM LİSTESİ & FİLTRELER -->
+        <div class="catalog-panel">
+          <div class="search-filter-box">
+            <div class="search-input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="trackSearch" class="search-input" placeholder="Şarkı adı veya sanatçı ara...">
+            </div>
+
+            <div class="filter-pills" id="filterPills">
+              <button class="pill-btn active" data-category="all">Tümü</button>
+              <button class="pill-btn" data-category="pop">Pop & Hit</button>
+              <button class="pill-btn" data-category="remix">Remix & Club</button>
+              <button class="pill-btn" data-category="ozgun">Özgün & Türkü</button>
+              <button class="pill-btn" data-category="duet">Düet</button>
+              <button class="pill-btn" data-category="electronic">Elektronik</button>
+            </div>
+          </div>
+
+          <!-- PARÇA LİSTESİ -->
+          <div class="tracklist-wrap" id="trackList">
+            <!-- JavaScript dinamik olarak burayı dolduracak -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÖNE ÇIKAN SANATÇILAR -->
+  <section class="section" id="sanatcilar">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">YETENEKLERİMİZ</span>
+          <h2 class="section-title">Öne Çıkan Sanatçılar</h2>
+        </div>
+      </div>
+
+      <div class="artists-grid">
+        <!-- Sanatçı 1 -->
+        <div class="artist-card">
+          <div class="artist-avatar-wrap">
+            <img src="covers/aysel_elizade.jpg" alt="Aysel Elizade" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Aysel Elizade</h4>
+          <span class="artist-genre">Pop / Hit</span>
+          <p class="artist-hits">"Yandırdın Kalbimi", "Yandırdın Kalbimi (Remix)"</p>
+          <button class="artist-listen-btn" onclick="playTrackById('aNQEyr_FYCA')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+
+        <!-- Sanatçı 2 -->
+        <div class="artist-card">
+          <div class="artist-avatar-wrap">
+            <img src="covers/aila_rai.jpg" alt="Aila Rai" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Aila Rai</h4>
+          <span class="artist-genre">Pop / Alternatif</span>
+          <p class="artist-hits">"Yapamıyoruz", "Ferhat ile Şirin", "Xəyanət"</p>
+          <button class="artist-listen-btn" onclick="playTrackById('lb2UTTUP2Z8')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+
+        <!-- Sanatçı 3 -->
+        <div class="artist-card">
+          <div class="artist-avatar-wrap">
+            <img src="covers/elif_vurgun_gum_gum.jpg" alt="Elif Vurgun" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Elif Vurgun</h4>
+          <span class="artist-genre">Pop / Trap</span>
+          <p class="artist-hits">"Güm Güm", "Güm Güm (Club Edit)"</p>
+          <button class="artist-listen-btn" onclick="playTrackById('RFgfESdma5c')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+
+        <!-- Sanatçı 4 -->
+        <div class="artist-card">
+          <div class="artist-avatar-wrap">
+            <img src="covers/esra_sarak.jpg" alt="Esra Sarak" class="artist-avatar">
+          </div>
+          <h4 class="artist-name">Esra Sarak</h4>
+          <span class="artist-genre">Özgün Müzik</span>
+          <p class="artist-hits">"Magusa Limanı", "Bağlama & Piyano Versiyonu"</p>
+          <button class="artist-listen-btn" onclick="playTrackById('R9Z8bWzQ7TU')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span>Klipleri Dinle</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HAKKIMIZDA & DAĞITIM -->
+  <section class="section" id="hakkimizda">
+    <div class="container">
+      <div class="about-card">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="section-badge">ŞİRKET PROFİLİ</span>
+            <h3>SOS Yapım — Müziğin Özgür & Güçlü Sesi</h3>
+            <p>
+              SOS Yapım, müzik sektörüne yön veren modern prodüksiyon vizyonu, yenilikçi aranjman anlayışı ve küresel dijital dağıtım ağıyla sanatçıların sesini milyonlara ulaştıran bağımsız bir müzik yapım şirketidir.
+            </p>
+            <p>
+              Sony Music, YouTube Music, Spotify ve Apple Music küresel iş birliklerimizle, projelerimizi en yüksek ses ve görüntü standartlarında müzikseverlerle buluşturuyoruz.
+            </p>
+
+            <div class="platforms-label">KÜRESEL DİJİTAL DAĞITIM AĞIMIZ</div>
+            <div class="platforms-tags">
+              <span class="platform-tag">🔴 YouTube Music</span>
+              <span class="platform-tag">🟢 Spotify</span>
+              <span class="platform-tag">🍎 Apple Music</span>
+              <span class="platform-tag">🎵 Deezer</span>
+              <span class="platform-tag">⚡ TikTok</span>
+              <span class="platform-tag">📦 Amazon Music</span>
+            </div>
+          </div>
+
+          <div class="about-features">
+            <div class="feature-box">
+              <div class="feature-icon">🎙️</div>
+              <h5 class="feature-title">Stüdyo Prodüksiyon</h5>
+              <p class="feature-desc">Profesyonel kayıt, mix & mastering, üst düzey aranjman ve sound design.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">🎬</div>
+              <h5 class="feature-title">4K Klip Yönetimi</h5>
+              <p class="feature-desc">Senaryodan kurguya kadar sinematik video klip çekimleri ve yönetmenlik.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">🛡️</div>
+              <h5 class="feature-title">Telif Hakları Yönetimi</h5>
+              <p class="feature-desc">YouTube Content ID, edisyon sözleşmeleri ve dijital hak koruması.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon">📈</div>
+              <h5 class="feature-title">PR & Medya İletişimi</h5>
+              <p class="feature-desc">Listelerde öne çıkma, radyo & TV tanıtımları ve sosyal medya stratejileri.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO GÖNDER & İLETİŞİM -->
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="demo-card">
+        <div class="demo-info">
+          <div class="demo-info-top">
+            <span class="section-badge">SESİNİ BİZE DUYUR</span>
+            <h3>Yeni Bir Yıldız Sen Olabilirsin</h3>
+            <p>
+              Kendi şarkını yazdın veya sesine güveniyor musun? Demo kaydını veya portföy linkini bize gönder, SOS Yapım prodüksiyon ekibimiz projenizi değerlendirsin.
+            </p>
+
+            <div class="contact-quick">
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">E-Posta</div>
+                  <div>sosyapim@gmail.com</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">YouTube Kanalı</div>
+                  <div>youtube.com/@SosYapim</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; font-size: 0.8rem; color: var(--text-muted);">
+            * Gönderilen tüm demolar gizlilik ve telif hakları çerçevesinde değerlendirilir.
+          </div>
+        </div>
+
+        <form id="demoForm" class="demo-form" onsubmit="handleDemoSubmit(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="artistName">Adınız / Sanatçı Adı</label>
+              <input type="text" id="artistName" class="form-input" placeholder="Örn: Melisa Demir" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">E-Posta Adresi</label>
+              <input type="email" id="email" class="form-input" placeholder="ornek@mail.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">Telefon</label>
+              <input type="tel" id="phone" class="form-input" placeholder="+90 5XX XXX XX XX">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="genre">Müzik Türü</label>
+              <select id="genre" class="form-select">
+                <option value="pop">Pop / Dans</option>
+                <option value="rap">Rap / Trap / Hip-Hop</option>
+                <option value="rock">Rock / Alternatif</option>
+                <option value="turku">Özgün Müzik / Türkü</option>
+                <option value="electronic">Elektronik / Club</option>
+                <option value="diger">Diğer</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="demoUrl">Demo / Video Linki (Drive, YouTube, SoundCloud)</label>
+              <input type="url" id="demoUrl" class="form-input" placeholder="https://..." required>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="notes">Kendiniz ve Parçanız Hakkında Notlar</label>
+              <textarea id="notes" class="form-textarea" placeholder="Şarkının söz/müziği kime ait, vizyonunuz nedir?"></textarea>
+            </div>
+
+            <div class="form-group full">
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Demo Kaydını İlet</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="iletisim">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <img src="sos-logo.jpeg" alt="SOS Yapım Logo" class="brand-logo-img" onerror="this.src='sos-logo.png'">
+            <div class="brand-text">
+              <span class="brand-title">SOS <span>YAPIM</span></span>
+              <span class="brand-tag">Müzik & Prodüksiyon</span>
+            </div>
+          </a>
+          <p>
+            Müzik sektöründe yeni nesil vizyon. Sanatçılarımızın sesini dünyaya duyuruyoruz.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Hızlı Bağlantılar</h4>
+          <ul class="footer-links">
+            <li><a href="#klipler">Video Klipler</a></li>
+            <li><a href="#sanatcilar">Sanatçılarımız</a></li>
+            <li><a href="#hakkimizda">Hakkımızda</a></li>
+            <li><a href="#demo">Demo Başvurusu</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Dijital Kanallar</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.youtube.com/@SosYapim" target="_blank">YouTube Resmi Kanalı</a></li>
+            <li><a href="https://www.youtube.com/@SosYapim" target="_blank">En Çok İzlenen Klipler</a></li>
+            <li><a href="mailto:sosyapim@gmail.com">sosyapim@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Plak Şirketi</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            İstanbul, Türkiye<br>
+            Dijital Telif & Müzik Dağıtım Hizmetleri
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span id="currentYear"></span> SOS Yapım. Tüm hakları saklıdır.</div>
+        <div style="display:flex; gap:16px;">
+          <span>Gizlilik Sözleşmesi</span>
+          <span>Telif Hakları</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST BİLDİRİMİ -->
+  <div id="toast" class="toast">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary)">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="toastMsg">İşlem başarıyla tamamlandı.</span>
+  </div>
+
+  <script>
+    // PARÇA KATALOĞU (SOS YAPIM GERÇEK ARŞİVİ)
+    const trackData = [
+      {
+        id: "aNQEyr_FYCA",
+        title: "Yandırdın Kalbimi",
+        artist: "Aysel Elizade",
+        category: "pop",
+        genre: "Pop / Hit",
+        year: "2021",
+        cover: "covers/aysel_elizade.jpg",
+        youtubeUrl: "https://www.youtube.com/watch?v=aNQEyr_FYCA"
+      },
+      {
+        id: "aNQEyr_FYCA_remix",
+        youtubeId: "aNQEyr_FYCA",
+        title: "Yandırdın Kalbimi (Remix)",
+        artist: "Aysel Elizade & Eray Topaloğlu",
+        category: "remix",
+        genre: "Remix / Club",
+        year: "2021",
+        cover: "covers/sos_aysel_remix.jpg",
+        youtubeUrl: "https://www.youtube.com/watch?v=aNQEyr_FYCA"
+      },
+      {
+        id: "RFgfESdma5c",
+        title: "Güm Güm",
+        artist: "Elif Vurgun",
+        category: "pop",
+        genre: "Pop / Trap",
+        year: "2021",
+        cover: "covers/elif_vurgun_gum_gum.jpg",
+        youtubeUrl: "https://www.youtube.com/watch?v=RFgfESdma5c"
+      },
+      {
+        id: "lb2UTTUP2Z8",
+        title: "Yapamıyoruz",
+        artist: "Aydemir feat. Aila Rai",
+        category: "duet",
+        genre: "Düet / Pop",
+        year: "2021",
+        cover: "covers/aila_rai.jpg",
+        youtubeUrl: "https://www.youtube.com/watch?v=lb2UTTUP2Z8"
+      },
+      {
+        id: "R9Z8bWzQ7TU",
+        title: "Magusa Limanı",
+        artist: "Esra Sarak",
+        category: "ozgun",
+        genre: "Özgün / Türkü",
+        year: "2021",
+        cover: "covers/esra_sarak.jpg",
+        youtubeUrl: "https://www.youtube.com/watch?v=R9Z8bWzQ7TU"
+      },
+      {
+        id: "ferhat_sirin",
+        youtubeId: "lb2UTTUP2Z8",
+        title: "Ferhat ile Şirin",
+        artist: "Nihat Məlik & Aila Rai",
+        category: "duet",
+        genre: "Düet / Alternatif",
+        year: "2021",
+        cover: "covers/ferhat_ile_sirin.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "xeyanet",
+        youtubeId: "lb2UTTUP2Z8",
+        title: "Xəyanət",
+        artist: "Nihat Məlik & Aila Rai",
+        category: "duet",
+        genre: "Düet / Slow",
+        year: "2020",
+        cover: "covers/xeyanet.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "otme_bulbul",
+        youtubeId: "R9Z8bWzQ7TU",
+        title: "Ötme Bülbül",
+        artist: "Layla Puliçe & Oktay Aytaş",
+        category: "ozgun",
+        genre: "Özgün Müzik",
+        year: "2021",
+        cover: "covers/otme_bulbul.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "guney_kahraman",
+        youtubeId: "RFgfESdma5c",
+        title: "Get Up",
+        artist: "Güney Kahraman",
+        category: "electronic",
+        genre: "Electronic / Club",
+        year: "2021",
+        cover: "covers/guney_kahraman_get_up.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "milad_lactone",
+        youtubeId: "RFgfESdma5c",
+        title: "Lactone",
+        artist: "Milad",
+        category: "electronic",
+        genre: "Deep House",
+        year: "2021",
+        cover: "covers/milad_lactone.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "jale_quliyeva",
+        youtubeId: "aNQEyr_FYCA",
+        title: "Milli Ordum",
+        artist: "Jale Quliyeva",
+        category: "ozgun",
+        genre: "Epik / Senfonik",
+        year: "2020",
+        cover: "covers/jale_quliyeva.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "pinar_hazel",
+        youtubeId: "aNQEyr_FYCA",
+        title: "Yaktın Kalbimi",
+        artist: "Pınar Hazel",
+        category: "pop",
+        genre: "Pop / Akustik",
+        year: "2021",
+        cover: "covers/pinar_hazel.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "cemberimde_gul_oya",
+        youtubeId: "R9Z8bWzQ7TU",
+        title: "Çemberimde Gül Oya",
+        artist: "SOS Yapım Ensemble",
+        category: "ozgun",
+        genre: "Türkü / Özgün",
+        year: "2021",
+        cover: "covers/cemberimde_gul_oya.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "layla_kaleden",
+        youtubeId: "R9Z8bWzQ7TU",
+        title: "Kaleden İniş Mi Olur",
+        artist: "Layla Puliçe",
+        category: "ozgun",
+        genre: "Özgün / Etnik",
+        year: "2021",
+        cover: "covers/layla_pulice_kaleden_inis.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "burcin_hor_gorme",
+        youtubeId: "R9Z8bWzQ7TU",
+        title: "Beni Hor Görme Gardaşım",
+        artist: "Burçin",
+        category: "ozgun",
+        genre: "Akustik / Türkü",
+        year: "2021",
+        cover: "covers/burcin.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      },
+      {
+        id: "can_ates_no_way",
+        youtubeId: "RFgfESdma5c",
+        title: "No Way",
+        artist: "Can Ateş",
+        category: "electronic",
+        genre: "Electro Trap",
+        year: "2021",
+        cover: "covers/can_ates_no_way.jpg",
+        youtubeUrl: "https://www.youtube.com/@SosYapim"
+      }
+    ];
+
+    let currentTrackIndex = 0;
+    let activeCategory = "all";
+    let searchTerm = "";
+
+    // DOM ELEMENTS
+    const videoPlayer = document.getElementById("videoPlayer");
+    const playerTitle = document.getElementById("playerTitle");
+    const playerArtist = document.getElementById("playerArtist");
+    const playerGenre = document.getElementById("playerGenre");
+    const playerYear = document.getElementById("playerYear");
+    const playerYoutubeLink = document.getElementById("playerYoutubeLink");
+    const trackListEl = document.getElementById("trackList");
+    const trackSearchInput = document.getElementById("trackSearch");
+    const filterPills = document.getElementById("filterPills");
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // RENDER TRACK LIST
+    function renderTrackList() {
+      trackListEl.innerHTML = "";
+
+      const filteredTracks = trackData.filter((track, index) => {
+        const matchesCategory = activeCategory === "all" || track.category === activeCategory;
+        const matchesSearch = track.title.toLowerCase().includes(searchTerm) || 
+                              track.artist.toLowerCase().includes(searchTerm);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filteredTracks.length === 0) {
+        trackListEl.innerHTML = `
+          <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
+            <p>Aradığınız kriterlere uygun şarkı bulunamadı.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredTracks.forEach((track, index) => {
+        const isCurrentActive = trackData[currentTrackIndex]?.id === track.id;
+        const card = document.createElement("div");
+        card.className = `track-card ${isCurrentActive ? 'active' : ''}`;
+        
+        card.innerHTML = `
+          <div class="track-left">
+            <span class="track-num">${String(index + 1).padStart(2, '0')}</span>
+            <div class="track-cover-wrap">
+              <img src="${track.cover}" alt="${track.title}" class="track-cover-img" onerror="this.src='sos-logo.jpeg'">
+              <div class="play-overlay">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div class="track-details">
+              <h4 class="track-name">${track.title}</h4>
+              <p class="track-artist">${track.artist}</p>
+            </div>
+          </div>
+          <div class="track-right">
+            <span class="track-tag">${track.genre}</span>
+            <a href="${track.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="external-link-btn" title="YouTube'da Aç" onclick="event.stopPropagation()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          const originalIndex = trackData.findIndex(t => t.id === track.id);
+          selectTrack(originalIndex, true);
+        });
+
+        trackListEl.appendChild(card);
+      });
+    }
+
+    // SELECT & PLAY TRACK
+    function selectTrack(index, autoplay = true) {
+      if (index < 0 || index >= trackData.length) return;
+      currentTrackIndex = index;
+      const track = trackData[index];
+
+      const videoId = track.youtubeId || track.id;
+      videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0`;
+
+      playerTitle.textContent = track.title;
+      playerArtist.textContent = track.artist;
+      playerGenre.textContent = track.genre.toUpperCase();
+      playerYear.textContent = track.year;
+      playerYoutubeLink.href = track.youtubeUrl;
+
+      renderTrackList();
+    }
+
+    // PLAY BY ID (FROM ARTIST CARDS ETC.)
+    function playTrackById(videoId) {
+      const idx = trackData.findIndex(t => t.id === videoId || t.youtubeId === videoId);
+      if (idx !== -1) {
+        selectTrack(idx, true);
+      } else {
+        videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      }
+      
+      const kliplerSec = document.getElementById("klipler");
+      if (kliplerSec) {
+        kliplerSec.scrollIntoView({ behavior: "smooth" });
+      }
+      showToast("Şarkı oynatıcıda başlatıldı 🎶");
+    }
+
+    // SEARCH LISTENER
+    trackSearchInput.addEventListener("input", (e) => {
+      searchTerm = e.target.value.toLowerCase().trim();
+      renderTrackList();
+    });
+
+    // FILTER PILLS LISTENER
+    filterPills.addEventListener("click", (e) => {
+      if (e.target.classList.contains("pill-btn")) {
+        filterPills.querySelectorAll(".pill-btn").forEach(btn => btn.classList.remove("active"));
+        e.target.classList.add("active");
+        activeCategory = e.target.getAttribute("data-category");
+        renderTrackList();
+      }
+    });
+
+    // DEMO FORM SUBMISSION
+    function handleDemoSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("artistName").value;
+      const demoUrl = document.getElementById("demoUrl").value;
+
+      showToast(`Teşekkürler ${name}! Demonuz incelenmek üzere SOS Yapım ekibine iletildi.`);
+      document.getElementById("demoForm").reset();
+    }
+
+    // SHOW TOAST
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+    }
+
+    // INITIALIZE
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTrackList();
+    });
+  </script>
+</body>
+</html>
