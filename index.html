@@ -1608,6 +1608,477 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* =====================================================
+       3D SPATIAL DEPTH & AUGMENTED REALITY (AR) STUDIO
+       ===================================================== */
+    .btn-ar-nav {
+      background: linear-gradient(135deg, #111116 0%, #2b060a 100%);
+      border: 2px solid var(--red-bright);
+      color: #ffffff;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 0 18px rgba(229, 9, 20, 0.5);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-ar-nav:hover {
+      background: var(--red);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 26px rgba(255, 20, 31, 0.85);
+    }
+
+    .btn-ar-hero {
+      background: #111116;
+      border: 2px solid var(--red);
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(17, 17, 22, 0.35), 0 0 18px rgba(229, 9, 20, 0.35);
+      text-transform: uppercase;
+    }
+
+    .btn-ar-hero:hover {
+      background: var(--red);
+      color: #ffffff;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 34px rgba(229, 9, 20, 0.55);
+    }
+
+    /* 3D Interactive Tilt Containers */
+    .tilt-3d-target {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.18s ease-out, box-shadow 0.25s ease;
+    }
+
+    .popularity-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #b8040d;
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid rgba(229, 9, 20, 0.28);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-top: 3px;
+      width: fit-content;
+    }
+
+    .track-card.active .popularity-badge {
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.28);
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+
+    .sort-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #fff5f6;
+      border-bottom: 2px solid rgba(229, 9, 20, 0.2);
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #111116;
+    }
+
+    .sort-pill-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .sort-pill {
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      background: #ffffff;
+      color: #111116;
+      border: 1.5px solid rgba(229, 9, 20, 0.35);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .sort-pill.active, .sort-pill:hover {
+      background: var(--red);
+      color: #ffffff;
+      border-color: var(--red);
+    }
+
+    /* 3D & AR FULLSCREEN MODAL */
+    .ar-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: radial-gradient(circle at 50% 45%, rgba(35, 6, 10, 0.94) 0%, rgba(8, 8, 12, 0.98) 100%);
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .ar-modal-overlay.open {
+      display: flex;
+    }
+
+    /* Live Camera Video Background for AR Passthrough */
+    #arCameraFeed {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .ar-modal-overlay.camera-active #arCameraFeed {
+      opacity: 1;
+    }
+
+    /* AR Spatial Grid Floor */
+    .ar-floor-grid {
+      position: absolute;
+      bottom: -15%;
+      left: -25%;
+      width: 150%;
+      height: 65%;
+      background-image:
+        linear-gradient(rgba(229, 9, 20, 0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(229, 9, 20, 0.35) 1px, transparent 1px);
+      background-size: 48px 48px;
+      transform: perspective(600px) rotateX(72deg);
+      transform-origin: center top;
+      z-index: 2;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 15%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 15%, transparent 75%);
+      animation: arGridPulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes arGridPulse {
+      0% { opacity: 0.45; }
+      100% { opacity: 0.85; }
+    }
+
+    /* AR Top HUD Bar */
+    .ar-hud-top {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 26px;
+      background: linear-gradient(180deg, rgba(10, 10, 14, 0.88) 0%, rgba(10, 10, 14, 0) 100%);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ar-hud-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ar-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(229, 9, 20, 0.22);
+      border: 1.5px solid var(--red-bright);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 18px rgba(229, 9, 20, 0.45);
+    }
+
+    .ar-hud-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-ar-hud {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-ar-hud:hover, .btn-ar-hud.active {
+      background: var(--red);
+      border-color: #ffffff;
+      box-shadow: 0 0 22px rgba(229, 9, 20, 0.75);
+    }
+
+    .btn-ar-close {
+      background: #e50914;
+      border-color: #ffffff;
+    }
+
+    /* 3D HOLOGRAM VIEWPORT */
+    .ar-viewport {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1400px;
+      cursor: grab;
+      overflow: hidden;
+    }
+
+    .ar-viewport:active {
+      cursor: grabbing;
+    }
+
+    .ar-scene-3d {
+      position: relative;
+      width: 580px;
+      height: 420px;
+      transform-style: preserve-3d;
+      transform: rotateX(14deg) rotateY(-18deg) scale(1);
+      transition: transform 0.08s linear;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 3D Hologram Base Ring */
+    .ar-holo-pedestal {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      border: 3px dashed rgba(255, 30, 42, 0.65);
+      box-shadow: 0 0 60px rgba(229, 9, 20, 0.55), inset 0 0 40px rgba(229, 9, 20, 0.35);
+      transform: translateY(155px) rotateX(90deg);
+      animation: holoSpin 18s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes holoSpin {
+      0% { transform: translateY(155px) rotateX(90deg) rotateZ(0deg); }
+      100% { transform: translateY(155px) rotateX(90deg) rotateZ(360deg); }
+    }
+
+    /* 3D Floating SOS Vinyl Turntable in AR Space */
+    .ar-vinyl-3d-group {
+      position: absolute;
+      left: -30px;
+      width: 280px;
+      height: 280px;
+      transform-style: preserve-3d;
+      transform: translateZ(50px) rotateY(12deg);
+      cursor: pointer;
+    }
+
+    .ar-vinyl-disc {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background:
+        repeating-radial-gradient(
+          circle at center,
+          #09090b 0px,
+          #09090b 4px,
+          #242429 5px,
+          #0c0c0e 8px
+        );
+      border: 4px solid #ff1a25;
+      box-shadow: 0 0 45px rgba(229, 9, 20, 0.75), 0 20px 50px rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinVinyl 6s linear infinite;
+    }
+
+    .ar-vinyl-disc img {
+      width: 74%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.9));
+    }
+
+    .ar-vinyl-ring-layer {
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+      transform: translateZ(24px);
+      pointer-events: none;
+      box-shadow: 0 0 25px rgba(229, 9, 20, 0.5);
+    }
+
+    /* 3D Floating Hologram TV Card in AR Space */
+    .ar-tv-3d-group {
+      position: absolute;
+      right: -35px;
+      width: 330px;
+      background: rgba(17, 17, 22, 0.92);
+      border: 3px solid #ff1a25;
+      border-radius: 18px;
+      padding: 14px;
+      transform-style: preserve-3d;
+      transform: translateZ(85px) rotateY(-14deg);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(229, 9, 20, 0.55);
+    }
+
+    .ar-tv-screen {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .ar-tv-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ar-tv-live-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(229, 9, 20, 0.92);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.8px;
+    }
+
+    .ar-tv-meta {
+      margin-top: 12px;
+      color: #ffffff;
+      transform: translateZ(20px);
+    }
+
+    .ar-tv-title {
+      font-size: 1.02rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .ar-tv-artist {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ff3b44;
+    }
+
+    .ar-tv-views {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #d8d8e2;
+      margin-top: 4px;
+    }
+
+    /* 3D Equalizer Bars Floating in AR */
+    .ar-eq-bars {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 55px;
+      transform: translateZ(110px);
+    }
+
+    .ar-eq-bar {
+      width: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #ff141f 45%, #a3030b 100%);
+      border-radius: 4px;
+      box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
+      animation: eqBounce 0.7s ease-in-out infinite alternate;
+    }
+
+    @keyframes eqBounce {
+      0% { height: 12px; }
+      100% { height: 52px; }
+    }
+
+    /* AR Bottom Control Dock */
+    .ar-hud-bottom {
+      position: relative;
+      z-index: 10;
+      padding: 18px 24px 26px;
+      background: linear-gradient(0deg, rgba(10, 10, 14, 0.92) 0%, rgba(10, 10, 14, 0) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ar-controls-dock {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: rgba(17, 17, 22, 0.88);
+      border: 2px solid var(--red);
+      padding: 10px 16px;
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(229, 9, 20, 0.35);
+    }
+
+    .ar-help-hint {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .ar-scene-3d {
+        width: 340px;
+        height: 460px;
+      }
+      .ar-vinyl-3d-group {
+        left: 30px;
+        top: 0;
+        width: 210px;
+        height: 210px;
+      }
+      .ar-tv-3d-group {
+        right: 15px;
+        bottom: 25px;
+        width: 290px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1646,6 +2117,9 @@
         </ul>
 
         <div class="nav-actions">
+          <button type="button" class="btn-ar-nav" onclick="openArStudio()">
+            <span>🥽 3D & AR STÜDYO</span>
+          </button>
           <a href="#demo" class="btn btn-contact-nav">
             <span>Bize Ulaşın ↗</span>
           </a>
@@ -1678,6 +2152,9 @@
             <a href="#klipler" class="btn btn-red">
               <span>► VİDEO KLİPLERİ İZLE</span>
             </a>
+            <button type="button" class="btn btn-ar-hero" onclick="openArStudio()">
+              <span>🥽 3D & AR HOLOGRAM MODU</span>
+            </button>
             <a href="#hakkimizda" class="btn btn-outline">
               <span>BİZİ TANI</span>
             </a>
@@ -1744,7 +2221,7 @@
             <div class="crt-bezel">
               <div class="screen-wrapper">
                 <iframe id="videoPlayer" 
-                        src="https://www.youtube.com/embed/Kjd_2wdFXWU?autoplay=0&rel=0&enablejsapi=1" 
+                        src="https://www.youtube.com/embed/aNQEyr_FYCA?autoplay=0&rel=0&enablejsapi=1" 
                         title="SOS Yapım Video Player" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
@@ -1786,11 +2263,11 @@
                   <span class="live-dot"></span>
                   <span>TÜPLÜ TV YAYINDA • RESMİ VİDEO KLİP</span>
                 </span>
-                <h3 class="now-playing-title" id="playerTitle">YERALTI</h3>
-                <p class="now-playing-artist" id="playerArtist">Sos Echoes</p>
+                <h3 class="now-playing-title" id="playerTitle">Yandırdın Kalbimi (Official Music Video)</h3>
+                <p class="now-playing-artist" id="playerArtist">Aysel Elizade • 🔥 57,6 Milyon İzlenme</p>
               </div>
 
-              <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=Kjd_2wdFXWU" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="YouTube'da Aç">
+              <a id="playerYoutubeLink" href="https://www.youtube.com/watch?v=aNQEyr_FYCA" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="YouTube'da Aç">
                 <span>YouTube'da İzle ↗</span>
               </a>
             </div>
@@ -1812,6 +2289,13 @@
             <input type="text" id="trackSearch" class="search-input" placeholder="Şarkı adı veya sanatçı ara...">
           </div>
 
+          <div class="sort-bar">
+            <span>🔥 SIRALAMA:</span>
+            <div class="sort-pill-group">
+              <button type="button" class="sort-pill active" id="sortPopularBtn" onclick="setSortOrder('popular')">En Popüler (Çoktan Aza)</button>
+              <button type="button" class="sort-pill" id="sortAzBtn" onclick="setSortOrder('az')">A-Z</button>
+            </div>
+          </div>
           <div class="tracklist-wrap" id="trackList">
             <!-- JS dolduracak -->
           </div>
@@ -2102,6 +2586,86 @@
     </div>
   </footer>
 
+
+  <!-- 3D & ARTIRILMIŞ GERÇEKLİK (AR / WebXR) HOLOGRAM STÜDYOSU -->
+  <div id="arStudioModal" class="ar-modal-overlay" aria-hidden="true">
+    <video id="arCameraFeed" autoplay playsinline muted></video>
+    <div class="ar-floor-grid"></div>
+
+    <div class="ar-hud-top">
+      <div class="ar-hud-brand">
+        <img src="sos-logo.png" alt="SOS Yapım" style="height:38px; width:auto;">
+        <div class="ar-status-pill" id="arStatusPill">
+          <span class="live-dot"></span>
+          <span id="arModeLabel">3D HOLOGRAM SAHNESİ AKTİF</span>
+        </div>
+      </div>
+
+      <div class="ar-hud-actions">
+        <button type="button" class="btn-ar-hud" id="arCameraToggleBtn" onclick="toggleArCamera()">
+          <span>📷 Canlı Kamera AR Aç (Odaya Yerleştir)</span>
+        </button>
+        <button type="button" class="btn-ar-hud" onclick="resetArRotation()">
+          <span>🎯 Açıyı Sıfırla</span>
+        </button>
+        <button type="button" class="btn-ar-hud btn-ar-close" onclick="closeArStudio()">
+          <span>✕ Kapat</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="ar-viewport" id="arViewport">
+      <div class="ar-scene-3d" id="arScene3D">
+        <div class="ar-holo-pedestal"></div>
+
+        <!-- 3B Yüzen SOS Plak -->
+        <div class="ar-vinyl-3d-group" onclick="triggerHeroScratch()" title="3B Plağa Dokun: DJ Scratch!">
+          <div class="ar-vinyl-ring-layer"></div>
+          <div class="ar-vinyl-disc" id="arVinylDisc">
+            <img src="sos-logo.png" alt="SOS 3D Plak">
+          </div>
+        </div>
+
+        <!-- 3B Hologram Tüplü TV Kartı -->
+        <div class="ar-tv-3d-group">
+          <div class="ar-tv-screen">
+            <span class="ar-tv-live-tag" id="arRankBadge">#1 EN POPÜLER HİT</span>
+            <img id="arTrackCover" src="https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg" alt="Yandırdın Kalbimi (Official Music Video)">
+          </div>
+          <div class="ar-tv-meta">
+            <div class="ar-tv-title" id="arTrackTitle">Yandırdın Kalbimi (Official Music Video)</div>
+            <div class="ar-tv-artist" id="arTrackArtist">Aysel Elizade</div>
+            <div class="ar-tv-views" id="arTrackViews">🔥 57,6 Milyon Görüntüleme</div>
+          </div>
+        </div>
+
+        <!-- 3B Ses Dalgaları -->
+        <div class="ar-eq-bars">
+          <div class="ar-eq-bar" style="animation-delay:0.0s"></div>
+          <div class="ar-eq-bar" style="animation-delay:0.15s"></div>
+          <div class="ar-eq-bar" style="animation-delay:0.3s"></div>
+          <div class="ar-eq-bar" style="animation-delay:0.1s"></div>
+          <div class="ar-eq-bar" style="animation-delay:0.25s"></div>
+          <div class="ar-eq-bar" style="animation-delay:0.4s"></div>
+          <div class="ar-eq-bar" style="animation-delay:0.2s"></div>
+          <div class="ar-eq-bar" style="animation-delay:0.05s"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ar-hud-bottom">
+      <div class="ar-controls-dock">
+        <button type="button" class="btn-ar-hud" onclick="prevTrack()">⏮ Önceki Hit</button>
+        <button type="button" class="btn-ar-hud" onclick="triggerHeroScratch()">💿 3D Plak Scratch</button>
+        <button type="button" class="btn-ar-hud active" onclick="closeArStudio(); document.getElementById('klipler').scrollIntoView({behavior:'smooth'});">📺 Tüplü TV'de Oynat</button>
+        <button type="button" class="btn-ar-hud" onclick="nextTrack()">Sonraki Hit ⏭</button>
+      </div>
+      <div class="ar-help-hint">
+        🖱️ Sahneyi 360° döndürmek için sürükleyin • 📱 Kamera AR moduyla SOS Plağı ve TV'yi odanızda görüntüleyin
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST BİLDİRİMİ -->
   <div id="toast" class="toast">
     <span style="font-size:1.3rem;">💿</span>
@@ -2192,398 +2756,454 @@
     // PARÇA KATALOĞU
     const trackData = [
       {
-        "id": "Kjd_2wdFXWU",
-        "title": "YERALTI",
-        "artist": "Sos Echoes",
-        "cover": "https://img.youtube.com/vi/Kjd_2wdFXWU/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=Kjd_2wdFXWU"
+            "id": "aNQEyr_FYCA",
+            "title": "Yandırdın Kalbimi (Official Music Video)",
+            "artist": "Aysel Elizade",
+            "cover": "https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=aNQEyr_FYCA",
+            "views": 57636114
       },
       {
-        "id": "d50NQO1SfnY",
-        "title": "Bekledim Dönmeni (Official Music Video)",
-        "artist": "Medi Rojen",
-        "cover": "https://img.youtube.com/vi/d50NQO1SfnY/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=d50NQO1SfnY"
+            "id": "tlO5-BChPI0",
+            "title": "Tutuklu Kaldım (Zalim İstanbul Dizi Cover)",
+            "artist": "Melis Aydın",
+            "cover": "https://img.youtube.com/vi/tlO5-BChPI0/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=tlO5-BChPI0",
+            "views": 6339262
       },
       {
-        "id": "bS6n4UI5EY8",
-        "title": "Kevokim",
-        "artist": "Remzi Başakbuğday",
-        "cover": "https://img.youtube.com/vi/bS6n4UI5EY8/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=bS6n4UI5EY8"
+            "id": "zpXiePCUjPw",
+            "title": "Na Bosana",
+            "artist": "HVMZA",
+            "cover": "https://img.youtube.com/vi/zpXiePCUjPw/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=zpXiePCUjPw",
+            "views": 371167
       },
       {
-        "id": "3jjHN0VTzTI",
-        "title": "MAMİ DELE",
-        "artist": "Can Ateş",
-        "cover": "https://img.youtube.com/vi/3jjHN0VTzTI/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=3jjHN0VTzTI"
+            "id": "d50NQO1SfnY",
+            "title": "Bekledim Dönmeni (Official Music Video)",
+            "artist": "Medi Rojen",
+            "cover": "https://img.youtube.com/vi/d50NQO1SfnY/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=d50NQO1SfnY",
+            "views": 289291
       },
       {
-        "id": "TqXXSto2qmo",
-        "title": "LA CORENTE (Afro Tech Version)",
-        "artist": "Can Ateş",
-        "cover": "https://img.youtube.com/vi/TqXXSto2qmo/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=TqXXSto2qmo"
+            "id": "EWPno_I_pG8",
+            "title": "Sonu Gelmez",
+            "artist": "Duygu Kutlu",
+            "cover": "https://img.youtube.com/vi/EWPno_I_pG8/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=EWPno_I_pG8",
+            "views": 169899
       },
       {
-        "id": "ebw05tN7PSs",
-        "title": "Sol Bailo (Afro Tech Version)",
-        "artist": "Can Ateş",
-        "cover": "https://img.youtube.com/vi/ebw05tN7PSs/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=ebw05tN7PSs"
+            "id": "Eb33VjyeqnM",
+            "title": "Ne Ötersin Dertli Dertli",
+            "artist": "Layla Puliçe",
+            "cover": "https://img.youtube.com/vi/Eb33VjyeqnM/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Eb33VjyeqnM",
+            "views": 76298
       },
       {
-        "id": "V_qN2KzqHlA",
-        "title": "Молчи",
-        "artist": "Maslova",
-        "cover": "https://img.youtube.com/vi/V_qN2KzqHlA/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=V_qN2KzqHlA"
+            "id": "e5uwV4pFItw",
+            "title": "Ferhat İle Şirin (Türkçe Versiyon)",
+            "artist": "Nihat Melik & Aila Rai",
+            "cover": "https://img.youtube.com/vi/e5uwV4pFItw/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=e5uwV4pFItw",
+            "views": 73230
       },
       {
-        "id": "MnaRftTsDjA",
-        "title": "ОТПУСКАй",
-        "artist": "Maslova",
-        "cover": "https://img.youtube.com/vi/MnaRftTsDjA/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=MnaRftTsDjA"
+            "id": "wUaPceuQXt0",
+            "title": "Beni Hor Görme Gardaşım",
+            "artist": "Burçin",
+            "cover": "https://img.youtube.com/vi/wUaPceuQXt0/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=wUaPceuQXt0",
+            "views": 73105
       },
       {
-        "id": "nvOtfEGQX_U",
-        "title": "Keskin Bıçak",
-        "artist": "Yılmaz Sumbul feat. Pınar Güsar",
-        "cover": "https://img.youtube.com/vi/nvOtfEGQX_U/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=nvOtfEGQX_U"
+            "id": "869aotihNCk",
+            "title": "Yaktın Kalbimi (Official Lyrics Video)",
+            "artist": "Pınar Hazel",
+            "cover": "https://img.youtube.com/vi/869aotihNCk/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=869aotihNCk",
+            "views": 65793
       },
       {
-        "id": "5nTBfOH82aw",
-        "title": "Mbali",
-        "artist": "Dora Karakuş",
-        "cover": "https://img.youtube.com/vi/5nTBfOH82aw/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=5nTBfOH82aw"
+            "id": "VNJXwCe-fgY",
+            "title": "Rosa",
+            "artist": "HVMZA",
+            "cover": "https://img.youtube.com/vi/VNJXwCe-fgY/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=VNJXwCe-fgY",
+            "views": 63938
       },
       {
-        "id": "2c0IqL6mG-I",
-        "title": "Safari",
-        "artist": "Maslova",
-        "cover": "https://img.youtube.com/vi/2c0IqL6mG-I/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=2c0IqL6mG-I"
+            "id": "bDziPbs9Nm0",
+            "title": "Beni Sen Öldürdün",
+            "artist": "Murat Çelitçi",
+            "cover": "https://img.youtube.com/vi/bDziPbs9Nm0/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=bDziPbs9Nm0",
+            "views": 61315
       },
       {
-        "id": "2-TBNLkfUIg",
-        "title": "Shisha",
-        "artist": "Damila Sero",
-        "cover": "https://img.youtube.com/vi/2-TBNLkfUIg/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=2-TBNLkfUIg"
+            "id": "byFSlH109WQ",
+            "title": "Güm Güm (Official Video)",
+            "artist": "Elif Vurgun",
+            "cover": "https://img.youtube.com/vi/byFSlH109WQ/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=byFSlH109WQ",
+            "views": 56270
       },
       {
-        "id": "2ZZ-t17SOxQ",
-        "title": "SAFARİ (Official Video)",
-        "artist": "Maslova",
-        "cover": "https://img.youtube.com/vi/2ZZ-t17SOxQ/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=2ZZ-t17SOxQ"
+            "id": "w3nfPip8MvY",
+            "title": "Ne Ağlarsın Benim Zülfü Siyahım (Zalim İstanbul)",
+            "artist": "Melis Aydın",
+            "cover": "https://img.youtube.com/vi/w3nfPip8MvY/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=w3nfPip8MvY",
+            "views": 48959
       },
       {
-        "id": "bDziPbs9Nm0",
-        "title": "Beni Sen Öldürdün",
-        "artist": "Murat Çelitçi",
-        "cover": "https://img.youtube.com/vi/bDziPbs9Nm0/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=bDziPbs9Nm0"
+            "id": "CQfKKwcperw",
+            "title": "Kor Ateşler",
+            "artist": "Muhsin Kuloğlu",
+            "cover": "https://img.youtube.com/vi/CQfKKwcperw/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=CQfKKwcperw",
+            "views": 47816
       },
       {
-        "id": "PUfUi3R7oaU",
-        "title": "Rosa (Extended Mix)",
-        "artist": "HVMZA",
-        "cover": "https://img.youtube.com/vi/PUfUi3R7oaU/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=PUfUi3R7oaU"
+            "id": "o_Sm4bkZGwc",
+            "title": "High On Stars (ft. Berfin Hasar)",
+            "artist": "Taygun Güleş",
+            "cover": "https://img.youtube.com/vi/o_Sm4bkZGwc/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=o_Sm4bkZGwc",
+            "views": 47400
       },
       {
-        "id": "AR-wNpHb0bY",
-        "title": "Pes Ettim (Akustik)",
-        "artist": "Murat Çelitçi",
-        "cover": "https://img.youtube.com/vi/AR-wNpHb0bY/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=AR-wNpHb0bY"
+            "id": "kHjz_X7I_fM",
+            "title": "Selvi",
+            "artist": "HVMZA",
+            "cover": "https://img.youtube.com/vi/kHjz_X7I_fM/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=kHjz_X7I_fM",
+            "views": 46575
       },
       {
-        "id": "pdjyuloyj3U",
-        "title": "Ferhat ile Şirin",
-        "artist": "Nihat Melik & Aila Rai",
-        "cover": "https://img.youtube.com/vi/pdjyuloyj3U/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=pdjyuloyj3U"
+            "id": "kwECzP-OLoU",
+            "title": "Uzun İnce Bir Yoldayım (Official Music Video)",
+            "artist": "Çağrı Baki & Aşık Veysel",
+            "cover": "https://img.youtube.com/vi/kwECzP-OLoU/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=kwECzP-OLoU",
+            "views": 42542
       },
       {
-        "id": "gPcTxgeOo38",
-        "title": "Çıkıyorum Yükseklere",
-        "artist": "LIL KHALIFA",
-        "cover": "https://img.youtube.com/vi/gPcTxgeOo38/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=gPcTxgeOo38"
+            "id": "CdpB8WM8rxc",
+            "title": "Gel Gönlümü Yerden Yere Vurma Güzel (Zalim İstanbul)",
+            "artist": "Melis Aydın",
+            "cover": "https://img.youtube.com/vi/CdpB8WM8rxc/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=CdpB8WM8rxc",
+            "views": 38416
       },
       {
-        "id": "r2Vn-XrlTcc",
-        "title": "Bize Bizden Yarar Var",
-        "artist": "BRO34",
-        "cover": "https://img.youtube.com/vi/r2Vn-XrlTcc/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=r2Vn-XrlTcc"
+            "id": "2-TBNLkfUIg",
+            "title": "Shisha",
+            "artist": "Damila Sero",
+            "cover": "https://img.youtube.com/vi/2-TBNLkfUIg/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=2-TBNLkfUIg",
+            "views": 37197
       },
       {
-        "id": "8sEdsAmAPxw",
-        "title": "Just My Beach",
-        "artist": "Mert Yılmaz",
-        "cover": "https://img.youtube.com/vi/8sEdsAmAPxw/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=8sEdsAmAPxw"
+            "id": "MGdHXELHl_g",
+            "title": "Yandırdın Kalbimi (Eray Topaloğlu Remix)",
+            "artist": "Aysel Elizade",
+            "cover": "https://img.youtube.com/vi/MGdHXELHl_g/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=MGdHXELHl_g",
+            "views": 32749
       },
       {
-        "id": "o_Sm4bkZGwc",
-        "title": "High On Stars (ft. Berfin Hasar)",
-        "artist": "Taygun Güleş",
-        "cover": "https://img.youtube.com/vi/o_Sm4bkZGwc/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=o_Sm4bkZGwc"
+            "id": "JfdujJ13Me4",
+            "title": "Ötme Bülbül",
+            "artist": "Oktay Aytaş",
+            "cover": "https://img.youtube.com/vi/JfdujJ13Me4/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=JfdujJ13Me4",
+            "views": 30814
       },
       {
-        "id": "i65hndASDvY",
-        "title": "Shouldn't We",
-        "artist": "Volkan Ilgaz",
-        "cover": "https://img.youtube.com/vi/i65hndASDvY/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=i65hndASDvY"
+            "id": "2c0IqL6mG-I",
+            "title": "Safari",
+            "artist": "Maslova",
+            "cover": "https://img.youtube.com/vi/2c0IqL6mG-I/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=2c0IqL6mG-I",
+            "views": 28978
       },
       {
-        "id": "zVmmAMnj15M",
-        "title": "Xəyanət",
-        "artist": "Nihat Məlik & Aila Rai",
-        "cover": "https://img.youtube.com/vi/zVmmAMnj15M/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=zVmmAMnj15M"
+            "id": "kAAPvtQo8lU",
+            "title": "Kaleden İniş Mi Olur",
+            "artist": "Layla Puliçe",
+            "cover": "https://img.youtube.com/vi/kAAPvtQo8lU/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=kAAPvtQo8lU",
+            "views": 25509
       },
       {
-        "id": "-RfGVnQBoZg",
-        "title": "Güm Güm (Eray Topaloğlu Remix)",
-        "artist": "Elif Vurgun",
-        "cover": "https://img.youtube.com/vi/-RfGVnQBoZg/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=-RfGVnQBoZg"
+            "id": "pdjyuloyj3U",
+            "title": "Ferhat ile Şirin",
+            "artist": "Nihat Melik & Aila Rai",
+            "cover": "https://img.youtube.com/vi/pdjyuloyj3U/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=pdjyuloyj3U",
+            "views": 21589
       },
       {
-        "id": "byFSlH109WQ",
-        "title": "Güm Güm (Official Video)",
-        "artist": "Elif Vurgun",
-        "cover": "https://img.youtube.com/vi/byFSlH109WQ/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=byFSlH109WQ"
+            "id": "mSJzMO8yueY",
+            "title": "Çemberimde Gül Oya",
+            "artist": "Burçin",
+            "cover": "https://img.youtube.com/vi/mSJzMO8yueY/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=mSJzMO8yueY",
+            "views": 16984
       },
       {
-        "id": "lb2UTTUP2Z8",
-        "title": "Yapamıyoruz",
-        "artist": "Aydemir feat. Aila Rai",
-        "cover": "https://img.youtube.com/vi/lb2UTTUP2Z8/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=lb2UTTUP2Z8"
+            "id": "bS6n4UI5EY8",
+            "title": "Kevokim",
+            "artist": "Remzi Başakbuğday",
+            "cover": "https://img.youtube.com/vi/bS6n4UI5EY8/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=bS6n4UI5EY8",
+            "views": 16691
       },
       {
-        "id": "2v9cHDix56A",
-        "title": "Bahçede Yeşil Çınar (Orijinal Dizi Müzikleri)",
-        "artist": "Esra Sarak",
-        "cover": "https://img.youtube.com/vi/2v9cHDix56A/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=2v9cHDix56A"
+            "id": "A5MQzyKsrCQ",
+            "title": "Yıldızların Altında (Zalim İstanbul Dizi Müziği)",
+            "artist": "Melis Aydın",
+            "cover": "https://img.youtube.com/vi/A5MQzyKsrCQ/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=A5MQzyKsrCQ",
+            "views": 10436
       },
       {
-        "id": "CQV0Z8Z5zW8",
-        "title": "Magusa Limanı",
-        "artist": "Esra Sarak",
-        "cover": "https://img.youtube.com/vi/CQV0Z8Z5zW8/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=CQV0Z8Z5zW8"
+            "id": "lT22yuCGrZA",
+            "title": "Kırmızı Balık (Çocuk Şarkıları)",
+            "artist": "Rüya Uluçınar",
+            "cover": "https://img.youtube.com/vi/lT22yuCGrZA/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=lT22yuCGrZA",
+            "views": 10228
       },
       {
-        "id": "2cR22nMAqFU",
-        "title": "In West (Official Video)",
-        "artist": "HVMZA",
-        "cover": "https://img.youtube.com/vi/2cR22nMAqFU/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=2cR22nMAqFU"
+            "id": "CQV0Z8Z5zW8",
+            "title": "Magusa Limanı",
+            "artist": "Esra Sarak",
+            "cover": "https://img.youtube.com/vi/CQV0Z8Z5zW8/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=CQV0Z8Z5zW8",
+            "views": 8954
       },
       {
-        "id": "2ROjSVi0v4M",
-        "title": "Milli Ordum",
-        "artist": "Jale Guliyeva",
-        "cover": "https://img.youtube.com/vi/2ROjSVi0v4M/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=2ROjSVi0v4M"
+            "id": "2ROjSVi0v4M",
+            "title": "Milli Ordum",
+            "artist": "Jale Guliyeva",
+            "cover": "https://img.youtube.com/vi/2ROjSVi0v4M/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=2ROjSVi0v4M",
+            "views": 8592
       },
       {
-        "id": "EWPno_I_pG8",
-        "title": "Sonu Gelmez",
-        "artist": "Duygu Kutlu",
-        "cover": "https://img.youtube.com/vi/EWPno_I_pG8/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=EWPno_I_pG8"
+            "id": "Laf3Xkc9oNM",
+            "title": "İki Keklik (Zalim İstanbul Dizi Müzikleri)",
+            "artist": "Melis Aydın",
+            "cover": "https://img.youtube.com/vi/Laf3Xkc9oNM/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Laf3Xkc9oNM",
+            "views": 8449
       },
       {
-        "id": "CQfKKwcperw",
-        "title": "Kor Ateşler",
-        "artist": "Muhsin Kuloğlu",
-        "cover": "https://img.youtube.com/vi/CQfKKwcperw/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=CQfKKwcperw"
+            "id": "i65hndASDvY",
+            "title": "Shouldn't We",
+            "artist": "Volkan Ilgaz",
+            "cover": "https://img.youtube.com/vi/i65hndASDvY/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=i65hndASDvY",
+            "views": 8364
       },
       {
-        "id": "mSJzMO8yueY",
-        "title": "Çemberimde Gül Oya",
-        "artist": "Burçin",
-        "cover": "https://img.youtube.com/vi/mSJzMO8yueY/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=mSJzMO8yueY"
+            "id": "lb2UTTUP2Z8",
+            "title": "Yapamıyoruz",
+            "artist": "Aydemir feat. Aila Rai",
+            "cover": "https://img.youtube.com/vi/lb2UTTUP2Z8/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=lb2UTTUP2Z8",
+            "views": 8252
       },
       {
-        "id": "kAAPvtQo8lU",
-        "title": "Kaleden İniş Mi Olur",
-        "artist": "Layla Puliçe",
-        "cover": "https://img.youtube.com/vi/kAAPvtQo8lU/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=kAAPvtQo8lU"
+            "id": "LEbLcSx3_s0",
+            "title": "Ellerini Çekip Benden",
+            "artist": "Melis Aydın",
+            "cover": "https://img.youtube.com/vi/LEbLcSx3_s0/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=LEbLcSx3_s0",
+            "views": 8012
       },
       {
-        "id": "VNJXwCe-fgY",
-        "title": "Rosa",
-        "artist": "HVMZA",
-        "cover": "https://img.youtube.com/vi/VNJXwCe-fgY/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=VNJXwCe-fgY"
+            "id": "2v9cHDix56A",
+            "title": "Bahçede Yeşil Çınar (Orijinal Dizi Müzikleri)",
+            "artist": "Esra Sarak",
+            "cover": "https://img.youtube.com/vi/2v9cHDix56A/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=2v9cHDix56A",
+            "views": 6975
       },
       {
-        "id": "JfdujJ13Me4",
-        "title": "Ötme Bülbül",
-        "artist": "Oktay Aytaş",
-        "cover": "https://img.youtube.com/vi/JfdujJ13Me4/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=JfdujJ13Me4"
+            "id": "3jjHN0VTzTI",
+            "title": "MAMİ DELE",
+            "artist": "Can Ateş",
+            "cover": "https://img.youtube.com/vi/3jjHN0VTzTI/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=3jjHN0VTzTI",
+            "views": 5050
       },
       {
-        "id": "lT22yuCGrZA",
-        "title": "Kırmızı Balık (Çocuk Şarkıları)",
-        "artist": "Rüya Uluçınar",
-        "cover": "https://img.youtube.com/vi/lT22yuCGrZA/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=lT22yuCGrZA"
+            "id": "r2Vn-XrlTcc",
+            "title": "Bize Bizden Yarar Var",
+            "artist": "BRO34",
+            "cover": "https://img.youtube.com/vi/r2Vn-XrlTcc/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=r2Vn-XrlTcc",
+            "views": 4996
       },
       {
-        "id": "Eb33VjyeqnM",
-        "title": "Ne Ötersin Dertli Dertli",
-        "artist": "Layla Puliçe",
-        "cover": "https://img.youtube.com/vi/Eb33VjyeqnM/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=Eb33VjyeqnM"
+            "id": "nvOtfEGQX_U",
+            "title": "Keskin Bıçak",
+            "artist": "Yılmaz Sumbul feat. Pınar Güsar",
+            "cover": "https://img.youtube.com/vi/nvOtfEGQX_U/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=nvOtfEGQX_U",
+            "views": 4836
       },
       {
-        "id": "wUaPceuQXt0",
-        "title": "Beni Hor Görme Gardaşım",
-        "artist": "Burçin",
-        "cover": "https://img.youtube.com/vi/wUaPceuQXt0/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=wUaPceuQXt0"
+            "id": "ebw05tN7PSs",
+            "title": "Sol Bailo (Afro Tech Version)",
+            "artist": "Can Ateş",
+            "cover": "https://img.youtube.com/vi/ebw05tN7PSs/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=ebw05tN7PSs",
+            "views": 4553
       },
       {
-        "id": "6CNCc9mBikc",
-        "title": "No Way",
-        "artist": "Can Ateş",
-        "cover": "https://img.youtube.com/vi/6CNCc9mBikc/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=6CNCc9mBikc"
+            "id": "TqXXSto2qmo",
+            "title": "LA CORENTE (Afro Tech Version)",
+            "artist": "Can Ateş",
+            "cover": "https://img.youtube.com/vi/TqXXSto2qmo/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=TqXXSto2qmo",
+            "views": 4486
       },
       {
-        "id": "aZT_WRhRXJE",
-        "title": "Get Up",
-        "artist": "Güney Kahraman",
-        "cover": "https://img.youtube.com/vi/aZT_WRhRXJE/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=aZT_WRhRXJE"
+            "id": "6CNCc9mBikc",
+            "title": "No Way",
+            "artist": "Can Ateş",
+            "cover": "https://img.youtube.com/vi/6CNCc9mBikc/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=6CNCc9mBikc",
+            "views": 4472
       },
       {
-        "id": "zpXiePCUjPw",
-        "title": "Na Bosana",
-        "artist": "HVMZA",
-        "cover": "https://img.youtube.com/vi/zpXiePCUjPw/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=zpXiePCUjPw"
+            "id": "zVmmAMnj15M",
+            "title": "Xəyanət",
+            "artist": "Nihat Məlik & Aila Rai",
+            "cover": "https://img.youtube.com/vi/zVmmAMnj15M/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=zVmmAMnj15M",
+            "views": 4156
       },
       {
-        "id": "TRlDuJEavYw",
-        "title": "Selvi (Extended Mix)",
-        "artist": "HVMZA",
-        "cover": "https://img.youtube.com/vi/TRlDuJEavYw/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=TRlDuJEavYw"
+            "id": "2cR22nMAqFU",
+            "title": "In West (Official Video)",
+            "artist": "HVMZA",
+            "cover": "https://img.youtube.com/vi/2cR22nMAqFU/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=2cR22nMAqFU",
+            "views": 3954
       },
       {
-        "id": "kHjz_X7I_fM",
-        "title": "Selvi",
-        "artist": "HVMZA",
-        "cover": "https://img.youtube.com/vi/kHjz_X7I_fM/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=kHjz_X7I_fM"
+            "id": "V_qN2KzqHlA",
+            "title": "Молчи",
+            "artist": "Maslova",
+            "cover": "https://img.youtube.com/vi/V_qN2KzqHlA/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=V_qN2KzqHlA",
+            "views": 3925
       },
       {
-        "id": "LEbLcSx3_s0",
-        "title": "Ellerini Çekip Benden",
-        "artist": "Melis Aydın",
-        "cover": "https://img.youtube.com/vi/LEbLcSx3_s0/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=LEbLcSx3_s0"
+            "id": "MnaRftTsDjA",
+            "title": "ОТПУСКАй",
+            "artist": "Maslova",
+            "cover": "https://img.youtube.com/vi/MnaRftTsDjA/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=MnaRftTsDjA",
+            "views": 3142
       },
       {
-        "id": "Laf3Xkc9oNM",
-        "title": "İki Keklik (Zalim İstanbul Dizi Müzikleri)",
-        "artist": "Melis Aydın",
-        "cover": "https://img.youtube.com/vi/Laf3Xkc9oNM/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=Laf3Xkc9oNM"
+            "id": "gPcTxgeOo38",
+            "title": "Çıkıyorum Yükseklere",
+            "artist": "LIL KHALIFA",
+            "cover": "https://img.youtube.com/vi/gPcTxgeOo38/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=gPcTxgeOo38",
+            "views": 2215
       },
       {
-        "id": "CdpB8WM8rxc",
-        "title": "Gel Gönlümü Yerden Yere Vurma Güzel (Zalim İstanbul)",
-        "artist": "Melis Aydın",
-        "cover": "https://img.youtube.com/vi/CdpB8WM8rxc/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=CdpB8WM8rxc"
+            "id": "aZT_WRhRXJE",
+            "title": "Get Up",
+            "artist": "Güney Kahraman",
+            "cover": "https://img.youtube.com/vi/aZT_WRhRXJE/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=aZT_WRhRXJE",
+            "views": 2203
       },
       {
-        "id": "w3nfPip8MvY",
-        "title": "Ne Ağlarsın Benim Zülfü Siyahım (Zalim İstanbul)",
-        "artist": "Melis Aydın",
-        "cover": "https://img.youtube.com/vi/w3nfPip8MvY/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=w3nfPip8MvY"
+            "id": "-RfGVnQBoZg",
+            "title": "Güm Güm (Eray Topaloğlu Remix)",
+            "artist": "Elif Vurgun",
+            "cover": "https://img.youtube.com/vi/-RfGVnQBoZg/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=-RfGVnQBoZg",
+            "views": 2057
       },
       {
-        "id": "869aotihNCk",
-        "title": "Yaktın Kalbimi (Official Lyrics Video)",
-        "artist": "Pınar Hazel",
-        "cover": "https://img.youtube.com/vi/869aotihNCk/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=869aotihNCk"
+            "id": "8sEdsAmAPxw",
+            "title": "Just My Beach",
+            "artist": "Mert Yılmaz",
+            "cover": "https://img.youtube.com/vi/8sEdsAmAPxw/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=8sEdsAmAPxw",
+            "views": 1888
       },
       {
-        "id": "e5uwV4pFItw",
-        "title": "Ferhat İle Şirin (Türkçe Versiyon)",
-        "artist": "Nihat Melik & Aila Rai",
-        "cover": "https://img.youtube.com/vi/e5uwV4pFItw/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=e5uwV4pFItw"
+            "id": "TRlDuJEavYw",
+            "title": "Selvi (Extended Mix)",
+            "artist": "HVMZA",
+            "cover": "https://img.youtube.com/vi/TRlDuJEavYw/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=TRlDuJEavYw",
+            "views": 1403
       },
       {
-        "id": "8-rxJXwTwLg",
-        "title": "İflah",
-        "artist": "Erdem Karaman",
-        "cover": "https://img.youtube.com/vi/8-rxJXwTwLg/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=8-rxJXwTwLg"
+            "id": "8-rxJXwTwLg",
+            "title": "İflah",
+            "artist": "Erdem Karaman",
+            "cover": "https://img.youtube.com/vi/8-rxJXwTwLg/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=8-rxJXwTwLg",
+            "views": 1073
       },
       {
-        "id": "A5MQzyKsrCQ",
-        "title": "Yıldızların Altında (Zalim İstanbul Dizi Müziği)",
-        "artist": "Melis Aydın",
-        "cover": "https://img.youtube.com/vi/A5MQzyKsrCQ/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=A5MQzyKsrCQ"
+            "id": "AR-wNpHb0bY",
+            "title": "Pes Ettim (Akustik)",
+            "artist": "Murat Çelitçi",
+            "cover": "https://img.youtube.com/vi/AR-wNpHb0bY/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=AR-wNpHb0bY",
+            "views": 743
       },
       {
-        "id": "MGdHXELHl_g",
-        "title": "Yandırdın Kalbimi (Eray Topaloğlu Remix)",
-        "artist": "Aysel Elizade",
-        "cover": "https://img.youtube.com/vi/MGdHXELHl_g/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=MGdHXELHl_g"
+            "id": "Kjd_2wdFXWU",
+            "title": "YERALTI",
+            "artist": "Sos Echoes",
+            "cover": "https://img.youtube.com/vi/Kjd_2wdFXWU/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=Kjd_2wdFXWU",
+            "views": 729
       },
       {
-        "id": "tlO5-BChPI0",
-        "title": "Tutuklu Kaldım (Zalim İstanbul Dizi Cover)",
-        "artist": "Melis Aydın",
-        "cover": "https://img.youtube.com/vi/tlO5-BChPI0/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=tlO5-BChPI0"
+            "id": "PUfUi3R7oaU",
+            "title": "Rosa (Extended Mix)",
+            "artist": "HVMZA",
+            "cover": "https://img.youtube.com/vi/PUfUi3R7oaU/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=PUfUi3R7oaU",
+            "views": 609
       },
       {
-        "id": "kwECzP-OLoU",
-        "title": "Uzun İnce Bir Yoldayım (Official Music Video)",
-        "artist": "Çağrı Baki & Aşık Veysel",
-        "cover": "https://img.youtube.com/vi/kwECzP-OLoU/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=kwECzP-OLoU"
+            "id": "5nTBfOH82aw",
+            "title": "Mbali",
+            "artist": "Dora Karakuş",
+            "cover": "https://img.youtube.com/vi/5nTBfOH82aw/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=5nTBfOH82aw",
+            "views": 605
       },
       {
-        "id": "aNQEyr_FYCA",
-        "title": "Yandırdın Kalbimi (Official Music Video)",
-        "artist": "Aysel Elizade",
-        "cover": "https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg",
-        "youtubeUrl": "https://www.youtube.com/watch?v=aNQEyr_FYCA"
+            "id": "2ZZ-t17SOxQ",
+            "title": "SAFARİ (Official Video)",
+            "artist": "Maslova",
+            "cover": "https://img.youtube.com/vi/2ZZ-t17SOxQ/hqdefault.jpg",
+            "youtubeUrl": "https://www.youtube.com/watch?v=2ZZ-t17SOxQ",
+            "views": 311
       }
-    ];
+];
 
     let currentTrackIndex = 0;
     let searchTerm = "";
@@ -2702,6 +3322,33 @@
       showToast("💿 DJ Scratch!");
     }
 
+    function formatViews(views) {
+      if (!views) return "";
+      if (views >= 1000000) {
+        return (views / 1000000).toFixed(1).replace('.', ',') + " Mn İzlenme";
+      }
+      if (views >= 1000) {
+        return (views / 1000).toFixed(1).replace('.', ',') + " B İzlenme";
+      }
+      return views + " İzlenme";
+    }
+
+    function setSortOrder(mode) {
+      const popBtn = document.getElementById("sortPopularBtn");
+      const azBtn = document.getElementById("sortAzBtn");
+      if (mode === 'az') {
+        trackData.sort((a, b) => a.title.localeCompare(b.title, 'tr'));
+        if (azBtn) azBtn.classList.add('active');
+        if (popBtn) popBtn.classList.remove('active');
+      } else {
+        trackData.sort((a, b) => (b.views || 0) - (a.views || 0));
+        if (popBtn) popBtn.classList.add('active');
+        if (azBtn) azBtn.classList.remove('active');
+      }
+      currentTrackIndex = 0;
+      renderTrackList();
+    }
+
     function renderTrackList() {
       trackListEl.innerHTML = "";
 
@@ -2723,10 +3370,11 @@
         const isCurrentActive = trackData[currentTrackIndex]?.id === track.id;
         const card = document.createElement("div");
         card.className = `track-card ${isCurrentActive ? 'active' : ''}`;
+        const rankIcon = index < 3 ? '🔥' : '👁️';
         
         card.innerHTML = `
           <div class="track-left">
-            <span class="track-num">${String(index + 1).padStart(2, '0')}</span>
+            <span class="track-num">#${String(index + 1).padStart(2, '0')}</span>
             <div class="track-cover-wrap">
               <img src="${track.cover}" alt="${track.title}" class="track-cover-img" onerror="this.src='sos-logo.png'">
               <div class="play-overlay">
@@ -2736,6 +3384,7 @@
             <div class="track-details">
               <h4 class="track-name">${track.title}</h4>
               <p class="track-artist">${track.artist}</p>
+              <span class="popularity-badge">${rankIcon} ${formatViews(track.views)}</span>
             </div>
           </div>
           <div class="track-right">
@@ -2811,8 +3460,20 @@
       videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0`;
 
       playerTitle.textContent = track.title;
-      playerArtist.textContent = track.artist;
+      playerArtist.textContent = `${track.artist} • 🔥 ${formatViews(track.views)}`;
       playerYoutubeLink.href = track.youtubeUrl;
+
+      // 3B & AR Hologram TV Senkronizasyonu
+      const arTrackCover = document.getElementById("arTrackCover");
+      const arTrackTitle = document.getElementById("arTrackTitle");
+      const arTrackArtist = document.getElementById("arTrackArtist");
+      const arTrackViews = document.getElementById("arTrackViews");
+      const arRankBadge = document.getElementById("arRankBadge");
+      if (arTrackCover) arTrackCover.src = track.cover;
+      if (arTrackTitle) arTrackTitle.textContent = track.title;
+      if (arTrackArtist) arTrackArtist.textContent = track.artist;
+      if (arTrackViews) arTrackViews.textContent = `🔥 ${formatViews(track.views)}`;
+      if (arRankBadge) arRankBadge.textContent = `#${index + 1} POPÜLER HİT`;
 
       renderTrackList();
     }
@@ -2866,6 +3527,151 @@
     document.addEventListener("DOMContentLoaded", () => {
       renderTrackList();
     });
+
+    // =====================================================
+    // 3B PERSPEKTİF EĞİM (3D TILT) & AR HOLOGRAM STÜDYOSU
+    // =====================================================
+    let arCameraStream = null;
+    let arRotX = 14;
+    let arRotY = -18;
+    let arScale = 1;
+    let isDraggingAr = false;
+    let prevPointerX = 0;
+    let prevPointerY = 0;
+
+    function updateArSceneTransform() {
+      const scene = document.getElementById("arScene3D");
+      if (scene) {
+        scene.style.transform = `rotateX(${arRotX}deg) rotateY(${arRotY}deg) scale(${arScale})`;
+      }
+    }
+
+    function openArStudio() {
+      const modal = document.getElementById("arStudioModal");
+      if (!modal) return;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      showToast("🥽 3B & Artırılmış Gerçeklik Stüdyosu Açıldı!");
+    }
+
+    function closeArStudio() {
+      const modal = document.getElementById("arStudioModal");
+      if (!modal) return;
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      stopArCamera();
+    }
+
+    function resetArRotation() {
+      arRotX = 14;
+      arRotY = -18;
+      arScale = 1;
+      updateArSceneTransform();
+    }
+
+    async function toggleArCamera() {
+      const modal = document.getElementById("arStudioModal");
+      const video = document.getElementById("arCameraFeed");
+      const btn = document.getElementById("arCameraToggleBtn");
+      const label = document.getElementById("arModeLabel");
+
+      if (arCameraStream) {
+        stopArCamera();
+        showToast("3B Sanal Stüdyo Moduna Geçildi");
+        return;
+      }
+
+      try {
+        arCameraStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } },
+          audio: false
+        });
+        video.srcObject = arCameraStream;
+        modal.classList.add("camera-active");
+        if (btn) {
+          btn.classList.add("active");
+          btn.innerHTML = "<span>📷 AR Kamerayı Kapat</span>";
+        }
+        if (label) {
+          label.textContent = "CANLI AR KAMERA AKTİF • MEKÂNSAL HOLOGRAM";
+        }
+        showToast("📷 Artırılmış Gerçeklik (AR) Kamera Modu Aktif!");
+      } catch (err) {
+        console.warn("AR Kamera erişimi sağlanamadı:", err);
+        showToast("Kamera izni verilmedi veya cihazda kamera bulunamadı; 3B Hologram modu aktif.");
+      }
+    }
+
+    function stopArCamera() {
+      const modal = document.getElementById("arStudioModal");
+      const video = document.getElementById("arCameraFeed");
+      const btn = document.getElementById("arCameraToggleBtn");
+      const label = document.getElementById("arModeLabel");
+
+      if (arCameraStream) {
+        arCameraStream.getTracks().forEach(t => t.stop());
+        arCameraStream = null;
+      }
+      if (video) video.srcObject = null;
+      if (modal) modal.classList.remove("camera-active");
+      if (btn) {
+        btn.classList.remove("active");
+        btn.innerHTML = "<span>📷 Canlı Kamera AR Aç (Odaya Yerleştir)</span>";
+      }
+      if (label) {
+        label.textContent = "3D HOLOGRAM SAHNESİ AKTİF";
+      }
+    }
+
+    // 360° Sürükle & Döndür (AR Sahnesi) ve Sayfa İçi 3B Tilt
+    document.addEventListener("DOMContentLoaded", () => {
+      const viewport = document.getElementById("arViewport");
+      if (viewport) {
+        viewport.addEventListener("pointerdown", (e) => {
+          if (e.target.closest("button")) return;
+          isDraggingAr = true;
+          prevPointerX = e.clientX;
+          prevPointerY = e.clientY;
+        });
+
+        window.addEventListener("pointermove", (e) => {
+          if (!isDraggingAr) return;
+          const dx = e.clientX - prevPointerX;
+          const dy = e.clientY - prevPointerY;
+          prevPointerX = e.clientX;
+          prevPointerY = e.clientY;
+          arRotY += dx * 0.45;
+          arRotX = Math.max(-45, Math.min(45, arRotX - dy * 0.35));
+          updateArSceneTransform();
+        });
+
+        window.addEventListener("pointerup", () => {
+          isDraggingAr = false;
+        });
+
+        viewport.addEventListener("wheel", (e) => {
+          e.preventDefault();
+          arScale = Math.max(0.65, Math.min(1.45, arScale - e.deltaY * 0.0008));
+          updateArSceneTransform();
+        }, { passive: false });
+      }
+
+      // Sayfa içi 3B derinlik (Hero Plak, Tüplü TV ve Sanatçı Kartları)
+      const tiltElements = document.querySelectorAll(".vinyl-stage, .theater-screen-card, .artist-card");
+      tiltElements.forEach((el) => {
+        el.classList.add("tilt-3d-target");
+        el.addEventListener("mousemove", (e) => {
+          const rect = el.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          el.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(6px)`;
+        });
+        el.addEventListener("mouseleave", () => {
+          el.style.transform = "";
+        });
+      });
+    });
+
   </script>
 </body>
 </html>
