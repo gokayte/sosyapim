@@ -2370,6 +2370,477 @@
       color: #ffffff;
       border-color: var(--red);
     }
+
+    /* ============================================================================
+       GÖRÜNTÜ KALİTESİ & EKRAN AYARLARI + MOBİL TÜPLÜ TELEVİZYON UYGULAMA MODU
+       ============================================================================ */
+    :root {
+      --tv-brightness: 1.05;
+      --tv-contrast: 1.10;
+      --tv-saturate: 1.15;
+      --tv-scanline-opacity: 0.28;
+    }
+
+    .screen-wrapper iframe {
+      filter: brightness(var(--tv-brightness)) contrast(var(--tv-contrast)) saturate(var(--tv-saturate));
+      transition: filter 0.2s ease;
+    }
+
+    .crt-overlay-effects {
+      opacity: var(--tv-scanline-opacity);
+      transition: opacity 0.25s ease;
+    }
+
+    .tv-top-console-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      background: linear-gradient(180deg, #241209 0%, #140904 100%);
+      border: 1.5px solid #d4a359;
+      border-radius: 12px;
+      box-shadow: inset 0 1px 0 rgba(255, 223, 158, 0.25), 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tv-top-console-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .tv-top-logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #39ff14;
+      box-shadow: 0 0 10px #39ff14;
+      flex-shrink: 0;
+    }
+
+    .tv-top-console-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 900;
+      color: #ffdf9e;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tv-top-console-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .tv-mini-action-btn {
+      padding: 5px 10px;
+      border-radius: 7px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #ffffff;
+      background: rgba(229, 9, 20, 0.85);
+      border: 1.5px solid #ffdf9e;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .tv-mini-action-btn.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(212, 163, 89, 0.6);
+      color: #ffdf9e;
+    }
+
+    .tv-mini-action-btn:hover {
+      background: var(--red-bright);
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    /* GÖRÜNTÜ KALİTESİ VE EKRAN AYARLARI ÇEKMECESİ */
+    .tv-picture-drawer {
+      display: none;
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, #1b1310 0%, #0e0907 100%);
+      border: 2px solid #d4a359;
+      border-radius: 14px;
+      box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.85);
+      color: #f3dec0;
+    }
+
+    .tv-picture-drawer.open {
+      display: block;
+    }
+
+    .tv-pic-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.76rem;
+      font-weight: 900;
+      color: #39ff14;
+      letter-spacing: 1px;
+    }
+
+    .tv-pic-presets {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .tv-pic-preset-btn {
+      padding: 7px 6px;
+      border-radius: 8px;
+      background: #231915;
+      border: 1.5px solid rgba(212, 163, 89, 0.4);
+      color: #ffdf9e;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .tv-pic-preset-btn.active,
+    .tv-pic-preset-btn:hover {
+      background: var(--red);
+      color: #ffffff;
+      border-color: #ffffff;
+      box-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
+    }
+
+    .tv-pic-sliders {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .tv-pic-slider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(212, 163, 89, 0.22);
+    }
+
+    .tv-pic-slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #ffdf9e;
+    }
+
+    .tv-pic-slider-label span:last-child {
+      color: #39ff14;
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    .tv-pic-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 5px;
+      border-radius: 4px;
+      background: #090605;
+      border: 1px solid rgba(212, 163, 89, 0.45);
+      outline: none;
+    }
+
+    .tv-pic-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #39ff14;
+      border: 2px solid #ffffff;
+      cursor: pointer;
+    }
+
+    /* TÜPLÜ TV MODUNA DÖNÜŞ YÜZEN BUTONU (TAM SİTE GÖRÜNÜMÜNDEYKEN) */
+    .floating-return-tv-btn {
+      display: none;
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 998;
+      background: linear-gradient(135deg, #2d1409 0%, #4b2413 100%);
+      color: #ffdf9e;
+      border: 2px solid #d4a359;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 18px rgba(229, 9, 20, 0.5);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    body:not(.mobile-tv-app-mode) .floating-return-tv-btn {
+      display: inline-flex;
+    }
+
+    /* ============================================================================
+       MOBİLDE ESKİ TÜPLÜ TELEVİZYON İÇİNDE GEZİNME DENEYİMİ (SADECE VİDEO KLİPLER)
+       ============================================================================ */
+    body.mobile-tv-app-mode {
+      background: #120905 !important;
+      color: #ffffff;
+    }
+
+    body.mobile-tv-app-mode #paintFlowCanvas,
+    body.mobile-tv-app-mode .top-flowing-paint,
+    body.mobile-tv-app-mode .header,
+    body.mobile-tv-app-mode .hero,
+    body.mobile-tv-app-mode .marquee-strip,
+    body.mobile-tv-app-mode #klipler .section-header,
+    body.mobile-tv-app-mode #sanatcilar,
+    body.mobile-tv-app-mode #hakkimizda,
+    body.mobile-tv-app-mode #demo,
+    body.mobile-tv-app-mode .footer {
+      display: none !important;
+    }
+
+    body.mobile-tv-app-mode #klipler {
+      padding: 8px 0 16px !important;
+      min-height: 100dvh;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    body.mobile-tv-app-mode #klipler > .container {
+      padding: 0 8px !important;
+      max-width: 1000px;
+    }
+
+    /* TÜPLÜ TV KASASI İÇİNDE ENTEGRE KANAL REHBERİ GÖRÜNÜMÜ */
+    body.mobile-tv-app-mode .theater-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.02) 0px,
+          rgba(255, 255, 255, 0.02) 2px,
+          rgba(0, 0, 0, 0.08) 2px,
+          rgba(0, 0, 0, 0.08) 5px
+        ),
+        linear-gradient(145deg, #4b2413 0%, #2d1409 50%, #180904 100%);
+      border: 4px solid #d4a359;
+      outline: 3px solid #230f07;
+      border-radius: 26px;
+      padding: 10px;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.85),
+        inset 0 2px 8px rgba(255, 224, 178, 0.35),
+        inset 0 -8px 20px rgba(0, 0, 0, 0.8);
+      margin-top: 26px;
+      position: relative;
+    }
+
+    body.mobile-tv-app-mode .retro-tv-unit {
+      padding-top: 0 !important;
+      position: sticky;
+      top: 4px;
+      z-index: 30;
+      background: linear-gradient(145deg, #3d1d0f 0%, #220e06 100%);
+      border-radius: 18px;
+      padding-bottom: 4px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
+    }
+
+    body.mobile-tv-app-mode .tv-antenna-wrap {
+      top: -38px;
+      width: 150px;
+      height: 38px;
+    }
+
+    body.mobile-tv-app-mode .theater-screen-card {
+      background: transparent;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      padding: 6px;
+    }
+
+    body.mobile-tv-app-mode .tv-legs {
+      display: none;
+    }
+
+    body.mobile-tv-app-mode .catalog-panel {
+      margin-top: 10px;
+      background: linear-gradient(180deg, #16110e 0%, #0b0807 100%);
+      border: 2.5px solid #b5925b;
+      border-radius: 18px;
+      padding: 12px 10px;
+      box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.9);
+      gap: 10px;
+    }
+
+    .crt-channel-guide-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 12px;
+      background: linear-gradient(90deg, #251812 0%, #170f0b 100%);
+      border: 1.5px solid rgba(212, 163, 89, 0.55);
+      border-radius: 10px;
+      color: #ffdf9e;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+    }
+
+    .crt-channel-guide-banner .ch-guide-count {
+      color: #39ff14;
+      background: #060403;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(57, 255, 20, 0.4);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    body.mobile-tv-app-mode .search-input {
+      background: #1b1512;
+      color: #ffffff;
+      border-color: #d4a359;
+      padding: 11px 14px 11px 42px;
+      font-size: 0.9rem;
+    }
+
+    body.mobile-tv-app-mode .search-input::placeholder {
+      color: #b8a693;
+    }
+
+    body.mobile-tv-app-mode .sort-bar {
+      background: #1b1512;
+      border: 1px solid rgba(212, 163, 89, 0.35);
+      border-radius: 10px;
+      color: #ffdf9e;
+      padding: 8px 10px;
+    }
+
+    body.mobile-tv-app-mode .sort-pill {
+      background: #2a201b;
+      color: #ffdf9e;
+      border-color: rgba(212, 163, 89, 0.45);
+    }
+
+    body.mobile-tv-app-mode .sort-pill.active {
+      background: var(--red);
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    body.mobile-tv-app-mode .track-card {
+      background: #1e1714;
+      border-color: rgba(212, 163, 89, 0.32);
+      border-left: 5px solid #d4a359;
+    }
+
+    body.mobile-tv-app-mode .track-card .track-name {
+      color: #ffffff;
+    }
+
+    body.mobile-tv-app-mode .track-card .track-artist {
+      color: #ffdf9e;
+    }
+
+    body.mobile-tv-app-mode .track-card .track-num {
+      background: #080605;
+      color: #39ff14;
+      border: 1px solid rgba(57, 255, 20, 0.35);
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    body.mobile-tv-app-mode .track-card .popularity-badge {
+      background: rgba(229, 9, 20, 0.22);
+      color: #ff9ea2;
+      border-color: rgba(229, 9, 20, 0.45);
+    }
+
+    body.mobile-tv-app-mode .track-card.active {
+      background: linear-gradient(135deg, #b8040d 0%, #e50914 100%);
+      border-color: #ffdf9e;
+      border-left: 6px solid #39ff14;
+    }
+
+    body.mobile-tv-app-mode .track-card.active .track-num {
+      background: #050404;
+      color: #39ff14;
+      border-color: #39ff14;
+    }
+
+    @media (max-width: 768px) {
+      .tv-pic-presets {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .tv-pic-sliders {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      body.mobile-tv-app-mode .crt-bottom-deck {
+        padding: 8px;
+        gap: 6px;
+        margin-top: 8px;
+      }
+      body.mobile-tv-app-mode .crt-knobs-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+      body.mobile-tv-app-mode .tv-knob-group {
+        padding: 5px 8px;
+        justify-content: center;
+      }
+      body.mobile-tv-app-mode .tv-knob-group.full-row-mobile {
+        grid-column: 1 / -1;
+        justify-content: space-between;
+      }
+      body.mobile-tv-app-mode .now-playing-info {
+        padding: 8px 6px 2px;
+        gap: 6px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      body.mobile-tv-app-mode .now-playing-title {
+        font-size: 0.92rem;
+      }
+      body.mobile-tv-app-mode .now-playing-artist {
+        font-size: 0.76rem;
+      }
+      body.mobile-tv-app-mode .now-playing-info .btn {
+        width: auto;
+        padding: 6px 10px;
+        font-size: 0.72rem;
+      }
+      body.mobile-tv-app-mode .tracklist-wrap {
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2588,11 +3059,27 @@
           </div>
 
           <div class="theater-screen-card">
+            <!-- TÜPLÜ TELEVİZYON ÜST KUMANDA VE GÖRÜNTÜ KALİTESİ BARI -->
+            <div class="tv-top-console-bar">
+              <div class="tv-top-console-left">
+                <span class="tv-top-logo-dot"></span>
+                <span class="tv-top-console-title">📺 SOS YAPIM TÜPLÜ TV • 56 VİDEO KLİP</span>
+              </div>
+              <div class="tv-top-console-actions">
+                <button type="button" class="tv-mini-action-btn" id="tvPicToggleBtn" onclick="toggleTvPictureDrawer()" title="Görüntü Kalitesi ve Ekran Ayarları">
+                  🔆 GÖRÜNTÜ AYARI
+                </button>
+                <button type="button" class="tv-mini-action-btn secondary" id="tvAppModeToggleBtn" onclick="toggleMobileTvAppMode()" title="Sadece Tüplü TV Modu / Tüm Site Görünümü">
+                  🌐 Tüm Site
+                </button>
+              </div>
+            </div>
+
             <!-- Bombeli Tüplü Cam Ekran: Video %100 Tam Oturur -->
             <div class="crt-bezel">
               <div class="screen-wrapper">
                 <iframe id="videoPlayer" 
-                        src="https://www.youtube.com/embed/aNQEyr_FYCA?autoplay=0&rel=0&enablejsapi=1" 
+                        src="https://www.youtube.com/embed/aNQEyr_FYCA?autoplay=0&rel=0&playsinline=1&vq=hd1080&hd=1&enablejsapi=1" 
                         title="SOS Yapım Video Player" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
@@ -2631,13 +3118,50 @@
                 </div>
 
                 <!-- VOLUME DÜĞMESİ VE SÜRGÜSÜ: SES AÇMA / KISMA -->
-                <div class="tv-knob-group">
+                <div class="tv-knob-group full-row-mobile">
                   <span class="tv-knob-label">VOLUME</span>
                   <button type="button" class="tv-rotary-knob" id="tvVolumeKnob" onclick="stepTvVolumeKnob()" title="Ses Seviyesini Değiştir (Tıkla veya Sürgüyü Kaydır)" style="transform: rotate(90deg);"></button>
                   <div class="tv-volume-wrap">
                     <input type="range" id="tvVolumeSlider" class="tv-vol-slider" min="0" max="100" value="80" oninput="setTvVolume(this.value)" title="Ses Açma / Kısma">
                     <span class="tv-vol-pct" id="tvVolumePct">%80</span>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- GÖRÜNTÜ KALİTESİ VE GÖRÜNTÜ AYARLARI PANELİ -->
+            <div class="tv-picture-drawer" id="tvPictureDrawer">
+              <div class="tv-pic-header">
+                <span>✨ TÜPLÜ TV GÖRÜNTÜ KALİTESİ & EKRAN AYARLARI</span>
+                <span id="tvPicModeBadge">MOD: ULTRA HD NET (1080p)</span>
+              </div>
+              <div class="tv-pic-presets">
+                <button type="button" class="tv-pic-preset-btn active" id="picPresetHd" onclick="applyTvPicturePreset('hd')">✨ ULTRA HD NET</button>
+                <button type="button" class="tv-pic-preset-btn" id="picPresetCinema" onclick="applyTvPicturePictureCinema()">🔥 SİNEMA CANLI</button>
+                <button type="button" class="tv-pic-preset-btn" id="picPresetRetro" onclick="applyTvPicturePreset('retro')">📺 NOSTALJİK TÜP</button>
+                <button type="button" class="tv-pic-preset-btn" id="picPresetWarm" onclick="applyTvPicturePreset('warm')">🌙 YUMUŞAK EKRAN</button>
+              </div>
+              <div class="tv-pic-sliders">
+                <div class="tv-pic-slider-item">
+                  <div class="tv-pic-slider-label">
+                    <span>PARLAKLIK</span>
+                    <span id="tvPicBrightVal">%105</span>
+                  </div>
+                  <input type="range" id="tvPicBrightSlider" class="tv-pic-range" min="75" max="140" value="105" oninput="updateTvCustomPicture()">
+                </div>
+                <div class="tv-pic-slider-item">
+                  <div class="tv-pic-slider-label">
+                    <span>KONTRAST / NETLİK</span>
+                    <span id="tvPicContrastVal">%110</span>
+                  </div>
+                  <input type="range" id="tvPicContrastSlider" class="tv-pic-range" min="80" max="145" value="110" oninput="updateTvCustomPicture()">
+                </div>
+                <div class="tv-pic-slider-item">
+                  <div class="tv-pic-slider-label">
+                    <span>RENK CANLILIĞI</span>
+                    <span id="tvPicSatVal">%115</span>
+                  </div>
+                  <input type="range" id="tvPicSatSlider" class="tv-pic-range" min="70" max="150" value="115" oninput="updateTvCustomPicture()">
                 </div>
               </div>
             </div>
@@ -2664,18 +3188,23 @@
           </div>
         </div>
 
-        <!-- SAĞ: NET OKUNAKLI PARÇA LİSTESİ KUTUCUKLARI -->
+        <!-- SAĞ / TÜPLÜ TV İÇİ KANAL REHBERİ: 56 SOS YAPIM VİDEO KLİBİ -->
         <div class="catalog-panel">
+          <div class="crt-channel-guide-banner">
+            <span>📡 TÜPLÜ TV KANAL LİSTESİ (SOS YAPIM VİDEO KLİPLER)</span>
+            <span class="ch-guide-count">CH 01 - CH 56</span>
+          </div>
+
           <div class="search-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input type="text" id="trackSearch" class="search-input" placeholder="Şarkı adı veya sanatçı ara...">
+            <input type="text" id="trackSearch" class="search-input" placeholder="Kanal, şarkı adı veya sanatçı ara...">
           </div>
 
           <div class="sort-bar">
-            <span>🔥 SIRALAMA:</span>
+            <span>🔥 KANAL SIRALAMASI:</span>
             <div class="sort-pill-group">
               <button type="button" class="sort-pill active" id="sortPopularBtn" onclick="setSortOrder('popular')">En Popüler (Çoktan Aza)</button>
               <button type="button" class="sort-pill" id="sortAzBtn" onclick="setSortOrder('az')">A-Z</button>
@@ -2688,6 +3217,11 @@
       </div>
     </div>
   </section>
+
+  <!-- TÜPLÜ TV MODUNA DÖNÜŞ YÜZEN BUTONU -->
+  <button type="button" class="floating-return-tv-btn" onclick="toggleMobileTvAppMode(true)">
+    <span>📺 Sadece Tüplü TV Moduna Geç (56 Klip)</span>
+  </button>
 
   <!-- ÖNE ÇIKAN SANATÇILAR -->
   <section class="section" id="sanatcilar">
@@ -3893,12 +4427,13 @@
         const card = document.createElement("div");
         card.className = `track-card ${isCurrentActive ? 'active' : ''}`;
         const rankIcon = index < 3 ? '🔥' : '👁️';
+        const chNumber = `CH ${String(index + 1).padStart(2, '0')}`;
         
         card.innerHTML = `
           <div class="track-left">
-            <span class="track-num">#${String(index + 1).padStart(2, '0')}</span>
+            <span class="track-num">${chNumber}</span>
             <div class="track-cover-wrap">
-              <img src="${track.cover}" alt="${track.title}" class="track-cover-img" onerror="this.src='sos-logo.png'">
+              <img src="${track.cover}" alt="${track.title}" class="track-cover-img" loading="lazy" onerror="this.src='sos-logo.png'">
               <div class="play-overlay">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
               </div>
@@ -3941,6 +4476,146 @@
     let osdTimeout = null;
     let volOsdTimeout = null;
 
+    function playTvKnobClickSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        if (!audioCtx) audioCtx = new AudioContext();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const now = audioCtx.currentTime;
+
+        // Nostaljik mekanik TV kanal düğmesi "tık" + kısa tüp statik hışırtısı
+        const osc = audioCtx.createOscillator();
+        const clickGain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(190, now);
+        osc.frequency.exponentialRampToValueAtTime(58, now + 0.045);
+        clickGain.gain.setValueAtTime(0.35, now);
+        clickGain.gain.exponentialRampToValueAtTime(0.005, now + 0.045);
+        osc.connect(clickGain);
+        clickGain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.05);
+      } catch (e) {}
+    }
+
+    function toggleTvPictureDrawer() {
+      const drawer = document.getElementById("tvPictureDrawer");
+      if (!drawer) return;
+      drawer.classList.toggle("open");
+      if (drawer.classList.contains("open")) {
+        showToast("🔆 Tüplü TV Görüntü Kalitesi & Ekran Ayarları Açıldı");
+      }
+    }
+
+    function applyTvPicturePreset(mode) {
+      const bSlider = document.getElementById("tvPicBrightSlider");
+      const cSlider = document.getElementById("tvPicContrastSlider");
+      const sSlider = document.getElementById("tvPicSatSlider");
+      const badge = document.getElementById("tvPicModeBadge");
+
+      document.querySelectorAll(".tv-pic-preset-btn").forEach(btn => btn.classList.remove("active"));
+
+      if (mode === 'retro') {
+        if (bSlider) bSlider.value = 100;
+        if (cSlider) cSlider.value = 118;
+        if (sSlider) sSlider.value = 108;
+        document.documentElement.style.setProperty("--tv-scanline-opacity", "0.78");
+        const btn = document.getElementById("picPresetRetro");
+        if (btn) btn.classList.add("active");
+        if (badge) badge.textContent = "MOD: NOSTALJİK TÜP (CRT)";
+        showOsdMessage("GÖRÜNTÜ: NOSTALJİK TÜP");
+      } else if (mode === 'warm') {
+        if (bSlider) bSlider.value = 96;
+        if (cSlider) cSlider.value = 102;
+        if (sSlider) sSlider.value = 105;
+        document.documentElement.style.setProperty("--tv-scanline-opacity", "0.22");
+        const btn = document.getElementById("picPresetWarm");
+        if (btn) btn.classList.add("active");
+        if (badge) badge.textContent = "MOD: YUMUŞAK EKRAN";
+        showOsdMessage("GÖRÜNTÜ: YUMUŞAK EKRAN");
+      } else {
+        // Default: ULTRA HD NET
+        if (bSlider) bSlider.value = 105;
+        if (cSlider) cSlider.value = 112;
+        if (sSlider) sSlider.value = 118;
+        document.documentElement.style.setProperty("--tv-scanline-opacity", "0.18");
+        const btn = document.getElementById("picPresetHd");
+        if (btn) btn.classList.add("active");
+        if (badge) badge.textContent = "MOD: ULTRA HD NET (1080p)";
+        showOsdMessage("GÖRÜNTÜ: ULTRA HD NET");
+      }
+      updateTvCustomPicture(false);
+    }
+
+    function applyTvPicturePictureCinema() {
+      const bSlider = document.getElementById("tvPicBrightSlider");
+      const cSlider = document.getElementById("tvPicContrastSlider");
+      const sSlider = document.getElementById("tvPicSatSlider");
+      const badge = document.getElementById("tvPicModeBadge");
+
+      document.querySelectorAll(".tv-pic-preset-btn").forEach(btn => btn.classList.remove("active"));
+      if (bSlider) bSlider.value = 108;
+      if (cSlider) cSlider.value = 124;
+      if (sSlider) sSlider.value = 132;
+      document.documentElement.style.setProperty("--tv-scanline-opacity", "0.20");
+      const btn = document.getElementById("picPresetCinema");
+      if (btn) btn.classList.add("active");
+      if (badge) badge.textContent = "MOD: SİNEMA CANLI HDR";
+      showOsdMessage("GÖRÜNTÜ: SİNEMA CANLI HDR");
+      updateTvCustomPicture(false);
+    }
+
+    function updateTvCustomPicture(showOsd = true) {
+      const bVal = parseInt(document.getElementById("tvPicBrightSlider")?.value || "105", 10);
+      const cVal = parseInt(document.getElementById("tvPicContrastSlider")?.value || "110", 10);
+      const sVal = parseInt(document.getElementById("tvPicSatSlider")?.value || "115", 10);
+
+      const bText = document.getElementById("tvPicBrightVal");
+      const cText = document.getElementById("tvPicContrastVal");
+      const sText = document.getElementById("tvPicSatVal");
+
+      if (bText) bText.textContent = `%${bVal}`;
+      if (cText) cText.textContent = `%${cVal}`;
+      if (sText) sText.textContent = `%${sVal}`;
+
+      document.documentElement.style.setProperty("--tv-brightness", (bVal / 100).toFixed(2));
+      document.documentElement.style.setProperty("--tv-contrast", (cVal / 100).toFixed(2));
+      document.documentElement.style.setProperty("--tv-saturate", (sVal / 100).toFixed(2));
+
+      if (showOsd) {
+        showOsdMessage(`NETLİK %${cVal} • PARLAKLIK %${bVal}`);
+      }
+    }
+
+    function showOsdMessage(text) {
+      const crtOsdVol = document.getElementById("crtOsdVolume");
+      if (!crtOsdVol) return;
+      crtOsdVol.textContent = text;
+      crtOsdVol.classList.add("visible");
+      if (volOsdTimeout) clearTimeout(volOsdTimeout);
+      volOsdTimeout = setTimeout(() => {
+        crtOsdVol.classList.remove("visible");
+      }, 1700);
+    }
+
+    function toggleMobileTvAppMode(forceEnable) {
+      const isCurrentlyTvMode = document.body.classList.contains("mobile-tv-app-mode");
+      const nextState = typeof forceEnable === "boolean" ? forceEnable : !isCurrentlyTvMode;
+      const modeBtn = document.getElementById("tvAppModeToggleBtn");
+
+      if (nextState) {
+        document.body.classList.add("mobile-tv-app-mode");
+        if (modeBtn) modeBtn.textContent = "🌐 Tüm Site / Plak";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        showToast("📺 Eski Tüplü TV Modu Aktif: Tüm SOS Yapım Video Klipleri Tüplü TV İçinde!");
+      } else {
+        document.body.classList.remove("mobile-tv-app-mode");
+        if (modeBtn) modeBtn.textContent = "📺 Sadece Tüplü TV";
+        showToast("🌐 Tam Site ve DJ Plak Görünümü Açıldı");
+      }
+    }
+
     function toggleTvPlayPause() {
       const btn = document.getElementById("tvPlayPauseBtn");
       const crtOsdChannel = document.getElementById("crtOsdChannel");
@@ -3968,6 +4643,7 @@
     }
 
     function triggerTvChannelEffect(channelNum) {
+      playTvKnobClickSound();
       const chFormatted = `CH ${String(channelNum).padStart(2, '0')}`;
       const tvChannelLed = document.getElementById("tvChannelLed");
       const crtOsdChannel = document.getElementById("crtOsdChannel");
@@ -4053,7 +4729,7 @@
       triggerTvChannelEffect(index + 1);
 
       const videoId = track.youtubeId || track.id;
-      videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0&enablejsapi=1`;
+      videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0&playsinline=1&vq=hd1080&hd=1&enablejsapi=1`;
       isTvPlaying = Boolean(autoplay);
       const btn = document.getElementById("tvPlayPauseBtn");
       if (btn) btn.textContent = isTvPlaying ? "⏸ DURAKLAT" : "▶ OYNAT";
@@ -4080,18 +4756,23 @@
     }
 
     function playTrackById(videoId) {
+      if (window.innerWidth <= 768 && !document.body.classList.contains("mobile-tv-app-mode")) {
+        document.body.classList.add("mobile-tv-app-mode");
+        const modeBtn = document.getElementById("tvAppModeToggleBtn");
+        if (modeBtn) modeBtn.textContent = "🌐 Tüm Site / Plak";
+      }
       const idx = trackData.findIndex(t => t.id === videoId || t.youtubeId === videoId);
       if (idx !== -1) {
         selectTrack(idx, true);
       } else {
-        videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1`;
+        videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&vq=hd1080&hd=1&enablejsapi=1`;
       }
       
       const kliplerSec = document.getElementById("klipler");
       if (kliplerSec) {
         kliplerSec.scrollIntoView({ behavior: "smooth" });
       }
-      showToast("Şarkı oynatıcıda açıldı 🎶");
+      showToast("Şarkı Tüplü TV oynatıcıda açıldı 📺🎶");
     }
 
     trackSearchInput.addEventListener("input", (e) => {
@@ -4238,6 +4919,14 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
+      if (window.innerWidth <= 768) {
+        document.body.classList.add("mobile-tv-app-mode");
+        const modeBtn = document.getElementById("tvAppModeToggleBtn");
+        if (modeBtn) modeBtn.textContent = "🌐 Tüm Site / Plak";
+      } else {
+        const modeBtn = document.getElementById("tvAppModeToggleBtn");
+        if (modeBtn) modeBtn.textContent = "📺 Sadece Tüplü TV";
+      }
       renderTrackList();
     });
   </script>
