@@ -998,39 +998,31 @@
       border: 2px solid #111;
     }
 
-    /* NOSTALJİK VINTAGE AHŞAP & KROM TÜPLÜ TV DIŞ KASASI */
+    /* BEYAZ KÖŞELİ MODERN & RETRO TÜPLÜ TV DIŞ KASASI (KAHVERENGİ / ALTIN VARAK YOK) */
     .theater-screen-card {
       border-radius: 30px;
       padding: 22px;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.02) 0px,
-          rgba(255, 255, 255, 0.02) 2px,
-          rgba(0, 0, 0, 0.08) 2px,
-          rgba(0, 0, 0, 0.08) 5px
-        ),
-        linear-gradient(145deg, #4b2413 0%, #2d1409 50%, #1c0b05 100%);
-      border: 4px solid #d4a359;
-      outline: 3px solid #230f07;
+      background: linear-gradient(145deg, #ffffff 0%, #f3f5fa 60%, #e9ecf4 100%);
+      border: 4px solid #ffffff;
+      outline: 2px solid rgba(17, 17, 22, 0.14);
       box-shadow: 
-        0 28px 65px rgba(0, 0, 0, 0.45),
-        0 0 32px rgba(229, 9, 20, 0.28),
-        inset 0 2px 6px rgba(255, 224, 178, 0.35),
-        inset 0 -6px 16px rgba(0, 0, 0, 0.7);
+        0 24px 60px rgba(0, 0, 0, 0.22),
+        0 0 28px rgba(255, 255, 255, 0.85),
+        inset 0 2px 8px rgba(255, 255, 255, 0.95),
+        inset 0 -4px 12px rgba(0, 0, 0, 0.08);
       position: relative;
     }
 
-    /* TÜPLÜ EKRAN METALİK İÇ ÇERÇEVESİ — VİDEO %100 TAM OTURUR */
+    /* TÜPLÜ EKRAN BEYAZ KÖŞELİ İÇ ÇERÇEVESİ — VİDEO %100 TAM OTURUR */
     .crt-bezel {
       position: relative;
-      background: linear-gradient(145deg, #2b2728 0%, #110f10 100%);
+      background: linear-gradient(145deg, #1b1c22 0%, #0d0e12 100%);
       padding: 12px;
       border-radius: 24px;
-      border: 3px solid #9e9790;
+      border: 3px solid #ffffff;
       box-shadow:
         inset 0 0 24px #000000,
-        0 4px 14px rgba(0, 0, 0, 0.65);
+        0 6px 18px rgba(0, 0, 0, 0.25);
       width: 100%;
     }
 
@@ -1137,13 +1129,13 @@
       opacity: 0.7;
     }
 
-    /* NOSTALJİK TÜPLÜ TV ALT KONTROL PANELİ (METALİK & AHŞAP DETAYLI) */
+    /* TÜPLÜ TV ALT KONTROL PANELİ (BEYAZ ÇERÇEVELİ MODERN RETRO) */
     .crt-bottom-deck {
       margin-top: 14px;
-      background: linear-gradient(180deg, #2e2825 0%, #191514 100%);
+      background: linear-gradient(180deg, #1b1c22 0%, #111216 100%);
       border-radius: 16px;
-      border: 2px solid #b5925b;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 18px rgba(0, 0, 0, 0.5);
+      border: 2px solid #ffffff;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 18px rgba(0, 0, 0, 0.18);
       padding: 12px 16px;
       display: flex;
       align-items: center;
@@ -1159,23 +1151,20 @@
     }
 
     .tv-brand-badge {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.76rem;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      color: #ffdf9e;
-      background: linear-gradient(135deg, #a3030b 0%, #e50914 100%);
-      border: 1.5px solid #d4a359;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #111116;
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
       padding: 4px 10px;
-      border-radius: 5px;
-      text-transform: uppercase;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
 
     .tv-ch-led {
-      background: #070203;
-      border: 1.5px solid #6b5a45;
-      border-radius: 5px;
+      background: #07080a;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      border-radius: 6px;
       padding: 4px 10px;
       font-family: 'Space Grotesk', monospace;
       font-size: 0.88rem;
@@ -1197,7 +1186,7 @@
       width: 3px;
       height: 18px;
       background: #0a0807;
-      border-right: 1px solid rgba(255, 255, 255, 0.14);
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 2px;
     }
 
@@ -1212,16 +1201,16 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(0, 0, 0, 0.28);
+      background: rgba(255, 255, 255, 0.08);
       padding: 5px 10px;
       border-radius: 12px;
-      border: 1px solid rgba(212, 163, 89, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
     .tv-knob-label {
       font-size: 0.68rem;
       font-weight: 900;
-      color: #f3DEC0;
+      color: #ffffff;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
@@ -1231,8 +1220,8 @@
       height: 40px;
       border-radius: 50%;
       background:
-        conic-gradient(from 0deg, #4a4542, #8c847e, #2b2624, #9e958e, #383330, #4a4542);
-      border: 2.5px solid #d4a359;
+        conic-gradient(from 0deg, #3a3d46, #8f94a0, #23252b, #b4b9c4, #2f323a, #3a3d46);
+      border: 2.5px solid #ffffff;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.85), inset 0 0 6px rgba(0, 0, 0, 0.7);
       position: relative;
       cursor: pointer;
@@ -1241,8 +1230,8 @@
     }
 
     .tv-rotary-knob:hover {
-      border-color: #ffffff;
-      box-shadow: 0 0 14px rgba(212, 163, 89, 0.9);
+      border-color: var(--red-bright);
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
     }
 
     .tv-rotary-knob::after {
@@ -1254,8 +1243,8 @@
       width: 3.5px;
       height: 11px;
       border-radius: 2px;
-      background: var(--red-bright);
-      box-shadow: 0 0 6px var(--red-bright);
+      background: #ffffff;
+      box-shadow: 0 0 6px #ffffff;
     }
 
     .tv-volume-wrap {
@@ -1270,8 +1259,8 @@
       width: 78px;
       height: 6px;
       border-radius: 4px;
-      background: #0d0a09;
-      border: 1px solid rgba(212, 163, 89, 0.45);
+      background: #0d0e12;
+      border: 1px solid rgba(255, 255, 255, 0.45);
       outline: none;
       cursor: pointer;
     }
@@ -1282,9 +1271,9 @@
       width: 15px;
       height: 15px;
       border-radius: 50%;
-      background: var(--red-bright);
-      border: 2px solid #ffffff;
-      box-shadow: 0 0 8px rgba(229, 9, 20, 0.8);
+      background: #ffffff;
+      border: 2px solid var(--red);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
       cursor: pointer;
     }
 
@@ -1310,7 +1299,8 @@
     .tv-leg {
       width: 46px;
       height: 18px;
-      background: linear-gradient(90deg, #222, #777 50%, #111);
+      background: linear-gradient(90deg, #cfd3dc, #ffffff 50%, #b8bec9);
+      border: 1.5px solid #9fa6b2;
       border-radius: 0 0 8px 8px;
     }
 
@@ -1332,7 +1322,7 @@
       gap: 6px;
       font-size: 0.76rem;
       font-weight: 800;
-      color: #ff4d54;
+      color: var(--red);
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
@@ -1354,12 +1344,13 @@
     .now-playing-title {
       font-size: 1.35rem;
       font-weight: 800;
-      color: #ffffff;
+      color: #111116;
     }
 
     .now-playing-artist {
       font-size: 0.95rem;
-      color: #d8d8e0;
+      color: #333540;
+      font-weight: 700;
     }
 
     .player-controls-row {
@@ -1479,10 +1470,12 @@
     }
 
     .track-card.active {
-      background: var(--red);
-      border-color: #111116;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-color: #ffffff;
       border-left: 6px solid #111116;
-      box-shadow: 0 12px 30px rgba(229, 9, 20, 0.45);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14), inset 0 0 0 1.5px rgba(17, 17, 22, 0.18);
     }
 
     .track-left {
@@ -1506,8 +1499,9 @@
     }
 
     .track-card.active .track-num {
-      color: var(--red);
-      background: #ffffff;
+      color: #111116;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #111116;
     }
 
     .track-cover-wrap {
@@ -1530,7 +1524,7 @@
     .play-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(229, 9, 20, 0.65);
+      background: rgba(255, 255, 255, 0.55);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1541,8 +1535,8 @@
     .play-overlay svg {
       width: 24px;
       height: 24px;
-      color: #ffffff;
-      fill: #ffffff;
+      color: #111116;
+      fill: #111116;
     }
 
     .track-card:hover .play-overlay,
@@ -1566,7 +1560,7 @@
     }
 
     .track-card.active .track-name {
-      color: #ffffff;
+      color: #111116;
     }
 
     .track-artist {
@@ -1576,7 +1570,7 @@
     }
 
     .track-card.active .track-artist {
-      color: #ffe6e8;
+      color: var(--red);
     }
 
     .track-right {
@@ -2330,9 +2324,9 @@
     }
 
     .track-card.active .popularity-badge {
-      color: #ffffff;
-      background: rgba(0, 0, 0, 0.28);
-      border-color: rgba(255, 255, 255, 0.45);
+      color: #111116;
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(17, 17, 22, 0.35);
     }
 
     .sort-bar {
@@ -2398,38 +2392,34 @@
       gap: 8px;
       padding: 8px 12px;
       margin-bottom: 10px;
-      background: linear-gradient(180deg, #241209 0%, #140904 100%);
-      border: 1.5px solid #d4a359;
-      border-radius: 12px;
-      box-shadow: inset 0 1px 0 rgba(255, 223, 158, 0.25), 0 4px 12px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(180deg, #1b1c22 0%, #101116 100%);
+      border: 2px solid #ffffff;
+      border-radius: 14px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .tv-top-console-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       min-width: 0;
     }
 
+    .tv-top-sos-logo {
+      height: 30px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(229, 9, 20, 0.45));
+    }
+
     .tv-top-logo-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: #39ff14;
       box-shadow: 0 0 10px #39ff14;
       flex-shrink: 0;
-    }
-
-    .tv-top-console-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 900;
-      color: #ffdf9e;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .tv-top-console-actions {
@@ -2444,18 +2434,18 @@
       border-radius: 7px;
       font-size: 0.72rem;
       font-weight: 800;
-      color: #ffffff;
-      background: rgba(229, 9, 20, 0.85);
-      border: 1.5px solid #ffdf9e;
+      color: #111116;
+      background: #ffffff;
+      border: 1.5px solid #ffffff;
       cursor: pointer;
       transition: var(--transition);
       white-space: nowrap;
     }
 
     .tv-mini-action-btn.secondary {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(212, 163, 89, 0.6);
-      color: #ffdf9e;
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.75);
+      color: #ffffff;
     }
 
     .tv-mini-action-btn:hover {
@@ -2469,11 +2459,11 @@
       display: none;
       margin-top: 10px;
       padding: 12px 14px;
-      background: linear-gradient(180deg, #1b1310 0%, #0e0907 100%);
-      border: 2px solid #d4a359;
+      background: linear-gradient(180deg, #1b1c22 0%, #101116 100%);
+      border: 2px solid #ffffff;
       border-radius: 14px;
-      box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.85);
-      color: #f3dec0;
+      box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.65);
+      color: #ffffff;
     }
 
     .tv-picture-drawer.open {
@@ -2502,9 +2492,9 @@
     .tv-pic-preset-btn {
       padding: 7px 6px;
       border-radius: 8px;
-      background: #231915;
-      border: 1.5px solid rgba(212, 163, 89, 0.4);
-      color: #ffdf9e;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      color: #ffffff;
       font-size: 0.7rem;
       font-weight: 800;
       text-align: center;
@@ -2514,10 +2504,10 @@
 
     .tv-pic-preset-btn.active,
     .tv-pic-preset-btn:hover {
-      background: var(--red);
-      color: #ffffff;
+      background: #ffffff;
+      color: #111116;
       border-color: #ffffff;
-      box-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
     }
 
     .tv-pic-sliders {
@@ -2530,10 +2520,10 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.06);
       padding: 6px 8px;
       border-radius: 8px;
-      border: 1px solid rgba(212, 163, 89, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
     .tv-pic-slider-label {
@@ -2541,7 +2531,7 @@
       justify-content: space-between;
       font-size: 0.68rem;
       font-weight: 800;
-      color: #ffdf9e;
+      color: #ffffff;
     }
 
     .tv-pic-slider-label span:last-child {
@@ -2555,8 +2545,8 @@
       width: 100%;
       height: 5px;
       border-radius: 4px;
-      background: #090605;
-      border: 1px solid rgba(212, 163, 89, 0.45);
+      background: #090a0d;
+      border: 1px solid rgba(255, 255, 255, 0.45);
       outline: none;
     }
 
@@ -2566,8 +2556,8 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #39ff14;
-      border: 2px solid #ffffff;
+      background: #ffffff;
+      border: 2px solid var(--red);
       cursor: pointer;
     }
 
@@ -2579,10 +2569,10 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 998;
-      background: linear-gradient(135deg, #2d1409 0%, #4b2413 100%);
-      color: #ffdf9e;
-      border: 2px solid #d4a359;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 18px rgba(229, 9, 20, 0.5);
+      background: #111116;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
       padding: 10px 18px;
       border-radius: 999px;
       font-size: 0.82rem;
@@ -2598,10 +2588,10 @@
     }
 
     /* ============================================================================
-       MOBİLDE ESKİ TÜPLÜ TELEVİZYON İÇİNDE GEZİNME DENEYİMİ (SADECE VİDEO KLİPLER)
+       MOBİLDE ESKİ TÜPLÜ TELEVİZYON İÇİNDE GEZİNME DENEYİMİ (BEYAZ KÖŞELİ TV KASASI)
        ============================================================================ */
     body.mobile-tv-app-mode {
-      background: #120905 !important;
+      background: #0d0e12 !important;
       color: #ffffff;
     }
 
@@ -2630,28 +2620,20 @@
       max-width: 1000px;
     }
 
-    /* TÜPLÜ TV KASASI İÇİNDE ENTEGRE KANAL REHBERİ GÖRÜNÜMÜ */
+    /* BEYAZ KÖŞELİ TÜPLÜ TV KASASI İÇİNDE ENTEGRE KANAL REHBERİ GÖRÜNÜMÜ */
     body.mobile-tv-app-mode .theater-layout {
       display: flex;
       flex-direction: column;
       gap: 0;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.02) 0px,
-          rgba(255, 255, 255, 0.02) 2px,
-          rgba(0, 0, 0, 0.08) 2px,
-          rgba(0, 0, 0, 0.08) 5px
-        ),
-        linear-gradient(145deg, #4b2413 0%, #2d1409 50%, #180904 100%);
-      border: 4px solid #d4a359;
-      outline: 3px solid #230f07;
-      border-radius: 26px;
+      background: linear-gradient(145deg, #ffffff 0%, #f1f3f9 60%, #e4e8f2 100%);
+      border: 4px solid #ffffff;
+      outline: 2px solid rgba(255, 255, 255, 0.55);
+      border-radius: 28px;
       padding: 10px;
       box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.85),
-        inset 0 2px 8px rgba(255, 224, 178, 0.35),
-        inset 0 -8px 20px rgba(0, 0, 0, 0.8);
+        0 20px 60px rgba(0, 0, 0, 0.75),
+        0 0 28px rgba(255, 255, 255, 0.22),
+        inset 0 2px 8px rgba(255, 255, 255, 1);
       margin-top: 26px;
       position: relative;
     }
@@ -2661,10 +2643,11 @@
       position: sticky;
       top: 4px;
       z-index: 30;
-      background: linear-gradient(145deg, #3d1d0f 0%, #220e06 100%);
-      border-radius: 18px;
+      background: linear-gradient(145deg, #ffffff 0%, #eff2f8 100%);
+      border: 2px solid #ffffff;
+      border-radius: 20px;
       padding-bottom: 4px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
     }
 
     body.mobile-tv-app-mode .tv-antenna-wrap {
@@ -2687,11 +2670,11 @@
 
     body.mobile-tv-app-mode .catalog-panel {
       margin-top: 10px;
-      background: linear-gradient(180deg, #16110e 0%, #0b0807 100%);
-      border: 2.5px solid #b5925b;
-      border-radius: 18px;
+      background: linear-gradient(180deg, #161820 0%, #0e1015 100%);
+      border: 3px solid #ffffff;
+      border-radius: 20px;
       padding: 12px 10px;
-      box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.9);
+      box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.75);
       gap: 10px;
     }
 
@@ -2701,10 +2684,10 @@
       justify-content: space-between;
       gap: 8px;
       padding: 8px 12px;
-      background: linear-gradient(90deg, #251812 0%, #170f0b 100%);
-      border: 1.5px solid rgba(212, 163, 89, 0.55);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1.5px solid rgba(255, 255, 255, 0.65);
       border-radius: 10px;
-      color: #ffdf9e;
+      color: #ffffff;
       font-family: 'Space Grotesk', monospace;
       font-size: 0.78rem;
       font-weight: 800;
@@ -2713,50 +2696,50 @@
 
     .crt-channel-guide-banner .ch-guide-count {
       color: #39ff14;
-      background: #060403;
+      background: #060709;
       padding: 3px 8px;
       border-radius: 6px;
-      border: 1px solid rgba(57, 255, 20, 0.4);
+      border: 1px solid rgba(57, 255, 20, 0.45);
       font-size: 0.72rem;
       white-space: nowrap;
     }
 
     body.mobile-tv-app-mode .search-input {
-      background: #1b1512;
+      background: rgba(255, 255, 255, 0.1);
       color: #ffffff;
-      border-color: #d4a359;
+      border-color: rgba(255, 255, 255, 0.75);
       padding: 11px 14px 11px 42px;
       font-size: 0.9rem;
     }
 
     body.mobile-tv-app-mode .search-input::placeholder {
-      color: #b8a693;
+      color: rgba(255, 255, 255, 0.65);
     }
 
     body.mobile-tv-app-mode .sort-bar {
-      background: #1b1512;
-      border: 1px solid rgba(212, 163, 89, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: 10px;
-      color: #ffdf9e;
+      color: #ffffff;
       padding: 8px 10px;
     }
 
     body.mobile-tv-app-mode .sort-pill {
-      background: #2a201b;
-      color: #ffdf9e;
-      border-color: rgba(212, 163, 89, 0.45);
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.45);
     }
 
     body.mobile-tv-app-mode .sort-pill.active {
-      background: var(--red);
-      color: #ffffff;
+      background: #ffffff;
+      color: #111116;
       border-color: #ffffff;
     }
 
     body.mobile-tv-app-mode .track-card {
-      background: #1e1714;
-      border-color: rgba(212, 163, 89, 0.32);
-      border-left: 5px solid #d4a359;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.24);
+      border-left: 5px solid rgba(255, 255, 255, 0.75);
     }
 
     body.mobile-tv-app-mode .track-card .track-name {
@@ -2764,32 +2747,50 @@
     }
 
     body.mobile-tv-app-mode .track-card .track-artist {
-      color: #ffdf9e;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     body.mobile-tv-app-mode .track-card .track-num {
-      background: #080605;
+      background: rgba(0, 0, 0, 0.55);
       color: #39ff14;
-      border: 1px solid rgba(57, 255, 20, 0.35);
+      border: 1px solid rgba(57, 255, 20, 0.4);
       font-family: 'Space Grotesk', monospace;
     }
 
     body.mobile-tv-app-mode .track-card .popularity-badge {
-      background: rgba(229, 9, 20, 0.22);
-      color: #ff9ea2;
-      border-color: rgba(229, 9, 20, 0.45);
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
+    /* SEÇİLİ ŞARKI: KIPKIRMIZI DEĞİL, ŞEFFAF BEYAZ (FROSTED GLASS WHITE) */
     body.mobile-tv-app-mode .track-card.active {
-      background: linear-gradient(135deg, #b8040d 0%, #e50914 100%);
-      border-color: #ffdf9e;
-      border-left: 6px solid #39ff14;
+      background: rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-color: #ffffff;
+      border-left: 6px solid #ffffff;
+      box-shadow: 0 8px 26px rgba(255, 255, 255, 0.22);
+    }
+
+    body.mobile-tv-app-mode .track-card.active .track-name {
+      color: #ffffff;
+    }
+
+    body.mobile-tv-app-mode .track-card.active .track-artist {
+      color: #ffffff;
+    }
+
+    body.mobile-tv-app-mode .track-card.active .popularity-badge {
+      background: rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      border-color: #ffffff;
     }
 
     body.mobile-tv-app-mode .track-card.active .track-num {
-      background: #050404;
-      color: #39ff14;
-      border-color: #39ff14;
+      background: rgba(255, 255, 255, 0.92);
+      color: #111116;
+      border-color: #ffffff;
     }
 
     @media (max-width: 768px) {
@@ -3059,11 +3060,10 @@
           </div>
 
           <div class="theater-screen-card">
-            <!-- TÜPLÜ TELEVİZYON ÜST KUMANDA VE GÖRÜNTÜ KALİTESİ BARI -->
+            <!-- TÜPLÜ TELEVİZYON ÜST BAR: SADECE SOS LOGOSU VE EKRAN AYARLARI -->
             <div class="tv-top-console-bar">
               <div class="tv-top-console-left">
-                <span class="tv-top-logo-dot"></span>
-                <span class="tv-top-console-title">📺 SOS YAPIM TÜPLÜ TV • 56 VİDEO KLİP</span>
+                <img src="sos-logo.png" alt="SOS" class="tv-top-sos-logo">
               </div>
               <div class="tv-top-console-actions">
                 <button type="button" class="tv-mini-action-btn" id="tvPicToggleBtn" onclick="toggleTvPictureDrawer()" title="Görüntü Kalitesi ve Ekran Ayarları">
@@ -3094,7 +3094,9 @@
             <!-- Nostaljik Tüplü TV Alt Kontrol Bandı: KANAL (Şarkı Değiştirir) & VOLUME (Ses Açma/Kısma) -->
             <div class="crt-bottom-deck">
               <div class="crt-deck-left">
-                <div class="tv-brand-badge">SOS TELEFUNKEN</div>
+                <div class="tv-brand-badge">
+                  <img src="sos-logo.png" alt="SOS" style="height:20px; width:auto; display:block;">
+                </div>
                 <div class="tv-ch-led" id="tvChannelLed">CH 01</div>
                 <div class="tv-speaker-grille" aria-hidden="true">
                   <span></span><span></span><span></span><span></span><span></span><span></span>
