@@ -561,22 +561,24 @@
       flex-wrap: wrap;
     }
 
-    /* SAĞ TARAF: SOS PLAK VE PİKAP KOLU */
+    /* SAĞ TARAF: SOS PLAK VE PRO DJ DECK */
     .hero-vinyl-wrapper {
       position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 18px;
       user-select: none;
       -webkit-user-select: none;
     }
 
     .vinyl-stage {
       position: relative;
-      width: 410px;
-      height: 410px;
-      max-width: 88vw;
-      max-height: 88vw;
+      width: 390px;
+      height: 390px;
+      max-width: 84vw;
+      max-height: 84vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -594,16 +596,26 @@
       height: 100%;
       border-radius: 50%;
       background: #0d0b0c;
-      border: 5px solid #221c1e;
+      border: 6px solid #251d20;
       box-shadow: 
         0 22px 55px rgba(0, 0, 0, 0.45),
         0 0 45px rgba(229, 9, 20, 0.45),
-        inset 0 0 20px rgba(0, 0, 0, 0.9);
+        inset 0 0 24px rgba(0, 0, 0, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.12s cubic-bezier(0.1, 0.9, 0.2, 1);
+      transition: transform 0.08s cubic-bezier(0.1, 0.9, 0.2, 1);
       overflow: hidden;
+    }
+
+    .vinyl-disc::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255, 42, 53, 0.42);
+      pointer-events: none;
+      z-index: 3;
     }
 
     .vinyl-grooves {
@@ -614,10 +626,10 @@
         conic-gradient(
           from 35deg,
           transparent 0deg,
-          rgba(255, 255, 255, 0.08) 25deg,
+          rgba(255, 255, 255, 0.1) 25deg,
           transparent 55deg,
           transparent 180deg,
-          rgba(255, 255, 255, 0.08) 205deg,
+          rgba(255, 255, 255, 0.1) 205deg,
           transparent 235deg
         ),
         repeating-radial-gradient(
@@ -627,7 +639,7 @@
           #241f21 7.5px,
           #0c0a0b 9px
         );
-      animation: spinVinyl 8s linear infinite;
+      animation: spinVinyl 6s linear infinite;
     }
 
     @keyframes spinVinyl {
@@ -638,7 +650,7 @@
     .vinyl-sos-center {
       position: relative;
       z-index: 2;
-      width: 76%;
+      width: 74%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -668,24 +680,28 @@
     }
 
     .vinyl-disc.scratch-active {
-      transform: rotate(-32deg) scale(0.97) !important;
+      transform: rotate(-36deg) scale(0.97) !important;
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.55),
+        0 0 65px rgba(255, 20, 31, 0.85),
+        inset 0 0 24px rgba(229, 9, 20, 0.45);
     }
 
     .vinyl-tonearm {
       position: absolute;
       top: -12px;
-      right: -68px;
+      right: -54px;
       width: 140px;
       height: 220px;
       pointer-events: none;
       z-index: 5;
       transform-origin: 64px 40px;
       transform: rotate(0deg);
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .vinyl-tonearm.scratching {
-      transform: rotate(8deg) translate(-4px, 3px);
+      transform: rotate(9deg) translate(-4px, 3px);
     }
 
     .tonearm-pivot-base {
@@ -715,29 +731,112 @@
       z-index: 1;
     }
 
-    .scratch-instruction-pill {
-      position: absolute;
-      bottom: -38px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--red);
-      border: 2px solid #ffffff;
-      padding: 8px 20px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 800;
+    /* PRO DJ SCRATCH CONTROLLER DECK */
+    .dj-deck-console {
+      width: 100%;
+      max-width: 420px;
+      background: linear-gradient(145deg, #16141a 0%, #0d0c10 100%);
+      border: 2px solid rgba(229, 9, 20, 0.55);
+      border-radius: 18px;
+      padding: 12px 14px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32), 0 0 22px rgba(229, 9, 20, 0.18);
       color: #ffffff;
-      letter-spacing: 0.6px;
-      box-shadow: 0 6px 20px rgba(229, 9, 20, 0.45);
-      cursor: pointer;
-      transition: var(--transition);
       z-index: 6;
     }
 
-    .scratch-instruction-pill:hover {
-      background: #111116;
-      transform: translateY(-2px);
+    .dj-deck-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .dj-deck-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      color: #ff4d57;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dj-rpm-badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: rgba(229, 9, 20, 0.22);
+      border: 1px solid rgba(255, 59, 67, 0.5);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .dj-pad-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .dj-pad-btn {
+      background: linear-gradient(180deg, #25222b 0%, #18161d 100%);
+      border: 1.5px solid rgba(229, 9, 20, 0.5);
+      border-radius: 10px;
+      padding: 8px 4px;
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 10px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .dj-pad-btn span.pad-led {
+      width: 16px;
+      height: 3px;
+      border-radius: 2px;
+      background: #ff2a35;
+      box-shadow: 0 0 8px #ff2a35;
+    }
+
+    .dj-pad-btn:hover,
+    .dj-pad-btn:active,
+    .dj-pad-btn.active {
+      background: linear-gradient(135deg, #ff141f 0%, #b8040d 100%);
+      border-color: #ffffff;
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 0 16px rgba(255, 20, 31, 0.75);
+    }
+
+    .dj-crossfader-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #c8c8d4;
+    }
+
+    .dj-fader-slider {
+      flex: 1;
+      accent-color: #e50914;
+      cursor: pointer;
+      height: 6px;
     }
 
     /* AKAN YAZI BANDI (MARQUEE) */
@@ -2022,22 +2121,29 @@
         width: 100%;
         max-width: 100%;
         overflow: hidden;
-        padding: 12px 0 46px;
+        padding: 8px 0 12px;
+        gap: 14px;
       }
       .vinyl-stage {
-        width: min(250px, 70vw);
-        height: min(250px, 70vw);
+        width: min(245px, 68vw);
+        height: min(245px, 68vw);
       }
       .vinyl-tonearm {
-        transform: scale(0.62);
+        transform: scale(0.6);
         top: -24px;
-        right: -20px;
+        right: -18px;
       }
-      .scratch-instruction-pill {
-        bottom: -34px;
-        font-size: 0.72rem;
-        padding: 6px 14px;
-        white-space: nowrap;
+      .dj-deck-console {
+        max-width: 100%;
+        padding: 10px 10px;
+        border-radius: 14px;
+      }
+      .dj-pad-grid {
+        gap: 6px;
+      }
+      .dj-pad-btn {
+        font-size: 0.62rem;
+        padding: 7px 2px;
       }
       .section {
         padding: 46px 0;
@@ -2399,11 +2505,11 @@
           </div>
         </div>
 
-        <!-- SAĞ: GÖRSELDEKİ İLE BİREBİR SOS PLAK VE PİKAP KOLU -->
+        <!-- SAĞ: PRO DJ PİKAP VE SCRATCH PAD KONSOLU -->
         <div class="hero-vinyl-wrapper">
-          <div class="vinyl-stage" id="heroVinylStage" onclick="triggerHeroScratch()" title="Plak üzerine tıkla veya dokun: DJ Scratch sesi!">
+          <div class="vinyl-stage" id="heroVinylStage" title="Plağa dokunup ileri-geri çevirerek gerçek DJ Scratch yap!">
             <div class="vinyl-disc" id="heroVinylDisc">
-              <div class="vinyl-grooves"></div>
+              <div class="vinyl-grooves" id="heroVinylGrooves"></div>
               <div class="vinyl-sos-center">
                 <img src="sos-logo.png" alt="SOS Yapım Plak" class="vinyl-sos-img">
                 <div class="vinyl-stylus-tab"></div>
@@ -2414,9 +2520,36 @@
               <div class="tonearm-pivot-base"></div>
               <div class="tonearm-metal-rod"></div>
             </div>
+          </div>
 
-            <div class="scratch-instruction-pill" onclick="event.stopPropagation(); triggerHeroScratch();">
-              <span>💿 DOKUN & SCRATCH YAP</span>
+          <!-- PRO DJ SCRATCH PERFORMANCE PADS & PITCH CONSOLE -->
+          <div class="dj-deck-console" aria-label="Pro DJ Scratch Konsolu">
+            <div class="dj-deck-top">
+              <span class="dj-deck-title">🎧 PRO DJ TURNTABLE DECK</span>
+              <button type="button" class="dj-rpm-badge" id="djRpmToggle" onclick="toggleDjRpm()">33⅓ RPM • PITCH %100</button>
+            </div>
+            <div class="dj-pad-grid">
+              <button type="button" class="dj-pad-btn" onclick="triggerHeroScratch('baby')">
+                <span class="pad-led"></span>
+                <span>BABY</span>
+              </button>
+              <button type="button" class="dj-pad-btn" onclick="triggerHeroScratch('chirp')">
+                <span class="pad-led"></span>
+                <span>CHIRP</span>
+              </button>
+              <button type="button" class="dj-pad-btn" onclick="triggerHeroScratch('crab')">
+                <span class="pad-led"></span>
+                <span>CRAB</span>
+              </button>
+              <button type="button" class="dj-pad-btn" onclick="triggerHeroScratch('backspin')">
+                <span class="pad-led"></span>
+                <span>BACKSPIN</span>
+              </button>
+            </div>
+            <div class="dj-crossfader-row">
+              <span>PITCH</span>
+              <input type="range" id="djPitchSlider" class="dj-fader-slider" min="70" max="140" value="100" oninput="updateDjPitch(this.value)" title="Scratch Ton ve Plak Hızı (Pitch)">
+              <span id="djPitchVal">%100</span>
             </div>
           </div>
         </div>
@@ -3495,10 +3628,34 @@
 
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    // WEB AUDIO API REALISTIC VINYL SCRATCH ENGINE
+    // PRO DJ WEB AUDIO API MULTI-MODE VINYL SCRATCH ENGINE
     let audioCtx = null;
+    let djPitchMultiplier = 1.0;
+    let djIs45Rpm = false;
 
-    function playRealisticScratch() {
+    function updateDjPitch(val) {
+      const pct = parseInt(val, 10) || 100;
+      djPitchMultiplier = pct / 100;
+      const pctEl = document.getElementById("djPitchVal");
+      if (pctEl) pctEl.textContent = `%${pct}`;
+      const rpmBtn = document.getElementById("djRpmToggle");
+      if (rpmBtn) rpmBtn.textContent = `${djIs45Rpm ? '45' : '33⅓'} RPM • PITCH %${pct}`;
+      const grooves = document.getElementById("heroVinylGrooves");
+      if (grooves) {
+        const baseSec = djIs45Rpm ? 4.2 : 6.0;
+        grooves.style.animationDuration = `${(baseSec / djPitchMultiplier).toFixed(2)}s`;
+      }
+    }
+
+    function toggleDjRpm() {
+      djIs45Rpm = !djIs45Rpm;
+      const slider = document.getElementById("djPitchSlider");
+      updateDjPitch(slider ? slider.value : 100);
+      playRealisticScratch('chirp', 1.15);
+      showToast(djIs45Rpm ? "💿 Plak Hızı: 45 RPM (Club Mode)" : "💿 Plak Hızı: 33⅓ RPM (Studio Mode)");
+    }
+
+    function playRealisticScratch(mode = 'baby', velocity = 1.0) {
       try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         if (!AudioContext) return;
@@ -3509,79 +3666,101 @@
           audioCtx.resume();
         }
 
+        const pitch = djPitchMultiplier * (djIs45Rpm ? 1.18 : 1.0) * Math.max(0.7, Math.min(1.6, velocity));
         const now = audioCtx.currentTime;
-        const dur = 0.28 + Math.random() * 0.08;
 
-        const bufferSize = Math.floor(audioCtx.sampleRate * dur);
-        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-        const output = buffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-          output[i] = (Math.random() * 2 - 1) * 0.95;
+        const playBurst = (offsetSec, durSec, fStart, fPeak, fEnd, gainPeak) => {
+          const t0 = now + offsetSec;
+          const bufferSize = Math.max(256, Math.floor(audioCtx.sampleRate * durSec));
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const output = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            const env = Math.sin((i / bufferSize) * Math.PI);
+            output[i] = (Math.random() * 2 - 1) * 0.85 * env;
+          }
+
+          const whiteNoise = audioCtx.createBufferSource();
+          whiteNoise.buffer = buffer;
+
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'bandpass';
+          filter.Q.value = mode === 'chirp' ? 11.0 : 7.5;
+
+          filter.frequency.setValueAtTime(fStart * pitch, t0);
+          filter.frequency.exponentialRampToValueAtTime(fPeak * pitch, t0 + durSec * 0.42);
+          filter.frequency.exponentialRampToValueAtTime(Math.max(80, fEnd * pitch), t0 + durSec);
+
+          const noiseGain = audioCtx.createGain();
+          noiseGain.gain.setValueAtTime(0.01, t0);
+          noiseGain.gain.linearRampToValueAtTime(gainPeak, t0 + durSec * 0.15);
+          noiseGain.gain.exponentialRampToValueAtTime(0.008, t0 + durSec);
+
+          const osc = audioCtx.createOscillator();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(Math.max(55, fStart * 0.24 * pitch), t0);
+          osc.frequency.exponentialRampToValueAtTime(fPeak * 0.22 * pitch, t0 + durSec * 0.4);
+          osc.frequency.exponentialRampToValueAtTime(Math.max(45, fEnd * 0.2 * pitch), t0 + durSec);
+
+          const oscFilter = audioCtx.createBiquadFilter();
+          oscFilter.type = 'lowpass';
+          oscFilter.frequency.setValueAtTime(1900 * pitch, t0);
+
+          const oscGain = audioCtx.createGain();
+          oscGain.gain.setValueAtTime(0.01, t0);
+          oscGain.gain.linearRampToValueAtTime(gainPeak * 0.85, t0 + durSec * 0.14);
+          oscGain.gain.exponentialRampToValueAtTime(0.008, t0 + durSec);
+
+          whiteNoise.connect(filter);
+          filter.connect(noiseGain);
+          noiseGain.connect(audioCtx.destination);
+
+          osc.connect(oscFilter);
+          oscFilter.connect(oscGain);
+          oscGain.connect(audioCtx.destination);
+
+          whiteNoise.start(t0);
+          osc.start(t0);
+          whiteNoise.stop(t0 + durSec);
+          osc.stop(t0 + durSec);
+        };
+
+        if (mode === 'crab') {
+          // 4 hızlı crossfader kesmeli DJ Crab Scratch
+          playBurst(0.00, 0.075, 480, 2600, 520, 0.45);
+          playBurst(0.085, 0.075, 520, 2900, 460, 0.48);
+          playBurst(0.17, 0.075, 450, 2500, 490, 0.45);
+          playBurst(0.255, 0.11, 500, 3100, 260, 0.52);
+        } else if (mode === 'chirp') {
+          // Keskin tiz kesmeli Chirp Scratch
+          playBurst(0.00, 0.11, 380, 3400, 900, 0.52);
+          playBurst(0.13, 0.12, 2900, 620, 290, 0.46);
+        } else if (mode === 'backspin') {
+          // Hızlı geriye sarma (Backspin)
+          playBurst(0.00, 0.46, 3200, 1450, 180, 0.55);
+        } else {
+          // Klasik ileri-geri Baby Scratch
+          playBurst(0.00, 0.16, 400, 2350, 520, 0.46);
+          playBurst(0.17, 0.17, 2100, 520, 260, 0.42);
         }
-
-        const whiteNoise = audioCtx.createBufferSource();
-        whiteNoise.buffer = buffer;
-
-        const filter = audioCtx.createBiquadFilter();
-        filter.type = 'bandpass';
-        filter.Q.value = 8.5;
-
-        const startFreq = 420 + Math.random() * 160;
-        const peakFreq = 2400 + Math.random() * 500;
-        const endFreq = 260 + Math.random() * 100;
-
-        filter.frequency.setValueAtTime(startFreq, now);
-        filter.frequency.exponentialRampToValueAtTime(peakFreq, now + dur * 0.45);
-        filter.frequency.exponentialRampToValueAtTime(endFreq, now + dur);
-
-        const noiseGain = audioCtx.createGain();
-        noiseGain.gain.setValueAtTime(0.01, now);
-        noiseGain.gain.linearRampToValueAtTime(0.45, now + 0.04);
-        noiseGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
-
-        const osc = audioCtx.createOscillator();
-        osc.type = 'sawtooth';
-        const oscStart = 95 + Math.random() * 40;
-        const oscPeak = 420 + Math.random() * 110;
-        const oscEnd = 75 + Math.random() * 30;
-
-        osc.frequency.setValueAtTime(oscStart, now);
-        osc.frequency.exponentialRampToValueAtTime(oscPeak, now + dur * 0.4);
-        osc.frequency.exponentialRampToValueAtTime(oscEnd, now + dur);
-
-        const oscGain = audioCtx.createGain();
-        oscGain.gain.setValueAtTime(0.01, now);
-        oscGain.gain.linearRampToValueAtTime(0.35, now + 0.03);
-        oscGain.gain.exponentialRampToValueAtTime(0.01, now + dur);
-
-        const masterGain = audioCtx.createGain();
-        masterGain.gain.value = 0.9;
-
-        whiteNoise.connect(filter);
-        filter.connect(noiseGain);
-        noiseGain.connect(masterGain);
-
-        osc.connect(oscGain);
-        oscGain.connect(masterGain);
-
-        masterGain.connect(audioCtx.destination);
-
-        whiteNoise.start(now);
-        osc.start(now);
-        whiteNoise.stop(now + dur);
-        osc.stop(now + dur);
       } catch (err) {
         console.warn("Audio scratch error:", err);
       }
     }
 
-    function triggerHeroScratch() {
-      playRealisticScratch();
+    function triggerHeroScratch(mode = 'baby') {
+      playRealisticScratch(mode, 1.0);
 
       if (heroVinylDisc) {
         heroVinylDisc.classList.remove("scratch-active");
         void heroVinylDisc.offsetWidth;
         heroVinylDisc.classList.add("scratch-active");
+        if (mode === 'backspin') {
+          heroVinylDisc.style.transform = "rotate(-260deg) scale(0.97)";
+        } else if (mode === 'crab') {
+          heroVinylDisc.style.transform = "rotate(42deg) scale(0.97)";
+        } else {
+          heroVinylDisc.style.transform = "";
+        }
 
         if (heroTonearm) {
           heroTonearm.classList.add("scratching");
@@ -3589,12 +3768,74 @@
 
         setTimeout(() => {
           heroVinylDisc.classList.remove("scratch-active");
+          heroVinylDisc.style.transform = "";
           if (heroTonearm) heroTonearm.classList.remove("scratching");
-        }, 190);
+        }, mode === 'backspin' ? 420 : 240);
       }
 
-      showToast("💿 DJ Scratch!");
+      const labels = {
+        baby: "💿 DJ Baby Scratch!",
+        chirp: "⚡ DJ Chirp Scratch!",
+        crab: "🔥 4x DJ Crab Scratch!",
+        backspin: "🌀 Turntable Backspin!"
+      };
+      showToast(labels[mode] || "💿 DJ Scratch!");
     }
+
+    // GERÇEK PARMAKLA / FAREYLE PLAK ÇEVİRME (INTERACTIVE DRAG SCRATCH)
+    (function initInteractiveTurntable() {
+      const stage = document.getElementById("heroVinylStage");
+      if (!stage || !heroVinylDisc) return;
+      let isDragging = false;
+      let lastAngle = 0;
+      let currentRotation = 0;
+      let lastScratchSoundAt = 0;
+
+      const getAngle = (clientX, clientY) => {
+        const rect = stage.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        return Math.atan2(clientY - cy, clientX - cx) * (180 / Math.PI);
+      };
+
+      stage.addEventListener("pointerdown", (e) => {
+        if (e.target.closest("button")) return;
+        isDragging = true;
+        stage.setPointerCapture(e.pointerId);
+        lastAngle = getAngle(e.clientX, e.clientY);
+        if (heroTonearm) heroTonearm.classList.add("scratching");
+        playRealisticScratch('baby', 1.0);
+        lastScratchSoundAt = performance.now();
+      });
+
+      stage.addEventListener("pointermove", (e) => {
+        if (!isDragging) return;
+        const angle = getAngle(e.clientX, e.clientY);
+        let delta = angle - lastAngle;
+        if (delta > 180) delta -= 360;
+        if (delta < -180) delta += 360;
+        lastAngle = angle;
+        currentRotation += delta * 1.35;
+        heroVinylDisc.style.transform = `rotate(${currentRotation.toFixed(1)}deg) scale(0.98)`;
+
+        const now = performance.now();
+        if (Math.abs(delta) > 3.5 && now - lastScratchSoundAt > 95) {
+          const vel = Math.min(1.6, Math.max(0.75, Math.abs(delta) / 14));
+          playRealisticScratch(Math.abs(delta) > 18 ? 'chirp' : 'baby', vel);
+          lastScratchSoundAt = now;
+        }
+      });
+
+      const endDrag = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        heroVinylDisc.style.transform = "";
+        if (heroTonearm) heroTonearm.classList.remove("scratching");
+      };
+
+      stage.addEventListener("pointerup", endDrag);
+      stage.addEventListener("pointercancel", endDrag);
+    })();
 
     function formatViews(views) {
       if (!views) return "";
