@@ -2615,6 +2615,13 @@
               </div>
 
               <div class="crt-knobs-row">
+                <!-- OYNAT / DURAKLAT (PLAY / PAUSE) DÜĞMESİ -->
+                <div class="tv-knob-group">
+                  <button type="button" class="btn-ctrl" id="tvPlayPauseBtn" style="padding:6px 12px; background:var(--red); color:#fff; border-color:#fff; font-weight:800;" onclick="toggleTvPlayPause()" title="Videoyu Oynat / Duraklat (Play / Pause)">
+                    ⏯ OYNAT / DURDUR
+                  </button>
+                </div>
+
                 <!-- KANAL DÜĞMESİ: ŞARKIYI DEĞİŞTİRİR -->
                 <div class="tv-knob-group">
                   <span class="tv-knob-label">KANAL</span>
@@ -3918,7 +3925,11 @@
 
         card.addEventListener("click", () => {
           const originalIndex = trackData.findIndex(t => t.id === track.id);
-          selectTrack(originalIndex, true);
+          if (originalIndex === currentTrackIndex) {
+            toggleTvPlayPause();
+          } else {
+            selectTrack(originalIndex, true);
+          }
         });
 
         trackListEl.appendChild(card);
@@ -3926,8 +3937,35 @@
     }
 
     let currentTvVolume = 80;
+    let isTvPlaying = false;
     let osdTimeout = null;
     let volOsdTimeout = null;
+
+    function toggleTvPlayPause() {
+      const btn = document.getElementById("tvPlayPauseBtn");
+      const crtOsdChannel = document.getElementById("crtOsdChannel");
+      if (isTvPlaying) {
+        sendYoutubeCommand("pauseVideo");
+        isTvPlaying = false;
+        if (btn) btn.textContent = "▶ OYNAT";
+        if (crtOsdChannel) {
+          crtOsdChannel.textContent = "⏸ DURAKLATILDI";
+          crtOsdChannel.classList.add("visible");
+        }
+        showToast("⏸ Şarkı duraklatıldı");
+      } else {
+        sendYoutubeCommand("playVideo");
+        isTvPlaying = true;
+        if (btn) btn.textContent = "⏸ DURAKLAT";
+        if (crtOsdChannel) {
+          crtOsdChannel.textContent = "▶ OYNATILIYOR";
+          crtOsdChannel.classList.add("visible");
+          if (osdTimeout) clearTimeout(osdTimeout);
+          osdTimeout = setTimeout(() => crtOsdChannel.classList.remove("visible"), 1600);
+        }
+        showToast("▶ Şarkı oynatılıyor");
+      }
+    }
 
     function triggerTvChannelEffect(channelNum) {
       const chFormatted = `CH ${String(channelNum).padStart(2, '0')}`;
@@ -4016,6 +4054,9 @@
 
       const videoId = track.youtubeId || track.id;
       videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0&enablejsapi=1`;
+      isTvPlaying = Boolean(autoplay);
+      const btn = document.getElementById("tvPlayPauseBtn");
+      if (btn) btn.textContent = isTvPlaying ? "⏸ DURAKLAT" : "▶ OYNAT";
 
       setTimeout(() => {
         setTvVolume(currentTvVolume);
