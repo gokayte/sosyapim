@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sos Echoes - YERALTI | Official Smart Link & Analytics</title>
+  <meta name="description" content="Sos Echoes - YERALTI (Official Lyrics Video). Söz: Gökay Te | Yapım: SOS Müzik Yapım. Şimdi YouTube'da dinle!" />
+  <meta property="og:title" content="Sos Echoes - YERALTI (Official Lyrics Video)" />
+  <meta property="og:description" content="Sos Echoes - YERALTI şimdi YouTube'da yayında. Dinlemek için tıkla!" />
+  <meta property="og:image" content="https://img.youtube.com/vi/Kjd_2wdFXWU/maxresdefault.jpg" />
+  <meta property="og:url" content="https://www.youtube.com/watch?v=Kjd_2wdFXWU" />
+  <style>
+    :root {
+      --bg: #08080c;
+      --card: #12121a;
+      --accent: #e11d48;
+      --accent-glow: rgba(225, 29, 72, 0.35);
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --border: #262636;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #1a0b12 0%, var(--bg) 60%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(225, 29, 72, 0.15);
+      color: #fb7185;
+      border: 1px solid rgba(225, 29, 72, 0.4);
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+    h1 {
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      text-shadow: 0 0 24px var(--accent-glow);
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.35rem;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), 0 0 30px var(--accent-glow);
+      margin-bottom: 1.5rem;
+      background: #000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.6rem;
+    }
+    .card-header h2 {
+      font-size: 1.1rem;
+      color: #fb7185;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 600px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .stat-box {
+      background: #0b0b10;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .channel-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+    .channel-item {
+      display: flex;
+      justify-content: space-between;
+      background: #0b0b10;
+      padding: 0.6rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 1.5rem;
+    }
+    footer a {
+      color: #fb7185;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Yeni Tekli Yayında</span>
+      <h1>SOS ECHOES — YERALTI</h1>
+      <p class="subtitle">Söz: Gökay Te &bull; Yapım: SOS Müzik Yapım</p>
+    </header>
+
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/Kjd_2wdFXWU?autoplay=0&rel=0" 
+        title="Sos Echoes - YERALTI (Official Lyrics Video)" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="cta-grid">
+      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=Kjd_2wdFXWU" target="_blank" rel="noopener" onclick="trackClick('youtube')">
+        ▶ YouTube'da İzle & Abone Ol
+      </a>
+      <a class="btn" href="https://wa.me/?text=Sos%20Echoes%20-%20YERALTI%20%C5%9Fimdi%20yay%C4%B1nda!%20Dinlemek%20i%C3%A7in%3A%20https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DKjd_2wdFXWU" target="_blank" rel="noopener" onclick="trackClick('whatsapp')">
+        WhatsApp'ta Paylaş
+      </a>
+      <a class="btn" href="https://twitter.com/intent/tweet?text=Sos%20Echoes%20-%20YERALTI%20yay%C4%B1nda!&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DKjd_2wdFXWU" target="_blank" rel="noopener" onclick="trackClick('twitter')">
+        X (Twitter) Paylaş
+      </a>
+      <button class="btn" onclick="trackClick('copy'); navigator.clipboard.writeText('https://www.youtube.com/watch?v=Kjd_2wdFXWU'); this.innerText='✔ Bağlantı Kopyalandı!';">
+        Bağlantıyı Kopyala
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>📊 Ziyaretçi ve Tıklama Takip Algoritması</h2>
+        <span id="start-date" style="font-size: 0.8rem; color: var(--muted);">Başlangıç: --</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value" id="stat-visits">0</div>
+          <div class="stat-label">Toplam Giriş (Ziyaretçi)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-unique">0</div>
+          <div class="stat-label">Tekil Ziyaretçi</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-clicks">0</div>
+          <div class="stat-label">Toplam Buton Tıklaması</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-ctr">0%</div>
+          <div class="stat-label">Etkileşim Oranı (CTR)</div>
+        </div>
+      </div>
+      <div class="channel-list">
+        <div class="channel-item"><span>▶ YouTube Tıklama</span><strong id="clk-youtube">0</strong></div>
+        <div class="channel-item"><span>📲 WhatsApp Paylaşım</span><strong id="clk-whatsapp">0</strong></div>
+        <div class="channel-item"><span>🐦 X (Twitter)</span><strong id="clk-twitter">0</strong></div>
+        <div class="channel-item"><span>🔗 Link Kopyalama</span><strong id="clk-copy">0</strong></div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 <a href="../">SOS Müzik Yapım</a> &bull; Tüm Hakları Saklıdır.
+    </footer>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'sos_echoes_yeralti_analytics_v1';
+
+    function loadAnalytics() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try { return JSON.parse(raw); } catch (e) {}
+      }
+      return {
+        createdAt: new Date().toLocaleDateString('tr-TR'),
+        visits: 0,
+        uniqueVisitors: 0,
+        hasVisited: false,
+        clicks: { youtube: 0, whatsapp: 0, twitter: 0, copy: 0 },
+        history: []
+      };
+    }
+
+    function saveAnalytics(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      renderAnalytics(data);
+    }
+
+    function recordVisit() {
+      const data = loadAnalytics();
+      data.visits += 1;
+      if (!data.hasVisited) {
+        data.uniqueVisitors += 1;
+        data.hasVisited = true;
+      }
+      data.history.push({ type: 'visit', ts: new Date().toISOString() });
+      saveAnalytics(data);
+    }
+
+    function trackClick(channel) {
+      const data = loadAnalytics();
+      if (typeof data.clicks[channel] === 'number') {
+        data.clicks[channel] += 1;
+      }
+      data.history.push({ type: 'click', channel, ts: new Date().toISOString() });
+      saveAnalytics(data);
+    }
+
+    function renderAnalytics(data) {
+      const totalClicks = Object.values(data.clicks).reduce((a, b) => a + b, 0);
+      const ctr = data.visits > 0 ? Math.round((totalClicks / data.visits) * 100) : 0;
+
+      document.getElementById('start-date').innerText = 'Başlangıç: ' + data.createdAt;
+      document.getElementById('stat-visits').innerText = data.visits;
+      document.getElementById('stat-unique').innerText = data.uniqueVisitors;
+      document.getElementById('stat-clicks').innerText = totalClicks;
+      document.getElementById('stat-ctr').innerText = ctr + '%';
+
+      document.getElementById('clk-youtube').innerText = data.clicks.youtube;
+      document.getElementById('clk-whatsapp').innerText = data.clicks.whatsapp;
+      document.getElementById('clk-twitter').innerText = data.clicks.twitter;
+      document.getElementById('clk-copy').innerText = data.clicks.copy;
+    }
+
+    recordVisit();
+  </script>
+</body>
+</html>
