@@ -116,6 +116,662 @@
  z-index: 5;
  }
 
+ /* HEADER — MATERIAL DESIGN 3 ELEVATED BAR */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(17, 17, 22, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.header .container {
+  max-width: 100%;
+  padding: 0 48px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-yapim-word {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #111116;
+  text-transform: uppercase;
+  padding-left: 12px;
+  border-left: 2px solid #e50914;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #2c2c35;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #e50914;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #e50914;
+  border-radius: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-contact-nav {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #e50914;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(229, 9, 20, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-contact-nav:hover {
+  background: #c8000b;
+  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.35);
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 16px;
+  border: 1px solid rgba(17, 17, 22, 0.15);
+  border-radius: 8px;
+  color: #111116;
+}
+
+/* HERO SECTION — %100 EKRAN MATERIAL DESIGN 3 KURUMSAL */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 48px 60px;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  border-bottom: 1px solid rgba(17, 17, 22, 0.08);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero > .container {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+}
+
+/* SOL: KURUMSAL BAŞLIK & METRİKLER (MATERIAL DESIGN 3 SURFACE) */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  background: #ffffff;
+  padding: 48px 52px;
+  border-radius: 20px;
+  border: 1px solid rgba(17, 17, 22, 0.08);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.hero-top-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.hero-pretitle {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #e50914;
+  background: rgba(229, 9, 20, 0.06);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid rgba(229, 9, 20, 0.16);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-pretitle::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e50914;
+}
+
+.hero-status-tag {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #555562;
+  background: #f4f4f6;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.hero-main-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -1.8px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.hero-main-title .word-black {
+  color: #111116;
+  display: block;
+}
+
+.hero-main-title .word-red {
+  color: #e50914;
+  display: block;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #4a4a56;
+  font-weight: 500;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* MATERIAL DESIGN 3 KPI METRİK KARTLARI */
+.hero-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.hero-stat-item {
+  background: #fbfbfb;
+  border: 1px solid rgba(17, 17, 22, 0.07);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.hero-stat-item:hover {
+  background: #ffffff;
+  border-color: rgba(229, 9, 20, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.hero-stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #111116;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.hero-stat-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #6a6a78;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.35;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.btn-primary-material {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #e50914;
+  padding: 16px 34px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(229, 9, 20, 0.28);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-primary-material:hover {
+  background: #c8000b;
+  box-shadow: 0 6px 18px rgba(229, 9, 20, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-outlined-material {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #111116;
+  background: transparent;
+  border: 1.5px solid rgba(17, 17, 22, 0.2);
+  padding: 16px 32px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outlined-material:hover {
+  background: #f5f5f7;
+  border-color: #111116;
+}
+
+/* SAĞ: KURUMSAL KATALOG VE YAYIN VİTRİNİ (MATERIAL DESIGN 3 SURFACE) */
+.hero-business-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 22, 0.08);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.hero-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(17, 17, 22, 0.08);
+  padding-bottom: 18px;
+}
+
+.hero-panel-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #111116;
+  margin-bottom: 4px;
+}
+
+.hero-panel-sub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #727282;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.hero-panel-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #e50914;
+  background: rgba(229, 9, 20, 0.08);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(229, 9, 20, 0.18);
+}
+
+/* KATALOG LİSTESİ */
+.hero-track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-track-card {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 16px;
+  background: #fafafb;
+  border: 1px solid rgba(17, 17, 22, 0.06);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.hero-track-card:hover {
+  background: #ffffff;
+  border-color: rgba(229, 9, 20, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.hero-track-thumb {
+  width: 84px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #111116;
+}
+
+.hero-track-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.hero-track-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111116;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-track-artist {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6a6a78;
+}
+
+.hero-track-metrics {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-track-views {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #e50914;
+}
+
+.hero-track-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #727282;
+}
+
+.hero-panel-footer {
+  border-top: 1px solid rgba(17, 17, 22, 0.08);
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-cert-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #555562;
+  line-height: 1.4;
+}
+
+.hero-cert-link {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #e50914;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .hero {
+    min-height: auto;
+    padding: 110px 24px 60px;
+  }
+  .header .container {
+    padding: 0 24px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  .hero-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-content {
+    padding: 32px 24px;
+  }
+  .hero-business-panel {
+    padding: 24px 18px;
+  }
+  .hero-track-card {
+    grid-template-columns: 68px 1fr;
+  }
+  .hero-track-metrics {
+    grid-column: 2;
+    text-align: left;
+  }
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>SOS Yapım — Sesini Duyur | Müzik & Prodüksiyon</title>
+ <meta name="description" content="SOS Yapım resmi web sitesi. Bağımsız müziğin yeni sesi. En yeni video klipler, sanatçılarımız ve şarkılar.">
+ <link rel="icon" type="image/png" href="sos-logo.png">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+ 
+ <style>
+ :root {
+ --red: #e50914;
+ --red-bright: #ff141f;
+ --red-deep: #a3030b;
+ --red-glow: rgba(229, 9, 20, 0.45);
+ --bg-white: #ffffff;
+ --bg-soft: #fff6f7;
+ --card-bg: rgba(255, 255, 255, 0.94);
+ --card-bg-hover: #ffffff;
+ --text-main: #111116;
+ --text-muted: #4a4a56;
+ --text-light: #ffffff;
+ --border-light: rgba(229, 9, 20, 0.28);
+ --border-red: #e50914;
+ --radius-sm: 8px;
+ --radius-md: 16px;
+ --radius-lg: 24px;
+ --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+ }
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+
+ html {
+ scroll-behavior: smooth;
+ overflow-x: hidden;
+ max-width: 100%;
+ }
+
+ /* ANA FON: İPEKSİ BEYAZ & YUMUŞAK STÜDYO KIRMIZISI TONLAMASI */
+ body {
+ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+ background-color: #fffafb;
+ background-image:
+ radial-gradient(circle at 14% 18%, rgba(229, 9, 20, 0.08) 0%, transparent 45%),
+ radial-gradient(circle at 86% 24%, rgba(255, 30, 42, 0.09) 0%, transparent 48%),
+ radial-gradient(circle at 50% 65%, rgba(229, 9, 20, 0.05) 0%, transparent 55%),
+ linear-gradient(180deg, #fffdfd 0%, #ffffff 45%, #fff4f5 100%);
+ color: var(--text-main);
+ overflow-x: hidden;
+ max-width: 100%;
+ width: 100%;
+ line-height: 1.6;
+ position: relative;
+ -webkit-text-size-adjust: 100%;
+ }
+
+ /* ARKA PLAN CANLI AKAN BOYA KANVASI */
+ #paintFlowCanvas {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ pointer-events: none;
+ z-index: 0;
+ }
+
+ /* ÜSTTEN AŞAĞIYA AKAN KIRMIZI BOYA DALGASI (HAREKETLİ SVG) */
+ .top-flowing-paint {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 220px;
+ pointer-events: none;
+ z-index: 1;
+ filter: drop-shadow(0 10px 20px rgba(229, 9, 20, 0.35));
+ }
+
+ .top-flowing-paint svg {
+ width: 200%;
+ height: 100%;
+ display: block;
+ animation: waveSlide 14s linear infinite;
+ }
+
+ @keyframes waveSlide {
+ 0% { transform: translateX(0); }
+ 100% { transform: translateX(-50%); }
+ }
+
+ a {
+ text-decoration: none;
+ color: inherit;
+ }
+
+ button {
+ font-family: inherit;
+ cursor: pointer;
+ border: none;
+ background: none;
+ }
+
+ .container {
+ max-width: 1280px;
+ margin: 0 auto;
+ padding: 0 28px;
+ position: relative;
+ z-index: 5;
+ }
+
  /* HEADER */
  .header {
  position: sticky;
@@ -2943,144 +3599,145 @@
  </div>
 
  <!-- HEADER -->
- <header class="header">
- <div class="container">
- <nav class="nav">
- <a href="#" class="brand" aria-label="SOS Yapım Ana Sayfa">
- <img src="sos-logo.png" alt="SOS" class="brand-logo-img">
- <span class="brand-yapim-word">YAPIM</span>
- </a>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="brand" aria-label="SOS Yapım Ana Sayfa">
+          <img src="sos-logo.png" alt="SOS" class="brand-logo-img">
+          <span class="brand-yapim-word">YAPIM</span>
+        </a>
 
- <ul class="nav-links" id="navLinks">
- <li><a href="#klipler" class="nav-link active">Video Klipler</a></li>
- <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
- <li><a href="#sanatcilar" class="nav-link">Sanatçılar</a></li>
- <li><a href="#demo" class="nav-link">Demo Gönder</a></li>
- </ul>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#klipler" class="nav-link active">Video Katalog</a></li>
+          <li><a href="#sanatcilar" class="nav-link">Sanatçılar</a></li>
+          <li><a href="#hakkimizda" class="nav-link">Kurumsal</a></li>
+          <li><a href="#demo" class="nav-link">Demo & Lisans</a></li>
+          <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+        </ul>
 
- <div class="nav-actions">
- <a href="#demo" class="btn btn-contact-nav">
- <span>Bize Ulaşın ↗</span>
- </a>
- <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" onclick="document.getElementById('navLinks').classList.toggle('open')">
- Menü
- </button>
- </div>
- </nav>
- </div>
- </header>
+        <div class="nav-actions">
+          <a href="#demo" class="btn-contact-nav">
+            <span>Kurumsal İletişim</span>
+          </a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            Menü
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
 
- <!-- HERO SECTION -->
- <section class="hero">
- <div class="container">
- <div class="hero-grid">
- <!-- SOL: GÖRSEL VİTRİNLİ VE DİKKAT ÇEKİCİ GİRİŞ KARTI -->
- <div class="hero-content">
- <div class="hero-top-badge-row">
- <div class="hero-pretitle">BAĞIMSIZ MÜZİĞİN YENİ SESİ</div>
- <div class="hero-eq-pill" title="Stüdyo Ses Frekansı Aktif">
- <span></span><span></span><span></span><span></span><span></span><span></span>
- </div>
- </div>
- 
- <h1 class="hero-main-title">
- <span class="word-white">SESİNİ</span>
- <span class="word-red">DUYUR.</span>
- </h1>
+  <!-- HERO SECTION — %100 EKRAN MATERIAL DESIGN 3 KURUMSAL GİRİŞ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- SOL: KURUMSAL GİRİŞ, BAŞLIK VE METRİKLER -->
+        <div class="hero-content">
+          <div class="hero-top-badge-row">
+            <div class="hero-pretitle">SOS YAPIM MÜZİK VE MEDYA GRUBU</div>
+            <div class="hero-status-tag">LİSANSLI DİJİTAL DAĞITIM</div>
+          </div>
+          
+          <h1 class="hero-main-title">
+            <span class="word-black">SESİNİ</span>
+            <span class="word-red">DUYUR.</span>
+          </h1>
 
- <p class="hero-desc">
- Yeni seslere, özgün hikâyelere ve ezber bozan müziğe alan açıyoruz. SOS Yapım dünyasına hoş geldin.
- </p>
+          <p class="hero-desc">
+            Bağımsız sanatçıların telif, prodüksiyon, stüdyo kayıt ve küresel dijital dağıtım süreçlerini kurumsal standartlarda yürütüyoruz. SOS Yapım resmi yayın ağına hoş geldiniz.
+          </p>
 
- 
- <!-- GÖRSEL İÇERİKLİ TREND KLİP VİTRİNİ -->
- <div class="hero-visual-showcase">
- <div class="hero-showcase-header">
- <span>VİTRİNDEKİ REKOR KLİPLER</span>
- <span>65M+ İZLENME</span>
- </div>
- <div class="hero-showcase-grid">
- <div class="hero-mini-clip" onclick="playTrackById('aNQEyr_FYCA')" title="Aysel Elizade - Yandırdın Kalbimi Oynat">
- <img src="https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg" alt="Yandırdın Kalbimi">
- <div class="hero-mini-overlay">
- <span class="hero-mini-play">▶</span>
- <div class="hero-mini-title">Yandırdın Kalbimi</div>
- <div class="hero-mini-views">57,6 Mn İzlenme</div>
- </div>
- </div>
- <div class="hero-mini-clip" onclick="playTrackById('tlO5-BChPI0')" title="Melis Aydın - Tutuklu Kaldım Oynat">
- <img src="https://img.youtube.com/vi/tlO5-BChPI0/hqdefault.jpg" alt="Tutuklu Kaldım">
- <div class="hero-mini-overlay">
- <span class="hero-mini-play">▶</span>
- <div class="hero-mini-title">Tutuklu Kaldım</div>
- <div class="hero-mini-views">6,3 Mn İzlenme</div>
- </div>
- </div>
- <div class="hero-mini-clip" onclick="playTrackById('66s0tE4yG4w')" title="Aysel Elizade - Gözlerin Oynat">
- <img src="https://img.youtube.com/vi/66s0tE4yG4w/hqdefault.jpg" alt="Aysel Elizade - Gözlerin">
- <div class="hero-mini-overlay">
- <span class="hero-mini-play">▶</span>
- <div class="hero-mini-title">Aysel Elizade - Gözlerin</div>
- <div class="hero-mini-views">1,2 Mn İzlenme</div>
- </div>
- </div>
- </div>
- </div>
+          <!-- MATERIAL DESIGN 3 KPI METRİKLERİ -->
+          <div class="hero-stats-strip">
+            <div class="hero-stat-item">
+              <span class="hero-stat-num">65M+</span>
+              <span class="hero-stat-label">Toplam Dijital Akış</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-num">56</span>
+              <span class="hero-stat-label">Lisanslı Eser ve Klip</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-num">200+</span>
+              <span class="hero-stat-label">Küresel Dağıtım Noktası</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-num">%100</span>
+              <span class="hero-stat-label">Telif ve Yayın Güvencesi</span>
+            </div>
+          </div>
 
- <!-- STÜDYO GÜÇ İSTATİSTİKLERİ -->
- <div class="hero-stats-strip">
- <div class="hero-stat-item">
- <span class="hero-stat-num">65M+</span>
- <span class="hero-stat-label">Toplam<br>İzlenme</span>
- </div>
- <div class="hero-stat-item">
- <span class="hero-stat-num">100B+</span>
- <span class="hero-stat-label">Günlük<br>Dinlenme</span>
- </div>
- <div class="hero-stat-item">
- <span class="hero-stat-num">56</span>
- <span class="hero-stat-label">Resmi<br>Video Klip</span>
- </div>
- <div class="hero-stat-item">
- <span class="hero-stat-num">200+</span>
- <span class="hero-stat-label">Ülkede Dijital<br>Dağıtım</span>
- </div>
- </div>
+          <div class="hero-actions">
+            <a href="#klipler" class="btn-primary-material">
+              <span>VİDEO KLİPLERİ VE OYNATICIYI AÇ</span>
+            </a>
+            <a href="#hakkimizda" class="btn-outlined-material">
+              <span>KURUMSAL PROFİL</span>
+            </a>
+          </div>
+        </div>
 
- <div class="hero-actions">
- <a href="#klipler" class="btn btn-red">
- <span>► VİDEO KLİPLERİ İZLE</span>
- </a>
- <a href="#hakkimizda" class="btn btn-outline">
- <span>BİZİ TANI</span>
- </a>
- </div>
- </div>
+        <!-- SAĞ: RESMİ KATALOG VE DİJİTAL YAYIN PANELİ -->
+        <div class="hero-business-panel">
+          <div class="hero-panel-head">
+            <div>
+              <div class="hero-panel-title">RESMİ YAYIN KATALOĞU</div>
+              <div class="hero-panel-sub">SEÇ VE TÜPLÜ TV EKRANINDA OYNAT</div>
+            </div>
+            <span class="hero-panel-badge">DOĞRULANMIŞ YAYINLAR</span>
+          </div>
 
- <!-- SAĞ: PRO DJ PİKAP VE SCRATCH PAD KONSOLU -->
- <div class="hero-vinyl-wrapper">
- <div class="vinyl-stage" id="heroVinylStage" title="SOS Yapım Orijinal Plak">
- <div class="vinyl-disc" id="heroVinylDisc">
- <div class="vinyl-grooves" id="heroVinylGrooves"></div>
- <div class="vinyl-sos-center">
- <img src="sos-logo.png" alt="SOS Yapım Plak" class="vinyl-sos-img">
- <div class="vinyl-stylus-tab"></div>
- </div>
- </div>
+          <div class="hero-track-list">
+            <!-- 1. SOS ECHOES - YERALTI -->
+            <div class="hero-track-card" onclick="playTrackById('Kjd_2wdFXWU')" title="Sos Echoes - YERALTI Oynat">
+              <img src="https://img.youtube.com/vi/Kjd_2wdFXWU/hqdefault.jpg" alt="Sos Echoes - YERALTI" class="hero-track-thumb">
+              <div class="hero-track-meta">
+                <div class="hero-track-title">Sos Echoes - YERALTI</div>
+                <div class="hero-track-artist">Official Audio Video</div>
+              </div>
+              <div class="hero-track-metrics">
+                <span class="hero-track-views">Yeni Eser</span>
+                <span class="hero-track-tag">Resmi Yayın</span>
+              </div>
+            </div>
 
- <div class="vinyl-tonearm" id="heroTonearm">
- <div class="tonearm-pivot-base"></div>
- <div class="tonearm-metal-rod"></div>
- </div>
- </div>
+            <!-- 2. AYSEL ELİZADE - YANDIRDIN KALBİMİ -->
+            <div class="hero-track-card" onclick="playTrackById('aNQEyr_FYCA')" title="Aysel Elizade - Yandırdın Kalbimi Oynat">
+              <img src="https://img.youtube.com/vi/aNQEyr_FYCA/hqdefault.jpg" alt="Yandırdın Kalbimi" class="hero-track-thumb">
+              <div class="hero-track-meta">
+                <div class="hero-track-title">Aysel Elizade - Yandırdın Kalbimi</div>
+                <div class="hero-track-artist">Official Music Video</div>
+              </div>
+              <div class="hero-track-metrics">
+                <span class="hero-track-views">57,6 Milyon</span>
+                <span class="hero-track-tag">Katalog Lideri</span>
+              </div>
+            </div>
 
- </div>
- </div>
- </div>
- </div>
- </section>
+            <!-- 3. MELİS AYDIN - TUTUKLU KALDIM -->
+            <div class="hero-track-card" onclick="playTrackById('tlO5-BChPI0')" title="Melis Aydın - Tutuklu Kaldım Oynat">
+              <img src="https://img.youtube.com/vi/tlO5-BChPI0/hqdefault.jpg" alt="Tutuklu Kaldım" class="hero-track-thumb">
+              <div class="hero-track-meta">
+                <div class="hero-track-title">Melis Aydın - Tutuklu Kaldım</div>
+                <div class="hero-track-artist">Official Music Video</div>
+              </div>
+              <div class="hero-track-metrics">
+                <span class="hero-track-views">6,3 Milyon</span>
+                <span class="hero-track-tag">Hit Klip</span>
+              </div>
+            </div>
+          </div>
 
- <!-- AKAN YAZI BANDI (TICKER MARQUEE) -->
+          <div class="hero-panel-footer">
+            <span class="hero-cert-text">Eserler SOS Yapım prodüksiyon güvencesiyle lisanslanmıştır.</span>
+            <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" class="hero-cert-link">YOUTUBE KANALI</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AKAN YAZI BANDI (TICKER MARQUEE) -->
  <div class="marquee-strip">
  <div class="marquee-track">
  <div class="marquee-item">MÜZİK. YENİ HİKÂYELER. <span class="marquee-star">•</span> SESİNİ DUYUR. <span class="marquee-star">•</span> BAĞIMSIZ RUH, GÜÇLÜ SES. <span class="marquee-star">•</span> SOS YAPIM <span class="marquee-star">•</span> KENDİ SESİNİN PEŞİNDEN GİT <span class="marquee-star">•</span> YENİ SESLERE ALAN AÇIYORUZ <span class="marquee-star">•</span> MÜZİKTE SINIRLARI KALDIR <span class="marquee-star">•</span></div>
@@ -3244,7 +3901,7 @@
  <!-- SAĞ / TÜPLÜ TV İÇİ KANAL REHBERİ: 56 SOS YAPIM VİDEO KLİBİ -->
  <div class="catalog-panel">
  <div class="crt-channel-guide-banner">
- <span>📡 TÜPLÜ TV KANAL LİSTESİ (SOS YAPIM VİDEO KLİPLER)</span>
+ <span>TÜPLÜ TV KANAL LİSTESİ (SOS YAPIM VİDEO KLİPLER)</span>
  <span class="ch-guide-count">CH 01 - CH 56</span>
  </div>
 
@@ -3395,48 +4052,48 @@
 
  <div class="platforms-label">KÜRESEL DİJİJİTAL DAĞITIM AĞIMIZ (200+ ÜLKE VE TÜM DÜNYA PLATFORMLARI)</div>
  <div class="platforms-tags">
- <span class="platform-tag">🔴 YouTube Music</span>
- <span class="platform-tag">🟢 Spotify</span>
- <span class="platform-tag">🍎 Apple Music & iTunes</span>
- <span class="platform-tag">🎵 Deezer</span>
+ <span class="platform-tag">YouTube Music</span>
+ <span class="platform-tag">Spotify</span>
+ <span class="platform-tag">Apple Music & iTunes</span>
+ <span class="platform-tag">Deezer</span>
  <span class="platform-tag"> TikTok & CapCut</span>
- <span class="platform-tag">📦 Amazon Music</span>
- <span class="platform-tag">🌊 Tidal (Hi-Fi Master Audio)</span>
- <span class="platform-tag">📻 Pandora (ABD)</span>
- <span class="platform-tag">🔍 Shazam (Küresel Tanıma)</span>
- <span class="platform-tag">☁️ SoundCloud (Bağımsız Müzik)</span>
+ <span class="platform-tag">Amazon Music</span>
+ <span class="platform-tag">Tidal (Hi-Fi Master Audio)</span>
+ <span class="platform-tag">Pandora (ABD)</span>
+ <span class="platform-tag">Shazam (Küresel Tanıma)</span>
+ <span class="platform-tag">SoundCloud (Bağımsız Müzik)</span>
  <span class="platform-tag"> Audiomack</span>
- <span class="platform-tag">🌙 Anghami (Orta Doğu & MENA)</span>
- <span class="platform-tag">🌍 Boomplay (Afrika)</span>
- <span class="platform-tag">🏮 Tencent & QQ Music (Asya & Çin)</span>
+ <span class="platform-tag">Anghami (Orta Doğu & MENA)</span>
+ <span class="platform-tag">Boomplay (Afrika)</span>
+ <span class="platform-tag">Tencent & QQ Music (Asya & Çin)</span>
  <span class="platform-tag"> NetEase Cloud Music (Çin)</span>
  <span class="platform-tag">🪕 JioSaavn & Gaana (Hindistan)</span>
- <span class="platform-tag">❄️ Yandex Music (Avrasya)</span>
- <span class="platform-tag">🛡️ VK Music (Doğu Avrupa)</span>
- <span class="platform-tag">🎼 Qobuz (Hi-Res Studio)</span>
- <span class="platform-tag">🎛️ Beatport (Global DJ & Club)</span>
- <span class="platform-tag">📡 iHeartRadio (ABD Radyo)</span>
- <span class="platform-tag">📸 Instagram & Facebook Audio Library</span>
- <span class="platform-tag">🗾 Line Music & AWA (Japonya)</span>
+ <span class="platform-tag">Yandex Music (Avrasya)</span>
+ <span class="platform-tag">VK Music (Doğu Avrupa)</span>
+ <span class="platform-tag">Qobuz (Hi-Res Studio)</span>
+ <span class="platform-tag">Beatport (Global DJ & Club)</span>
+ <span class="platform-tag">iHeartRadio (ABD Radyo)</span>
+ <span class="platform-tag">Instagram & Facebook Audio Library</span>
+ <span class="platform-tag">Line Music & AWA (Japonya)</span>
  <span class="platform-tag">🇹🇷 Fizy & Muud (Türkiye)</span>
  </div>
  </div>
 
  <div class="about-features">
  <div class="feature-box">
- <h5 class="feature-title">🎙️ Stüdyo Prodüksiyon</h5>
+ <h5 class="feature-title">Stüdyo Prodüksiyon</h5>
  <p class="feature-desc">Profesyonel kayıt, mix & mastering, üst düzey aranjman ve sound design.</p>
  </div>
  <div class="feature-box">
- <h5 class="feature-title">🎬 4K Klip Yönetimi</h5>
+ <h5 class="feature-title">4K Klip Yönetimi</h5>
  <p class="feature-desc">Senaryodan kurguya kadar sinematik video klip çekimleri ve yönetmenlik.</p>
  </div>
  <div class="feature-box">
- <h5 class="feature-title">🛡️ Telif Hakları Yönetimi</h5>
+ <h5 class="feature-title">Telif Hakları Yönetimi</h5>
  <p class="feature-desc">YouTube Content ID, edisyon sözleşmeleri ve dijital hak koruması.</p>
  </div>
  <div class="feature-box">
- <h5 class="feature-title">📈 PR & Medya İletişimi</h5>
+ <h5 class="feature-title">PR & Medya İletişimi</h5>
  <p class="feature-desc">Listelerde öne çıkma, radyo & TV tanıtımları ve sosyal medya stratejileri.</p>
  </div>
  </div>
@@ -3458,7 +4115,7 @@
 
  <div style="display:flex; flex-direction:column; gap:14px; margin-top:20px;">
  <a href="mailto:sosyapim@gmail.com" style="display:flex; align-items:center; gap:12px; color:#111116; font-weight:800;">
- <span style="color:var(--red); font-size:1.2rem;">✉️</span>
+ <span style="color:var(--red); font-size:1.2rem;"></span>
  <span>sosyapim@gmail.com</span>
  </a>
  <a href="https://www.youtube.com/@SosYapim" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:12px; color:#111116; font-weight:800;">
@@ -3470,7 +4127,7 @@
 
  <form id="demoForm" name="sos-demo-basvuru" action="https://formsubmit.co/sosyapim@gmail.com" method="POST" data-netlify="true" onsubmit="handleDemoSubmit(event)">
  <input type="hidden" name="form-name" value="sos-demo-basvuru">
- <input type="hidden" name="_subject" value="🎵 Yeni SOS Yapım Demo & İletişim Başvurusu!">
+ <input type="hidden" name="_subject" value="Yeni SOS Yapım Demo & İletişim Başvurusu!">
  <input type="hidden" name="_template" value="table">
  <input type="hidden" name="_captcha" value="false">
 
@@ -3502,15 +4159,15 @@
 
  <div class="form-group full" style="display:flex; flex-direction:column; gap:10px;">
  <button type="submit" id="demoSubmitBtn" class="btn btn-red" style="width: 100%; padding: 14px;">
- <span id="demoSubmitBtnText">📩 Demo Kaydını İlet (sosyapim@gmail.com)</span>
+ <span id="demoSubmitBtnText">Demo Kaydını İlet (sosyapim@gmail.com)</span>
  </button>
 
  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
  <button type="button" class="btn btn-outline" style="padding:10px 12px; font-size:0.8rem;" onclick="sendViaDirectMailClient('gmail')">
- <span>📧 Gmail Web ile Gönder</span>
+ <span>Gmail Web ile Gönder</span>
  </button>
  <button type="button" class="btn btn-outline" style="padding:10px 12px; font-size:0.8rem;" onclick="sendViaDirectMailClient('mailto')">
- <span>✉️ Mail Uygulamasıyla Gönder</span>
+ <span>Mail Uygulamasıyla Gönder</span>
  </button>
  </div>
 
@@ -4825,7 +5482,7 @@
  if (kliplerSec) {
  kliplerSec.scrollIntoView({ behavior: "smooth" });
  }
- showToast("Şarkı Tüplü TV oynatıcıda açıldı 🎶");
+ showToast("Şarkı Tüplü TV oynatıcıda açıldı ");
  }
 
  trackSearchInput.addEventListener("input", (e) => {
@@ -4868,7 +5525,7 @@
  } else {
  const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
  window.location.href = mailtoUrl;
- showToast("✉️ Varsayılan E-Posta uygulamanız açılıyor...");
+ showToast(" Varsayılan E-Posta uygulamanız açılıyor...");
  }
  }
 
@@ -4912,7 +5569,7 @@
  "Accept": "application/json"
  },
  body: JSON.stringify({
- _subject: `🎵 SOS Yapım Demo Başvurusu: ${name}`,
+ _subject: `SOS Yapım Demo Başvurusu: ${name}`,
  _replyto: email,
  _template: "table",
  _captcha: "false",
@@ -4928,12 +5585,12 @@
  const result = await response.json();
 
  if (response.ok && (result.success === "true" || result.success === true)) {
- showToast(`✅ Teşekkürler ${name}! Başvurunuz sosyapim@gmail.com adresine gönderildi.`);
+ showToast(` Teşekkürler ${name}! Başvurunuz sosyapim@gmail.com adresine gönderildi.`);
  if (statusBox) {
  statusBox.style.background = "#e9fbf0";
  statusBox.style.border = "2px solid #159947";
  statusBox.style.color = "#0b4f24";
- statusBox.innerHTML = `✅ <strong>Başvurunuz başarıyla <code>sosyapim@gmail.com</code> adresine gönderildi!</strong><br>SOS Yapım prodüksiyon ekibimiz kaydınızı inceleyip <strong>${email}</strong> üzerinden dönüş yapacaktır.`;
+ statusBox.innerHTML = ` <strong>Başvurunuz başarıyla <code>sosyapim@gmail.com</code> adresine gönderildi!</strong><br>SOS Yapım prodüksiyon ekibimiz kaydınızı inceleyip <strong>${email}</strong> üzerinden dönüş yapacaktır.`;
  }
  form.reset();
  } else {
@@ -4954,12 +5611,12 @@
  statusBox.style.background = "#fff5f6";
  statusBox.style.border = "2px solid var(--red)";
  statusBox.style.color = "#111116";
- statusBox.innerHTML = `✉️ Başvurunuz doğrudan <strong>sosyapim@gmail.com</strong> alıcısıyla e-posta uygulamanızda açıldı.`;
+ statusBox.innerHTML = ` Başvurunuz doğrudan <strong>sosyapim@gmail.com</strong> alıcısıyla e-posta uygulamanızda açıldı.`;
  }
  window.location.href = mailtoUrl;
  } finally {
  if (submitBtn) submitBtn.disabled = false;
- if (submitBtnText) submitBtnText.textContent = "📩 Demo Kaydını İlet (sosyapim@gmail.com)";
+ if (submitBtnText) submitBtnText.textContent = "Demo Kaydını İlet (sosyapim@gmail.com)";
  }
  }
 
