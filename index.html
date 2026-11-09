@@ -161,6 +161,21 @@
   display: none !important;
 }
 
+
+/* Tüplü TV modunda vitrin ve gereksiz bölümler kesinlikle gizlenir */
+body.tv-mode .record-panel,
+body.tv-mode .sos-extra,
+body.tv-mode .brand-banner,
+body.tv-mode #sanatcilar,
+body.tv-mode #hakkimizda,
+body.tv-mode #demo,
+body.tv-mode footer {
+  display: none !important;
+}
+body.tv-mode #klipler {
+  padding-top: 14px !important;
+}
+
 </style><style>
 .sos-extra{padding:34px 0 12px}.sos-extra .wrap{width:min(1180px,calc(100% - 40px))}.sos-extra-heading{margin:0 0 20px}.sos-extra-heading .eyebrow{color:var(--red);font-size:12px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}.sos-extra-heading h2{font-size:clamp(24px,4vw,32px);line-height:1.15;letter-spacing:-.7px;margin:5px 0 0}.sos-extra-heading p{color:var(--muted);margin:7px 0 0}.artist-grid,.service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.artist-card,.service-card,.demo-card{background:#fff;border:1px solid #e5e5e8;border-radius:20px;box-shadow:0 7px 24px rgba(30,32,37,.06)}.artist-card{padding:22px;text-align:center}.artist-card img{width:112px;height:112px;object-fit:cover;border-radius:50%;border:4px solid #d72632;box-shadow:0 8px 20px #d7263222}.artist-card h3{margin:13px 0 4px;font-size:20px}.artist-card p{margin:0 0 15px;color:#666b73}.artist-card a{display:block;background:#d72632;color:#fff;border-radius:11px;padding:11px 14px;font-weight:800}.service-card{padding:20px 20px 22px;border-left:5px solid #d72632}.service-card h3{margin:0 0 8px;font-size:18px}.service-card p{margin:0;color:#555b63;line-height:1.65}.demo-card{padding:clamp(20px,5vw,34px);border-color:#efd2d4;background:linear-gradient(135deg,#fff 0%,#fff9f9 100%)}.demo-card .demo-intro{font-size:16px;line-height:1.7;color:#42464d;margin:10px 0 20px}.demo-links{display:grid;gap:10px;margin:18px 0 22px;font-weight:800}.demo-links a{color:#17191d;overflow-wrap:anywhere}.demo-form{display:grid;grid-template-columns:1fr 1fr;gap:15px}.demo-field{display:flex;flex-direction:column;gap:7px}.demo-field.full{grid-column:1/-1}.demo-field label{font-weight:800;font-size:13px;letter-spacing:.2px}.demo-field input,.demo-field textarea{width:100%;border:1px solid #d7d9df;border-radius:12px;background:#fafafa;padding:13px 14px;font:inherit;color:#202124;outline:none}.demo-field input:focus,.demo-field textarea:focus{border-color:#d72632;box-shadow:0 0 0 3px #d726321a}.demo-field textarea{min-height:100px;resize:vertical}.demo-submit{grid-column:1/-1;border:0;border-radius:12px;background:#d72632;color:white;font:800 15px inherit;padding:14px;cursor:pointer}.demo-submit:hover{background:#b91e29}.demo-status{grid-column:1/-1;color:#585d65;font-size:13px;min-height:18px}.site-footer{background:#111216;color:#f5f5f6;margin-top:38px;padding:32px 0 24px;border-top:1px solid #292b30}.site-footer .wrap{width:min(1180px,calc(100% - 40px))}.site-footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1.1fr .9fr;gap:24px}.site-footer h3{font-size:14px;letter-spacing:.7px;margin:0 0 13px;color:#fff}.site-footer p,.site-footer a{color:#c4c6cc;font-size:14px;line-height:1.75}.site-footer p{margin:0}.site-footer a{display:block;margin:4px 0}.site-footer a:hover{color:#fff}.site-footer-bottom{border-top:1px solid #33353b;margin-top:24px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#a9abb2;font-size:13px}.tv-mode .sos-extra,.tv-mode .site-footer{display:none!important}
 @media(max-width:700px){.sos-extra{padding:26px 0 8px}.sos-extra .wrap,.site-footer .wrap{width:calc(100% - 32px)}.artist-grid,.service-grid{grid-template-columns:1fr}.artist-card{padding:20px}.demo-form{grid-template-columns:1fr}.demo-field.full,.demo-submit,.demo-status{grid-column:1}.site-footer-grid{grid-template-columns:1fr;gap:20px}.site-footer-bottom{display:block;line-height:1.8}}
@@ -184,6 +199,19 @@ function playTrack(index,autoplay=true){if(!tracks.length)return;activeTrack=(in
 function renderTracks(filter=''){const list=document.getElementById('clipList');list.textContent='';const q=filter.trim().toLocaleLowerCase('tr');tracks.forEach((t,i)=>{if(q&&!(`${t.title} ${t.artist}`.toLocaleLowerCase('tr').includes(q)))return;const card=document.createElement('div');card.className='clip'+(i===activeTrack?' active':'');card.setAttribute('role','button');card.setAttribute('tabindex','0');card.dataset.index=String(i);const img=document.createElement('img');img.className='thumb';img.loading='lazy';img.src='https://img.youtube.com/vi/'+t.id+'/hqdefault.jpg';img.alt=t.title+' video görseli';const meta=document.createElement('div');const title=document.createElement('div');title.className='clip-title';title.textContent=t.artist+' - '+t.title;const sub=document.createElement('div');sub.className='clip-sub';const views={'Kjd_2wdFXWU':'Yeni tekli','aNQEyr_FYCA':'57,6 Mn izlenme','tlO5-BChPI0':'6,3 Mn izlenme'};sub.textContent=views[t.id]||'İzlenme videosu';meta.append(title,sub);const icon=document.createElementNS('http://www.w3.org/2000/svg','svg');icon.setAttribute('class','play-icon');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('fill','currentColor');path.setAttribute('d','M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.2a1.1 1.1 0 0 1 0 1.9l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z');icon.appendChild(path);card.append(img,meta,icon);card.addEventListener('click',()=>playTrack(i));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playTrack(i)}});list.appendChild(card)})}
 // TV mode now opens only when the visitor taps its control, so mobile users can see the artist section.
 renderTracks();
+
+// Mobil Cihaz (Android / iOS) otomatik Tüplü TV Modu
+function applyMobileTvMode() {
+  const isMobile = (window.innerWidth <= 850) || 
+                   /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ||
+                   ('ontouchstart' in window && window.innerWidth <= 900);
+  if (isMobile) {
+    setTvMode(true);
+  }
+}
+applyMobileTvMode();
+window.addEventListener('resize', applyMobileTvMode);
+
 
 // Mobil cihazlarda otomatik tüplü TV modu
 try {
